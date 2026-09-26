@@ -1,0 +1,25 @@
+{
+  "id": "act-1",
+  "title": "Cottage of the Breeze",
+  "regions": [
+    "town"
+  ],
+  "speakers": {
+    "keeper": {
+      "name": "The Keeper",
+      "at": [
+        7,
+        4
+      ],
+      "near": "the stone",
+      "voice_file": "voices/keeper.md",
+      "seeds": {
+        "dusk": "The stone holds the day's warmth. Sit a while.",
+        "dawn": "Morning already. The stone kept the night for you."
+      }
+    }
+  },
+  "enemies": [],
+  "bosses": [],
+  "transitions": []
+}

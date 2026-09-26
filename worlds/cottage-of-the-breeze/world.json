@@ -1,0 +1,33 @@
+{
+  "name": "cottage-of-the-breeze",
+  "title": "Cottage of the Breeze",
+  "description": "A demonstration world for the vefr engine. Replace everything.",
+  "creed": "Walk gently; the town remembers.",
+  "phases": {
+    "dusk": "The day settles. The tone is quiet and watchful.",
+    "dawn": "The day begins. The tone is tentative and warm."
+  },
+  "surface": "combat",
+  "voices": {
+    "keeper": {
+      "file": "voices/keeper.md",
+      "strike": "The bell has been struck. Write the letter this place leaves behind: short, plain, in this place's own voice - care, instruction, or remembrance. Reply with only the JSON object."
+    }
+  },
+  "bonds": {
+    "given": {
+      "card": "Given with one hand.",
+      "prompt": "given: handed over by expectation. It works. It fits badly."
+    },
+    "found": {
+      "card": "Found, as if waiting.",
+      "prompt": "found: made for waiting hands before they knew they needed them. Rare."
+    },
+    "cold": {
+      "card": "A tool that does not care.",
+      "prompt": "cold: a tool. It simply works, for anyone."
+    }
+  },
+  "bond_draw": "",
+  "forge_texture": ""
+}

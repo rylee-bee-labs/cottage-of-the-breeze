@@ -1,0 +1,24 @@
+# License — worlds/sample-world (Emberfield)
+
+Two kinds of thing live here, licensed separately.
+
+## World content (CC0)
+
+The *writing* that makes Emberfield — `world.json`, `map.md`, `voices/`,
+`lore/`, contracts, and any prose or JSON — is dedicated to the public
+domain under [Creative Commons CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/).
+
+You can copy, modify, distribute, and use it for any purpose. Where
+practical, attribution to "vefr sample-world (Emberfield), by Rylee
+Hulgan" is appreciated but not required.
+
+## Bundled art (`assets/`)
+
+`assets/kenney/` contains room/prop tiles from Kenney (kenney.nl),
+licensed under CC0 1.0 — public domain, no attribution required. Each
+sheet keeps its own license text (`LICENSE-*.txt`), and this folder
+may be swapped or deleted without affecting the engine.
+
+Why CC0: the demo is meant to be replaceable without obligations. Art
+that can't be redistributed would make "replace everything" less honest,
+so the sample world carries only CC0 art.
