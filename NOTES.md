@@ -29,6 +29,16 @@
   little discount and maybe a baked good and a happy word when you see her".
   And "she's the one that probably knows what the hero learns at the end
   from the beginning".
+  "She loves to bake little loaves of pound cakes with cinnamon and honey."
+  Her look (Rylee's pick of three drafts, "spell keeper C"): plump and
+  cheerful, dark curly hair tied in a teal scarf, freckles, a brown cardigan
+  with rune buttons, a tiny glowing rune above her palm. Draft art only
+  (media_files `designs/vefr/art/cottage/drafts/spell-keeper/`).
+- **Decision: the release is made IN VEFR** (Rylee: "I want the actual
+  release to be made IN vefr, ok?"). Hand-made pictures and notes are drafts,
+  reference and templates. The shipped game comes out of the studio:
+  characters through the Folks room, pictures from studio modules, the file
+  from `ratatoskr weave`.
 - **Playing CotW** (Rylee): most essential to recreate first are going
   down the stairs, loot and mystery items, and carrying and packing.
   Inventory in CotW and Diablo is "not terribly rewarding"; the reward is
