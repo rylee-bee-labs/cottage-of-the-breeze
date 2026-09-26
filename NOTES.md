@@ -30,6 +30,10 @@
   And "she's the one that probably knows what the hero learns at the end
   from the beginning".
   "She loves to bake little loaves of pound cakes with cinnamon and honey."
+  Her look (Rylee's pick of three drafts, "spell keeper C"): plump and
+  cheerful, dark curly hair tied in a teal scarf, freckles, a brown cardigan
+  with rune buttons, a tiny glowing rune above her palm. Draft art only
+  (media_files `designs/vefr/art/cottage/drafts/spell-keeper/`).
 - **Decision: the release is made IN VEFR** (Rylee: "I want the actual
   release to be made IN vefr, ok?"). Hand-made pictures and notes are drafts,
   reference and templates. The shipped game comes out of the studio:
