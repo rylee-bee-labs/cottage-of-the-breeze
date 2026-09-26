@@ -12,6 +12,12 @@
 - **Ideas, not decided yet** (Rylee): "I always liked how there were hidden
   rooms in cotw", and "you could randomly teleport as a form of hard mode".
   Claude's note: an opt-in hard mode would keep the default low bandwidth.
+- **How hidden rooms felt in CotW** (Rylee): "I used wasd mostly, lots of
+  hitting walls and hoping the spiders didn't get me." Claude's note:
+  walking into a wall as the only "search" keeps controls simple.
+- **Progression** (Rylee): "a normal everquest-like progression is good."
+- **The town** (Rylee): "a lone tavern with a few npc's in it", as an
+  interior, "and evidence of an older tavern that burned down".
 - **Playing CotW** (Rylee): most essential to recreate first are going
   down the stairs, loot and mystery items, and carrying and packing.
   Inventory in CotW and Diablo is "not terribly rewarding"; the reward is
