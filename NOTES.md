@@ -18,6 +18,9 @@
 - **Progression** (Rylee): "a normal everquest-like progression is good."
 - **The town** (Rylee): "a lone tavern with a few npc's in it", as an
   interior, "and evidence of an older tavern that burned down".
+- **Where the stair starts** (Rylee): "right out of the cottage, like you
+  just couldn't help but keep going down. maybe you're a bit of an
+  outcast because of it".
 - **Playing CotW** (Rylee): most essential to recreate first are going
   down the stairs, loot and mystery items, and carrying and packing.
   Inventory in CotW and Diablo is "not terribly rewarding"; the reward is
