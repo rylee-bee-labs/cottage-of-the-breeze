@@ -31,6 +31,7 @@
   "bond_draw": "",
   "forge_texture": "",
   "player": {
-    "title_art": "assets/title.webp"
+    "title_art": "assets/title.webp",
+    "accent": "#3F7E84"
   }
 }
