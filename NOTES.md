@@ -24,6 +24,7 @@
 - **The ending's shape** (Rylee): "2 pieces of truth and then a realization
   at the end"; the realization changes how you see the town, the cottage
   and yourself ("all of the above"). What the truths are is still open.
+- **The tavern's feel** (Rylee): "cozy but wary of you".
 - **Playing CotW** (Rylee): most essential to recreate first are going
   down the stairs, loot and mystery items, and carrying and packing.
   Inventory in CotW and Diablo is "not terribly rewarding"; the reward is
