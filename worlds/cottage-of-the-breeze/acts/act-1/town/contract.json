@@ -1,65 +1,62 @@
 {
-  "legend": {
-    ".": {
-      "base": [
-        "#212a20",
-        "#242d22"
-      ]
-    },
-    "p": {
-      "base": [
-        "#332e26"
-      ]
-    },
-    "#": {
-      "base": [
-        "#2a2e33"
-      ],
-      "solid": true
-    },
-    "S": {
-      "base": [
-        "#212a20"
-      ],
-      "deco": "gold",
-      "deco_color": "#c9ad6b"
-    },
-    "D": {
-      "base": [
-        "#332e26"
-      ]
-    }
+ "legend": {
+  ".": {
+   "base": [
+    "#212a20",
+    "#242d22"
+   ]
   },
-  "pois": {
-    "7,3": "the stone",
-    "7,5": "the threshold"
+  "p": {
+   "base": [
+    "#332e26"
+   ]
   },
-  "watch": {
-    "tower": [
-      5,
-      1
-    ],
-    "r_by_phase": {
-      "dusk": 3,
-      "dawn": 4
-    },
-    "overlay": "rgba(42, 46, 51, 0.30)"
+  "#": {
+   "base": [
+    "#2a2e33"
+   ],
+   "solid": true
   },
-  "sanctuary_tiles": [
-    "D"
+  "S": {
+   "base": [
+    "#212a20"
+   ],
+   "deco": "gold",
+   "deco_color": "#c9ad6b"
+  },
+  "D": {
+   "base": [
+    "#332e26"
+   ]
+  }
+ },
+ "pois": {},
+ "watch": {
+  "tower": [
+   5,
+   1
   ],
-  "water_by_phase": {
-    "dusk": "low",
-    "dawn": "low"
+  "r_by_phase": {
+   "dusk": 3,
+   "dawn": 4
   },
-  "flood_tiles": [],
-  "hero_start": [
-    3,
-    4
-  ],
-  "tile": 32,
-  "bg": "#131311",
-  "hero_color": "#e8e5df",
-  "speaker_color": "#8b939c",
-  "speaker_head": "#d8d5df"
+  "overlay": "rgba(42, 46, 51, 0.30)"
+ },
+ "sanctuary_tiles": [
+  "D"
+ ],
+ "water_by_phase": {
+  "dusk": "low",
+  "dawn": "low"
+ },
+ "flood_tiles": [],
+ "hero_start": [
+  3,
+  4
+ ],
+ "tile": 32,
+ "bg": "#131311",
+ "hero_color": "#e8e5df",
+ "speaker_color": "#8b939c",
+ "speaker_head": "#d8d5df"
 }
