@@ -29,5 +29,8 @@
     }
   },
   "bond_draw": "",
-  "forge_texture": ""
+  "forge_texture": "",
+  "player": {
+    "title_art": "assets/title.webp"
+  }
 }
