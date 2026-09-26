@@ -27,6 +27,8 @@
 - **The tavern's feel** (Rylee): "cozy but wary of you".
 - **The one who isn't wary** (Rylee): the spell keeper. "she gives you a
   little discount and maybe a baked good and a happy word when you see her".
+  And "she's the one that probably knows what the hero learns at the end
+  from the beginning".
 - **Playing CotW** (Rylee): most essential to recreate first are going
   down the stairs, loot and mystery items, and carrying and packing.
   Inventory in CotW and Diablo is "not terribly rewarding"; the reward is
