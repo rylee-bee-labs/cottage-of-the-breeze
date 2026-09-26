@@ -2,7 +2,7 @@
   "name": "cottage-of-the-breeze",
   "title": "Cottage of the Breeze",
   "description": "A demonstration world for the vefr engine. Replace everything.",
-  "creed": "Walk gently; the town remembers.",
+  "creed": "",
   "phases": {
     "dusk": "The day settles. The tone is quiet and watchful.",
     "dawn": "The day begins. The tone is tentative and warm."
