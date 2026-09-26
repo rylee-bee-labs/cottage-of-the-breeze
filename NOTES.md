@@ -1,6 +1,10 @@
 # NOTES — decisions and playtest notes (newest first)
 
 ## 2026-09-26
+- **Playing CotW** (Rylee): most essential to recreate first are going
+  down the stairs, loot and mystery items, and carrying and packing.
+  Inventory in CotW and Diablo is "not terribly rewarding"; the reward is
+  opening and finding something fun. Decisions in DESIGN.md.
 - **Models help in the studio; the game is a finished artifact** (Rylee).
   Residents and local models help while the game is being made, inside
   templates and structure, and Rylee approves what they draft. The shared
