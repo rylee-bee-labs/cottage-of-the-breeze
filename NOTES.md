@@ -1,6 +1,17 @@
 # NOTES — decisions and playtest notes (newest first)
 
 ## 2026-09-26
+- **The pitch is written** (Rylee, BRIEF.md): "a fun, low bandwidth way to
+  be able to be curious when I can't do anything but still want to do
+  *something*." Verb: explore. Done when "I lost an evening to it."
+- **Title picture and colour** (Rylee's picks): the dusk cottage with one
+  stair going down (`assets/title.webp`), and dusk teal `#3F7E84`.
+- **Things Rylee wants to find while exploring**: a piece of history (a
+  story, a trinket or picture), a hidden door, a spell book, armor or a
+  weapon. Painted as stickers (media_files, `designs/vefr/art/cottage/finds/`).
+- **Ideas, not decided yet** (Rylee): "I always liked how there were hidden
+  rooms in cotw", and "you could randomly teleport as a form of hard mode".
+  Claude's note: an opt-in hard mode would keep the default low bandwidth.
 - **Playing CotW** (Rylee): most essential to recreate first are going
   down the stairs, loot and mystery items, and carrying and packing.
   Inventory in CotW and Diablo is "not terribly rewarding"; the reward is
