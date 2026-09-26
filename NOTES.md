@@ -21,6 +21,9 @@
 - **Where the stair starts** (Rylee): "right out of the cottage, like you
   just couldn't help but keep going down. maybe you're a bit of an
   outcast because of it".
+- **The ending's shape** (Rylee): "2 pieces of truth and then a realization
+  at the end"; the realization changes how you see the town, the cottage
+  and yourself ("all of the above"). What the truths are is still open.
 - **Playing CotW** (Rylee): most essential to recreate first are going
   down the stairs, loot and mystery items, and carrying and packing.
   Inventory in CotW and Diablo is "not terribly rewarding"; the reward is
