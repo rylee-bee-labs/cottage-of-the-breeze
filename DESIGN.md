@@ -20,6 +20,13 @@ learn → go deeper.
 | Time | Time spent changes what merchants stock | Delve |
 | Books & notes | Things you find and keep, written by Rylee | **Library** (new, first) |
 
+## Decided
+- **Losing:** the player picks Cozy (wake in the temple) or Classic (death
+  is real) at the start; Classic can switch to Cozy, never back.
+- **Time:** turn-based. Each step or action is one turn; then monsters act.
+- **Models:** none while playing. Every rule and number is fixed; every
+  line is Rylee's or drafted in the studio and approved, then baked in.
+
 ## Order
 1. **Library**: books and notes found in the world, kept, fed to the book export.
 2. **Delve**: floors, items, weight, spells, turns.
