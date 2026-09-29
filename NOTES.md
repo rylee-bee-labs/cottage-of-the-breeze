@@ -98,3 +98,7 @@ inside, cobbled walls.
 
 The map now has a camera (vefr): the town still shows whole, and a bigger
 map would scroll with the hero. The characters are sprites from Rylee's art.
+
+There are rooms inside now (vefr regions + transitions): step on the
+cottage door to enter the cottage, the tavern door to enter the tavern -
+the Spell Keeper is in there, behind the bar.
