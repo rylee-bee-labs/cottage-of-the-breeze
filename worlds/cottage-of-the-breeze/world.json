@@ -32,6 +32,10 @@
   "forge_texture": "",
   "player": {
     "title_art": "assets/title.webp",
-    "accent": "#3F7E84"
+    "accent": "#3F7E84",
+    "sprites": {
+      "hero": "sprites/hero.png",
+      "keeper": "sprites/keeper.png"
+    }
   }
 }
