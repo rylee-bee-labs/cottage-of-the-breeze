@@ -17,6 +17,9 @@ Drafted (all draft):
   by the cottage door (`library/a-note-left-at-the-door.md`, a map find).
 - the Emberfield leftovers (map note, world-tree history) cleared.
 
+The woven game now draws the people, not just the map: the Spell Keeper
+appears on her tile so you can see who is there to talk to.
+
 Read the spell keeper's lines against your notes before they ship.
 
 ## 2026-09-26
