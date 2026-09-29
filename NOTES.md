@@ -1,5 +1,23 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-09-29 — agent draft: the story layer (waiting on Rylee)
+
+Built through the studio: Act 1's town map (the Map Room's own check +
+build), plus one book. The words below are an **agent draft drawn only
+from Rylee's own NOTES** — not canon. `STORY.md` stays hers; every line
+is hers to keep, change or bin.
+
+Drafted (all draft):
+- `world.json` description (Rylee's BRIEF pitch, verbatim) and creed.
+- `logbok.md` — three plain rules.
+- the spell keeper: `voices/keeper.md`, the two seed lines, the offline
+  fragment bank, and the ledger anchors. Renamed "The Keeper" to
+  "The Spell Keeper"; she stands at the shop door.
+- one book she hands over: `library/the-burnt-taverns-tab.md`.
+- the Emberfield leftovers (map note, world-tree history) cleared.
+
+Read the spell keeper's lines against your notes before they ship.
+
 ## 2026-09-26
 - **The pitch is written** (Rylee, BRIEF.md): "a fun, low bandwidth way to
   be able to be curious when I can't do anything but still want to do

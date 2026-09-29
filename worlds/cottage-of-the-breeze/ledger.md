@@ -5,4 +5,8 @@ cadence compounds.
 
 ## dusk
 
-- **The Keeper**: "Embers remember the hand that fed them."
+- **The Spell Keeper**: "Go careful down there. I'll keep a cake back."
+
+## dawn
+
+- **The Spell Keeper**: "You're always the first up. Sit a minute."

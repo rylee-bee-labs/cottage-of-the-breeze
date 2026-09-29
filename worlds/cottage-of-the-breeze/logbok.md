@@ -1,9 +1,9 @@
-# Emberfield - the world logbok
+# Cottage of the Breeze - the world logbok
 
-A demonstration world. This file is the canon the engine reads
-before every generation: write the rules of your world here and
-the engine obeys them.
+How this world works, in a few plain rules. The engine reads this
+before it writes a line, and obeys it.
 
-- One region, one threshold, one keeper.
-- Never explain. Never label. Show only.
-- Walk gently; the town remembers.
+- Curious, warm and low bandwidth: a spare half hour is enough.
+- The town is wary of anyone who keeps going down. Warmth here is
+  offered quietly, and never explained.
+- Let a thing be found, not announced.
