@@ -134,3 +134,8 @@ Something to fight: enemies on the three floors (a cellar rat; shades and
 moths; a rustle), the hero has health 6 / attack 2, and dying is Cozy -
 you wake in the temple with everything that mattered. Walk into a monster
 to hit it; it will come at you when it sees you.
+
+Things to find and carry: the rat on floor-1 drops a cloudy potion, a
+floor-2 monster drops a brass ring, and the chest's letter comes with a
+ring. Walk onto a drop to take it; the Bag (in the menu) lists what you
+carry. Item art from the painted Delve set.

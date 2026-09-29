@@ -4,6 +4,7 @@ found: map
 at: [20, 14]
 region: floor-1
 chest: yes
+drops: brass-ring
 kind: note
 ---
 A letter, folded small and tied with thread, in a chest someone left open.

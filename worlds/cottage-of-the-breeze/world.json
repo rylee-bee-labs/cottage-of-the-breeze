@@ -35,7 +35,9 @@
     "accent": "#3F7E84",
     "sprites": {
       "hero": "sprites/hero.png",
-      "keeper": "sprites/keeper.png"
+      "keeper": "sprites/keeper.png",
+      "potion": "sprites/potion.png",
+      "ring": "sprites/ring.png"
     },
     "hp": 6,
     "atk": 2,
@@ -45,6 +47,16 @@
         11,
         11
       ]
+    }
+  },
+  "items": {
+    "cloudy-potion": {
+      "name": "a cloudy potion",
+      "sprite": "potion"
+    },
+    "brass-ring": {
+      "name": "a plain brass ring",
+      "sprite": "ring"
     }
   }
 }
