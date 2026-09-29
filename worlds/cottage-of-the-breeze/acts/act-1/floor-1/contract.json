@@ -24,13 +24,21 @@
         "#232323"
       ],
       "tile": "dungeon-stairs-up"
+    },
+    "d": {
+      "base": [
+        "#232323"
+      ],
+      "tile": "dungeon-stairs-down"
     }
   },
   "pois": {
-    "2,2": "the stair up"
+    "2,2": "the stair up",
+    "26,16": "the stair down"
   },
   "poi_text": {
-    "2,2": "The stair back up, and daylight somewhere above it."
+    "2,2": "The stair back up, and daylight somewhere above it.",
+    "26,16": "The stair goes further down. The air is colder."
   },
   "watch": {},
   "sanctuary_tiles": [],

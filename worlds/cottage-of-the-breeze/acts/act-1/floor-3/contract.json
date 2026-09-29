@@ -1,0 +1,48 @@
+{
+  "tile": 32,
+  "bg": "#0d0f12",
+  "hero_start": [
+    9,
+    15
+  ],
+  "legend": {
+    "#": {
+      "base": [
+        "#20242b"
+      ],
+      "solid": true,
+      "tile": "dungeon-wall"
+    },
+    ".": {
+      "base": [
+        "#1a1d22"
+      ],
+      "tile": "dungeon-floor"
+    },
+    "u": {
+      "base": [
+        "#2b2f38"
+      ],
+      "tile": "dungeon-stairs-up"
+    },
+    "d": {
+      "base": [
+        "#2b2f38"
+      ],
+      "tile": "dungeon-stairs-down"
+    }
+  },
+  "pois": {
+    "9,15": "the stair up"
+  },
+  "poi_text": {
+    "9,15": "Steps climb back toward the day."
+  },
+  "sanctuary_tiles": [],
+  "water_by_phase": {},
+  "flood_tiles": [],
+  "watch": {},
+  "hero_color": "#e8e5df",
+  "speaker_color": "#8b939c",
+  "speaker_head": "#d8d5df"
+}

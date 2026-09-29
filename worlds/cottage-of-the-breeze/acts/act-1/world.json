@@ -5,7 +5,9 @@
     "town",
     "cottage",
     "tavern",
-    "floor-1"
+    "floor-1",
+    "floor-2",
+    "floor-3"
   ],
   "start": {
     "region": "cottage",
@@ -103,6 +105,54 @@
       "to_at": [
         1,
         1
+      ]
+    },
+    {
+      "from": "floor-1",
+      "at": [
+        26,
+        16
+      ],
+      "to": "floor-2",
+      "to_at": [
+        22,
+        3
+      ]
+    },
+    {
+      "from": "floor-2",
+      "at": [
+        16,
+        12
+      ],
+      "to": "floor-3",
+      "to_at": [
+        9,
+        15
+      ]
+    },
+    {
+      "from": "floor-2",
+      "at": [
+        22,
+        3
+      ],
+      "to": "floor-1",
+      "to_at": [
+        26,
+        16
+      ]
+    },
+    {
+      "from": "floor-3",
+      "at": [
+        9,
+        15
+      ],
+      "to": "floor-2",
+      "to_at": [
+        16,
+        12
       ]
     }
   ]

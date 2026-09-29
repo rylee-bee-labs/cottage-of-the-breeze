@@ -116,3 +116,8 @@ Intro lore drafted there (agent draft, Rylee's to keep): four notes found
 on the floor - a scrap about two things the town will not say, a burned
 page about the old tavern, a candle and a note left by someone who went
 down before you, and a coin set face-down.
+
+**Generated floors begin.** floor-2 and floor-3 were drawn by the engine's
+new generator from the seed 'cottage-1' (norns delve), hung off floor-1's
+down-stair. floor-1 stays authored; these came out of rules. Rerun with a
+different seed for a different dungeon - or hand-fix any of the maps.
