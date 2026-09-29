@@ -1,0 +1,51 @@
+{
+  "legend": {
+    "#": {
+      "base": [
+        "#1a1d20"
+      ],
+      "solid": true,
+      "tile": "dungeon-wall"
+    },
+    ".": {
+      "base": [
+        "#232323"
+      ],
+      "tile": "dungeon-floor"
+    },
+    "r": {
+      "base": [
+        "#232323"
+      ],
+      "tile": "dungeon-rubble"
+    },
+    "U": {
+      "base": [
+        "#232323"
+      ],
+      "tile": "dungeon-stairs-up"
+    }
+  },
+  "pois": {
+    "2,2": "the stair up"
+  },
+  "poi_text": {
+    "2,2": "The stair back up, and daylight somewhere above it."
+  },
+  "watch": {},
+  "sanctuary_tiles": [],
+  "water_by_phase": {
+    "dusk": "low",
+    "dawn": "low"
+  },
+  "flood_tiles": [],
+  "hero_start": [
+    3,
+    3
+  ],
+  "tile": 32,
+  "bg": "#0d0f11",
+  "hero_color": "#e8e5df",
+  "speaker_color": "#8b939c",
+  "speaker_head": "#d8d5df"
+}

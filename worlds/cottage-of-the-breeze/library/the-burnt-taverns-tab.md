@@ -2,6 +2,7 @@
 title: The Burnt Tavern's Tab
 found: resident
 speaker: keeper
+region: tavern
 kind: note
 ---
 A water-stained tab, kept behind the shop counter. The ink has run,

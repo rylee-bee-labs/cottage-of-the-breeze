@@ -4,8 +4,16 @@
   "regions": [
     "town",
     "cottage",
-    "tavern"
+    "tavern",
+    "floor-1"
   ],
+  "start": {
+    "region": "cottage",
+    "at": [
+      4,
+      5
+    ]
+  },
   "speakers": {
     "keeper": {
       "name": "The Spell Keeper",
@@ -71,6 +79,30 @@
       "to_at": [
         16,
         6
+      ]
+    },
+    {
+      "from": "town",
+      "at": [
+        1,
+        1
+      ],
+      "to": "floor-1",
+      "to_at": [
+        3,
+        3
+      ]
+    },
+    {
+      "from": "floor-1",
+      "at": [
+        2,
+        2
+      ],
+      "to": "town",
+      "to_at": [
+        1,
+        1
       ]
     }
   ]

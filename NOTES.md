@@ -102,3 +102,8 @@ map would scroll with the hero. The characters are sprites from Rylee's art.
 There are rooms inside now (vefr regions + transitions): step on the
 cottage door to enter the cottage, the tavern door to enter the tavern -
 the Spell Keeper is in there, behind the bar.
+
+The stair goes down now: a first dungeon floor (30x20) hangs off the
+top-left stair, with a stone floor, walls, rubble and an up-stair back to
+town. The named places answer when you use them. Doors are used (press
+Interact), not walked through.
