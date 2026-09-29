@@ -13,7 +13,8 @@ Drafted (all draft):
 - the spell keeper: `voices/keeper.md`, the two seed lines, the offline
   fragment bank, and the ledger anchors. Renamed "The Keeper" to
   "The Spell Keeper"; she stands at the shop door.
-- one book she hands over: `library/the-burnt-taverns-tab.md`.
+- one book she hands over: `library/the-burnt-taverns-tab.md`, and one lying
+  by the cottage door (`library/a-note-left-at-the-door.md`, a map find).
 - the Emberfield leftovers (map note, world-tree history) cleared.
 
 Read the spell keeper's lines against your notes before they ship.
