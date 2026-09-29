@@ -2,8 +2,8 @@
   "tile": 32,
   "bg": "#0d0f12",
   "hero_start": [
-    9,
-    15
+    32,
+    28
   ],
   "legend": {
     "#": {
@@ -33,10 +33,10 @@
     }
   },
   "pois": {
-    "9,15": "the stair up"
+    "32,28": "the stair up"
   },
   "poi_text": {
-    "9,15": "Steps climb back toward the day."
+    "32,28": "Steps climb back toward the day."
   },
   "sanctuary_tiles": [],
   "water_by_phase": {},

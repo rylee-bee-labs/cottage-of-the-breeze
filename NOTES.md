@@ -125,3 +125,7 @@ different seed for a different dungeon - or hand-fix any of the maps.
 Fog of war on the floors (vefr): only what you have walked is drawn - a
 lit radius around you, your path remembered dimmer, the rest black.
 floor-1/2/3 have it; the town and rooms stay bright.
+
+The floors are big now: 48x32, 16 rooms, and a foggy floor is read a
+screen at a time and scrolls. Deeper floors can be made bigger or
+tighter.
