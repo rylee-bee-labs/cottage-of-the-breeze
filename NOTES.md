@@ -121,3 +121,7 @@ down before you, and a coin set face-down.
 new generator from the seed 'cottage-1' (norns delve), hung off floor-1's
 down-stair. floor-1 stays authored; these came out of rules. Rerun with a
 different seed for a different dungeon - or hand-fix any of the maps.
+
+Fog of war on the floors (vefr): only what you have walked is drawn - a
+lit radius around you, your path remembered dimmer, the rest black.
+floor-1/2/3 have it; the town and rooms stay bright.

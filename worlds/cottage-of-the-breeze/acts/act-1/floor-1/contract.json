@@ -55,5 +55,6 @@
   "bg": "#0d0f11",
   "hero_color": "#e8e5df",
   "speaker_color": "#8b939c",
-  "speaker_head": "#d8d5df"
+  "speaker_head": "#d8d5df",
+  "fog": true
 }
