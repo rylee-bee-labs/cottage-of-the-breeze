@@ -95,3 +95,6 @@ with its stair down just outside the door (the real stair tile), the lone
 tavern where the Spell Keeper is, a path between them, the burned walls of
 the old tavern, and the temple with its rug. Grass outdoors, wood floors
 inside, cobbled walls.
+
+The map now has a camera (vefr): the town still shows whole, and a bigger
+map would scroll with the hero. The characters are sprites from Rylee's art.
