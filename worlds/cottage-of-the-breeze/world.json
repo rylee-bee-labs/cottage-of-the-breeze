@@ -36,6 +36,15 @@
     "sprites": {
       "hero": "sprites/hero.png",
       "keeper": "sprites/keeper.png"
+    },
+    "hp": 6,
+    "atk": 2,
+    "wake": {
+      "region": "town",
+      "at": [
+        11,
+        11
+      ]
     }
   }
 }

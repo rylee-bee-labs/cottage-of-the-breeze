@@ -49,5 +49,27 @@
   "speaker_head": "#d8d5df",
   "fog": {
     "radius": 4
-  }
+  },
+  "enemies": [
+    {
+      "id": "floor-2-shade",
+      "name": "a damp shade",
+      "at": [
+        32,
+        14
+      ],
+      "hp": 5,
+      "atk": 1
+    },
+    {
+      "id": "floor-2-moths",
+      "name": "a nest of moths",
+      "at": [
+        27,
+        23
+      ],
+      "hp": 3,
+      "atk": 1
+    }
+  ]
 }

@@ -58,5 +58,17 @@
   "speaker_head": "#d8d5df",
   "fog": {
     "radius": 4
-  }
+  },
+  "enemies": [
+    {
+      "id": "floor-1-rat",
+      "name": "a cellar rat",
+      "at": [
+        1,
+        10
+      ],
+      "hp": 4,
+      "atk": 1
+    }
+  ]
 }

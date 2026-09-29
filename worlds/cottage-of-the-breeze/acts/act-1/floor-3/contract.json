@@ -47,5 +47,27 @@
   "speaker_head": "#d8d5df",
   "fog": {
     "radius": 4
-  }
+  },
+  "enemies": [
+    {
+      "id": "floor-3-rustle",
+      "name": "a rustle",
+      "at": [
+        36,
+        10
+      ],
+      "hp": 3,
+      "atk": 1
+    },
+    {
+      "id": "floor-3-rat2",
+      "name": "a cellar rat",
+      "at": [
+        43,
+        20
+      ],
+      "hp": 4,
+      "atk": 1
+    }
+  ]
 }

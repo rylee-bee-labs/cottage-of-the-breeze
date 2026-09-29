@@ -129,3 +129,8 @@ floor-1/2/3 have it; the town and rooms stay bright.
 The floors are big now: 48x32, 16 rooms, and a foggy floor is read a
 screen at a time and scrolls. Deeper floors can be made bigger or
 tighter.
+
+Something to fight: enemies on the three floors (a cellar rat; shades and
+moths; a rustle), the hero has health 6 / attack 2, and dying is Cozy -
+you wake in the temple with everything that mattered. Walk into a monster
+to hit it; it will come at you when it sees you.
