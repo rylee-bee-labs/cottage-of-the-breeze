@@ -3,3 +3,6 @@ __pycache__/
 *.tmp
 .DS_Store
 data/
+
+# map builds keep a backup beside the file they replace
+*.bak-*

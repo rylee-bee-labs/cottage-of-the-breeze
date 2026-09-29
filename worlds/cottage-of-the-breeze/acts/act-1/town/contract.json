@@ -1,63 +1,63 @@
 {
- "legend": {
-  ".": {
-   "base": [
-    "#212a20",
-    "#242d22"
-   ],
-   "tile": "wood-floor"
+  "legend": {
+    ".": {
+      "base": [
+        "#212a20",
+        "#242d22"
+      ],
+      "tile": "wood-floor"
+    },
+    "p": {
+      "base": [
+        "#332e26"
+      ]
+    },
+    "#": {
+      "base": [
+        "#2a2e33"
+      ],
+      "solid": true
+    },
+    "S": {
+      "base": [
+        "#212a20"
+      ],
+      "deco": "gold",
+      "deco_color": "#c9ad6b"
+    },
+    "D": {
+      "base": [
+        "#332e26"
+      ]
+    }
   },
-  "p": {
-   "base": [
-    "#332e26"
-   ]
+  "pois": {},
+  "watch": {
+    "tower": [
+      5,
+      1
+    ],
+    "r_by_phase": {
+      "dusk": 3,
+      "dawn": 4
+    },
+    "overlay": "rgba(42, 46, 51, 0.30)"
   },
-  "#": {
-   "base": [
-    "#2a2e33"
-   ],
-   "solid": true
-  },
-  "S": {
-   "base": [
-    "#212a20"
-   ],
-   "deco": "gold",
-   "deco_color": "#c9ad6b"
-  },
-  "D": {
-   "base": [
-    "#332e26"
-   ]
-  }
- },
- "pois": {},
- "watch": {
-  "tower": [
-   5,
-   1
+  "sanctuary_tiles": [
+    "D"
   ],
-  "r_by_phase": {
-   "dusk": 3,
-   "dawn": 4
+  "water_by_phase": {
+    "dusk": "low",
+    "dawn": "low"
   },
-  "overlay": "rgba(42, 46, 51, 0.30)"
- },
- "sanctuary_tiles": [
-  "D"
- ],
- "water_by_phase": {
-  "dusk": "low",
-  "dawn": "low"
- },
- "flood_tiles": [],
- "hero_start": [
-  3,
-  4
- ],
- "tile": 32,
- "bg": "#131311",
- "hero_color": "#e8e5df",
- "speaker_color": "#8b939c",
- "speaker_head": "#d8d5df"
+  "flood_tiles": [],
+  "hero_start": [
+    3,
+    4
+  ],
+  "tile": 32,
+  "bg": "#131311",
+  "hero_color": "#e8e5df",
+  "speaker_color": "#8b939c",
+  "speaker_head": "#d8d5df"
 }
