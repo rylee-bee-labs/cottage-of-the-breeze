@@ -37,7 +37,8 @@
       "hero": "sprites/hero.png",
       "keeper": "sprites/keeper.png",
       "potion": "sprites/potion.png",
-      "ring": "sprites/ring.png"
+      "ring": "sprites/ring.png",
+      "trader": "sprites/trader.png"
     },
     "hp": 6,
     "atk": 2,
@@ -47,16 +48,21 @@
         11,
         11
       ]
-    }
+    },
+    "gold": 0
   },
   "items": {
     "cloudy-potion": {
       "name": "a cloudy potion",
-      "sprite": "potion"
+      "sprite": "potion",
+      "value": 8,
+      "heal": 3,
+      "use": "drink"
     },
     "brass-ring": {
       "name": "a plain brass ring",
-      "sprite": "ring"
+      "sprite": "ring",
+      "value": 12
     }
   }
 }

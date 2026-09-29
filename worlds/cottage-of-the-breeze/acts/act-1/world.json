@@ -30,6 +30,21 @@
         "dusk": "Back up already? Sit a while - the kettle's still warm.",
         "dawn": "Off down again. I'll keep a cake back for you."
       }
+    },
+    "vendor": {
+      "name": "The Trader",
+      "region": "town",
+      "shop": "true",
+      "at": [
+        8,
+        7
+      ],
+      "near": "the road",
+      "voice_file": "voices/vendor.md",
+      "seeds": {
+        "dusk": "Bring anything up worth selling?",
+        "dawn": "Early. The road's quiet, so am I."
+      }
     }
   },
   "enemies": [],

@@ -139,3 +139,8 @@ Things to find and carry: the rat on floor-1 drops a cloudy potion, a
 floor-2 monster drops a brass ring, and the chest's letter comes with a
 ring. Walk onto a drop to take it; the Bag (in the menu) lists what you
 carry. Item art from the painted Delve set.
+
+The reward end: The Trader keeps a stall on the road (Interact to trade -
+sell what you carried, buy a potion). Gold and the bag persist; the Bag has
+its own button and the B key. A cloudy potion can be drunk from the Bag to
+heal. No identifying or haggling yet.
