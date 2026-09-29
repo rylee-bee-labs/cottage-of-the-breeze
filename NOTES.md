@@ -107,3 +107,12 @@ The stair goes down now: a first dungeon floor (30x20) hangs off the
 top-left stair, with a stone floor, walls, rubble and an up-stair back to
 town. The named places answer when you use them. Doors are used (press
 Interact), not walked through.
+
+**floor-1 is the authored floor.** Like the original's fixed first level,
+floor-1 is written by hand, not generated - it is where the introduction
+lives. Deeper floors can be built from rules later.
+
+Intro lore drafted there (agent draft, Rylee's to keep): four notes found
+on the floor - a scrap about two things the town will not say, a burned
+page about the old tavern, a candle and a note left by someone who went
+down before you, and a coin set face-down.
