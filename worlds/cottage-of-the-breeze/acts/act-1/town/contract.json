@@ -17,7 +17,13 @@
       "base": [
         "#332e26"
       ],
-      "tile": "path"
+      "tile": "dungeon-floor"
+    },
+    "x": {
+      "base": [
+        "#332e26"
+      ],
+      "tile": "dungeon-rubble"
     },
     "#": {
       "base": [
