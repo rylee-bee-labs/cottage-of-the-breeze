@@ -1,37 +1,52 @@
 {
   "legend": {
-    ".": {
+    ",": {
       "base": [
         "#212a20",
         "#242d22"
+      ],
+      "tile": "grass"
+    },
+    ".": {
+      "base": [
+        "#332e26"
       ],
       "tile": "wood-floor"
     },
     "p": {
       "base": [
         "#332e26"
-      ]
+      ],
+      "tile": "path"
     },
     "#": {
       "base": [
         "#2a2e33"
       ],
-      "solid": true
+      "solid": true,
+      "tile": "stone-wall"
     },
     "S": {
       "base": [
         "#212a20"
       ],
-      "deco": "gold",
-      "deco_color": "#c9ad6b"
+      "tile": "dungeon-stairs-down"
     },
     "D": {
       "base": [
         "#332e26"
-      ]
+      ],
+      "tile": "rug"
     }
   },
-  "pois": {},
+  "pois": {
+    "4,5": "the cottage door",
+    "4,6": "the stair down",
+    "16,5": "the tavern door",
+    "11,11": "the temple door",
+    "5,8": "the old tavern, burned",
+    "11,12": "the temple"
+  },
   "watch": {
     "tower": [
       5,
@@ -52,8 +67,8 @@
   },
   "flood_tiles": [],
   "hero_start": [
-    3,
-    4
+    4,
+    3
   ],
   "tile": 32,
   "bg": "#131311",

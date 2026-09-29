@@ -89,3 +89,9 @@ Read the spell keeper's lines against your notes before they ship.
 - The first studio game is a *Castle of the Winds* remake, built inside
   VEFR, step by step, as the way to build VEFR (estate vision doc Q9).
 - Rylee writes the stories; Urðr keeps the Library.
+
+Also: the town is drawn (through the Map Room's own route): the cottage
+with its stair down just outside the door (the real stair tile), the lone
+tavern where the Spell Keeper is, a path between them, the burned walls of
+the old tavern, and the temple with its rug. Grass outdoors, wood floors
+inside, cobbled walls.

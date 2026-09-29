@@ -8,10 +8,10 @@
     "keeper": {
       "name": "The Spell Keeper",
       "at": [
-        6,
-        5
+        16,
+        3
       ],
-      "near": "the shop door",
+      "near": "the tavern",
       "voice_file": "voices/keeper.md",
       "seeds": {
         "dusk": "Back up already? Sit a while - the kettle's still warm.",
