@@ -10,7 +10,7 @@ Read `README.md`, then `.project/CURRENT.md` (where things stand).
 - **Rylee writes the stories.** Canon (`STORY.md`, the pack's `logbok.md`,
   names, characters, found books) is hers. Agents build machinery, suggest
   when asked, and never promote an idea into canon on their own.
-  Suggestions go in `NOTES.md`, marked as Claude's; `BRIEF.md`'s ✍️ parts
+  Suggestions go in `NOTES.md`, marked as an agent's ("Claude's note:"); `BRIEF.md`'s ✍️ parts
   are hers alone.
 - **Remake the systems, not the property.** *Castle of the Winds* is Rick
   Saada's: its name, art, text and monster/item/place names are not ours to
@@ -54,10 +54,15 @@ cd ../vefr
 VEFR_WORLD=cottage-of-the-breeze uv run norns validate --pack worlds/cottage-of-the-breeze
 ```
 
-`vefr/worlds/cottage-of-the-breeze` is a local, gitignored symlink to the
-**primary checkout** (`~/code/Rylee-Bee/cottage-of-the-breeze`). From a
-worktree, pass the absolute pack path instead, or you validate the wrong tree:
-`uv run norns validate --pack /abs/path/to/worktree/worlds/cottage-of-the-breeze`.
+`vefr/worlds/cottage-of-the-breeze` is a local, gitignored symlink that
+exists only in the primary VEFR checkout (`~/code/Rylee-Bee/vefr`) and points
+at the **primary** cottage checkout. From a worktree, `../vefr` may be a VEFR
+worktree without that symlink, or the wrong tree; pass this tree's pack path:
+
+```sh
+PACK="$(git rev-parse --show-toplevel)/worlds/cottage-of-the-breeze"
+cd ~/code/Rylee-Bee/vefr && uv run norns validate --pack "$PACK"
+```
 
 ## Boundaries
 
