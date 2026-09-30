@@ -6,3 +6,5 @@ data/
 
 # map builds keep a backup beside the file they replace
 *.bak-*
+CLAUDE.local.md
+.claude/settings.local.json
