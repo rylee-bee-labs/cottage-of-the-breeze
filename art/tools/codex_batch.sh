@@ -18,7 +18,7 @@ REFS=(); for r in "$@"; do REFS+=(-i "$r"); done
 before=$(find "$GI" -type f -name '*.png' 2>/dev/null | sort || true)
 LOG="$OUT/${NAME}_batch.log"
 timeout 900 codex exec "Use your built-in image generation tool to create exactly $N separate images in this single request (generate them together, do not stop after the first). They are $N different variations of the same brief. Brief for each image: $BRIEF Reply with only the word DONE." \
-  --skip-git-repo-check -s read-only "${REFS[@]}" > "$LOG" 2>&1 || true
+  --skip-git-repo-check -s read-only "${REFS[@]}" > "$LOG" 2>&1 < /dev/null || true  # </dev/null: otherwise codex waits on stdin ("Reading additional input from stdin") until the timeout
 new=$(comm -13 <(echo "$before") <(find "$GI" -type f -name '*.png' | sort) || true)
 got=$(echo "$new" | grep -c . || true)
 tokens=$(grep -i 'tokens used' -A1 "$LOG" | tail -1 || true)
