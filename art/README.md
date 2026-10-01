@@ -19,8 +19,8 @@ The look itself is in [STYLE.md](STYLE.md). The pipeline in one line:
 3. **Look at it properly.** A single tile hides problems:
 
    ```sh
-   uv run --with pillow art/tools/contact_sheet.py sheet.jpg art/source/round4/wood_v*.png
-   uv run --with pillow art/tools/contact_sheet.py tiled.jpg art/source/round4/wood_v*.png --tile2x2
+   uv run --with pillow art/tools/contact_sheet.py sheet.jpg art/source/round7/wood_v*.png
+   uv run --with pillow art/tools/contact_sheet.py tiled.jpg art/source/round7/wood_v*.png --tile2x2
    uv run --with pillow art/tools/mock_room.py room.jpg --wall wall.png --floor wood.png --rug rug.png
    ```
 4. **Rylee picks.** Nothing is approved until she says so. Update `status:` in the credits line.
@@ -31,6 +31,24 @@ The look itself is in [STYLE.md](STYLE.md). The pipeline in one line:
 7. **Mark training status.** Each credits line says whether the picture may be used to train a model (`training: not cleared | specialist-only | ok (clause, date)`). The tool terms are summarised in the estate repo's `docs/research/2026-10-01-training-on-hosted-output-terms.md`: Codex output is game art only until its terms are read at the source.
 7. **Keep the record.** Every picture has a `name.credits.txt` beside it: who made it, the tool, the
    references, the exact prompt, the date, and its status. The script writes it for you.
+
+## Round 7: prep and process
+
+The order of work: **brief -> batch -> pick -> process -> check -> contact sheet -> mock room.**
+
+- **brief** - a markdown file in `art/briefs/` (`rug.md`, `monsters.md`, `items-containers.md`, `hero-walk.md`) says what the picture is, its size, which pictures are wanted and which reference images to pass.
+- **batch** - `art/tools/codex_batch.sh` makes several pictures in ONE call.
+- **pick** - Rylee picks. Nothing is approved until she says so.
+- **process** - `art/tools/process_sprites.py` cuts the background off and sets the picture on the game's canvas (SIZE x SIZE, feet on the floor); with `--grid COLSxROWS` it cuts a sheet into named frames.
+- **check** - `art/tools/check_sprites.py` reports a wrong size, no transparency, opaque pixels on the edge, a pure black outline, and a frame that is nearly empty or nearly full.
+- **contact sheet** - `art/tools/contact_sheet.py`.
+- **mock room** - `art/tools/mock_room.py`.
+
+```sh
+uv run --offline --with pillow art/tools/process_sprites.py art/source/round7/rug/rug_v1.png art/source/round7/rug/rug_v1_cut.png --size 288
+uv run --offline --with pillow art/tools/process_sprites.py --grid 4x4 art/source/round7/hero-walk/hero_walk_v1.png art/source/round7/hero-walk/cut hero --size 128 --names down,left,right,up
+uv run --offline --with pillow art/tools/check_sprites.py art/source/round7/rug/rug_v1_cut.png art/source/round7/hero-walk/cut
+```
 
 ## Swappable by design
 
@@ -80,3 +98,5 @@ The rule that keeps this honest: **the engine never learns a game's look, and a 
 | Full-size originals | the machine that generated them (Codex's output folder) |
 | Style and decisions | `art/STYLE.md` |
 | The engine side (what the player can show) | `../vefr/design/pack-art-proposal.md` |
+| Briefs (what each picture is, its size, its references) | `art/briefs/` |
+| Sprite tools (cut out and size, then check) | `art/tools/process_sprites.py`, `art/tools/check_sprites.py` |
