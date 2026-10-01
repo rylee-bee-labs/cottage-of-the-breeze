@@ -57,6 +57,7 @@ The rule that keeps this honest: **the engine never learns a game's look, and a 
 - **A reference is the strongest instruction.** Give the first image as "who" and the second as "style".
 - **Sheets work.** Codex kept one character consistent across a four-view turnaround and a four-frame
   walk strip. Frames still need cutting out and aligning to a baseline before the engine can use them.
+- **Codex waits on stdin if you let it.** A call run in a foreground shell hung for the full 15-minute timeout with the log saying "Reading additional input from stdin". The tool now reads from `/dev/null`; do the same in any script you write.
 - **Animals can come out human.** The bake-off's image models drew a person when asked for a crab; test
   monsters early.
 
