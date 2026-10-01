@@ -8,7 +8,7 @@ the gardener with the trowel, and the dwarf smith (redrawn chibi). Cut to 128 px
 `keeper.png` (people_v4), `tavern-regular.png` (people_v2), `trader.png` (people_v1), `cat.png` (folk_v2), `fisher.png` (folk_v3),
 `gardener.png` (folk_v4), `dwarf-smith.png` (characters-redo/dwarf_chibi_v1).
 Not in the first set: the child with the kite (people_v3), kept as a candidate. The first, more realistic dwarf (folk_v1) is superseded by the redo.
-The dwarf redo has two versions; version 1 is cut for now, **version 2 is the alternate (Rylee to choose).**
+The dwarf redo has two versions; Rylee chose **version 1** (2026-10-01); version 2 stays as a variant.
 
 ## Ground tiles (3x3 grid pictures, 288 x 288)
 `town-surfaces/ready-288px-3x3/`: cobblestone street, meadow grass, packed dirt, tavern planks, cellar flagstone, stream bank.
