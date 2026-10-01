@@ -1,5 +1,13 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-01 (evening) — Rylee's first playtest of the demo
+
+Her words, in order: "the humonguously big cat made me giggle." "the little bugs were kinda fun." "the first book renders when you leave the house, so you have to walk over your front door (something with the internal vs external cells)." "the wander around and fight things loop feels VERY castle of the winds to me, which I consider a win." "the ui is... coming along <3.... it just really tickles me. the notes, the characters, the items. I can't wait to make it a full thing."
+
+- **Fixed (agent):** the note "A Note Left at the Door" sat at town tile (4,4), which is inside the little house's footprint behind the town door at (4,5); you arrive outside at (4,6). It now sits at (5,6) in the town, one step right of where you arrive, so you find it without going through your own door. Tested by stepping right from the arrival tile.
+- **Claude's note, for Rylee to decide:** the cat is drawn as tall as the hero because the player draws every character at the same height (1.5 tiles). It made her giggle, so it has not been changed. Options: keep it as a running joke, or give each sprite a size (a pack-level scale), which is a small engine change.
+- **What worked:** the walk-around-and-fight loop reads as Castle of the Winds, which is the goal. The monsters (the moths especially), the notes, the characters and the items landed.
+
 ## 2026-10-01 (later) — the story spine, from Rylee's picks
 
 Rylee picked these from options the agent drafted out of the cellar notes already in the pack. Her picks, quoted exactly as she chose them:
