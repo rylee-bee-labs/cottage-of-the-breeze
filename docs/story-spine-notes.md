@@ -1,6 +1,8 @@
-# Cottage of the Breeze: the story spine
+# Cottage of the Breeze: working notes on the story spine
 
-Decided by Rylee on 2026-10-01, from her own picks. The options were drafted by Claude from the notes already in the cellar. This is canon. Anything marked proposed is not.
+**Claude's working notes. Not canon.** The root `STORY.md` is Rylee's alone. These notes record the picks she made on 2026-10-01 so the machinery can be built; she moves anything she likes into `STORY.md` herself.
+
+Rylee picked these on 2026-10-01 from options Claude drafted out of the notes already in the cellar (her exact picks are quoted in `NOTES.md`). Treat them as her direction, not as finished writing.
 
 ## The spine in three beats
 

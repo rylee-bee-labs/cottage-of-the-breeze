@@ -1,5 +1,21 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-01 (later) — the story spine, from Rylee's picks
+
+Rylee picked these from options the agent drafted out of the cellar notes already in the pack. Her picks, quoted exactly as she chose them:
+
+- **Truth one** (what the town will not say about the old tavern that burned): "The fire was meant to hold something down".
+- **Truth two** (what the town will not say about the one who went down on purpose): "They came back, and they are in town". **Who:** "The Spell Keeper".
+- **The realization at the end:** "What is held down is the town's own kindness".
+
+Claude's note: this matches her earlier notes ("2 pieces of truth and then a realization at the end"; the Keeper "knows what the hero learns at the end from the beginning"). Working notes and a reveal map are in `docs/story-spine-notes.md`; none of it is canon until Rylee moves it into `STORY.md`. Still hers to decide: who the letter's "keeper" is, what exactly was held down (a room, a creature, a fire or a feeling), whether the hero remembers going down before, and how long the ending is.
+
+## 2026-10-01 (later) — the new art and residents in the game (agent drafts, waiting on Rylee)
+
+Rylee kept seven residents from the round 8 pictures (the keeper with the staff, the tavern regular, the trader, the cat, the fisher, the gardener, and the dwarf smith redrawn chibi) and picked hero walk version 1 and the geometric rug. **The names ("The Tavern Regular", "The Cat", "The Fisher", "The Gardener", "The Dwarf Smith"), their voice files and their dusk and dawn first lines are agent drafts**, written to make the loop playable. They are hers to keep, rename, rewrite or bin. The four notes still unwritten for the story are listed in `docs/story-spine-notes.md`.
+
+Claude's note: this repo now also holds `art/tools/` and `art/tests/` (sprite and tile and UI-skin tools with unit tests; run `uv run --offline --with pillow python -m unittest discover -s art/tests -t .`). `AGENTS.md` still says the repo has no tests of its own; that line is Rylee's to update.
+
 ## 2026-10-01 — the Spell Keeper draft is approved (Rylee)
 
 Rylee told the agent on 2026-10-01 that she worked through the 2026-09-29 agent draft (the Spell Keeper, her lines and seed bank, the two books, the three-rule `logbok.md`, the world description and creed) with an agent and that it is **approved**. It no longer waits on her. `STORY.md` is still hers to write; nothing was added to it. If a line changes again, record it here.
