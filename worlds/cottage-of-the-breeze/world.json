@@ -58,7 +58,15 @@
         11
       ]
     },
-    "gold": 0
+    "gold": 0,
+    "sprite_scale": {
+      "hearth-cat": 0.45,
+      "rat": 0.5,
+      "moths": 0.65,
+      "rustle": 0.85,
+      "shade": 0.9,
+      "dwarf-smith": 0.85
+    }
   },
   "items": {
     "cloudy-potion": {

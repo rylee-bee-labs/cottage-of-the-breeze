@@ -6,6 +6,7 @@ Her words, in order: "the humonguously big cat made me giggle." "the little bugs
 
 - **Fixed (agent):** the note "A Note Left at the Door" sat at town tile (4,4), which is inside the little house's footprint behind the town door at (4,5); you arrive outside at (4,6). It now sits at (5,6) in the town, one step right of where you arrive, so you find it without going through your own door. Tested by stepping right from the arrival tile.
 - **Claude's note, for Rylee to decide:** the cat is drawn as tall as the hero because the player draws every character at the same height (1.5 tiles). It made her giggle, so it has not been changed. Options: keep it as a running joke, or give each sprite a size (a pack-level scale), which is a small engine change.
+- **Characters have their own size now (Rylee's pick):** after the giant cat she chose "Make characters their own size". The engine now reads `player.sprite_scale` (0.2 to 2; 1 is standard, 1.5 tiles tall). Cottage sets the cat 0.45, rat 0.5, moths 0.65, rustle 0.85, shade 0.9, dwarf smith 0.85; everyone else stays 1. Claude's note: these numbers are a first guess to tune by eye (the rat may want to be a little bigger). The engine change is in VEFR (PR #186); a game on an older engine just ignores the setting.
 - **What worked:** the walk-around-and-fight loop reads as Castle of the Winds, which is the goal. The monsters (the moths especially), the notes, the characters and the items landed.
 
 ## 2026-10-01 (later) — the story spine, from Rylee's picks
