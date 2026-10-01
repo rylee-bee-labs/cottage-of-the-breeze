@@ -50,6 +50,35 @@ uv run --offline --with pillow art/tools/process_sprites.py --grid 4x4 art/sourc
 uv run --offline --with pillow art/tools/check_sprites.py art/source/round7/rug/rug_v1_cut.png art/source/round7/hero-walk/cut
 ```
 
+## Round 8: tiles, people, props, items
+
+Round 8 adds the grid tile as a second kind of picture, plus the people, props
+and items to fill the town. The loop is the same as round 7 (brief -> batch ->
+pick); the after-steps are:
+
+- **process** - `art/tools/process_tiles.py` sizes a 3x3 grid tile picture to 288x288 at 96 px cells and makes it opaque.
+- **check** - `art/tools/check_tiles.py` checks tile pictures for wrong size, transparency, pure black and cell seams.
+- **contact sheet** - `art/tools/contact_sheet.py`.
+- **mock room** - `art/tools/mock_room.py`.
+
+`check_tiles.py`'s seam check is a heuristic that flags plank-like art, so when
+it flags a picture, look by eye at the cell edges before you believe it.
+
+The five briefs behind this round, in `art/briefs/`:
+
+- `town-surfaces.md` - six town ground surfaces (street, meadow, path, tavern floor, cellar floor, stream bank), one 3x3 grid tile each.
+- `characters.md` - the town's people and animals: a keeper, a trader, a tavern regular, a child, a cat, a gardener, a fisher and a dwarf smith.
+- `monsters-and-boss.md` - three cellar monsters and the Cellar King, the boss drawn twice at 256 px, twice the ordinary monster.
+- `props-and-furniture.md` - ten furnishings for the rooms and the yard: hearth, table, bookshelf, bed, window, door, plant pot, chair, shop sign, stone well.
+- `spellbook-and-inventory.md` - sixteen things the hero carries, reads and wears: the spellbook and its runes, trinkets, gear and clothes.
+
+A worked example, the tile commands as they are run from the repo root:
+
+```sh
+uv run --offline --with pillow art/tools/process_tiles.py art/source/round8/town-surfaces/town_ground_v1.png art/source/round8/town-surfaces/town_ground_v1_288.png --grid 3x3
+uv run --offline --with pillow art/tools/check_tiles.py art/source/round8/town-surfaces/ --grid 3x3
+```
+
 ## Swappable by design
 
 Every piece here can be replaced without touching the others, so the same studio can make very different games:

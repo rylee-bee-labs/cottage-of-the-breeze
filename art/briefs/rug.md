@@ -21,6 +21,10 @@ object, not a repeating tile** — a rug repeated 2x2 looks like a window
 
 Three different designs, one batch of three (never one picture per call):
 
+The pictures in a batch come back in any order; identify each by looking, then rename.
+
+`rug_v1` is not the first item asked for: `codex_batch.sh` saves a batch's pictures in the order the image files sort, not the order requested, so a `rug_v1` file may hold any of the pictures asked for.
+
 - `rug` COUNT 3 — picture 1 of 3, design A: the plain worn weave (`rug_v1`).
 - `rug` COUNT 3 — picture 2 of 3, design B: a bolder teal `#3F7E84` geometric pattern (`rug_v2`).
 - `rug` COUNT 3 — picture 3 of 3, design C: a faded floral pattern (`rug_v3`).
