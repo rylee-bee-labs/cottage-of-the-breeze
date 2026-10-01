@@ -1,15 +1,40 @@
 {
   "legend": {
-    ".": {"base": ["#332e26"], "tile": "wood-floor"},
-    "#": {"base": ["#2a2e33"], "solid": true, "tile": "stone-wall"},
-    "D": {"base": ["#332e26"], "tile": "rug"}
+    ".": {
+      "base": [
+        "#332e26"
+      ],
+      "tile": "wood-floor"
+    },
+    "#": {
+      "base": [
+        "#2a2e33"
+      ],
+      "solid": true,
+      "tile": "stone-wall"
+    },
+    "D": {
+      "base": [
+        "#332e26"
+      ],
+      "tile": "rug"
+    }
   },
-  "pois": {"4,6": "the cottage door", "4,3": "the hearth"},
+  "pois": {
+    "4,6": "the cottage door",
+    "4,3": "the hearth"
+  },
   "watch": {},
   "sanctuary_tiles": [],
-  "water_by_phase": {"dusk": "low", "dawn": "low"},
+  "water_by_phase": {
+    "dusk": "low",
+    "dawn": "low"
+  },
   "flood_tiles": [],
-  "hero_start": [4, 5],
+  "hero_start": [
+    4,
+    5
+  ],
   "tile": 32,
   "bg": "#131311",
   "hero_color": "#e8e5df",

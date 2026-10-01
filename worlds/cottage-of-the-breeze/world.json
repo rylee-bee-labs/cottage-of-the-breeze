@@ -38,7 +38,12 @@
       "keeper": "sprites/keeper.png",
       "potion": "sprites/potion.png",
       "ring": "sprites/ring.png",
-      "trader": "sprites/trader.png"
+      "tavern-regular": "sprites/tavern-regular.png",
+      "fisher": "sprites/fisher.png",
+      "gardener": "sprites/gardener.png",
+      "dwarf-smith": "sprites/dwarf-smith.png",
+      "hearth-cat": "sprites/cat.png",
+      "vendor": "sprites/trader.png"
     },
     "hp": 6,
     "atk": 2,

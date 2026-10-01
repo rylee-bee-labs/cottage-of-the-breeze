@@ -1,16 +1,48 @@
 {
   "legend": {
-    ".": {"base": ["#332e26"], "tile": "wood-floor"},
-    "#": {"base": ["#2a2e33"], "solid": true, "tile": "stone-wall"},
-    "T": {"base": ["#332e26"], "solid": true, "tile": "table"},
-    "B": {"base": ["#332e26"], "solid": true, "tile": "bar-counter"}
+    ".": {
+      "base": [
+        "#332e26"
+      ],
+      "tile": "tavern-planks"
+    },
+    "#": {
+      "base": [
+        "#2a2e33"
+      ],
+      "solid": true,
+      "tile": "stone-wall"
+    },
+    "T": {
+      "base": [
+        "#332e26"
+      ],
+      "solid": true,
+      "tile": "table"
+    },
+    "B": {
+      "base": [
+        "#332e26"
+      ],
+      "solid": true,
+      "tile": "bar-counter"
+    }
   },
-  "pois": {"6,7": "the tavern door", "5,4": "the bar"},
+  "pois": {
+    "6,7": "the tavern door",
+    "5,4": "the bar"
+  },
   "watch": {},
   "sanctuary_tiles": [],
-  "water_by_phase": {"dusk": "low", "dawn": "low"},
+  "water_by_phase": {
+    "dusk": "low",
+    "dawn": "low"
+  },
   "flood_tiles": [],
-  "hero_start": [6, 6],
+  "hero_start": [
+    6,
+    6
+  ],
   "tile": 32,
   "bg": "#131311",
   "hero_color": "#e8e5df",
