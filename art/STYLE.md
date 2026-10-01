@@ -12,11 +12,22 @@ style board and the asset board (private artifacts); this is the durable copy.
 - **Colour:** dusk teal `#3F7E84` is the accent. The sampled palette (title picture) is on the style board.
 - **The feeling:** "a fun, low bandwidth way to be able to be curious when I can't do anything but still want to do something" (BRIEF).
 
+## Decided in the art rounds (Rylee, 2026-10-01)
+
+- **Painted storybook with soft darker-brown outlines** (round 1), in **muted earth tones** drawn with big shapes sized for a 96 px tile (round 2). Round 2 "sets the look".
+- **Several variant tiles per surface** (3 recommended) to break repetition; the engine picks one deterministically per tile (see `../vefr/design/pack-art-proposal.md`).
+- **The hero is the same character** (red braids, green hooded cloak, bow); round 3 shows her redrawn as a four-view turnaround and a four-frame walk cycle. Frames still need cutting out and aligning before the engine can use them.
+- **A rug is one object, not a repeating tile.**
+
 ## Open
 
-- Painted storybook, painted with soft outlines, or crisp pixel art: settled by looking at round 1
-  (ground and wall in three treatments); the result is recorded here.
-- Which hero proof to keep (round 3: the same hero redrawn in the chosen treatment).
+- Which hero variation to keep (round 3, v1 or v2), and the first walk-cycle direction to finish (right is drawn; left, up and down are in the turnaround).
+- How many frames per walk (4 now) and the hop feel (see the engine proposal).
+- Monsters (a cellar rat, shades and moths, a rustle) and the remaining items: not started.
+
+## This file is a style kit
+
+See `README.md`, "Swappable by design": the look, the anchors and the shared words belong to this game only; another game gets its own kit.
 
 ## Never
 
