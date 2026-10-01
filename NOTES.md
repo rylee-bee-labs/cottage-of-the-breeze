@@ -4,7 +4,7 @@
 
 Rylee told the agent on 2026-10-01 that she worked through the 2026-09-29 agent draft (the Spell Keeper, her lines and seed bank, the two books, the three-rule `logbok.md`, the world description and creed) with an agent and that it is **approved**. It no longer waits on her. `STORY.md` is still hers to write; nothing was added to it. If a line changes again, record it here.
 
-Playtest note (agent, 2026-10-01, woven offline build, desktop): the title screen and the first room load with no console errors. The hero starts bottom right of the cottage room; one arrow press moves her about four tiles, and the exit is a door below the bottom wall that needs the hero lined up with it. The Strike / Console / Hurl an insult buttons show with nothing to fight. Claude's note: both worth a look, neither is a decision.
+Playtest note (agent, 2026-10-01, woven offline build, desktop): the title screen and the first room load with no console errors. The hero starts bottom right of the cottage room; one arrow press moves her one tile (she starts at tile 4,5; the "about four tiles" look came from the display scale of up to 3x plus held-key repeat, corrected 2026-10-01 after a foreman measured it), and the exit is a door below the bottom wall that needs the hero lined up with it and Interact (F) pressed. The Strike / Console / Hurl an insult buttons show with nothing to fight. Claude's note: both worth a look, neither is a decision.
 
 ## 2026-09-29 — agent draft: the story layer (waiting on Rylee)
 
