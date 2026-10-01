@@ -138,6 +138,6 @@ grey or white ("a light background left behind"). Prefer asking for "a plain fla
 
 ## Round 9 and 10
 
-Round 9 (72 pictures: items from the sentences, map objects, portraits, menu icons, hero poses, effects, runes) is recorded in `art/briefs/ROUND-9.md`; each picture's credits line holds its exact prompt.
+Round 9 (72 pictures: items from the sentences, map objects, portraits, menu icons, hero poses, effects, runes) is recorded in `art/source/round9/RECORD.md`; each picture's credits line holds its exact prompt.
 Round 10 is the UI skin source pictures (panels, buttons, tabs and toggles, bars and slots, dividers and cursor, textures) for `design/ui-skin.md` in the vefr repo.
 
