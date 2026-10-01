@@ -25,6 +25,10 @@ contact, passing).
 Two sheets, one batch of two (two variations of the same hero sheet; never one
 picture per call):
 
+The pictures in a batch come back in any order; identify each by looking, then rename.
+
+`hero_walk_v1` is not the first item asked for: `codex_batch.sh` saves a batch's pictures in the order the image files sort, not the order requested, so a `hero_walk_v1` file may hold either of the two sheets asked for.
+
 - `hero_walk` COUNT 2 — picture 1 of 2: `hero_walk_v1.png`, a 4 x 4 sheet (512x512), rows down/left/right/up, four walk frames per row.
 - `hero_walk` COUNT 2 — picture 2 of 2: `hero_walk_v2.png`, a second variation of the same sheet.
 

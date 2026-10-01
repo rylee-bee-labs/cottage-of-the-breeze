@@ -21,6 +21,10 @@ background, transparent-ready** — no ground, no shadow, no border.
 Ten pictures across three batches of three, three and four (never one picture
 per call):
 
+The pictures in a batch come back in any order; identify each by looking, then rename.
+
+`storage_v1` is not the first item asked for: `codex_batch.sh` saves a batch's pictures in the order the image files sort, not the order requested, so a `storage_v1` file may hold any of the three `storage` pictures asked for.
+
 - `storage` COUNT 3 — picture 1 of 3: a closed chest (`storage_v1`).
 - `storage` COUNT 3 — picture 2 of 3: an open chest (`storage_v2`).
 - `storage` COUNT 3 — picture 3 of 3: a jar (`storage_v3`).

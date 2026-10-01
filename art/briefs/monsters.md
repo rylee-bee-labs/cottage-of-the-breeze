@@ -20,6 +20,10 @@ details. Front-facing three-quarter view, friendly-spooky, never gory.
 
 Four pictures, two batches of two (never one picture per call):
 
+The pictures in a batch come back in any order; identify each by looking, then rename.
+
+`monsters_rat_shade_v1` is not the first item asked for: `codex_batch.sh` saves a batch's pictures in the order the image files sort, not the order requested, so a `monsters_rat_shade_v1` file may hold either picture from that batch.
+
 - `monsters_rat_shade` COUNT 2 — picture 1 of 2: a cellar rat (`monsters_rat_shade_v1`).
 - `monsters_rat_shade` COUNT 2 — picture 2 of 2: a shade (`monsters_rat_shade_v2`).
 - `monsters_moth_rustle` COUNT 2 — picture 1 of 2: a moth (`monsters_moth_rustle_v1`).
