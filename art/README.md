@@ -129,3 +129,9 @@ The rule that keeps this honest: **the engine never learns a game's look, and a 
 | The engine side (what the player can show) | `../vefr/design/pack-art-proposal.md` |
 | Briefs (what each picture is, its size, its references) | `art/briefs/` |
 | Sprite tools (cut out and size, then check) | `art/tools/process_sprites.py`, `art/tools/check_sprites.py` |
+
+## Gotcha: a drawn checkerboard
+
+"Transparent-ready" in a brief can make Codex DRAW the grey-and-white transparency checkerboard as real pixels (round 8: the cat, the fisher and
+the gardener). `process_sprites.py` now clears a checkerboard along the picture's edge, and `check_sprites.py` flags any figure that is more than 10% pale
+grey or white ("a light background left behind"). Prefer asking for "a plain flat light-grey background" in the brief, and always run the checker.

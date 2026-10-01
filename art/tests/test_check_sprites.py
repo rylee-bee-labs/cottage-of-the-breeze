@@ -80,6 +80,18 @@ class CheckImageTests(unittest.TestCase):
         path = self.save(build(SIZE, block(3, 0, 6, 5)), "top.png")
         self.assertEqual(check_image(path, SIZE), ["opaque pixels touching the edge"])
 
+    def test_a_light_background_left_behind_is_flagged(self):
+        im = build(SIZE, block(2, 2, 7, 7), color=(235, 235, 235, 255))   # a figure made of pale grey
+        path = self.save(im, "haze.png")
+        self.assertTrue(any("light background left behind" in p for p in check_image(path, SIZE)))
+
+    def test_a_few_pale_pixels_are_fine(self):
+        im = build(SIZE, block(2, 2, 7, 7))
+        for x in range(2, 4):
+            im.putpixel((x, 2), (240, 240, 240, 255))              # a white highlight: 2 of 36 pixels, about 5%
+        path = self.save(im, "highlight.png")
+        self.assertEqual(check_image(path, SIZE), [])
+
     def test_pure_black_pixel(self):
         im = build(SIZE, block(3, 3, 6, 6))
         im.putpixel((4, 4), (0, 0, 0, 255))

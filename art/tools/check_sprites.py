@@ -15,6 +15,7 @@ from pathlib import Path
 from PIL import Image
 
 ALPHA_TRANSPARENT = 128   # alpha below this is transparent
+LIGHT_BACKGROUND_PERCENT = 10.0  # more pale neutral pixels than this, among the opaque ones, is a leftover background
 ALPHA_OPAQUE = 255        # alpha at this value is fully opaque
 MIN_OPAQUE = 3.0          # percent; below this is "too empty"
 MAX_OPAQUE = 95.0         # percent; above this is "too full"
@@ -56,14 +57,23 @@ def check_image(path, size=128):
 
     opaque_pixels = 0
     blacks = 0
+    light_neutral = 0
     for i in range(total):
         if alpha(i) >= ALPHA_TRANSPARENT:
             opaque_pixels += 1
+            r, g, b = raw[4 * i], raw[4 * i + 1], raw[4 * i + 2]
+            if min(r, g, b) >= 185 and max(r, g, b) - min(r, g, b) <= 14:
+                light_neutral += 1
             if (alpha(i) == ALPHA_OPAQUE
                     and raw[4 * i] == 0 and raw[4 * i + 1] == 0 and raw[4 * i + 2] == 0):
                 blacks += 1
     if blacks:
         problems.append("a pure black pixel (%d of them)" % blacks)
+    # NOTE: a white-and-grey checkerboard (or a pale haze) that survived the cut-out shows up as a lot of
+    # light neutral pixels. A white beard or a cloud is a few percent; a leftover background is far more.
+    if opaque_pixels and 100.0 * light_neutral / opaque_pixels > LIGHT_BACKGROUND_PERCENT:
+        problems.append("a light background left behind (%.0f%% of the figure is pale grey or white)"
+                        % (100.0 * light_neutral / opaque_pixels))
 
     if total:
         percent = 100.0 * opaque_pixels / total
