@@ -45,6 +45,76 @@
         "dusk": "Bring anything up worth selling?",
         "dawn": "Early. The road's quiet, so am I."
       }
+    },
+    "tavern-regular": {
+      "name": "The Tavern Regular",
+      "at": [
+        8,
+        5
+      ],
+      "near": "the tables",
+      "voice_file": "voices/tavern-regular.md",
+      "seeds": {
+        "dusk": "Pull up a stool. The stew's better than it looks.",
+        "dawn": "Early again? The kettle's barely warm."
+      },
+      "region": "tavern"
+    },
+    "hearth-cat": {
+      "name": "The Cat",
+      "at": [
+        6,
+        2
+      ],
+      "near": "the rug",
+      "voice_file": "voices/hearth-cat.md",
+      "seeds": {
+        "dusk": "Mrrp. (The cat watches you over the edge of the rug.)",
+        "dawn": "Mrrp? (It stretches and does not move.)"
+      },
+      "region": "cottage"
+    },
+    "fisher": {
+      "name": "The Fisher",
+      "at": [
+        17,
+        10
+      ],
+      "near": "the road",
+      "voice_file": "voices/fisher.md",
+      "seeds": {
+        "dusk": "Nothing biting, but the quiet's worth the wait.",
+        "dawn": "Up before the fish. Don't tell them."
+      },
+      "region": "town"
+    },
+    "gardener": {
+      "name": "The Gardener",
+      "at": [
+        3,
+        10
+      ],
+      "near": "the road",
+      "voice_file": "voices/gardener.md",
+      "seeds": {
+        "dusk": "Everything grows if you stop watching it so hard.",
+        "dawn": "Mind the beans, they've opinions."
+      },
+      "region": "town"
+    },
+    "dwarf-smith": {
+      "name": "The Dwarf Smith",
+      "at": [
+        10,
+        6
+      ],
+      "near": "the road",
+      "voice_file": "voices/dwarf-smith.md",
+      "seeds": {
+        "dusk": "Hammer's cooling. So should you be - sit.",
+        "dawn": "Fire's up. Bring me something to mend."
+      },
+      "region": "town"
     }
   },
   "enemies": [],

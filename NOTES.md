@@ -150,3 +150,15 @@ The reward end: The Trader keeps a stall on the road (Interact to trade -
 sell what you carried, buy a potion). Gold and the bag persist; the Bag has
 its own button and the B key. A cloudy potion can be drunk from the Bag to
 heal. No identifying or haggling yet.
+
+## 2026-10-01: the new art and residents are in the game
+
+- **Hero** is the new idle pose (round 9). **Residents:** the Spell Keeper wears the old-keeper picture, the Trader the trader, and five new people were added with the studio's own
+  `place_character` route on a copy of this pack: the Tavern Regular (tavern), the Cat (cottage, by the rug), the Fisher, the Gardener and the Dwarf Smith (town). `EDITS.md` records them.
+- **Ground:** the town's grass and cobbled street, the tavern's dark planks and the cellar floors are 3x3 grid pictures (one scene, so they do not repeat tile by tile). The cottage's
+  rug is ONE object (the geometric rug laid on the floor as a 3 x 2 grid), so its map block `DDD` sits at x 3 to 5 and y 2 to 3 (a grid picks its cell by position: x mod 3, y mod 2).
+  The cottage, tavern and town walls and houses use the round 2 stone and wood. The tavern's tables and bar are the round table and the bookshelf on the plank floor.
+- **Sprites are keyed by the speaker's id** (`hearth-cat`, `vendor`, `tavern-regular`, ...): the woven player draws a speaker with the sprite named like its id; a speaker's own `sprite` field is
+  not read (the loader drops it). So the cat's picture is `sprites/cat.png` under the key `hearth-cat`.
+- Two engine bugs found by doing this with the real route are fixed in vefr (#183: a write on a multi-room pack threw away the room list; #184: placement checks used the home room's map).
+
