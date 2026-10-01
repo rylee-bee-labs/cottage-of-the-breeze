@@ -1,14 +1,14 @@
 # Cottage of the Breeze: the story spine
 
-Decided by Rylee, 2026-10-01, in her own picks (the options were drafted by Claude from the notes already in the cellar). This is **canon**; anything marked *proposed* is not.
+Decided by Rylee on 2026-10-01, from her own picks. The options were drafted by Claude from the notes already in the cellar. This is canon. Anything marked proposed is not.
 
 ## The spine in three beats
 
 The cellar note says: *"Two things this town will not say. Find both."* They are:
 
-1. **Truth one (decided): the old tavern burned on purpose, to hold something down.** The tab says "keep the fire in". The town set the fire to seal the stair, and has kept both the secret and the fire ever since.
-2. **Truth two (decided): the one who "went down on purpose" came back, and is in town: the Spell Keeper.** She is the one who is glad you keep going down. The letter in the chest ("I did not go missing. I went down on purpose, and I meant to come back… I kept my word about the cakes") is hers.
-3. **The realization (decided): what is held down is the town's own kindness.** The old tavern sheltered travellers (its only "wrong": a room for them). Out of fear the town sealed that mercy away. Each descent brings a little of it back up. The cottage is where it returns. This changes how you see the town (it is afraid, not cruel), the cottage (it is where the kindness comes home), and yourself (you are not the outcast; you are the one carrying it up).
+1. Truth one (decided): the old tavern burned on purpose, to hold something down. The tab says "keep the fire in". The town set the fire to seal the stair, and has kept both the secret and the fire ever since.
+2. Truth two (decided): the one who "went down on purpose" came back, and is in town. It is the Spell Keeper. She is the one who is glad you keep going down. The letter in the chest ("I did not go missing. I went down on purpose, and I meant to come back… I kept my word about the cakes") is hers.
+3. The realization (decided): what is held down is the town's own kindness. The old tavern sheltered travellers (its only "wrong": a room for them). Out of fear the town sealed that mercy away. Each descent brings a little of it back up. The cottage is where it returns. It changes how you see the town (afraid, not cruel), the cottage (where the kindness comes home) and yourself (the one carrying it up, not an outcast).
 
 ## The feeling (from Rylee's notes)
 
@@ -22,19 +22,19 @@ The tavern is "cozy but wary of you". The Spell Keeper "gives you a little disco
 | "Two things this town will not say. Find both." | A scrap on floor 1 | Yes (`a-scrap-in-the-dust`) |
 | The old tavern kept a room for travellers: "the only thing it ever did wrong" | A burned page on floor 1 | Yes (`a-burned-page`) |
 | "Two rooms, no charge, keep the fire in" | The burnt tavern's tab, behind the Keeper's counter | Yes (`the-burnt-taverns-tab`) |
-| Someone went down on purpose and meant to come back | The letter in the floor 1 chest | Yes (`a-letter-in-a-chest`), but its author is not yet named |
-| **Truth one revealed:** the tavern burned to hold something down | A floor 2 note, then the Tavern Regular's line when asked after floor 2 | **Not written** |
-| **Truth two revealed:** the Keeper is the one who came back | The Keeper herself, after you carry the letter back to her | **Not written** |
-| **The realization:** the held-down thing is kindness | The last room at the bottom of floor 3 (a small warm travellers' room) | **Not written** |
-| The ending: the cottage gains a lit window; the town is a little warmer | After the last room: a short ending and a sticker | **Not written** |
+| Someone went down on purpose and meant to come back | The letter in the floor 1 chest | Yes (`a-letter-in-a-chest`); its author is not yet named |
+| **Truth one revealed:** the tavern burned to hold something down | A floor 2 note, then the Tavern Regular's line when asked after floor 2 | Not written |
+| **Truth two revealed:** the Keeper is the one who came back | The Keeper herself, after you carry the letter back to her | Not written |
+| **The realization:** the held-down thing is kindness | The last room at the bottom of floor 3 (a small warm travellers' room) | Not written |
+| The ending: the cottage gains a lit window; the town is a little warmer | After the last room: a short ending and a sticker | Not written |
 
 ## What the other residents are for (proposed)
 
-- **The Tavern Regular** misses the old tavern and will say so, once the Keeper has told truth one (the town's wariness softens).
-- **The Dwarf Smith** keeps the town's fire; the fire is the same one the old tavern was meant to keep in (their line changes after truth one).
-- **The Fisher** and **the Gardener** are the town's gentle outsiders: they treat the hero warmly before anyone else, and are where small kindnesses first show.
-- **The Trader** stays a trader (and sells the supplies the descent needs).
-- **The Cat** is the cottage's guest and notices the hero (a reaction once reactions exist).
+- The Tavern Regular misses the old tavern and will say so, once the Keeper has told truth one (the town's wariness softens).
+- The Dwarf Smith keeps the town's fire; the fire is the same one the old tavern was meant to keep in (their line changes after truth one).
+- The Fisher and **the Gardener** are the town's gentle outsiders: they treat the hero warmly before anyone else, and are where small kindnesses first show.
+- The Trader stays a trader (and sells the supplies the descent needs).
+- The Cat is the cottage's guest and notices the hero (a reaction once reactions exist).
 
 ## What is still open (Rylee's call)
 
