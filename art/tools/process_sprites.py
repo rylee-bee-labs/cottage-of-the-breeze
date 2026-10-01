@@ -8,8 +8,8 @@
 Background removal floods in from the four corners, so only background that touches an
 edge goes away: a hole inside the subject stays opaque. The cut-out is trimmed, scaled to
 fit inside SIZE x SIZE (never upscaled more than 2x) and pasted bottom-aligned on a
-transparent canvas, feet on the floor. --grid cuts an evenly divided COLSxROWS sheet into
-cells and writes PREFIX_<row>_<col>.png for each, row names from --names (top row first),
+transparent canvas, feet on the floor. --grid cuts a COLSxROWS sheet into
+cells (an uneven size is cut on rounded edges, with a note, because generated sheets are never exact) and writes PREFIX_<row>_<col>.png for each, row names from --names (top row first),
 columns counted from 1. Needs Pillow:  uv run --with pillow art/tools/process_sprites.py ...
 """
 import argparse
@@ -76,11 +76,15 @@ def process_one(img, size, tolerance):
         fail("no content to cut out (every pixel is transparent)")
     cut = cut.crop(bbox)
     w, h = cut.size
-    scale = min(size / w, size / h)
+    # A small margin (size / 64, at least 1 px) on the top and both sides, so a figure never touches
+    # the edge of its canvas; the bottom is left open because the feet stand on it.
+    margin = max(1, size // 64)
+    room_w, room_h = size - 2 * margin, size - margin
+    scale = min(room_w / w, room_h / h)
     if scale > 2.0:
         scale = 2.0  # never upscale more than 2x
-    new_w = max(1, min(size, round(w * scale)))
-    new_h = max(1, min(size, round(h * scale)))
+    new_w = max(1, min(room_w, round(w * scale)))
+    new_h = max(1, min(room_h, round(h * scale)))
     cut = cut.resize((new_w, new_h), Image.LANCZOS)
     canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
     canvas.paste(cut, ((size - new_w) // 2, size - new_h), cut)
@@ -135,15 +139,17 @@ def main(argv=None):
 
     sheet = open_image(sheet_path)
     w, h = sheet.size
-    if w % cols:
-        fail(f"sheet width {w} does not divide evenly by {cols} columns")
-    if h % rows:
-        fail(f"sheet height {h} does not divide evenly by {rows} rows")
+    if w < cols or h < rows:
+        fail(f"sheet {w}x{h} is smaller than a {cols}x{rows} grid")
+    if w % cols or h % rows:
+        print(f"note: sheet {w}x{h} does not divide evenly by {cols}x{rows}; cells are cut on rounded edges "
+              f"(each cell is within 1 px of {w / cols:.1f}x{h / rows:.1f})", file=sys.stderr)
     os.makedirs(outdir, exist_ok=True)
-    cw, ch = w // cols, h // rows
+    xs = [round(i * w / cols) for i in range(cols + 1)]
+    ys = [round(i * h / rows) for i in range(rows + 1)]
     for r in range(rows):
         for c in range(cols):
-            cell = sheet.crop((c * cw, r * ch, (c + 1) * cw, (r + 1) * ch))
+            cell = sheet.crop((xs[c], ys[r], xs[c + 1], ys[r + 1]))
             out = process_one(cell, a.size, a.tolerance)
             path = os.path.join(outdir, f"{prefix}_{names[r]}_{c + 1}.png")
             out.save(path)

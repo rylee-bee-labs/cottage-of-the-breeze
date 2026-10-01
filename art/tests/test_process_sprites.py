@@ -87,14 +87,41 @@ class GridTest(unittest.TestCase):
                              ["hero_r1_1.png", "hero_r1_2.png",
                               "hero_r2_1.png", "hero_r2_2.png"])
 
-    def test_uneven_grid_exits_2(self):
+    def test_uneven_grid_is_cut_on_rounded_edges_with_a_note(self):
         with tempfile.TemporaryDirectory() as d:
             sheet = os.path.join(d, "sheet.png")
-            flat(40, 30).save(sheet)                       # 40 does not divide by 3
+            im = flat(40, 30)                              # 40 does not divide by 3
+            for cx in (7, 20, 33):                         # a subject in each of the 6 cells
+                for cy in (7, 22):
+                    paint(im, (cx - 3, cy - 3, cx + 3, cy + 3))
+            im.save(sheet)
+            outdir = os.path.join(d, "out")
+            self.assertEqual(ps.main(["--grid", "3x2", sheet, outdir, "hero", "--size", "32"]), 0)
+            self.assertEqual(len(os.listdir(outdir)), 6)
+
+    def test_a_sheet_smaller_than_the_grid_exits_2(self):
+        with tempfile.TemporaryDirectory() as d:
+            sheet = os.path.join(d, "sheet.png")
+            flat(2, 30).save(sheet)                        # 2 columns of pixels cannot make 3 cells
             with self.assertRaises(SystemExit) as cm:
-                ps.main(["--grid", "3x2", sheet, os.path.join(d, "out"), "hero",
-                         "--size", "32"])
+                ps.main(["--grid", "3x2", sheet, os.path.join(d, "out"), "hero", "--size", "32"])
             self.assertEqual(cm.exception.code, 2)
+
+
+class MarginTest(unittest.TestCase):
+    def test_a_full_height_subject_never_touches_the_top_or_sides(self):
+        img = flat(64, 64)
+        paint(img, (0, 0, 64, 64))                         # a subject that fills the whole picture
+        img.putpixel((0, 0), BACKGROUND)                   # corners stay background so the cut-out has an edge to flood from
+        for corner in ((63, 0), (0, 63), (63, 63)):
+            img.putpixel(corner, BACKGROUND)
+        out = ps.process_one(img, 128, 28)
+        a = out.getchannel("A")
+        w, h = out.size
+        self.assertEqual(a.crop((0, 0, w, 1)).getbbox(), None)     # top row empty
+        self.assertEqual(a.crop((0, 0, 1, h)).getbbox(), None)     # left column empty
+        self.assertEqual(a.crop((w - 1, 0, w, h)).getbbox(), None) # right column empty
+        self.assertIsNotNone(a.crop((0, h - 1, w, h)).getbbox())   # feet still on the bottom row
 
 
 if __name__ == "__main__":
