@@ -8,7 +8,7 @@ style board and the asset board (private artifacts); this is the durable copy.
 - **We make all the art ourselves** and credit ourselves: "Rylee and Claude".
 - **Tiles are 96 px** (VEFR's tile size), **characters and items are 128 px**, transparent background.
 - **Soft, darker-tone outlines**, never pure black.
-- **A new hero**, described by Rylee; the current archer is a stand-in.
+- **The hero stays the same character** (the chibi archer with the red braids and green hooded cloak), **redrawn in the new style**. The current sprite is the reference for who she is, not for how she is drawn.
 - **Colour:** dusk teal `#3F7E84` is the accent. The sampled palette (title picture) is on the style board.
 - **The feeling:** "a fun, low bandwidth way to be able to be curious when I can't do anything but still want to do something" (BRIEF).
 
@@ -16,7 +16,7 @@ style board and the asset board (private artifacts); this is the durable copy.
 
 - Painted storybook, painted with soft outlines, or crisp pixel art: settled by looking at round 1
   (ground and wall in three treatments); the result is recorded here.
-- The hero's description.
+- Which hero proof to keep (round 3: the same hero redrawn in the chosen treatment).
 
 ## Never
 
