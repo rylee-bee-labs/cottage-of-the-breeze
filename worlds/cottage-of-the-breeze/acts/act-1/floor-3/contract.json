@@ -57,7 +57,8 @@
         10
       ],
       "hp": 3,
-      "atk": 1
+      "atk": 1,
+      "sprite": "rustle"
     },
     {
       "id": "floor-3-rat2",
@@ -67,7 +68,8 @@
         20
       ],
       "hp": 4,
-      "atk": 1
+      "atk": 1,
+      "sprite": "rat"
     }
   ]
 }

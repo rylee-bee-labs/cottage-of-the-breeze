@@ -155,5 +155,28 @@ class CheckerboardTest(unittest.TestCase):
         self.assertEqual(out.getchannel("A").getpixel((0, 0)), 0)
 
 
+class HoleTest(unittest.TestCase):
+    def _ring(self):
+        im = Image.new("RGB", (80, 80), (250, 250, 250))                 # light background
+        for y in range(15, 65):
+            for x in range(15, 65):
+                im.putpixel((x, y), (180, 120, 40))                       # a gold square...
+        for y in range(30, 50):
+            for x in range(30, 50):
+                im.putpixel((x, y), (250, 250, 250))                      # ...with a background-coloured hole
+        return im
+
+    def test_an_enclosed_hole_stays_by_default(self):
+        out = ps.process_one(self._ring(), 64, 28)
+        a = out.getchannel("A")
+        self.assertGreater(a.getpixel((32, 40)), 0)                       # the hole is still opaque
+
+    def test_clear_holes_removes_the_hole_but_keeps_the_ring(self):
+        out = ps.process_one(self._ring(), 64, 28, holes=True)
+        a = out.getchannel("A")
+        self.assertEqual(a.getpixel((32, 40)), 0)                         # the hole is clear
+        self.assertGreater(a.getpixel((8, 40)), 0)                        # the gold band is not
+
+
 if __name__ == "__main__":
     unittest.main()

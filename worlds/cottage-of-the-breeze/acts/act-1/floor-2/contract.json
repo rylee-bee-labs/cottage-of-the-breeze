@@ -62,7 +62,8 @@
       "atk": 1,
       "drops": [
         "brass-ring"
-      ]
+      ],
+      "sprite": "shade"
     },
     {
       "id": "floor-2-moths",
@@ -72,7 +73,8 @@
         23
       ],
       "hp": 3,
-      "atk": 1
+      "atk": 1,
+      "sprite": "moths"
     }
   ]
 }
