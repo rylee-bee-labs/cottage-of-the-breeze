@@ -28,6 +28,7 @@ The look itself is in [STYLE.md](STYLE.md). The pipeline in one line:
    2026-09-30 bake-off found Wan Pro follows layout specs best and keeps sprite frames most consistent.
    How it takes reference images is not yet tested here.)
 6. **Process and check in the real build:** size, cut-out, then weave and screenshot (`../vefr`: `ratatoskr weave`).
+7. **Mark training status.** Each credits line says whether the picture may be used to train a model (`training: not cleared | specialist-only | ok (clause, date)`). The tool terms are summarised in the estate repo's `docs/research/2026-10-01-training-on-hosted-output-terms.md`: Codex output is game art only until its terms are read at the source.
 7. **Keep the record.** Every picture has a `name.credits.txt` beside it: who made it, the tool, the
    references, the exact prompt, the date, and its status. The script writes it for you.
 
