@@ -1,0 +1,67 @@
+{
+  "name": "parchment-and-wood",
+  "credit": "Rylee and Claude; Codex proofs, training: not cleared",
+  "parts": {
+    "panel": {
+      "file": "panel.webp",
+      "slice": 32,
+      "fill": "parchment"
+    },
+    "button": {
+      "file": "button.webp",
+      "slice": 14,
+      "hover": "button-hover.webp",
+      "pressed": "button-pressed.webp",
+      "disabled": "button-disabled.webp"
+    },
+    "tab": {
+      "file": "tab.webp",
+      "slice": 14,
+      "selected": "tab-selected.webp"
+    },
+    "toggle": {
+      "off": "toggle-off.webp",
+      "on": "toggle-on.webp"
+    },
+    "bar": {
+      "frame": "bar-frame.webp",
+      "fill": "bar-fill.webp"
+    },
+    "slot": {
+      "file": "slot.webp",
+      "slice": 16
+    },
+    "speech": {
+      "file": "speech.webp",
+      "slice": 24
+    },
+    "tooltip": {
+      "file": "tooltip.webp",
+      "slice": 20
+    },
+    "gold-plate": {
+      "file": "gold-plate.webp",
+      "slice": 10
+    },
+    "divider": {
+      "file": "divider.webp"
+    },
+    "banner": {
+      "file": "banner.webp"
+    },
+    "corner": {
+      "file": "corner.webp"
+    },
+    "cursor": {
+      "file": "cursor.webp",
+      "hotspot": [
+        4,
+        4
+      ]
+    }
+  },
+  "ink": {
+    "on_panel": "#2B2118",
+    "on_panel_dim": "#5A4A38"
+  }
+}

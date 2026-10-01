@@ -6,7 +6,7 @@ Written 2026-10-01 from Rylee's picks: the story spine and ending; progression a
 
 | # | Piece | What it means | Depends on | Who |
 | --- | --- | --- | --- | --- |
-| 1 | Story spine | Written: `docs/STORY.md`. Next: write the six small passes in its list. | nothing | Claude writes, Rylee chooses |
+| 1 | Story spine | Working notes: `docs/story-spine-notes.md` (the root `STORY.md` stays Rylee's). Next: write the six small passes in its list. | nothing | Claude writes, Rylee chooses |
 | 2 | Reactions and rules | The cat notices you; a note appears after a truth; the ending fires. `design/rules-when-then.md` in the vefr repo. | the rules foreman (in progress) | foreman, then review |
 | 3 | Equipment and progression | Five slots, findable gear that changes attack and health, so the cellar is worth going down. `design/equipment.md`. | 2 not required, but shares the player | foreman |
 | 4 | Stakes | Turn the act's setting from "costume" (you cannot lose) to "story" or "stakes" once there is gear and healing to balance it. One setting, plus tuning. | 3 | Claude and Rylee, by playing |
