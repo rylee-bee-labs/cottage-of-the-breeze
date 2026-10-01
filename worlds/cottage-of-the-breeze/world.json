@@ -43,7 +43,11 @@
       "gardener": "sprites/gardener.png",
       "dwarf-smith": "sprites/dwarf-smith.png",
       "hearth-cat": "sprites/cat.png",
-      "vendor": "sprites/trader.png"
+      "vendor": "sprites/trader.png",
+      "rat": "sprites/rat.png",
+      "shade": "sprites/shade.png",
+      "moths": "sprites/moths.png",
+      "rustle": "sprites/rustle.png"
     },
     "hp": 6,
     "atk": 2,

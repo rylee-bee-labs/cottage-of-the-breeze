@@ -116,9 +116,20 @@ def remove_background(img, tolerance):
     return img
 
 
-def process_one(img, size, tolerance):
+def process_one(img, size, tolerance, holes=False):
     """One sprite: background off, trimmed, fitted inside size x size, feet on the floor."""
     cut = remove_background(img, tolerance)
+    if holes:
+        src = img.convert("RGBA")
+        sw, sh = src.size
+        sp = src.load()
+        bg = sp[0, 0][:3]
+        cp = cut.load()
+        for y in range(sh):
+            for x in range(sw):
+                r, g, b, a = sp[x, y]
+                if a >= 128 and abs(r - bg[0]) <= tolerance and abs(g - bg[1]) <= tolerance and abs(b - bg[2]) <= tolerance:
+                    cp[x, y] = (r, g, b, 0)
     bbox = cut.getchannel("A").getbbox()
     if bbox is None:
         fail("no content to cut out (every pixel is transparent)")
@@ -159,6 +170,7 @@ def main(argv=None):
     ap.add_argument("--size", type=int, default=128, help="canvas size in pixels (default 128)")
     ap.add_argument("--tolerance", type=int, default=28, help="per-channel colour match (default 28)")
     ap.add_argument("--names", help="comma-separated row names, top row first (grid mode)")
+    ap.add_argument("--clear-holes", action="store_true", help="also clear background-coloured holes inside the subject (a ring, a handle)")
     ap.add_argument("args", nargs="*")
     a = ap.parse_args(argv)
 
@@ -169,7 +181,7 @@ def main(argv=None):
         if len(a.args) != 2:
             ap.error("single mode needs IN.png OUT.png")
         in_path, out_path = a.args
-        out = process_one(open_image(in_path), a.size, a.tolerance)
+        out = process_one(open_image(in_path), a.size, a.tolerance, a.clear_holes)
         out.save(out_path)
         print(f"wrote {out_path}")
         return 0
