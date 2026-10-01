@@ -1,7 +1,8 @@
 ---
 title: A Note Left at the Door
 found: map
-at: [4, 4]
+at: [5, 6]
+region: town
 kind: note
 ---
 A scrap of paper tucked under the cottage door, in a hand you don't know.
