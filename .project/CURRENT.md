@@ -1,9 +1,7 @@
 # CURRENT — Cottage of the Breeze
 
-**Stage 1 · Concept.** The home exists; the brief waits for Rylee.
+**Stage: playable prototype** (2026-10-01). The pack validates (`norns validate`) and weaves to one offline HTML file. Built so far: the cottage room and an Act 1 town map, the Spell Keeper and two books (approved by Rylee 2026-10-01), generated 48x32 fog floors, enemies on the floors with a hero health bar, item drops and a bag, and The Trader stall (gold plus a shop).
 
-**The one next step:** lesson 1: play the original *Castle of the Winds*
-for a while (freeware, Internet Archive), then fill in `BRIEF.md`'s ✍️
-parts together.
+**The one next step:** Rylee's call. See `NOTES.md` (newest first) for the latest playtest notes and decisions.
 
-**Engine work queued (in `../vefr/`):** the Library ruleset, then Delve.
+**Engine work queued (in `../vefr/`):** the Library ruleset, then Delve (check `../vefr/ROADMAP.md`; some of this may have landed since).
