@@ -124,5 +124,36 @@ class MarginTest(unittest.TestCase):
         self.assertIsNotNone(a.crop((0, h - 1, w, h)).getbbox())   # feet still on the bottom row
 
 
+class CheckerboardTest(unittest.TestCase):
+    def _checker_sheet(self):
+        im = Image.new("RGB", (80, 80), (255, 255, 255))
+        for y in range(80):
+            for x in range(80):
+                if ((x // 6) + (y // 6)) % 2:
+                    im.putpixel((x, y), (204, 204, 204))
+        for x in range(28, 52):
+            for y in range(20, 70):
+                im.putpixel((x, y), (140, 70, 40))        # the subject
+        return im
+
+    def test_a_drawn_checkerboard_background_is_cleared(self):
+        out = ps.process_one(self._checker_sheet(), 64, 28)
+        a = out.getchannel("A")
+        opaque = sum(1 for v in a.getdata() if v > 0)
+        total = 64 * 64
+        # only the subject remains: well under half the canvas, and the corners are clear
+        self.assertLess(opaque, total * 0.5)
+        for corner in ((0, 0), (63, 0), (0, 40)):
+            self.assertEqual(a.getpixel(corner), 0)
+
+    def test_a_plain_light_background_still_works(self):
+        im = Image.new("RGB", (80, 80), (255, 255, 255))
+        for x in range(28, 52):
+            for y in range(20, 70):
+                im.putpixel((x, y), (140, 70, 40))
+        out = ps.process_one(im, 64, 28)
+        self.assertEqual(out.getchannel("A").getpixel((0, 0)), 0)
+
+
 if __name__ == "__main__":
     unittest.main()

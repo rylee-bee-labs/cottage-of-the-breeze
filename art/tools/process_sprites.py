@@ -34,11 +34,55 @@ def open_image(path):
         fail(f"cannot read {path}: {exc}")
 
 
+def _near(c1, c2, tolerance):
+    return (abs(c1[0] - c2[0]) <= tolerance and abs(c1[1] - c2[1]) <= tolerance
+            and abs(c1[2] - c2[2]) <= tolerance)
+
+
+def _is_neutral(c):
+    """A grey or white pixel (the colours a drawn 'transparent' checkerboard uses)."""
+    return max(c[:3]) - min(c[:3]) <= 14
+
+
+def _checker_partner(px, w, h, corner, tolerance):
+    """The second colour of a drawn checkerboard that starts at this corner, or None.
+
+    Some generators draw the grey-and-white 'transparent' pattern as real pixels. Walk along the edge row
+    from the corner: if two neutral colours alternate in at least four runs of three or more pixels, the
+    other colour is a background colour too. Plain backgrounds, and subjects at the edge, return None.
+    """
+    x0, y0 = corner
+    step = 1 if x0 == 0 else -1
+    base = px[x0, y0]
+    if base[3] < 128 or not _is_neutral(base):
+        return None
+    other, runs, run_len, current = None, 0, 0, "a"
+    for i in range(min(w, 160)):
+        c = px[x0 + step * i, y0]
+        if c[3] < 128:
+            return None
+        kind = "a" if _near(c, base, tolerance) else ("b" if _is_neutral(c) and (other is None or _near(c, other, tolerance)) else "x")
+        if kind == "x":
+            break
+        if kind == "b" and other is None:
+            other = c
+        if kind == current:
+            run_len += 1
+        else:
+            if run_len >= 3:
+                runs += 1
+            current, run_len = kind, 1
+    if run_len >= 3:
+        runs += 1
+    return other if other is not None and runs >= 4 else None
+
+
 def remove_background(img, tolerance):
     """Flood-fill in from the four corners, matching the corner colour per channel.
 
     Only pixels reached from a corner are cleared, so an enclosed hole of the background
     colour stays opaque. If the corners are already transparent, keep the existing alpha.
+    A drawn checkerboard (two neutral colours alternating) is cleared as one background.
     """
     img = img.convert("RGBA")
     w, h = img.size
@@ -46,25 +90,29 @@ def remove_background(img, tolerance):
     corners = [(0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1)]
     if all(px[x, y][3] < 128 for x, y in corners):
         return img  # already a cut-out
+    bgs = []
+    for x, y in corners:
+        if px[x, y][3] >= 128:
+            bgs.append(px[x, y][:3])
+            partner = _checker_partner(px, w, h, (x, y), tolerance)
+            if partner is not None:
+                bgs.append(partner[:3])
     seen = bytearray(w * h)
     queue = deque()
     for x, y in corners:
-        r, g, b, a = px[x, y]
-        if a >= 128 and not seen[y * w + x]:
+        if px[x, y][3] >= 128 and not seen[y * w + x]:
             seen[y * w + x] = 1
-            queue.append((x, y, r, g, b))
+            queue.append((x, y))
     while queue:
-        x, y, r, g, b = queue.popleft()
+        x, y = queue.popleft()
+        r, g, b, _ = px[x, y]
         px[x, y] = (r, g, b, 0)
         for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
             if 0 <= nx < w and 0 <= ny < h and not seen[ny * w + nx]:
-                nr, ng, nb, na = px[nx, ny]
-                if (na >= 128
-                        and abs(nr - r) <= tolerance
-                        and abs(ng - g) <= tolerance
-                        and abs(nb - b) <= tolerance):
+                n = px[nx, ny]
+                if n[3] >= 128 and any(_near(n, c, tolerance) for c in bgs):
                     seen[ny * w + nx] = 1
-                    queue.append((nx, ny, r, g, b))
+                    queue.append((nx, ny))
     return img
 
 
