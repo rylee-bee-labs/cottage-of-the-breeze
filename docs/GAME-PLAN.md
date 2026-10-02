@@ -4,15 +4,15 @@ Written 2026-10-01 from Rylee's picks: the story spine and ending; progression a
 
 ## The order, and why
 
-| # | Piece | What it means | Depends on | Who |
+| # | Piece | What it means | Status (2026-10-02) | Who |
 | --- | --- | --- | --- | --- |
-| 1 | Story spine | Working notes: `docs/story-spine-notes.md` (the root `STORY.md` stays Rylee's). Next: write the six small passes in its list. | nothing | Claude writes, Rylee chooses |
-| 2 | Reactions and rules | The cat notices you; a note appears after a truth; the ending fires. `design/rules-when-then.md` in the vefr repo. | nothing: the rules engine, the eleven events, `keep`, the Why and Where-next panels are in VEFR `main` (as of 2026-10-02). Cottage declares no rules yet | foreman, then review |
-| 3 | Equipment and progression | Five slots, findable gear that changes attack and health, so the cellar is worth going down. `design/equipment.md`. | 2 not required, but shares the player | foreman |
-| 4 | Stakes | Turn the act's setting from "costume" (you cannot lose) to "story" or "stakes" once there is gear and healing to balance it. One setting, plus tuning. | 3 | Claude and Rylee, by playing |
-| 5 | Random floors | A new descent each run, from a seed. `design/random-floors.md` in the vefr repo. | the generator exists; needs a player-side port and parity tests | foreman |
-| 6 | More world | Monsters, items, notes and a hidden room on every floor. Uses the named edits, so a person can do the same. | 2 for the hidden room | Claude and foremen |
-| 7 | Polish | Walking frames, sound, the UI skin, the rain, a small tutorial moment, "this whole game is one file". | the skin tools (in progress) | mixed |
+| 1 | Story spine | Working notes: `docs/story-spine-notes.md` (the root `STORY.md` stays Rylee's). | The three beats are picked. Written so far: the letter and the Keeper's reply (drafts). Still to write: the floor-2 note, the Keeper's talk, the lore note in the King's room, the ending. | Claude writes, Rylee chooses |
+| 2 | Reactions and rules | The cat notices you; a note appears after a truth; the ending fires. `design/rules-when-then.md` in the vefr repo. | Started: 2 rules (read the letter, then the Keeper answers). The cat, the Regular and the Smith do not react yet. | Claude and foremen |
+| 3 | Equipment and progression | Growth (levels) and five slots of findable gear. | **Growth is on** (8 levels). Equipment is designed (`design/equipment.md`), not built. | foreman |
+| 4 | Stakes | Turn the act's setting from "costume" (you cannot lose) to "story" or "stakes". | Not yet: it needs gear and the guardians to balance it. | Claude and Rylee, by playing |
+| 5 | Random floors | A new descent each run, from a seed. `design/random-floors.md` in the vefr repo. | **Phase 1 built** (the generator in Python and an exact browser twin). Floors 4-6 are generated once at build time meanwhile. Phase 2 (drawing a descent each run) is next. | foreman |
+| 6 | More world | Monsters, items, notes, guardians and keys. | 69 monsters on 6 floors; 5 guardians drawn and approved; 8 more monster drafts, doors, six keys, treasure and props drawn (unwired). A real act 2 waits for the engine (ADR 0006). | Claude and foremen |
+| 7 | Polish | Walking frames, sound, the UI skin, a small tutorial moment, "this whole game is one file". | **Skin in** (parchment-and-wood), the quiet screen, WASD and the declutter are done. Sound and walking frames are not. | mixed |
 
 ## Rules for this plan
 

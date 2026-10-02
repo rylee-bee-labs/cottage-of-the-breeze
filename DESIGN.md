@@ -4,6 +4,19 @@
 > Winds* systems, described in our own words from public descriptions of
 > the game. Names, numbers and story are ours to decide.
 
+## Where each system stands (2026-10-02)
+
+| System | State |
+| --- | --- |
+| Town | Built: a cottage, a tavern with the Spell Keeper, the Trader's shop, a temple (where you wake) and the burned old tavern, seven residents. No identifier or bank yet; the temple has no inside yet. |
+| Floors | Six floors: three authored, three generated at build time. The cellar is act 1, ending with the Cellar King (designed). Per-run generation: phase 1 built. |
+| Inventory | A simple bag (use, sell). The grid-and-shapes design below is not built. |
+| Items | Two kinds (a potion and a ring), eight icons and a set of gear and key pictures drawn. Rarity, traits and identifying are not built. |
+| Growth | Built and on: classic levels. |
+| Spells | Not built. |
+| Time | Not built. |
+| Books & notes | Built: eight, read in the game. |
+
 ## Loop
 Rest in town → go down → find things → come back up to trade, heal and
 learn → go deeper.
