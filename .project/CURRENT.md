@@ -1,6 +1,6 @@
 # CURRENT — Cottage of the Breeze
 
-**Stage: playable prototype with the new look** (2026-10-02). Six rooms, seven residents, five monsters with art, three fogged cellar floors, a trader, notes and a chest, all in one offline HTML file (`DEMO.md` tells a player how to play it). The pack validates (`norns validate`, checked against VEFR `main` 947eec0). The art tools have tests (`art/tests/`).
+**Stage: playable prototype with the new look** (2026-10-02). Six rooms, seven residents, five monsters with art, six fogged cellar floors (floors 4-6 are the deeper zone, generated and plain-looking), a trader, notes and a chest, all in one offline HTML file (`DEMO.md` tells a player how to play it). The pack validates (`norns validate`, checked against VEFR `main` 947eec0). The art tools have tests (`art/tests/`).
 
 **Engine, now in VEFR `main`:** the rules engine (eleven events: starts, enters, comes-near, opens, picks-up, defeats, buys, sells, reads, phase-changes, uses-with), `keep` items, the Why-did-that-happen and Where-next panels. See `../vefr/docs/guides/rules.md`. Cottage declares two rules so far (`the-letter-read`, `the-keeper-knows`; the letter in the chest, then the Spell Keeper).
 

@@ -33,10 +33,12 @@
     }
   },
   "pois": {
-    "32,28": "the stair up"
+    "32,28": "the stair up",
+    "2,2": "the stair down"
   },
   "poi_text": {
-    "32,28": "Steps climb back toward the day."
+    "32,28": "Steps climb back toward the day.",
+    "2,2": "Steps drop into the dark."
   },
   "sanctuary_tiles": [],
   "water_by_phase": {},
