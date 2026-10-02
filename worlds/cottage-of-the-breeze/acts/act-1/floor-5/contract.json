@@ -1,0 +1,227 @@
+{
+  "tile": 32,
+  "bg": "#0d0f12",
+  "hero_start": [
+    44,
+    18
+  ],
+  "legend": {
+    "#": {
+      "base": [
+        "#20242b"
+      ],
+      "solid": true,
+      "tile": "dungeon-wall"
+    },
+    ".": {
+      "base": [
+        "#1a1d22"
+      ],
+      "tile": "dungeon-floor"
+    },
+    "u": {
+      "base": [
+        "#2b2f38"
+      ],
+      "tile": "dungeon-stairs-up"
+    },
+    "d": {
+      "base": [
+        "#2b2f38"
+      ],
+      "tile": "dungeon-stairs-down"
+    }
+  },
+  "pois": {
+    "44,18": "the stair up",
+    "16,16": "the stair down"
+  },
+  "poi_text": {
+    "44,18": "Steps climb back toward the day.",
+    "16,16": "Steps drop into the dark."
+  },
+  "sanctuary_tiles": [],
+  "water_by_phase": {},
+  "flood_tiles": [],
+  "watch": {},
+  "hero_color": "#e8e5df",
+  "speaker_color": "#8b939c",
+  "speaker_head": "#d8d5df",
+  "fog": {
+    "radius": 4
+  },
+  "enemies": [
+    {
+      "name": "a deep shade",
+      "sprite": "shade",
+      "hp": 8,
+      "atk": 2,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-5-deep-1",
+      "at": [
+        24,
+        8
+      ]
+    },
+    {
+      "name": "a deep shade",
+      "sprite": "shade",
+      "hp": 8,
+      "atk": 2,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-5-deep-2",
+      "at": [
+        35,
+        28
+      ]
+    },
+    {
+      "name": "a deep shade",
+      "sprite": "shade",
+      "hp": 8,
+      "atk": 2,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-5-deep-3",
+      "at": [
+        21,
+        29
+      ]
+    },
+    {
+      "name": "a deep shade",
+      "sprite": "shade",
+      "hp": 8,
+      "atk": 2,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-5-deep-4",
+      "at": [
+        33,
+        15
+      ]
+    },
+    {
+      "name": "a loud rustle",
+      "sprite": "rustle",
+      "hp": 5,
+      "atk": 2,
+      "id": "floor-5-loud-1",
+      "at": [
+        2,
+        27
+      ]
+    },
+    {
+      "name": "a loud rustle",
+      "sprite": "rustle",
+      "hp": 5,
+      "atk": 2,
+      "id": "floor-5-loud-2",
+      "at": [
+        21,
+        6
+      ]
+    },
+    {
+      "name": "a howling rustle",
+      "sprite": "rustle",
+      "hp": 8,
+      "atk": 2,
+      "id": "floor-5-howl-1",
+      "at": [
+        32,
+        25
+      ]
+    },
+    {
+      "name": "a howling rustle",
+      "sprite": "rustle",
+      "hp": 8,
+      "atk": 2,
+      "id": "floor-5-howl-2",
+      "at": [
+        37,
+        17
+      ]
+    },
+    {
+      "name": "a nest of moths",
+      "sprite": "moths",
+      "hp": 4,
+      "atk": 1,
+      "id": "floor-5-moths-1",
+      "at": [
+        7,
+        17
+      ]
+    },
+    {
+      "name": "a nest of moths",
+      "sprite": "moths",
+      "hp": 4,
+      "atk": 1,
+      "id": "floor-5-moths-2",
+      "at": [
+        23,
+        26
+      ]
+    },
+    {
+      "name": "a nest of moths",
+      "sprite": "moths",
+      "hp": 4,
+      "atk": 1,
+      "id": "floor-5-moths-3",
+      "at": [
+        39,
+        14
+      ]
+    },
+    {
+      "name": "a fat cellar rat",
+      "sprite": "rat",
+      "hp": 6,
+      "atk": 1,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-5-fat-1",
+      "at": [
+        5,
+        24
+      ]
+    },
+    {
+      "name": "a fat cellar rat",
+      "sprite": "rat",
+      "hp": 6,
+      "atk": 1,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-5-fat-2",
+      "at": [
+        43,
+        27
+      ]
+    },
+    {
+      "name": "a damp shade",
+      "sprite": "shade",
+      "hp": 5,
+      "atk": 1,
+      "id": "floor-5-shade-1",
+      "at": [
+        29,
+        28
+      ]
+    }
+  ]
+}
