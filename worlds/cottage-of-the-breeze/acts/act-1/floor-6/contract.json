@@ -61,7 +61,8 @@
       "at": [
         43,
         22
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a deep shade",
@@ -75,7 +76,8 @@
       "at": [
         39,
         9
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a deep shade",
@@ -89,7 +91,8 @@
       "at": [
         35,
         23
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a hollow shade",
@@ -103,7 +106,8 @@
       "at": [
         5,
         15
-      ]
+      ],
+      "xp": 18
     },
     {
       "name": "a hollow shade",
@@ -117,7 +121,8 @@
       "at": [
         34,
         14
-      ]
+      ],
+      "xp": 18
     },
     {
       "name": "a howling rustle",
@@ -128,7 +133,8 @@
       "at": [
         14,
         10
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a howling rustle",
@@ -139,7 +145,8 @@
       "at": [
         15,
         2
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a howling rustle",
@@ -150,7 +157,8 @@
       "at": [
         43,
         10
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a loud rustle",
@@ -161,7 +169,8 @@
       "at": [
         16,
         18
-      ]
+      ],
+      "xp": 5
     },
     {
       "name": "a loud rustle",
@@ -172,7 +181,8 @@
       "at": [
         11,
         3
-      ]
+      ],
+      "xp": 5
     },
     {
       "name": "a nest of moths",
@@ -183,7 +193,8 @@
       "at": [
         38,
         21
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "a nest of moths",
@@ -194,7 +205,8 @@
       "at": [
         26,
         22
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "a nest of moths",
@@ -205,7 +217,8 @@
       "at": [
         18,
         9
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "a fat cellar rat",
@@ -219,7 +232,8 @@
       "at": [
         34,
         19
-      ]
+      ],
+      "xp": 3
     },
     {
       "name": "a fat cellar rat",
@@ -233,7 +247,8 @@
       "at": [
         2,
         13
-      ]
+      ],
+      "xp": 3
     }
   ]
 }
