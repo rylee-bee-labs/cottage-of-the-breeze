@@ -24,7 +24,7 @@ Read `README.md`, then `.project/CURRENT.md` (where things stand).
 - **Every sitting ends with something alive:** a playable build, a book,
   a map, a note. Validate the pack after every pack edit (see Commands).
 - Art: originals and their prompts go in `art/source/`.
-- **Art we ship is art we made** (Rylee, 2026-10-02). We may distribute what we generate, and every piece is attributed (keep each `.credits.txt`). **Kenney is for prototyping only; never ship it.** **LimeZu** was bought to support the artist: use it only in a project Rylee names, with attribution. Neither is used in Cottage. Older "training: not cleared" or "not final art" notes in `art/` are stale for distribution (they are not rewritten; this rule wins).
+- **Art we ship is art we made** (Rylee, 2026-10-02). We may distribute what we generate, and every piece is attributed (keep each `.credits.txt`). **Kenney is for prototyping only; never ship it.** **LimeZu** was bought to support the artist: use it only in a project Rylee names, with attribution. Neither is used in Cottage (the vendored Kenney sheets were removed 2026-10-02). If we need new sheets we generate them: Codex first, then Wan. Older "training: not cleared" or "not final art" notes in `art/` are stale for distribution (they are not rewritten; this rule wins).
 
 ## Map
 
@@ -36,7 +36,6 @@ Read `README.md`, then `.project/CURRENT.md` (where things stand).
 | `NOTES.md` | decisions + playtest notes, newest first | yes, before deciding anything |
 | `.project/CURRENT.md` | stage + the one next step | yes, at session start |
 | `worlds/cottage-of-the-breeze/` | the VEFR pack (`world.json`, `acts/`, `voices/`, `library/`, `logbok.md`) | yes, for pack work |
-| `worlds/cottage-of-the-breeze/assets/kenney/` | vendored CC0 tile sheets, **unused, prototyping only** (see the art rule above) | no |
 | `worlds/cottage-of-the-breeze/LICENSE` | CC0 terms for the Emberfield scaffold content | before reusing scaffold content |
 | `art/source/`, `art/mood/` | originals + their prompts; mood references | for art work |
 | `LICENSE.md` | all rights reserved, except the CC0 scaffold | before adding third-party content |
