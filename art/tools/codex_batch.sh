@@ -27,7 +27,7 @@ echo "$NAME: asked $N, got $got, tokens $tokens"
 i=1
 for f in $new; do
   cp "$f" "$OUT/${NAME}_v$i.png"
-  printf '%s_v%s.png · Rylee and Claude · tool: %s · references: %s · prompt: %s · %s · training: not cleared (see docs/research/2026-10-01-training-on-hosted-output-terms.md in the estate repo) · status: draft (not approved)\n' \
+  printf '%s_v%s.png · Rylee and Claude · tool: %s · references: %s · prompt: %s · %s · status: draft (not approved)\n' \
     "$NAME" "$i" "$TOOL" "${*:-none}" "$BRIEF" "$(date +%F)" > "$OUT/${NAME}_v$i.credits.txt"
   i=$((i+1))
 done
