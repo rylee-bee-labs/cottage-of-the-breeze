@@ -71,6 +71,14 @@ PACK="$(git rev-parse --show-toplevel)/worlds/cottage-of-the-breeze"
 cd ~/code/Rylee-Bee/vefr && uv run norns validate --pack "$PACK"
 ```
 
+## Publishing a playable build
+
+`bin/publish-build.sh` weaves the pack into one HTML file and posts it to the dev
+gallery (`https://gallery.hulganfamily.duckdns.org/cottage-of-the-breeze/`). The
+dev VM's ssh key is not accepted by the gallery stage host, so the script copies
+the file to Bazzite and publishes from there (needs `ssh bazzite`). Run it after
+a merge, so the build's sha is a real commit.
+
 ## Boundaries
 
 - **VEFR** (`../vefr/`, separate repo): the engine consumes this pack
