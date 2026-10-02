@@ -8,6 +8,7 @@ PACK="$ROOT/worlds/cottage-of-the-breeze"
 SHA="$(git -C "$ROOT" rev-parse --short HEAD)"
 OUT="$(mktemp -d)"
 trap 'rm -rf "$OUT"' EXIT
+chmod 755 "$OUT"   # mktemp makes 0700; the gallery copies the mode and nginx then cannot read it
 ( cd ~/code/Rylee-Bee/vefr && uv run python -c "
 import sys; from pathlib import Path; from vefr import cli
 Path(sys.argv[2], 'index.html').write_text(cli.weave_html(Path(sys.argv[1])))" "$PACK" "$OUT" )
