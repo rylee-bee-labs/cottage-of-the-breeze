@@ -26,7 +26,7 @@
 
 ## Next, in order
 
-1. VEFR (see `../vefr/.project/CURRENT.md`): quiet UI + corner panel, smaller hop, Trade closes with E/F, WASD.
+1. ~~VEFR: quiet UI, smaller hop, Trade closes with E/F, WASD, the declutter~~ **done** (see `../vefr/.project/CURRENT.md`).
 2. VEFR: the locked stair (`requires`) and the guardian ladder (`../vefr/design/gates-and-guardians.md`, proposed), then turn stakes on and tune; put the picked guardians and the Cellar King on floors 1-6.
 3. VEFR: the album (`../vefr/design/album.md`, proposed). Then equipment (`../vefr/design/equipment.md`), per-run floors, a real act 2 (ADR 0006).
 4. Cottage-side meanwhile: more reactions (Cat, Regular, Smith) with existing rules; art pass (door, plainer dungeon wall for floors 4-6, equipment icons, more monsters; Codex first, then Wan; all attributed).
