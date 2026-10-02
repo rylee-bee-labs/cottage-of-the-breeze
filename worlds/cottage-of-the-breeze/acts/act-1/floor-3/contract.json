@@ -60,7 +60,8 @@
       ],
       "hp": 3,
       "atk": 1,
-      "sprite": "rustle"
+      "sprite": "rustle",
+      "xp": 2
     },
     {
       "id": "floor-3-rat2",
@@ -71,7 +72,8 @@
       ],
       "hp": 4,
       "atk": 1,
-      "sprite": "rat"
+      "sprite": "rat",
+      "xp": 2
     },
     {
       "name": "a damp shade",
@@ -82,7 +84,8 @@
       "at": [
         6,
         27
-      ]
+      ],
+      "xp": 3
     },
     {
       "name": "a damp shade",
@@ -93,7 +96,8 @@
       "at": [
         26,
         24
-      ]
+      ],
+      "xp": 3
     },
     {
       "name": "a damp shade",
@@ -104,7 +108,8 @@
       "at": [
         38,
         21
-      ]
+      ],
+      "xp": 3
     },
     {
       "name": "a deep shade",
@@ -118,7 +123,8 @@
       "at": [
         42,
         8
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a deep shade",
@@ -132,7 +138,8 @@
       "at": [
         26,
         9
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a loud rustle",
@@ -143,7 +150,8 @@
       "at": [
         31,
         21
-      ]
+      ],
+      "xp": 5
     },
     {
       "name": "a loud rustle",
@@ -154,7 +162,8 @@
       "at": [
         3,
         10
-      ]
+      ],
+      "xp": 5
     },
     {
       "name": "a nest of moths",
@@ -165,7 +174,8 @@
       "at": [
         19,
         8
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "a nest of moths",
@@ -176,7 +186,8 @@
       "at": [
         27,
         14
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "a fat cellar rat",
@@ -190,7 +201,8 @@
       "at": [
         5,
         7
-      ]
+      ],
+      "xp": 3
     }
   ]
 }

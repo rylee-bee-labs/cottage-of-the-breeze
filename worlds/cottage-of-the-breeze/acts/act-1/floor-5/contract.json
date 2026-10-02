@@ -63,7 +63,8 @@
       "at": [
         24,
         8
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a deep shade",
@@ -77,7 +78,8 @@
       "at": [
         35,
         28
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a deep shade",
@@ -91,7 +93,8 @@
       "at": [
         21,
         29
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a deep shade",
@@ -105,7 +108,8 @@
       "at": [
         33,
         15
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a loud rustle",
@@ -116,7 +120,8 @@
       "at": [
         2,
         27
-      ]
+      ],
+      "xp": 5
     },
     {
       "name": "a loud rustle",
@@ -127,7 +132,8 @@
       "at": [
         21,
         6
-      ]
+      ],
+      "xp": 5
     },
     {
       "name": "a howling rustle",
@@ -138,7 +144,8 @@
       "at": [
         32,
         25
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a howling rustle",
@@ -149,7 +156,8 @@
       "at": [
         37,
         17
-      ]
+      ],
+      "xp": 8
     },
     {
       "name": "a nest of moths",
@@ -160,7 +168,8 @@
       "at": [
         7,
         17
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "a nest of moths",
@@ -171,7 +180,8 @@
       "at": [
         23,
         26
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "a nest of moths",
@@ -182,7 +192,8 @@
       "at": [
         39,
         14
-      ]
+      ],
+      "xp": 2
     },
     {
       "name": "a fat cellar rat",
@@ -196,7 +207,8 @@
       "at": [
         5,
         24
-      ]
+      ],
+      "xp": 3
     },
     {
       "name": "a fat cellar rat",
@@ -210,7 +222,8 @@
       "at": [
         43,
         27
-      ]
+      ],
+      "xp": 3
     },
     {
       "name": "a damp shade",
@@ -221,7 +234,8 @@
       "at": [
         29,
         28
-      ]
+      ],
+      "xp": 3
     }
   ]
 }
