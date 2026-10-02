@@ -70,6 +70,125 @@
       "hp": 4,
       "atk": 1,
       "sprite": "rat"
+    },
+    {
+      "name": "a damp shade",
+      "sprite": "shade",
+      "hp": 5,
+      "atk": 1,
+      "id": "floor-3-shade-1",
+      "at": [
+        6,
+        27
+      ]
+    },
+    {
+      "name": "a damp shade",
+      "sprite": "shade",
+      "hp": 5,
+      "atk": 1,
+      "id": "floor-3-shade-2",
+      "at": [
+        26,
+        24
+      ]
+    },
+    {
+      "name": "a damp shade",
+      "sprite": "shade",
+      "hp": 5,
+      "atk": 1,
+      "id": "floor-3-shade-3",
+      "at": [
+        38,
+        21
+      ]
+    },
+    {
+      "name": "a deep shade",
+      "sprite": "shade",
+      "hp": 8,
+      "atk": 2,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-3-deep-1",
+      "at": [
+        42,
+        8
+      ]
+    },
+    {
+      "name": "a deep shade",
+      "sprite": "shade",
+      "hp": 8,
+      "atk": 2,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-3-deep-2",
+      "at": [
+        26,
+        9
+      ]
+    },
+    {
+      "name": "a loud rustle",
+      "sprite": "rustle",
+      "hp": 5,
+      "atk": 2,
+      "id": "floor-3-loud-1",
+      "at": [
+        31,
+        21
+      ]
+    },
+    {
+      "name": "a loud rustle",
+      "sprite": "rustle",
+      "hp": 5,
+      "atk": 2,
+      "id": "floor-3-loud-2",
+      "at": [
+        3,
+        10
+      ]
+    },
+    {
+      "name": "a nest of moths",
+      "sprite": "moths",
+      "hp": 3,
+      "atk": 1,
+      "id": "floor-3-moths-1",
+      "at": [
+        19,
+        8
+      ]
+    },
+    {
+      "name": "a nest of moths",
+      "sprite": "moths",
+      "hp": 3,
+      "atk": 1,
+      "id": "floor-3-moths-2",
+      "at": [
+        27,
+        14
+      ]
+    },
+    {
+      "name": "a fat cellar rat",
+      "sprite": "rat",
+      "hp": 6,
+      "atk": 1,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-3-fat-1",
+      "at": [
+        5,
+        7
+      ]
     }
   ]
 }
