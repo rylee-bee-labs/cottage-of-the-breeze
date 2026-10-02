@@ -50,205 +50,205 @@
   },
   "enemies": [
     {
+      "id": "floor-6-deep-1",
       "name": "a deep shade",
       "sprite": "shade",
-      "hp": 8,
-      "atk": 2,
-      "drops": [
-        "cloudy-potion"
-      ],
-      "id": "floor-6-deep-1",
       "at": [
         43,
         22
       ],
-      "xp": 8
-    },
-    {
-      "name": "a deep shade",
-      "sprite": "shade",
       "hp": 8,
       "atk": 2,
+      "xp": 8,
       "drops": [
         "cloudy-potion"
-      ],
+      ]
+    },
+    {
       "id": "floor-6-deep-2",
+      "name": "a deep shade",
+      "sprite": "shade",
       "at": [
         39,
         9
       ],
-      "xp": 8
-    },
-    {
-      "name": "a deep shade",
-      "sprite": "shade",
       "hp": 8,
       "atk": 2,
+      "xp": 8,
       "drops": [
         "cloudy-potion"
-      ],
+      ]
+    },
+    {
       "id": "floor-6-deep-3",
+      "name": "a deep shade",
+      "sprite": "shade",
       "at": [
         35,
         23
       ],
-      "xp": 8
-    },
-    {
-      "name": "a hollow shade",
-      "sprite": "shade",
-      "hp": 12,
-      "atk": 3,
+      "hp": 8,
+      "atk": 2,
+      "xp": 8,
       "drops": [
         "cloudy-potion"
-      ],
+      ]
+    },
+    {
       "id": "floor-6-hollow-1",
+      "name": "a hollow shade",
+      "sprite": "shade",
       "at": [
         5,
         15
       ],
-      "xp": 18
-    },
-    {
-      "name": "a hollow shade",
-      "sprite": "shade",
       "hp": 12,
       "atk": 3,
+      "xp": 18,
       "drops": [
         "cloudy-potion"
-      ],
+      ]
+    },
+    {
       "id": "floor-6-hollow-2",
+      "name": "a hollow shade",
+      "sprite": "shade",
       "at": [
         34,
         14
       ],
-      "xp": 18
+      "hp": 12,
+      "atk": 3,
+      "xp": 18,
+      "drops": [
+        "cloudy-potion"
+      ]
     },
     {
+      "id": "floor-6-howl-1",
       "name": "a howling rustle",
       "sprite": "rustle",
-      "hp": 8,
-      "atk": 2,
-      "id": "floor-6-howl-1",
       "at": [
         14,
         10
       ],
+      "hp": 8,
+      "atk": 2,
       "xp": 8
     },
     {
+      "id": "floor-6-howl-2",
       "name": "a howling rustle",
       "sprite": "rustle",
-      "hp": 8,
-      "atk": 2,
-      "id": "floor-6-howl-2",
       "at": [
         15,
         2
       ],
+      "hp": 8,
+      "atk": 2,
       "xp": 8
     },
     {
+      "id": "floor-6-howl-3",
       "name": "a howling rustle",
       "sprite": "rustle",
-      "hp": 8,
-      "atk": 2,
-      "id": "floor-6-howl-3",
       "at": [
         43,
         10
       ],
+      "hp": 8,
+      "atk": 2,
       "xp": 8
     },
     {
+      "id": "floor-6-loud-1",
       "name": "a loud rustle",
       "sprite": "rustle",
-      "hp": 5,
-      "atk": 2,
-      "id": "floor-6-loud-1",
       "at": [
         16,
         18
       ],
+      "hp": 5,
+      "atk": 2,
       "xp": 5
     },
     {
+      "id": "floor-6-loud-2",
       "name": "a loud rustle",
       "sprite": "rustle",
-      "hp": 5,
-      "atk": 2,
-      "id": "floor-6-loud-2",
       "at": [
         11,
         3
       ],
+      "hp": 5,
+      "atk": 2,
       "xp": 5
     },
     {
+      "id": "floor-6-moths-1",
       "name": "a nest of moths",
       "sprite": "moths",
-      "hp": 4,
-      "atk": 1,
-      "id": "floor-6-moths-1",
       "at": [
         38,
         21
       ],
+      "hp": 4,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-6-moths-2",
       "name": "a nest of moths",
       "sprite": "moths",
-      "hp": 4,
-      "atk": 1,
-      "id": "floor-6-moths-2",
       "at": [
         26,
         22
       ],
+      "hp": 4,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-6-moths-3",
       "name": "a nest of moths",
       "sprite": "moths",
-      "hp": 4,
-      "atk": 1,
-      "id": "floor-6-moths-3",
       "at": [
         18,
         9
       ],
+      "hp": 4,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-6-fat-1",
       "name": "a fat cellar rat",
       "sprite": "rat",
-      "hp": 6,
-      "atk": 1,
-      "drops": [
-        "cloudy-potion"
-      ],
-      "id": "floor-6-fat-1",
       "at": [
         34,
         19
       ],
-      "xp": 3
-    },
-    {
-      "name": "a fat cellar rat",
-      "sprite": "rat",
       "hp": 6,
       "atk": 1,
+      "xp": 3,
       "drops": [
         "cloudy-potion"
-      ],
+      ]
+    },
+    {
       "id": "floor-6-fat-2",
+      "name": "a fat cellar rat",
+      "sprite": "rat",
       "at": [
         2,
         13
       ],
-      "xp": 3
+      "hp": 6,
+      "atk": 1,
+      "xp": 3,
+      "drops": [
+        "cloudy-potion"
+      ]
     }
   ]
 }
