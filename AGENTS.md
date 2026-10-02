@@ -36,6 +36,7 @@ Read `README.md`, then `.project/CURRENT.md` (where things stand).
 | `NOTES.md` | decisions + playtest notes, newest first | yes, before deciding anything |
 | `.project/CURRENT.md` | stage + the one next step | yes, at session start |
 | `worlds/cottage-of-the-breeze/` | the VEFR pack (`world.json`, `acts/`, `voices/`, `library/`, `logbok.md`) | yes, for pack work |
+| `worlds/cottage-of-the-breeze/skins/parchment-and-wood/` | the game's interface pictures (19 files + `skin.json`), declared by `"skin"` in `world.json`; source and raw textures in `art/skins/` | for skin work |
 | `worlds/cottage-of-the-breeze/LICENSE` | CC0 terms for the Emberfield scaffold content | before reusing scaffold content |
 | `art/source/`, `art/mood/` | originals + their prompts; mood references | for art work |
 | `LICENSE.md` | all rights reserved, except the CC0 scaffold | before adding third-party content |
