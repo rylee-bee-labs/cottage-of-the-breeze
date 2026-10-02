@@ -23,7 +23,7 @@ concurrency:
 
 env:
   # The VEFR commit this pack is validated against.
-  VEFR_REF: 160602e30d637d91e2b3f63e018fe188d152079c
+  VEFR_REF: a916ce43a7310a6d77528f40f9cc57cca95a6b93
 
 jobs:
   validate:
