@@ -1,7 +1,9 @@
 # CURRENT — Cottage of the Breeze
 
-**Stage: playable prototype with the new look** (2026-10-01). Six rooms, seven residents, five monsters with art, three fogged cellar floors, a trader, notes and a chest, all in one offline HTML file (`DEMO.md` tells a player how to play it). The pack validates (`norns validate`). The new art (rounds 7 to 10) is in `art/source/`, with game-ready cuts and tools in `art/`.
+**Stage: playable prototype with the new look** (2026-10-02). Six rooms, seven residents, five monsters with art, three fogged cellar floors, a trader, notes and a chest, all in one offline HTML file (`DEMO.md` tells a player how to play it). The pack validates (`norns validate`, checked against VEFR `main` 947eec0). The art tools have tests (`art/tests/`).
 
-**The one next step:** the story passes (four notes and scenes, listed in `docs/story-spine-notes.md`, written for Rylee to choose from one at a time), then the plan in `docs/GAME-PLAN.md` (reactions and rules, equipment and stakes, random floors, more world, polish). See `NOTES.md` (newest first) for decisions.
+**Engine, now in VEFR `main`:** the rules engine (eleven events: starts, enters, comes-near, opens, picks-up, defeats, buys, sells, reads, phase-changes, uses-with), `keep` items, the Why-did-that-happen and Where-next panels. See `../vefr/docs/guides/rules.md`. **Cottage declares no rules yet** (`world.json` has none).
 
-**Engine work queued (in `../vefr/`):** the Library ruleset, then Delve (check `../vefr/ROADMAP.md`; some of this may have landed since).
+**Not in the engine yet:** XP and levels, equipment slots (`design/equipment.md`, proposed), random floors (`design/random-floors.md`, proposed). Rylee wants classic XP and learn-by-doing both built as neutral VEFR capabilities, with Cottage using classic XP (2026-10-02).
+
+**The one next step:** wire the first reactions (the letter, then the Keeper), and design growth with Rylee. Plan: `docs/GAME-PLAN.md`; story passes: `docs/story-spine-notes.md`; decisions: `NOTES.md` (newest first).

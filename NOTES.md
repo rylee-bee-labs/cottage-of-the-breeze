@@ -1,5 +1,12 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-02 — growth and the day's goal (Rylee)
+
+Her goal for the day: "a full 1-2 act structure with multiple mobs, working inventory, and a loop that feels rewarding, some kind of experience/learning/growing methodology." On growth she chose: "can we wire in classic xp and growth and learn-by-doing into the engine, but I think that cottage should be standard. just don't lose the learn by doing.. that's important for another game I'm working on". So VEFR gets both as neutral capabilities; Cottage uses classic XP. She also asked to start with "repo health/docs/engine in offload foremen so we can work on the structure together".
+
+- **Docs brought in line (agent):** `AGENTS.md` (art tests exist), `.project/CURRENT.md` (engine landed, Cottage has no rules yet), `docs/GAME-PLAN.md` (rules no longer blocked).
+- **Claude's note:** an offload research worker failed on this VM (`no MiniMax key`); engine foremen should run on Bazzite.
+
 ## 2026-10-01 (evening) — Rylee's first playtest of the demo
 
 Her words, in order: "the humonguously big cat made me giggle." "the little bugs were kinda fun." "the first book renders when you leave the house, so you have to walk over your front door (something with the internal vs external cells)." "the wander around and fight things loop feels VERY castle of the winds to me, which I consider a win." "the ui is... coming along <3.... it just really tickles me. the notes, the characters, the items. I can't wait to make it a full thing."

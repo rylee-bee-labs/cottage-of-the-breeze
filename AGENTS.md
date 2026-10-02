@@ -46,8 +46,15 @@ meant to be replaced by Rylee's own content. Don't polish it as if it were canon
 
 ## Commands
 
-This repo has no build, tests or CI of its own. The one check is VEFR's
-pack validator, run from the VEFR checkout:
+The pack's check is VEFR's validator, run from the VEFR checkout. The art
+tools in `art/tools/` have their own unit tests (run those when you touch
+them):
+
+```sh
+uv run --offline --with pillow python -m unittest discover -s art/tests -t .
+```
+
+There is no CI. Validate the pack:
 
 ```sh
 cd ../vefr
