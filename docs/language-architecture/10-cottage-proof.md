@@ -16,9 +16,11 @@ uv run --group test python experiments/language-proof/run.py \
   floor repeat/dressing independence/reachability: PASS
 ```
 
+The runner's "exact equality" is Python `==` on parsed JSON: structural equality (key order ignored, list order significant), not byte equality. See `07-migration-options.md` in the VEFR packet.
+
 ## What each probe shows on this pack
 
-- **A, families:** the three `floor-2` shades expand exactly from one family plus instances. The repeated scalars are `name, sprite, hp, atk, xp` x two extra copies = 10 occurrences removed (derived from the table in `02`). Current validation accepts the result.
+- **A, families:** the three `floor-2` shades expand to structurally equal records from one family plus instances. The repeated scalars are `name, sprite, hp, atk, xp` x two extra copies = 10 occurrences removed (derived from the table in `02`). Current validation accepts the result.
 - **B, rules:** `the-keeper-knows` lowers to identical rule JSON and behaves identically in the shipped engine and woven-player DOM, including `once`, ordering, state, speech and why. `the-letter-read` was **not** run: `UNVERIFIED`.
 - **C, floors:** unchanged `generate_floor_v2`; separate layout and dressing seeds; stairs reachable; impossible placement and unsupported controls fail. The ending was synthetic because no authored ending room exists in this pack.
 
@@ -28,7 +30,7 @@ The WHY log survives a reload; rule flags and `once` markers do not. Reproduced 
 
 ## Fit
 
-Cottage's creature records are the one place the layer clearly shrinks the pack. Its two rules and growth table need no change. A first Cottage migration step, if authorized, is creature families only, behind byte-equality fixtures against today's contracts.
+Cottage's creature records are the one place the layer clearly shrinks the pack. Its two rules and growth table need no change. A first Cottage migration step, if authorized, is creature families only, behind structural-equality fixtures against today's contracts (parsed JSON equal; key order ignored, list order significant).
 
 ## From Codex's private packet (received 2026-10-02, checked against this repo)
 
