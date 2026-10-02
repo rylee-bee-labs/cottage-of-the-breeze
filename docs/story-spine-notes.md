@@ -27,7 +27,7 @@ The tavern is "cozy but wary of you". The Spell Keeper "gives you a little disco
 | Someone went down on purpose and meant to come back | The letter in the floor 1 chest | Yes (`a-letter-in-a-chest`); its author is not yet named |
 | **Truth one revealed:** the tavern burned to hold something down | A floor 2 note, then the Tavern Regular's line when asked after floor 2 | Not written |
 | **Truth two revealed:** the Keeper is the one who came back | The Keeper herself, after you carry the letter back to her | Not written |
-| **The realization:** the held-down thing is kindness | The last room at the bottom of floor 3 (a small warm travellers' room) | Not written |
+| **The realization:** the held-down thing is kindness | The room the Cellar King's seal opens, after he falls (Rylee, 2026-10-02: a treasure room with a lore note and a "back to town", before the next set of dungeons). Floor 3 is no longer the bottom. | Not written |
 | The ending: the cottage gains a lit window; the town is a little warmer | After the last room: a short ending and a sticker | Not written |
 
 ## What the other residents are for (proposed)
