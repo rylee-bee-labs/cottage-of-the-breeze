@@ -1,0 +1,45 @@
+name: validate-pack
+
+# E15: product-specific validation gate. Runs the documented VEFR pack
+# validator (`norns validate`, see AGENTS.md "Commands") so an invalid
+# pack fails CI. VEFR is fetched from its public repo at a pinned SHA:
+# no local checkout, symlink, or personal path is assumed, so this works
+# on a clean clone and on any runner.
+#
+# Bumping VEFR_REF is deliberate: re-run the validator locally first, so
+# pack/engine drift is a conscious change rather than a surprise.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-pack-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # The VEFR commit this pack is validated against.
+  VEFR_REF: 160602e30d637d91e2b3f63e018fe188d152079c
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
+        with:
+          version: "latest"
+
+      - name: Validate the pack (pinned VEFR)
+        run: >-
+          uvx --no-progress
+          --from "vefr @ git+https://github.com/Rylee-Bee/vefr@${VEFR_REF}"
+          norns validate --pack worlds/cottage-of-the-breeze
