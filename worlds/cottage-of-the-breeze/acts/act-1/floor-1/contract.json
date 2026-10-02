@@ -73,6 +73,64 @@
         "cloudy-potion"
       ],
       "sprite": "rat"
+    },
+    {
+      "name": "a cellar rat",
+      "sprite": "rat",
+      "hp": 4,
+      "atk": 1,
+      "id": "floor-1-rat-1",
+      "at": [
+        10,
+        11
+      ]
+    },
+    {
+      "name": "a cellar rat",
+      "sprite": "rat",
+      "hp": 4,
+      "atk": 1,
+      "id": "floor-1-rat-2",
+      "at": [
+        19,
+        3
+      ]
+    },
+    {
+      "name": "a cellar rat",
+      "sprite": "rat",
+      "hp": 4,
+      "atk": 1,
+      "id": "floor-1-rat-3",
+      "at": [
+        21,
+        9
+      ]
+    },
+    {
+      "name": "a fat cellar rat",
+      "sprite": "rat",
+      "hp": 6,
+      "atk": 1,
+      "drops": [
+        "cloudy-potion"
+      ],
+      "id": "floor-1-fat-1",
+      "at": [
+        27,
+        5
+      ]
+    },
+    {
+      "name": "a nest of moths",
+      "sprite": "moths",
+      "hp": 3,
+      "atk": 1,
+      "id": "floor-1-moths-1",
+      "at": [
+        8,
+        8
+      ]
     }
   ]
 }
