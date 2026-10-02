@@ -18,8 +18,8 @@
 
 ## Waiting on Rylee (nothing here is canon until she says)
 
-- Pick the guardian pictures (the Reeve mole, Bailiff moth, Warden mushroom, Marshal beetle, Seneschal rat-steward) and say if the Seneschal stays a rat. Court names are her pick (2026-10-02).
-- Where the story's "last room" (the realization) sits now that act 1 ends with the Cellar King.
+- ~~Guardian pictures~~ **Approved ("the guardians are great", 2026-10-02).** Cut them to 128/256 px sprites when the guardians are wired.
+- ~~Where the last room sits~~ **Decided (Rylee, 2026-10-02):** the Cellar King's seal opens a treasure room with a lore note and a way back to town, before act 2. Still hers: the lore note's words, what the treasure is.
 - Sticker names/secrets for the album; whether the first locked stair is floor 3 to 4 or the way out.
 - Tune the level curve and monster stats by playing (all first guesses).
 - Story passes still unwritten: floor-2 note (truth one), the Keeper after the letter (truth two, draft exists), the last room, the ending (`docs/story-spine-notes.md`).
