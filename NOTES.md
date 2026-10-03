@@ -1,5 +1,10 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-02 (late) — art direction after the MiniMax test (Rylee)
+
+- **Her words:** "I think I prefer the codex character designs. I enjoy the storybook and the cuter concepts for the mobs vs realism." And of the dressed scarred-rat guardian (a MiniMax draft): "I did rather enjoy the v6 guard style though. That was pretty cute!" And: "you're also more than welcome to use codex, was just an experiment!"
+- **What that means (agent's reading):** cute, characterful storybook mobs are the target; Codex stays first choice for characters and creatures; MiniMax is for items and equipment (and cute-mob drafts when asked). Nothing from the test is in the pack. The recipe is in `art/STYLE.md` (PR for review).
+
 ## 2026-10-02 (late) — the language campaign, and the first lock (Rylee)
 
 - **Answers, in chat:** the first lock is **floor 3 to floor 4**; the key is **an actual key**; the guardians are "variants with names based on their art/abilities". Names are not chosen yet; nothing here is canon until she says.
