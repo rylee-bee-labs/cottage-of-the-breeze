@@ -16,27 +16,40 @@
         "hp": 3
       }
     },
+    "cellar-rat": {
+      "defaults": {
+        "name": "a cellar rat",
+        "sprite": "rat",
+        "hp": 4,
+        "atk": 1,
+        "xp": 2
+      }
+    },
     "fat-cellar-rat": {
       "defaults": {
         "name": "a fat cellar rat",
         "sprite": "rat",
         "hp": 6,
         "atk": 1,
-        "xp": 3
+        "xp": 3,
+        "drops": [
+          "cloudy-potion"
+        ]
       }
     },
-    "cellar-rat": {
-      "extends": "fat-cellar-rat",
+    "rustle": {
       "defaults": {
-        "name": "a cellar rat",
-        "hp": 4,
+        "name": "a rustle",
+        "sprite": "rustle",
+        "hp": 3,
+        "atk": 1,
         "xp": 2
       }
     },
     "loud-rustle": {
+      "extends": "rustle",
       "defaults": {
         "name": "a loud rustle",
-        "sprite": "rustle",
         "hp": 5,
         "atk": 2,
         "xp": 5
@@ -50,13 +63,13 @@
         "xp": 8
       }
     },
-    "rustle": {
-      "extends": "loud-rustle",
+    "damp-shade": {
       "defaults": {
-        "name": "a rustle",
-        "hp": 3,
+        "name": "a damp shade",
+        "sprite": "shade",
+        "hp": 5,
         "atk": 1,
-        "xp": 2
+        "xp": 3
       }
     },
     "deep-shade": {
@@ -65,16 +78,10 @@
         "sprite": "shade",
         "hp": 8,
         "atk": 2,
-        "xp": 8
-      }
-    },
-    "damp-shade": {
-      "extends": "deep-shade",
-      "defaults": {
-        "name": "a damp shade",
-        "hp": 5,
-        "atk": 1,
-        "xp": 3
+        "xp": 8,
+        "drops": [
+          "cloudy-potion"
+        ]
       }
     },
     "hollow-shade": {
@@ -133,12 +140,7 @@
           "at": [
             27,
             5
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-1-moths-1",
@@ -227,12 +229,7 @@
           "at": [
             39,
             29
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-2-rust-1",
@@ -292,12 +289,7 @@
           "at": [
             42,
             8
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-3-deep-2",
@@ -305,12 +297,7 @@
           "at": [
             26,
             9
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-3-loud-1",
@@ -350,12 +337,7 @@
           "at": [
             5,
             7
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         }
       ]
     },
@@ -367,12 +349,7 @@
           "at": [
             14,
             29
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-4-fat-2",
@@ -380,12 +357,7 @@
           "at": [
             16,
             18
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-4-deep-1",
@@ -393,12 +365,7 @@
           "at": [
             40,
             6
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-4-deep-2",
@@ -406,12 +373,7 @@
           "at": [
             38,
             9
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-4-deep-3",
@@ -419,12 +381,7 @@
           "at": [
             35,
             4
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-4-loud-1",
@@ -492,12 +449,7 @@
           "at": [
             24,
             8
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-5-deep-2",
@@ -505,12 +457,7 @@
           "at": [
             35,
             28
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-5-deep-3",
@@ -518,12 +465,7 @@
           "at": [
             21,
             29
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-5-deep-4",
@@ -531,12 +473,7 @@
           "at": [
             33,
             15
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-5-loud-1",
@@ -600,12 +537,7 @@
           "at": [
             5,
             24
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-5-fat-2",
@@ -613,12 +545,7 @@
           "at": [
             43,
             27
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-5-shade-1",
@@ -638,12 +565,7 @@
           "at": [
             43,
             22
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-6-deep-2",
@@ -651,12 +573,7 @@
           "at": [
             39,
             9
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-6-deep-3",
@@ -664,12 +581,7 @@
           "at": [
             35,
             23
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-6-hollow-1",
@@ -677,12 +589,7 @@
           "at": [
             5,
             15
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-6-hollow-2",
@@ -690,12 +597,7 @@
           "at": [
             34,
             14
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-6-howl-1",
@@ -767,12 +669,7 @@
           "at": [
             34,
             19
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         },
         {
           "id": "floor-6-fat-2",
@@ -780,12 +677,7 @@
           "at": [
             2,
             13
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
+          ]
         }
       ]
     }

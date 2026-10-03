@@ -1,7 +1,7 @@
 {
   "blueprint": 1,
   "normalizer": 1,
-  "source_sha256": "764bc714ccdbba2ad7d0be8adb088c682d96f32c2cbd12f81a2f5b2cb08b7c13",
+  "source_sha256": "29729063ef84940c2260c7edfc9e35b54c12e66b65693eb9ae1d951f7ea92fd7",
   "outputs": [
     {
       "file": "acts/act-1/floor-1/contract.json",
@@ -10,7 +10,6 @@
         {
           "source": "/regions/act-1~1floor-1/enemies/0",
           "families": [
-            "fat-cellar-rat",
             "cellar-rat"
           ],
           "overrides": [
@@ -20,7 +19,6 @@
         {
           "source": "/regions/act-1~1floor-1/enemies/1",
           "families": [
-            "fat-cellar-rat",
             "cellar-rat"
           ],
           "overrides": []
@@ -28,7 +26,6 @@
         {
           "source": "/regions/act-1~1floor-1/enemies/2",
           "families": [
-            "fat-cellar-rat",
             "cellar-rat"
           ],
           "overrides": []
@@ -36,7 +33,6 @@
         {
           "source": "/regions/act-1~1floor-1/enemies/3",
           "families": [
-            "fat-cellar-rat",
             "cellar-rat"
           ],
           "overrides": []
@@ -46,9 +42,7 @@
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-1/enemies/5",
@@ -67,7 +61,6 @@
         {
           "source": "/regions/act-1~1floor-2/enemies/0",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": [
@@ -85,7 +78,6 @@
         {
           "source": "/regions/act-1~1floor-2/enemies/2",
           "families": [
-            "fat-cellar-rat",
             "cellar-rat"
           ],
           "overrides": []
@@ -93,7 +85,6 @@
         {
           "source": "/regions/act-1~1floor-2/enemies/3",
           "families": [
-            "fat-cellar-rat",
             "cellar-rat"
           ],
           "overrides": []
@@ -117,7 +108,6 @@
         {
           "source": "/regions/act-1~1floor-2/enemies/6",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": []
@@ -125,7 +115,6 @@
         {
           "source": "/regions/act-1~1floor-2/enemies/7",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": []
@@ -135,14 +124,11 @@
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-2/enemies/9",
           "families": [
-            "loud-rustle",
             "rustle"
           ],
           "overrides": []
@@ -156,7 +142,6 @@
         {
           "source": "/regions/act-1~1floor-3/enemies/0",
           "families": [
-            "loud-rustle",
             "rustle"
           ],
           "overrides": []
@@ -164,7 +149,6 @@
         {
           "source": "/regions/act-1~1floor-3/enemies/1",
           "families": [
-            "fat-cellar-rat",
             "cellar-rat"
           ],
           "overrides": []
@@ -172,7 +156,6 @@
         {
           "source": "/regions/act-1~1floor-3/enemies/2",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": []
@@ -180,7 +163,6 @@
         {
           "source": "/regions/act-1~1floor-3/enemies/3",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": []
@@ -188,7 +170,6 @@
         {
           "source": "/regions/act-1~1floor-3/enemies/4",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": []
@@ -198,22 +179,19 @@
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-3/enemies/6",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-3/enemies/7",
           "families": [
+            "rustle",
             "loud-rustle"
           ],
           "overrides": []
@@ -221,6 +199,7 @@
         {
           "source": "/regions/act-1~1floor-3/enemies/8",
           "families": [
+            "rustle",
             "loud-rustle"
           ],
           "overrides": []
@@ -246,9 +225,7 @@
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         }
       ]
     },
@@ -261,49 +238,40 @@
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-4/enemies/1",
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-4/enemies/2",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-4/enemies/3",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-4/enemies/4",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-4/enemies/5",
           "families": [
+            "rustle",
             "loud-rustle"
           ],
           "overrides": []
@@ -311,6 +279,7 @@
         {
           "source": "/regions/act-1~1floor-4/enemies/6",
           "families": [
+            "rustle",
             "loud-rustle"
           ],
           "overrides": []
@@ -332,7 +301,6 @@
         {
           "source": "/regions/act-1~1floor-4/enemies/9",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": []
@@ -340,7 +308,6 @@
         {
           "source": "/regions/act-1~1floor-4/enemies/10",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": []
@@ -348,7 +315,6 @@
         {
           "source": "/regions/act-1~1floor-4/enemies/11",
           "families": [
-            "loud-rustle",
             "rustle"
           ],
           "overrides": []
@@ -364,40 +330,33 @@
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-5/enemies/1",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-5/enemies/2",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-5/enemies/3",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-5/enemies/4",
           "families": [
+            "rustle",
             "loud-rustle"
           ],
           "overrides": []
@@ -405,6 +364,7 @@
         {
           "source": "/regions/act-1~1floor-5/enemies/5",
           "families": [
+            "rustle",
             "loud-rustle"
           ],
           "overrides": []
@@ -412,6 +372,7 @@
         {
           "source": "/regions/act-1~1floor-5/enemies/6",
           "families": [
+            "rustle",
             "loud-rustle",
             "howling-rustle"
           ],
@@ -420,6 +381,7 @@
         {
           "source": "/regions/act-1~1floor-5/enemies/7",
           "families": [
+            "rustle",
             "loud-rustle",
             "howling-rustle"
           ],
@@ -451,23 +413,18 @@
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-5/enemies/12",
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-5/enemies/13",
           "families": [
-            "deep-shade",
             "damp-shade"
           ],
           "overrides": []
@@ -483,27 +440,21 @@
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-6/enemies/1",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-6/enemies/2",
           "families": [
             "deep-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-6/enemies/3",
@@ -511,9 +462,7 @@
             "deep-shade",
             "hollow-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-6/enemies/4",
@@ -521,13 +470,12 @@
             "deep-shade",
             "hollow-shade"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-6/enemies/5",
           "families": [
+            "rustle",
             "loud-rustle",
             "howling-rustle"
           ],
@@ -536,6 +484,7 @@
         {
           "source": "/regions/act-1~1floor-6/enemies/6",
           "families": [
+            "rustle",
             "loud-rustle",
             "howling-rustle"
           ],
@@ -544,6 +493,7 @@
         {
           "source": "/regions/act-1~1floor-6/enemies/7",
           "families": [
+            "rustle",
             "loud-rustle",
             "howling-rustle"
           ],
@@ -552,6 +502,7 @@
         {
           "source": "/regions/act-1~1floor-6/enemies/8",
           "families": [
+            "rustle",
             "loud-rustle"
           ],
           "overrides": []
@@ -559,6 +510,7 @@
         {
           "source": "/regions/act-1~1floor-6/enemies/9",
           "families": [
+            "rustle",
             "loud-rustle"
           ],
           "overrides": []
@@ -589,18 +541,14 @@
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-6/enemies/14",
           "families": [
             "fat-cellar-rat"
           ],
-          "overrides": [
-            "drops"
-          ]
+          "overrides": []
         }
       ]
     }
