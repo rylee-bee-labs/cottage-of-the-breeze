@@ -8,7 +8,7 @@
 ## 2026-10-02 (late) — the language campaign, and the first lock (Rylee)
 
 - **Answers, in chat:** the first lock is **floor 3 to floor 4**; the key is **an actual key**; the guardians are "variants with names based on their art/abilities". Names are not chosen yet; nothing here is canon until she says.
-- **Creature records now come from a Blueprint** (VEFR's new optional source). `blueprint.json` is the edited truth for the 69 monsters; the floor contracts' `enemies` lists are generated and read-only. The trial passed its exit threshold (508 authored values became 277, 45.5% fewer, every record equal to before, the woven game identical). She asked for it merged: PR #68.
+- **Creature records now come from a Blueprint** (VEFR's new optional source). `blueprint.json` is the edited truth for the 69 monsters; the floor contracts' `enemies` lists are generated and read-only. The trial passed its exit threshold (508 authored values became 277, 45.5% fewer, every record equal to before, the woven game identical). Follow-up (agent, for her review): the repeated potion drop moves into the families that carry it, 257 values (49.4% fewer), still every record equal and no floor contract changed. She asked for it merged: PR #68.
 - **Rule state survives a reload** (`saves.rules: persist`, `legacy: from-log`): a rule that fired stays fired, so a beat she already saw does not replay (PR #70). `from-log` uses the Why log, which keeps 20 entries, so an older beat could replay once.
 - **Published** for her demo: build `2026-10-02-8a48788` on the dev gallery.
 - The engine can lock a stair now (VEFR #229); Cottage does not use it yet.
