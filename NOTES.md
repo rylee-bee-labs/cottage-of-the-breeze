@@ -1,5 +1,13 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-02 (late) — the language campaign, and the first lock (Rylee)
+
+- **Answers, in chat:** the first lock is **floor 3 to floor 4**; the key is **an actual key**; the guardians are "variants with names based on their art/abilities". Names are not chosen yet; nothing here is canon until she says.
+- **Creature records now come from a Blueprint** (VEFR's new optional source). `blueprint.json` is the edited truth for the 69 monsters; the floor contracts' `enemies` lists are generated and read-only. The trial passed its exit threshold (508 authored values became 277, 45.5% fewer, every record equal to before, the woven game identical). She asked for it merged: PR #68.
+- **Rule state survives a reload** (`saves.rules: persist`, `legacy: from-log`): a rule that fired stays fired, so a beat she already saw does not replay (PR #70). `from-log` uses the Why log, which keeps 20 entries, so an older beat could replay once.
+- **Published** for her demo: build `2026-10-02-8a48788` on the dev gallery.
+- The engine can lock a stair now (VEFR #229); Cottage does not use it yet.
+
 ## 2026-10-02 — growth and the day's goal (Rylee)
 
 Her goal for the day: "a full 1-2 act structure with multiple mobs, working inventory, and a loop that feels rewarding, some kind of experience/learning/growing methodology." On growth she chose: "can we wire in classic xp and growth and learn-by-doing into the engine, but I think that cottage should be standard. just don't lose the learn by doing.. that's important for another game I'm working on". So VEFR gets both as neutral capabilities; Cottage uses classic XP. She also asked to start with "repo health/docs/engine in offload foremen so we can work on the structure together".
