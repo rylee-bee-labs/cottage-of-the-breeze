@@ -55,7 +55,7 @@ them):
 uv run --offline --with pillow python -m unittest discover -s art/tests -t .
 ```
 
-There is no CI. Validate the pack:
+CI (`.github/workflows/validate-pack.yml`) validates the pack on every PR against a **pinned** VEFR (`VEFR_REF`), which can lag current VEFR `main`. To validate locally against your checkout:
 
 ```sh
 cd ../vefr
