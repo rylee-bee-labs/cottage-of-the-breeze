@@ -35,6 +35,26 @@ See `README.md`, "Swappable by design": the look, the anchors and the shared wor
 - A different style per asset. A picture that doesn't match is redrawn.
 - Rarity by colour alone (a glow, a word and a frame shape).
 
+## MiniMax prompt recipe (draft, tested 2026-10-02; Rylee reviews every picture)
+
+An experiment, not a decision: Codex (proofs) and Wan (bulk) stay in the pipeline below, and nothing generated in the test is in this repo. This records what worked, so a future MiniMax call (`offload image`, or the MCP `text_to_image` tool) starts from it. Same seed, 1:1, one image per call.
+
+**What worked for items, equipment and potions** (put the subject first, then this paragraph, every time):
+
+> Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks on metal and leather, flat opaque fills on enamel and cloth. Warm palette of honey gold, deep amber, ochre, chestnut and russet leather, mossy green cloth and cream, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.
+
+**What worked for creatures:** keep the same paragraph's painting words, but describe the subject as an animal and a monster sprite: "the monster sprite of a giant cellar rat from a classic fantasy RPG bestiary, a fluffy tawny brown rodent on all four paws with a cream belly and a long pink tail, three-quarter view" (a real-animal wording also worked: "a real wild brown rat seen as an ordinary animal, bare tawny fur ... on all four paws").
+
+**Lessons (each cost a round):**
+- **The words are the lever; a reference image is not.** MiniMax's image-to-image (`--ref`) keeps the subject and the colours but not the style: every reference test came back as a photoreal 3D render.
+- **Describe the style the way a vision model sees your art.** MiniMax's own image understanding called our art "cell-shaded, chunky mid-tone patches, blocky highlights, dry-brush streaks, a bold uniform dark-brown outline, a flat mid-teal field, a stylized fantasy mobile-game prop icon". Using those words beat my guesses ("smooth soft gradients" was wrong). Re-run that pass on new approved art before writing prompts.
+- **Say only what you want.** Naming a thing you do not want draws it: "no clothes" gave the rat a coat, "nobody wearing it" put a boy in the hood. Write "an empty garment laid flat" and "an ordinary animal" instead.
+- **"Sticker" is taken literally:** a white die-cut border and a drop shadow. Say "alone on a flat colour swatch".
+- **"Chibi", "friendly" and "game" humanise animals** (scarves, jackets). Use "classic RPG monster sprite" for creatures. The hero is chibi on purpose, so "chibi" stays in the hero's prompt only.
+- A faint floor shadow often survives; it cuts out easily. Teal hex codes are only roughly followed: expect a lighter teal and match it when cutting out.
+
+Record each kept picture the usual way (original, prompt, credits line, `tool: MiniMax image-01`), and keep the `.json` that `offload image` writes beside it.
+
 ## How a picture gets made
 
 1. **Proof with Codex** (ideas and proofs): the Codex CLI's built-in image generation, a few options per asset.
