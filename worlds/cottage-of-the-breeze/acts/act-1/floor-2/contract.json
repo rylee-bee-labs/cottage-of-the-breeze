@@ -54,127 +54,127 @@
     {
       "id": "floor-2-shade",
       "name": "a damp shade",
+      "sprite": "shade",
       "at": [
         32,
         14
       ],
       "hp": 5,
       "atk": 1,
+      "xp": 3,
       "drops": [
         "brass-ring"
-      ],
-      "sprite": "shade",
-      "xp": 3
+      ]
     },
     {
       "id": "floor-2-moths",
       "name": "a nest of moths",
+      "sprite": "moths",
       "at": [
         27,
         23
       ],
       "hp": 3,
       "atk": 1,
-      "sprite": "moths",
       "xp": 2
     },
     {
+      "id": "floor-2-rat-1",
       "name": "a cellar rat",
       "sprite": "rat",
-      "hp": 4,
-      "atk": 1,
-      "id": "floor-2-rat-1",
       "at": [
         32,
         28
       ],
+      "hp": 4,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-2-rat-2",
       "name": "a cellar rat",
       "sprite": "rat",
-      "hp": 4,
-      "atk": 1,
-      "id": "floor-2-rat-2",
       "at": [
         31,
         8
       ],
+      "hp": 4,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-2-moths-1",
       "name": "a nest of moths",
       "sprite": "moths",
-      "hp": 3,
-      "atk": 1,
-      "id": "floor-2-moths-1",
       "at": [
         45,
         17
       ],
+      "hp": 3,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-2-moths-2",
       "name": "a nest of moths",
       "sprite": "moths",
-      "hp": 3,
-      "atk": 1,
-      "id": "floor-2-moths-2",
       "at": [
         20,
         26
       ],
+      "hp": 3,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-2-shade-1",
       "name": "a damp shade",
       "sprite": "shade",
-      "hp": 5,
-      "atk": 1,
-      "id": "floor-2-shade-1",
       "at": [
         28,
         19
       ],
+      "hp": 5,
+      "atk": 1,
       "xp": 3
     },
     {
+      "id": "floor-2-shade-2",
       "name": "a damp shade",
       "sprite": "shade",
-      "hp": 5,
-      "atk": 1,
-      "id": "floor-2-shade-2",
       "at": [
         34,
         18
       ],
+      "hp": 5,
+      "atk": 1,
       "xp": 3
     },
     {
+      "id": "floor-2-fat-1",
       "name": "a fat cellar rat",
       "sprite": "rat",
-      "hp": 6,
-      "atk": 1,
-      "drops": [
-        "cloudy-potion"
-      ],
-      "id": "floor-2-fat-1",
       "at": [
         39,
         29
       ],
-      "xp": 3
+      "hp": 6,
+      "atk": 1,
+      "xp": 3,
+      "drops": [
+        "cloudy-potion"
+      ]
     },
     {
+      "id": "floor-2-rust-1",
       "name": "a rustle",
       "sprite": "rustle",
-      "hp": 3,
-      "atk": 1,
-      "id": "floor-2-rust-1",
       "at": [
         12,
         27
       ],
+      "hp": 3,
+      "atk": 1,
       "xp": 2
     }
   ]

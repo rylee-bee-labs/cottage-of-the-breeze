@@ -63,79 +63,79 @@
     {
       "id": "floor-1-rat",
       "name": "a cellar rat",
+      "sprite": "rat",
       "at": [
         1,
         10
       ],
       "hp": 4,
       "atk": 1,
+      "xp": 2,
       "drops": [
         "cloudy-potion"
-      ],
-      "sprite": "rat",
-      "xp": 2
+      ]
     },
     {
+      "id": "floor-1-rat-1",
       "name": "a cellar rat",
       "sprite": "rat",
-      "hp": 4,
-      "atk": 1,
-      "id": "floor-1-rat-1",
       "at": [
         10,
         11
       ],
+      "hp": 4,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-1-rat-2",
       "name": "a cellar rat",
       "sprite": "rat",
-      "hp": 4,
-      "atk": 1,
-      "id": "floor-1-rat-2",
       "at": [
         19,
         3
       ],
+      "hp": 4,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-1-rat-3",
       "name": "a cellar rat",
       "sprite": "rat",
-      "hp": 4,
-      "atk": 1,
-      "id": "floor-1-rat-3",
       "at": [
         21,
         9
       ],
+      "hp": 4,
+      "atk": 1,
       "xp": 2
     },
     {
+      "id": "floor-1-fat-1",
       "name": "a fat cellar rat",
       "sprite": "rat",
-      "hp": 6,
-      "atk": 1,
-      "drops": [
-        "cloudy-potion"
-      ],
-      "id": "floor-1-fat-1",
       "at": [
         27,
         5
       ],
-      "xp": 3
+      "hp": 6,
+      "atk": 1,
+      "xp": 3,
+      "drops": [
+        "cloudy-potion"
+      ]
     },
     {
+      "id": "floor-1-moths-1",
       "name": "a nest of moths",
       "sprite": "moths",
-      "hp": 3,
-      "atk": 1,
-      "id": "floor-1-moths-1",
       "at": [
         8,
         8
       ],
+      "hp": 3,
+      "atk": 1,
       "xp": 2
     }
   ]

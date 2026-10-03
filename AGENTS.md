@@ -72,6 +72,23 @@ PACK="$(git rev-parse --show-toplevel)/worlds/cottage-of-the-breeze"
 cd ~/code/Rylee-Bee/vefr && uv run norns validate --pack "$PACK"
 ```
 
+## Creature records are generated (Blueprint)
+
+The `enemies` lists in the floor contracts (`floor-1` to `floor-6`) are
+**generated** from `worlds/cottage-of-the-breeze/blueprint.json`, with a
+record in `blueprint.lock.json`. Edit the Blueprint, never those lists by
+hand. After an edit, refresh and check from a VEFR checkout that has
+`vefr normalize`:
+
+```sh
+PACK="$(git rev-parse --show-toplevel)/worlds/cottage-of-the-breeze"
+cd ~/code/Rylee-Bee/vefr && uv run vefr normalize --pack "$PACK" --out "$PACK" && uv run vefr check --pack "$PACK"
+```
+
+A hand edit to a generated list makes `vefr check` (and CI) fail with the
+word "stale". To leave the Blueprint, delete the two files; the contracts
+already hold the same records. Guide: `vefr/docs/guides/blueprint.md`.
+
 ## Publishing a playable build
 
 `bin/publish-build.sh` weaves the pack into one HTML file and posts it to the dev
