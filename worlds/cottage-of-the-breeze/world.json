@@ -151,5 +151,9 @@
       }
     }
   },
-  "skin": "skins/parchment-and-wood"
+  "skin": "skins/parchment-and-wood",
+  "saves": {
+    "rules": "persist",
+    "legacy": "from-log"
+  }
 }
