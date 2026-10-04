@@ -1,0 +1,50 @@
+# Round 18: soft-wood UI skin source pictures (2026-10-04)
+
+Rylee's picks of 2026-10-04, chosen in the skin picker artifact (`ui-soft/PICKS.md`): panels **v3**, buttons **v1**,
+bars and slots **v2**, tabs and toggles **v2**, textures **v1**, dividers **v1**, cursor **v1**, plus the first redraw of
+each part that was missing from the batch sheets (`ui-soft/missing/` — speech, tooltip, tab, tab-selected, bar-frame,
+bar-fill, slot, banner, corner). Her note on the two redraw sets: "these are all radically different ideas. can you
+split it up some?" -> separate dividers and cursor sets, four close variations each. All pieces are agent-drafted
+(Codex), `draft` until approved; every `.credits.txt` sits beside the sheet it belongs to, where it stays.
+
+Source for the soft-wood skin. `ui-soft/skin-source/` holds one picture per part under exactly the source names
+`build_skin.py`'s `PICTURES` table looks for (`panel.webp`, `button.webp`, ...): each cut with `split_sheet.py` from
+the sheet that drew the part and saved as lossless WebP keeping its alpha, plus `parchment.png` at exactly 288 x 288
+as a 3x3 grid (`check_tiles.py` clean) and `brass.png` reused unchanged from round 10. **Nothing is built into a skin
+yet** — that is a later step and it waits on Rylee.
+
+Sheets come back as one picture per file here, so the table says which sheet turned out to be which part (read off the
+sheet each part was drawn in, not by looking at pictures).
+
+| Sheet (under `ui-soft/`) | Part in `skin-source/` | Cut size |
+| --- | --- | --- |
+| `panels/panels_v3.png` | `panel` | 1116 x 464 |
+| `missing/speech/speech_v1.png` | `speech` | 1170 x 560 |
+| `missing/tooltip/tooltip_v1.png` | `tooltip` | 1192 x 712 |
+| `buttons/buttons_v1.png` | `button` | 1334 x 397 |
+| `missing/tab/tab_v1.png` | `tab` | 1529 x 488 |
+| `missing/tab-selected/tab-selected_v1.png` | `tab-selected` | 1204 x 1043 |
+| `tabs-toggles/tabs_toggles_v2.png` | `toggle-on` | 1321 x 469 |
+| `missing/bar-frame/bar-frame_v1.png` | `bar-frame` | 1666 x 253 |
+| `missing/bar-fill/bar-fill_v1.png` | `bar-fill` | 1953 x 121 |
+| `bars-slots/bars_slots_v2.png` | `gold-plate` | 1636 x 474 |
+| `missing/slot/slot_v1.png` | `slot` | 939 x 936 |
+| `dividers/dividers_v1.png` | `divider` | 2100 x 112 |
+| `missing/banner/banner_v1.png` | `banner` | 1881 x 461 |
+| `missing/corner/corner_v1.png` | `corner` | 608 x 603 |
+| `cursor/cursor_v1.png` | `cursor` | 592 x 661 |
+| `textures/textures_v1.png` | `parchment` (via `process_tiles.py --grid 3x3 --tile 96`) | 288 x 288 |
+
+## Notes from cutting
+
+- Every sheet except one came back as a single piece, named straight from the table above. `bars-slots_v2.png` came
+  back as four: the gold plate (1636 x 474) plus three small leaves (104 x 43, 105 x 82, 95 x 65). Cut all four with
+  four `--names` and kept the biggest — the plate — as `gold-plate.webp`; the three leaves were dropped.
+- Not drawn in round 18: `button-hover`, `button-pressed`, `button-disabled`, `toggle-off` and the wood texture. Her
+  picks do not include them, so `skin-source/` does not hold them in any form; the build waits on her.
+- `check_tiles.py ui-soft/skin-source` reports the pieces "wrong size" and "a transparent pixel" — it is a grid-tile
+  checker and a cut-out piece is not a tile. Round 10's `skin-source/` reports the same way. The two textures,
+  `parchment.png` and `brass.png`, both come back `ok`.
+- Sizes here are the pieces cut tight from their sheets; `build_skin.py` is what slices them down to the skin's
+  geometry. Round 10's notes about uniform panel borders, button gloss and cursor contrast are worth re-reading
+  against these before anything ships.
