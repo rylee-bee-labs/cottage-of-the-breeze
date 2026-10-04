@@ -10,8 +10,8 @@
 5. The VM is small: do not run VEFR's full suite or the bot while a Codex or other heavy job runs.
 
 ## What is built (all in `worlds/cottage-of-the-breeze/`)
-- Rules: 15 in `world.json`, including `the-seal-note-read` (ends the act with VEFR's `complete-act`). All lines are agent drafts.
-- Creatures come from `blueprint.json` (23 families, 69+ instances; edit it, then `vefr normalize --pack <pack> --out <pack>` and `vefr check`). Keybearers and the King have `sight: 0`: they sleep until bumped. The King is 36 hp / 3 atk.
+- Rules: 12 in `world.json`, including `the-seal-note-read` (ends the act with VEFR's `complete-act`). All lines are agent drafts.
+- Creatures come from `blueprint.json` (22 families, 73 instances; edit it, then `vefr normalize --pack <pack> --out <pack>` and `vefr check`). Keybearers and the King have `sight: 0`: they sleep until bumped. The King is 36 hp / 3 atk.
 - Locks: stairs 3 to 4 (bell key), 4 to 5 (lantern key), 5 to 6 (helmet key); the sealed door on floor 6 (crown seal). Keys are `keep` and have no `value` so they cannot be sold; `vefr check` enforces it.
 - Gear: hearth shovel, copper ladle, patched apron, quilted coat, cooking-pot helm, mended boots, thread bell, and the brass ring as a charm. Album: 25 stickers (`album` in `world.json`).
 - The floor 6 map was hand-edited for the sealed door (11,1); a `vefr delve` rerun would overwrite it.
