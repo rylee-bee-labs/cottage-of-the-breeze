@@ -246,3 +246,7 @@ heal. No identifying or haggling yet.
   not read (the loader drops it). So the cat's picture is `sprites/cat.png` under the key `hearth-cat`.
 - Two engine bugs found by doing this with the real route are fixed in vefr (#183: a write on a multi-room pack threw away the room list; #184: placement checks used the home room's map).
 
+
+## 2026-10-04 — the Keybearers have names (Rylee)
+
+Rylee picked the names: floor 3 **Ashwing** (the great pale moth), floor 4 **Brother Sporeling** (the old mushroom elder), floor 5 **Sir Hollowhorn** (the armoured stag beetle). Changed in `blueprint.json` and the album, then `vefr normalize`; `vefr check` passes. Their epithets and any lines are still open; the King's name is not chosen yet.

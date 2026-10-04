@@ -1,7 +1,7 @@
 {
   "blueprint": 1,
   "normalizer": 1,
-  "source_sha256": "f6a3fbe1d9be2d66ff5437620eb5f1f98ed9e2f3b46563972aa64cc50732b799",
+  "source_sha256": "a43078f860db84ec75f5beb4dc39adbd61be364233843d1e6db49f2e5dd4acfb",
   "outputs": [
     {
       "file": "acts/act-1/floor-1/contract.json",
