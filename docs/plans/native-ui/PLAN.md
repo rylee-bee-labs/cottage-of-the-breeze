@@ -21,3 +21,8 @@ Skin parts for `hud` icons, `controls`, `bubble`; apply the unused skin parts (s
 
 ## Order
 1. Mock on real art (this branch: art kit, artifact for Rylee). 2. Rylee picks the look. 3. Tests, then foremen. 4. Bot checks for fit at seven sizes (the measurement script in the handoff) and axe.
+
+## Update 2026-10-04 (later): Rylee's pick
+- She preferred the older painted/parchment look over the first Codex kit, then, from fifteen researched directions and an interface lab of eleven worlds, chose **Scrapbook pages** as her favourite ("It's working better now!").
+- Her type note: "a little more 'cottage' and less stardew valley". Proposed pair, for her to confirm in the lab: **Fraunces** (headings) and **Alegreya** (reading), a soft, slightly old-fashioned serif pair; alternates are Cormorant Garamond + Lora (light italic), IM Fell English + IM Fell DW Pica (worn letterpress) and Crimson Pro. Handwriting faces are for short labels only, never long reading.
+- Direction: paper pages with tape, kraft tags for buttons, stitched or hairline borders, slight tilts; still inside one stage, no device frame. The lab (an artifact, state saved there) is where the rest is refined.
