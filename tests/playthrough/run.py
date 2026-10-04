@@ -123,7 +123,36 @@ class Bot:
         if self.delay_ms:
             self.page.wait_for_timeout(self.delay_ms)
         self._observe_progress()
+        self._note_cues()
         self._shot()
+
+    def _note_cues(self) -> None:
+        """Remember every sound cue and every hero walk frame the page reports (the log keeps only 50)."""
+        try:
+            got = self.page.evaluate(
+                "() => ({cues: (window.VEFR_SOUND && window.VEFR_SOUND.played) || [],"
+                " frame: window.VEFR_HERO_FRAME || null})"
+            )
+        except Exception:
+            return
+        cues = getattr(self, "cues", set())
+        cues.update(got["cues"])
+        self.cues = cues
+        if got["frame"]:
+            frames = getattr(self, "frames", set())
+            frames.add((got["frame"]["dir"], got["frame"]["state"], got["frame"]["frame"]))
+            self.frames = frames
+
+    def shot(self, name: str) -> None:
+        d = os.environ.get("COTTAGE_SHOTS")
+        if not d:
+            return
+        try:
+            self.page.wait_for_timeout(400)
+            Path(d).mkdir(parents=True, exist_ok=True)
+            self.page.screenshot(path=str(Path(d) / f"{name}.png"))
+        except Exception:
+            pass
 
     def _shot(self) -> None:
         """With COTTAGE_SHOTS=<dir>, save one screenshot the first time each region is seen (for a human)."""
@@ -394,6 +423,7 @@ class Bot:
             cleared.add(region)
             self._cleared = cleared
             self.clear_floor(region, enemy_id)
+        shot_taken = False
         for _ in range(600):
             s = self.state()
             c = s["combat"]
@@ -410,6 +440,9 @@ class Bot:
                 self.drink()
                 continue
             at = tuple(c["hero"]["at"])
+            if not shot_taken and abs(at[0] - foe["at"][0]) + abs(at[1] - foe["at"][1]) <= 3:
+                shot_taken = True
+                self.shot(f"fight-{enemy_id}")
             d = self.next_dir(region, at, tuple(foe["at"]))
             if d is None:
                 raise RouteError(f"no path to {enemy_id} at {foe['at']}")
@@ -652,6 +685,20 @@ class Bot:
 
     # ---- closing checks -------------------------------------------
     def closing_checks(self) -> None:
+        need = {"hit", "defeat", "pickup", "door", "locked", "level", "sticker", "end"}
+        have = getattr(self, "cues", set())
+        self.check(
+            "the sound cues fired as the route was played",
+            need <= have,
+            f"heard {sorted(have)}; missing {sorted(need - have)}",
+        )
+        frames = getattr(self, "frames", set())
+        dirs_walked = {d for (d, st, _f) in frames if st == "walk"}
+        self.check(
+            "the hero's walk frames showed for every direction she walked",
+            {"down", "up", "left", "right"} <= dirs_walked,
+            f"walked in {sorted(dirs_walked)}; {len(frames)} distinct poses",
+        )
         album = self.page.evaluate("() => window.VEFR_ALBUM || null")
         if album is not None:
             need = {"first-steps", "cellar-king", "keybearer-moth", "the-warm-page", "quiet-room"}

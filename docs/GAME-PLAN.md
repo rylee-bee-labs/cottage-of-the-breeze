@@ -12,7 +12,7 @@ Written 2026-10-01 from Rylee's picks: the story spine and ending; progression a
 | 4 | Stakes | Turn the act's setting from "costume" (you cannot lose) to "story" or "stakes". | Not yet: needs an engine stakes mechanic. The King is tuned so a level-8 hero wins. | Claude and Rylee, by playing |
 | 5 | Random floors | A new descent each run, from a seed. `design/random-floors.md` in the vefr repo. | **Phase 1 built** (the generator in Python and an exact browser twin). Floors 4-6 are generated once at build time meanwhile. Phase 2 (drawing a descent each run) is next. | foreman |
 | 6 | More world | Monsters, items, notes, guardians and keys. | **Act 1 is complete (2026-10-04):** 6 floors, 3 Keybearers and the Cellar King, locks, the King's room and an ending, 8 unique cast monsters, the album (25 stickers). Acts 2 and 3: see `docs/plans/acts-2-3/PLAN.md`. | Claude and foremen |
-| 7 | Polish | Walking frames, sound, the UI skin, a small tutorial moment, "this whole game is one file". | Skin, quiet screen, WASD, tutorial lines, About book in. Sound and walking frames are not. | mixed |
+| 7 | Polish | Walking frames, sound, the UI skin, a small tutorial moment, "this whole game is one file". | Skin, quiet screen, WASD, tutorial lines, About book, walk cycles in four directions, and nine soft synthesized sounds (one switch) are in. Music is not. | mixed |
 
 ## Rules for this plan
 
