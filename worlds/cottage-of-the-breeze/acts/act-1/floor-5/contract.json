@@ -68,30 +68,30 @@
     },
     {
       "id": "floor-5-deep-2",
-      "name": "a deep shade",
-      "sprite": "shade",
+      "name": "a cobweb wraith",
+      "sprite": "cobweb-wraith",
       "at": [
         35,
         28
       ],
-      "hp": 8,
+      "hp": 9,
       "atk": 2,
-      "xp": 8,
+      "xp": 9,
       "drops": [
         "cloudy-potion"
       ]
     },
     {
       "id": "floor-5-deep-3",
-      "name": "a deep shade",
-      "sprite": "shade",
+      "name": "a cobweb wraith",
+      "sprite": "cobweb-wraith",
       "at": [
         21,
         29
       ],
-      "hp": 8,
+      "hp": 9,
       "atk": 2,
-      "xp": 8,
+      "xp": 9,
       "drops": [
         "cloudy-potion"
       ]
@@ -113,27 +113,30 @@
     },
     {
       "id": "floor-5-loud-1",
-      "name": "a loud rustle",
-      "sprite": "rustle",
+      "name": "a barrel mimic",
+      "sprite": "barrel-mimic",
       "at": [
         2,
         27
       ],
-      "hp": 5,
-      "atk": 2,
-      "xp": 5
+      "hp": 14,
+      "atk": 3,
+      "xp": 21,
+      "drops": [
+        "cloudy-potion"
+      ]
     },
     {
       "id": "floor-5-loud-2",
-      "name": "a loud rustle",
-      "sprite": "rustle",
+      "name": "a root tangle",
+      "sprite": "root-tangle",
       "at": [
         21,
         6
       ],
-      "hp": 5,
+      "hp": 10,
       "atk": 2,
-      "xp": 5
+      "xp": 10
     },
     {
       "id": "floor-5-howl-1",
@@ -161,15 +164,15 @@
     },
     {
       "id": "floor-5-moths-1",
-      "name": "a nest of moths",
-      "sprite": "moths",
+      "name": "a cave cricket",
+      "sprite": "cave-cricket",
       "at": [
         7,
         17
       ],
-      "hp": 4,
-      "atk": 1,
-      "xp": 2
+      "hp": 6,
+      "atk": 3,
+      "xp": 9
     },
     {
       "id": "floor-5-moths-2",

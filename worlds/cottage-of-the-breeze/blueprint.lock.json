@@ -1,7 +1,7 @@
 {
   "blueprint": 1,
   "normalizer": 1,
-  "source_sha256": "c30b4208e9d9e7c1976538fb4fb44430763fe7ac99948f7fe45d29ea420ee72e",
+  "source_sha256": "6050c98870734b636a5fa29d9c8c940a58ee658e0a6c71c5175a9c6b94ecdc19",
   "outputs": [
     {
       "file": "acts/act-1/floor-1/contract.json",
@@ -26,14 +26,17 @@
         {
           "source": "/regions/act-1~1floor-1/enemies/2",
           "families": [
-            "cellar-rat"
+            "cellar-rat",
+            "flowerpot-toad"
           ],
           "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-1/enemies/3",
           "families": [
-            "cellar-rat"
+            "nest-of-moths",
+            "nest-of-moths-3hp",
+            "wick-sprite"
           ],
           "overrides": []
         },
@@ -78,14 +81,16 @@
         {
           "source": "/regions/act-1~1floor-2/enemies/2",
           "families": [
-            "cellar-rat"
+            "cellar-rat",
+            "cellar-spider"
           ],
           "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-2/enemies/3",
           "families": [
-            "cellar-rat"
+            "cellar-rat",
+            "flowerpot-toad"
           ],
           "overrides": []
         },
@@ -101,14 +106,16 @@
           "source": "/regions/act-1~1floor-2/enemies/5",
           "families": [
             "nest-of-moths",
-            "nest-of-moths-3hp"
+            "nest-of-moths-3hp",
+            "wick-sprite"
           ],
           "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-2/enemies/6",
           "families": [
-            "damp-shade"
+            "damp-shade",
+            "crock-mimic"
           ],
           "overrides": []
         },
@@ -149,7 +156,8 @@
         {
           "source": "/regions/act-1~1floor-3/enemies/1",
           "families": [
-            "cellar-rat"
+            "cellar-rat",
+            "cellar-spider"
           ],
           "overrides": []
         },
@@ -163,7 +171,8 @@
         {
           "source": "/regions/act-1~1floor-3/enemies/3",
           "families": [
-            "damp-shade"
+            "damp-shade",
+            "crock-mimic"
           ],
           "overrides": []
         },
@@ -216,7 +225,8 @@
           "source": "/regions/act-1~1floor-3/enemies/10",
           "families": [
             "nest-of-moths",
-            "nest-of-moths-3hp"
+            "nest-of-moths-3hp",
+            "wick-sprite"
           ],
           "overrides": []
         },
@@ -272,7 +282,8 @@
         {
           "source": "/regions/act-1~1floor-4/enemies/4",
           "families": [
-            "deep-shade"
+            "deep-shade",
+            "cobweb-wraith"
           ],
           "overrides": []
         },
@@ -288,7 +299,8 @@
           "source": "/regions/act-1~1floor-4/enemies/6",
           "families": [
             "rustle",
-            "loud-rustle"
+            "loud-rustle",
+            "root-tangle"
           ],
           "overrides": []
         },
@@ -323,7 +335,9 @@
         {
           "source": "/regions/act-1~1floor-4/enemies/11",
           "families": [
-            "rustle"
+            "rustle",
+            "loud-rustle",
+            "cave-cricket"
           ],
           "overrides": []
         },
@@ -351,14 +365,16 @@
         {
           "source": "/regions/act-1~1floor-5/enemies/1",
           "families": [
-            "deep-shade"
+            "deep-shade",
+            "cobweb-wraith"
           ],
           "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-5/enemies/2",
           "families": [
-            "deep-shade"
+            "deep-shade",
+            "cobweb-wraith"
           ],
           "overrides": []
         },
@@ -372,8 +388,9 @@
         {
           "source": "/regions/act-1~1floor-5/enemies/4",
           "families": [
-            "rustle",
-            "loud-rustle"
+            "deep-shade",
+            "hollow-shade",
+            "barrel-mimic"
           ],
           "overrides": []
         },
@@ -381,7 +398,8 @@
           "source": "/regions/act-1~1floor-5/enemies/5",
           "families": [
             "rustle",
-            "loud-rustle"
+            "loud-rustle",
+            "root-tangle"
           ],
           "overrides": []
         },
@@ -406,7 +424,9 @@
         {
           "source": "/regions/act-1~1floor-5/enemies/8",
           "families": [
-            "nest-of-moths"
+            "rustle",
+            "loud-rustle",
+            "cave-cricket"
           ],
           "overrides": []
         },
@@ -470,14 +490,16 @@
         {
           "source": "/regions/act-1~1floor-6/enemies/1",
           "families": [
-            "deep-shade"
+            "deep-shade",
+            "cobweb-wraith"
           ],
           "overrides": []
         },
         {
           "source": "/regions/act-1~1floor-6/enemies/2",
           "families": [
-            "deep-shade"
+            "deep-shade",
+            "cobweb-wraith"
           ],
           "overrides": []
         },
@@ -493,7 +515,8 @@
           "source": "/regions/act-1~1floor-6/enemies/4",
           "families": [
             "deep-shade",
-            "hollow-shade"
+            "hollow-shade",
+            "barrel-mimic"
           ],
           "overrides": []
         },
@@ -528,7 +551,8 @@
           "source": "/regions/act-1~1floor-6/enemies/8",
           "families": [
             "rustle",
-            "loud-rustle"
+            "loud-rustle",
+            "root-tangle"
           ],
           "overrides": []
         },
@@ -536,7 +560,8 @@
           "source": "/regions/act-1~1floor-6/enemies/9",
           "families": [
             "rustle",
-            "loud-rustle"
+            "loud-rustle",
+            "cave-cricket"
           ],
           "overrides": []
         },

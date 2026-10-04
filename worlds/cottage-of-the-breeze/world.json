@@ -56,7 +56,15 @@
       "key-lantern": "sprites/key-lantern.png",
       "key-helmet": "sprites/key-helmet.png",
       "seal-crown": "sprites/seal-crown.png",
-      "gems": "sprites/gems.png"
+      "gems": "sprites/gems.png",
+      "toad": "sprites/toad.png",
+      "crock-mimic": "sprites/crock-mimic.png",
+      "wick-sprite": "sprites/wick-sprite.png",
+      "cellar-spider": "sprites/cellar-spider.png",
+      "cobweb-wraith": "sprites/cobweb-wraith.png",
+      "cave-cricket": "sprites/cave-cricket.png",
+      "barrel-mimic": "sprites/barrel-mimic.png",
+      "root-tangle": "sprites/root-tangle.png"
     },
     "hp": 6,
     "atk": 2,
@@ -78,7 +86,15 @@
       "keybearer-moth": 1.2,
       "keybearer-mushroom": 1.2,
       "keybearer-beetle": 1.2,
-      "cellar-king": 1.7
+      "cellar-king": 1.7,
+      "toad": 0.6,
+      "crock-mimic": 0.8,
+      "wick-sprite": 0.6,
+      "cellar-spider": 0.7,
+      "cobweb-wraith": 0.9,
+      "cave-cricket": 0.7,
+      "barrel-mimic": 0.95,
+      "root-tangle": 0.9
     }
   },
   "items": {

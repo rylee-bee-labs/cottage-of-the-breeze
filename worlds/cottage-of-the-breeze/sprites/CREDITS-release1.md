@@ -11,3 +11,5 @@ Each picture below was cut from a source in `art/source/` with `art/tools/proces
 - `key-helmet.png` from `art/source/round13/keys_b/keys_b_v3` — Rylee and Claude · tool: Codex CLI built-in image generation (batched call)
 - `seal-crown.png` from `art/source/round13/keys_b/keys_b_v2` — Rylee and Claude · tool: Codex CLI built-in image generation (batched call)
 - `gems.png` from `art/source/round13/treasure/treasure_v4` — Rylee and Claude · tool: Codex CLI built-in image generation (batched call)
+
+Cast monsters (round 12, Codex batches, drafts; cut at 128 px): toad, crock-mimic, wick-sprite, cellar-spider (from `art/source/round12/cast/cast_shallow_v1..v4`) and cobweb-wraith, cave-cricket, barrel-mimic, root-tangle (from `cast_deep_v1..v4`). Each source keeps its `.credits.txt`. Rylee and Claude, tool: Codex CLI built-in image generation.

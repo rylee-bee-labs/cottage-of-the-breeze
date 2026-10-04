@@ -80,27 +80,27 @@
     },
     {
       "id": "floor-2-rat-1",
-      "name": "a cellar rat",
-      "sprite": "rat",
+      "name": "a cobweb-scarfed spider",
+      "sprite": "cellar-spider",
       "at": [
         32,
         28
       ],
-      "hp": 4,
-      "atk": 1,
-      "xp": 2
+      "hp": 5,
+      "atk": 2,
+      "xp": 5
     },
     {
       "id": "floor-2-rat-2",
-      "name": "a cellar rat",
-      "sprite": "rat",
+      "name": "a flowerpot toad",
+      "sprite": "toad",
       "at": [
         31,
         8
       ],
-      "hp": 4,
+      "hp": 5,
       "atk": 1,
-      "xp": 2
+      "xp": 3
     },
     {
       "id": "floor-2-moths-1",
@@ -116,27 +116,27 @@
     },
     {
       "id": "floor-2-moths-2",
-      "name": "a nest of moths",
-      "sprite": "moths",
+      "name": "a wick sprite",
+      "sprite": "wick-sprite",
       "at": [
         20,
         26
       ],
-      "hp": 3,
-      "atk": 1,
-      "xp": 2
+      "hp": 4,
+      "atk": 2,
+      "xp": 4
     },
     {
       "id": "floor-2-shade-1",
-      "name": "a damp shade",
-      "sprite": "shade",
+      "name": "a crock mimic",
+      "sprite": "crock-mimic",
       "at": [
         28,
         19
       ],
-      "hp": 5,
-      "atk": 1,
-      "xp": 3
+      "hp": 6,
+      "atk": 2,
+      "xp": 6
     },
     {
       "id": "floor-2-shade-2",

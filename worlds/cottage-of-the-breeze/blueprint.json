@@ -144,6 +144,86 @@
           "crown-seal"
         ]
       }
+    },
+    "flowerpot-toad": {
+      "extends": "cellar-rat",
+      "defaults": {
+        "name": "a flowerpot toad",
+        "sprite": "toad",
+        "hp": 5,
+        "atk": 1,
+        "xp": 3
+      }
+    },
+    "crock-mimic": {
+      "extends": "damp-shade",
+      "defaults": {
+        "name": "a crock mimic",
+        "sprite": "crock-mimic",
+        "hp": 6,
+        "atk": 2,
+        "xp": 6
+      }
+    },
+    "wick-sprite": {
+      "extends": "nest-of-moths-3hp",
+      "defaults": {
+        "name": "a wick sprite",
+        "sprite": "wick-sprite",
+        "hp": 4,
+        "atk": 2,
+        "xp": 4
+      }
+    },
+    "cellar-spider": {
+      "extends": "cellar-rat",
+      "defaults": {
+        "name": "a cobweb-scarfed spider",
+        "sprite": "cellar-spider",
+        "hp": 5,
+        "atk": 2,
+        "xp": 5
+      }
+    },
+    "cobweb-wraith": {
+      "extends": "deep-shade",
+      "defaults": {
+        "name": "a cobweb wraith",
+        "sprite": "cobweb-wraith",
+        "hp": 9,
+        "atk": 2,
+        "xp": 9
+      }
+    },
+    "cave-cricket": {
+      "extends": "loud-rustle",
+      "defaults": {
+        "name": "a cave cricket",
+        "sprite": "cave-cricket",
+        "hp": 6,
+        "atk": 3,
+        "xp": 9
+      }
+    },
+    "barrel-mimic": {
+      "extends": "hollow-shade",
+      "defaults": {
+        "name": "a barrel mimic",
+        "sprite": "barrel-mimic",
+        "hp": 14,
+        "atk": 3,
+        "xp": 21
+      }
+    },
+    "root-tangle": {
+      "extends": "loud-rustle",
+      "defaults": {
+        "name": "a root tangle",
+        "sprite": "root-tangle",
+        "hp": 10,
+        "atk": 2,
+        "xp": 10
+      }
     }
   },
   "regions": {
@@ -172,7 +252,7 @@
         },
         {
           "id": "floor-1-rat-2",
-          "family": "cellar-rat",
+          "family": "flowerpot-toad",
           "at": [
             19,
             3
@@ -180,7 +260,7 @@
         },
         {
           "id": "floor-1-rat-3",
-          "family": "cellar-rat",
+          "family": "wick-sprite",
           "at": [
             21,
             9
@@ -229,7 +309,7 @@
         },
         {
           "id": "floor-2-rat-1",
-          "family": "cellar-rat",
+          "family": "cellar-spider",
           "at": [
             32,
             28
@@ -237,7 +317,7 @@
         },
         {
           "id": "floor-2-rat-2",
-          "family": "cellar-rat",
+          "family": "flowerpot-toad",
           "at": [
             31,
             8
@@ -253,7 +333,7 @@
         },
         {
           "id": "floor-2-moths-2",
-          "family": "nest-of-moths-3hp",
+          "family": "wick-sprite",
           "at": [
             20,
             26
@@ -261,7 +341,7 @@
         },
         {
           "id": "floor-2-shade-1",
-          "family": "damp-shade",
+          "family": "crock-mimic",
           "at": [
             28,
             19
@@ -305,7 +385,7 @@
         },
         {
           "id": "floor-3-rat2",
-          "family": "cellar-rat",
+          "family": "cellar-spider",
           "at": [
             43,
             20
@@ -321,7 +401,7 @@
         },
         {
           "id": "floor-3-shade-2",
-          "family": "damp-shade",
+          "family": "crock-mimic",
           "at": [
             26,
             24
@@ -377,7 +457,7 @@
         },
         {
           "id": "floor-3-moths-2",
-          "family": "nest-of-moths-3hp",
+          "family": "wick-sprite",
           "at": [
             27,
             14
@@ -437,7 +517,7 @@
         },
         {
           "id": "floor-4-deep-3",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             35,
             4
@@ -453,7 +533,7 @@
         },
         {
           "id": "floor-4-loud-2",
-          "family": "loud-rustle",
+          "family": "root-tangle",
           "at": [
             18,
             10
@@ -493,7 +573,7 @@
         },
         {
           "id": "floor-4-rust-1",
-          "family": "rustle",
+          "family": "cave-cricket",
           "at": [
             10,
             28
@@ -521,7 +601,7 @@
         },
         {
           "id": "floor-5-deep-2",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             35,
             28
@@ -529,7 +609,7 @@
         },
         {
           "id": "floor-5-deep-3",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             21,
             29
@@ -545,7 +625,7 @@
         },
         {
           "id": "floor-5-loud-1",
-          "family": "loud-rustle",
+          "family": "barrel-mimic",
           "at": [
             2,
             27
@@ -553,7 +633,7 @@
         },
         {
           "id": "floor-5-loud-2",
-          "family": "loud-rustle",
+          "family": "root-tangle",
           "at": [
             21,
             6
@@ -577,7 +657,7 @@
         },
         {
           "id": "floor-5-moths-1",
-          "family": "nest-of-moths",
+          "family": "cave-cricket",
           "at": [
             7,
             17
@@ -645,7 +725,7 @@
         },
         {
           "id": "floor-6-deep-2",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             39,
             9
@@ -653,7 +733,7 @@
         },
         {
           "id": "floor-6-deep-3",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             35,
             23
@@ -669,7 +749,7 @@
         },
         {
           "id": "floor-6-hollow-2",
-          "family": "hollow-shade",
+          "family": "barrel-mimic",
           "at": [
             34,
             14
@@ -701,7 +781,7 @@
         },
         {
           "id": "floor-6-loud-1",
-          "family": "loud-rustle",
+          "family": "root-tangle",
           "at": [
             16,
             18
@@ -709,7 +789,7 @@
         },
         {
           "id": "floor-6-loud-2",
-          "family": "loud-rustle",
+          "family": "cave-cricket",
           "at": [
             11,
             3
