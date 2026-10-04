@@ -1,0 +1,21 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "A cozy iron fireplace poker with a hooked tip and a worn wooden grip. Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks on metal and leather, flat opaque fills on enamel and cloth. Warm palette of honey gold, deep amber, ochre, chestnut and russet leather, mossy green cloth and cream, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.",
+  "aspect_ratio": "1:1",
+  "seed": 7,
+  "n": 1,
+  "character_reference": false,
+  "trace_id": "07110179159cade1b419f8a60c8d2f2c",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-04T03:56:58Z",
+  "files": [
+    {
+      "name": "hearth-poker-1.jpg",
+      "bytes": 120568,
+      "sha256": "a0703a6db69f2448fdfb904c4c62ae394cc2ec4328e5608ee996dd2f05f56e3d"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}

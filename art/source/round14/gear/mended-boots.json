@@ -1,0 +1,21 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "A pair of sturdy brown leather boots with visible mended patches and brass buckles. Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks on metal and leather, flat opaque fills on enamel and cloth. Warm palette of honey gold, deep amber, ochre, chestnut and russet leather, mossy green cloth and cream, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.",
+  "aspect_ratio": "1:1",
+  "seed": 7,
+  "n": 1,
+  "character_reference": false,
+  "trace_id": "071101d53a3aab3cc9da84e3122feac0",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-04T03:58:31Z",
+  "files": [
+    {
+      "name": "mended-boots-1.jpg",
+      "bytes": 227463,
+      "sha256": "848fa604226869fc14e3a357b2b2c02efee6f55c70109386f4f29bdca9dcab23"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}

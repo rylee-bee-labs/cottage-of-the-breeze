@@ -337,7 +337,12 @@
           "at": [
             20,
             26
-          ]
+          ],
+          "properties": {
+            "drops": [
+              "thread-bell"
+            ]
+          }
         },
         {
           "id": "floor-2-shade-1",
@@ -521,7 +526,12 @@
           "at": [
             35,
             4
-          ]
+          ],
+          "properties": {
+            "drops": [
+              "quilted-coat"
+            ]
+          }
         },
         {
           "id": "floor-4-loud-1",
@@ -629,7 +639,12 @@
           "at": [
             2,
             27
-          ]
+          ],
+          "properties": {
+            "drops": [
+              "copper-ladle"
+            ]
+          }
         },
         {
           "id": "floor-5-loud-2",

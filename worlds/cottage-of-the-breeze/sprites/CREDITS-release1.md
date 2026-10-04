@@ -13,3 +13,5 @@ Each picture below was cut from a source in `art/source/` with `art/tools/proces
 - `gems.png` from `art/source/round13/treasure/treasure_v4` — Rylee and Claude · tool: Codex CLI built-in image generation (batched call)
 
 Cast monsters (round 12, Codex batches, drafts; cut at 128 px): toad, crock-mimic, wick-sprite, cellar-spider (from `art/source/round12/cast/cast_shallow_v1..v4`) and cobweb-wraith, cave-cricket, barrel-mimic, root-tangle (from `cast_deep_v1..v4`). Each source keeps its `.credits.txt`. Rylee and Claude, tool: Codex CLI built-in image generation.
+
+Gear icons (round 14, MiniMax image-01 via `offload image`, seed 7, drafts for Rylee's review): hearth-poker (named "a hearth shovel" in game), copper-ladle, patched-apron, quilted-coat, pot-lid-helm, mended-boots, thread-bell. Originals, prompts and provenance `.json` are in `art/source/round14/gear/`. Rylee and Claude; tool: MiniMax image-01. Item names are agent drafts.

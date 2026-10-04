@@ -124,7 +124,10 @@
       ],
       "hp": 4,
       "atk": 2,
-      "xp": 4
+      "xp": 4,
+      "drops": [
+        "thread-bell"
+      ]
     },
     {
       "id": "floor-2-shade-1",

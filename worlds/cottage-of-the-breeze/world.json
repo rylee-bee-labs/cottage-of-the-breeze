@@ -64,7 +64,14 @@
       "cobweb-wraith": "sprites/cobweb-wraith.png",
       "cave-cricket": "sprites/cave-cricket.png",
       "barrel-mimic": "sprites/barrel-mimic.png",
-      "root-tangle": "sprites/root-tangle.png"
+      "root-tangle": "sprites/root-tangle.png",
+      "hearth-poker": "sprites/hearth-poker.png",
+      "patched-apron": "sprites/patched-apron.png",
+      "pot-lid-helm": "sprites/pot-lid-helm.png",
+      "mended-boots": "sprites/mended-boots.png",
+      "copper-ladle": "sprites/copper-ladle.png",
+      "quilted-coat": "sprites/quilted-coat.png",
+      "thread-bell": "sprites/thread-bell.png"
     },
     "hp": 6,
     "atk": 2,
@@ -138,6 +145,66 @@
       "name": "a handful of cellar gems",
       "sprite": "gems",
       "value": 120
+    },
+    "hearth-poker": {
+      "name": "a hearth shovel",
+      "sprite": "hearth-poker",
+      "slot": "hand",
+      "mods": {
+        "atk": 1
+      },
+      "value": 25
+    },
+    "patched-apron": {
+      "name": "a patched apron",
+      "sprite": "patched-apron",
+      "slot": "body",
+      "mods": {
+        "hp": 2
+      },
+      "value": 30
+    },
+    "pot-lid-helm": {
+      "name": "a cooking-pot helm",
+      "sprite": "pot-lid-helm",
+      "slot": "head",
+      "mods": {
+        "hp": 1
+      },
+      "value": 20
+    },
+    "mended-boots": {
+      "name": "a pair of mended boots",
+      "sprite": "mended-boots",
+      "slot": "feet",
+      "mods": {
+        "hp": 1
+      },
+      "value": 20
+    },
+    "copper-ladle": {
+      "name": "a copper ladle",
+      "sprite": "copper-ladle",
+      "slot": "hand",
+      "mods": {
+        "atk": 2
+      }
+    },
+    "quilted-coat": {
+      "name": "a quilted coat",
+      "sprite": "quilted-coat",
+      "slot": "body",
+      "mods": {
+        "hp": 3
+      }
+    },
+    "thread-bell": {
+      "name": "a bell on a thread",
+      "sprite": "thread-bell",
+      "slot": "charm",
+      "mods": {
+        "hp": 2
+      }
     }
   },
   "flags": {
