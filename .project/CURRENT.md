@@ -28,14 +28,14 @@
 ## Waiting on Rylee
 - Keep/rewrite/bin every agent draft above, and name the three Keybearers and their keys.
 - Where acts 2 and 3 begin and their themes (`docs/plans/acts-2-3/PLAN.md`); fire is the first effect (chosen 2026-10-04).
-- Her interface direction (2026-10-04): everything inside the game in the game's own themed UI, no literal device frame, native to the world, cute and minimal. Plan: `docs/plans/native-ui/PLAN.md`; a Codex kit of soft HUD pieces is being drawn for a mock.
+- Her interface direction (2026-10-04): **parchment and soft wood with Ledger type (Crimson Pro)**, no literal device frame, everything inside the game's own themed UI on one stage, cute and minimal. Chosen in the interface lab (an artifact). Plan: `docs/plans/native-ui/PLAN.md`; Cottage epic #86. The painted Codex kit (`art/source/round17/`) was set aside; 22 soft-wood skin pictures are drawn in `art/source/round18/ui-soft/` (untracked on another branch, not yet reviewed).
 
 ## Next, in order (Rylee's order, 2026-10-04)
-1. VEFR: the in-world interface work and the `web/packaged.html` split (`../vefr/docs/plans/player-split/PLAN.md`), then act advance and status effects for the next acts. The VEFR roadmap board lists the rest.
+1. VEFR (in this order, tracked by VEFR epics #267 and #268): the in-world interface slices (the stage and phone dock first), and the tighten-the-shapes slices (sprites by name, a schema table, an art ledger, Blueprint places and things). The `web/packaged.html` split is done (VEFR #264). Then act advance and status effects for the next acts. The VEFR roadmap board lists the rest.
 2. Art: portraits in speech, hit and heal flashes, HUD icons, the mole and robed rat as town folk, walk sheets for other characters.
 3. Story, written by Rylee: the floor-2 note (truth one), the Keeper after the letter (truth two), the final words.
 
 ## Known rough edges
 - Region ids show raw in hints ("To reach floor-1"): VEFR #259.
 - Existing saves repopulate the floors (new enemies change signatures). Start over for a clean run.
-- The skin's slot, tab, toggle, tooltip, divider and banner pictures exist but the player does not draw them yet; the Messages button and the touch d-pad keep the plain style (native-UI plan).
+- The skin's slot, tab, toggle, tooltip, divider and banner pictures exist but the player does not draw them yet; the Messages button and the touch d-pad keep the plain style, and on a phone the HUD floats beside a small map (the VEFR stage slices fix this; the desktop stage fix is built, not yet merged).
