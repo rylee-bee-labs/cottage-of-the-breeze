@@ -2,6 +2,8 @@
 
 Written 2026-10-01 from Rylee's picks: the story spine and ending; progression and stakes; more world; polish; and the random dungeon floor generator. The demo today is a vertical slice (see `DEMO.md`).
 
+> **2026-10-04:** Release 1 completed Act 1. Acts 2 and 3 are part of the plan and were left for later by Rylee's decision (`docs/plans/acts-2-3/PLAN.md`). The status column below is current; older notes elsewhere are history.
+
 ## The order, and why
 
 | # | Piece | What it means | Status (2026-10-02) | Who |

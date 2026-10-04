@@ -11,7 +11,7 @@ A small book on the cottage shelf, bound in plain cloth.
 
 Cottage of the Breeze. A quiet town, a cozy tavern that is wary of you, and a stair in the corner that you cannot help going down.
 
-Rylee and Claude made the game, the words and the pictures. The pictures were drawn with an AI image tool (Codex, with some drafts from MiniMax) from our own descriptions, and every picture keeps a note of how it was made. The game runs on VEFR, a game for making games, and it is one file: open it in a browser and you are playing. Your bag and your journal are saved in this browser.
+Rylee and Claude made the game, the words and the pictures. The pictures were drawn with an AI image tool (Codex, with some drafts from MiniMax) from our own descriptions, and every picture keeps a note of how it was made. The game runs on VEFR, a game for making games, and it is one file: open it in a browser and you are playing. Your bag, your gear, your album and your journal are saved in this browser. The Menu holds the album, the books and a switch for the soft sounds.
 
 * * *
 

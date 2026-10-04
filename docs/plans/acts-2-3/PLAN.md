@@ -1,6 +1,6 @@
 # Acts 2 and 3: a plan (agent draft, 2026-10-04; Rylee decides)
 
-Rylee asked (2026-10-03) for three acts with unique monsters and effects, after a very high quality act 1. This is the plan, not a build. Story, names and themes are hers: everything about content below is a proposal.
+Rylee asked (2026-10-03) for three acts with unique monsters and effects, and chose to ship a very high quality Act 1 first. **Acts 2 and 3 were left for later by her decision; they remain part of the game.** This is the plan for them, not a build, and nothing here says Release 1 fell short. Fire is the first effect (chosen 2026-10-04). Story, names and themes are hers: everything about content below is a proposal.
 
 ## What is true today
 - Act 1 is the cellar: town, tavern, cottage, six floors, the King's room. Ending and Keybearer ladder are built (release 1).

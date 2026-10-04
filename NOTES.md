@@ -1,5 +1,13 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-04 (after the first night) — what changed, and what Rylee decided
+
+- **Release 1 is a complete polished Act 1.** After the entry below was written, the same night added the album (25 stickers), nine soft synthesized sounds with a switch in Menu > Display, a four-direction walk cycle for the hero, eight unique cast monsters, seven pieces of gear with Codex art, and an accessibility pass. Published build `26c21ee`. Verification and state: `.project/CURRENT.md`.
+- **Acts 2 and 3 were left for later by Rylee's decision.** They remain part of the three-act direction. The release is not evidence that VEFR could not support them; act advance and status effects are the next engine capabilities because those acts will want them. Plan: `docs/plans/acts-2-3/PLAN.md`.
+- **Her order of work (chat, 2026-10-04):** "Ship act 1, then plan 2 and 3"; refactor `web/packaged.html` first; fire is the first effect; "I'd like all of act 1 to be very high quality. With all systems and art and everything." (She also asked for a research task on RPG interface styles; the result is in the artifact she was sent.)
+- **Her interface direction (chat, 2026-10-04):** "anything running 'inside the game' to be in a themed ui for that game and only controls and such", with HUD icons currently floating over the page background; then, of a handheld-frame mock: "I don't want an actual frame around it. I want the ui to pretend it's ported from another system but be native hahaha! It should feel like a part of the vefr world. This feels like a square mechanical ui overlayed over a warm soft game." Recorded as `docs/plans/native-ui/PLAN.md`.
+- **Claude's note (agent):** the sound default (on where a pack opts in, with a visible switch) was my choice and is not yet ruled on by Rylee.
+
 ## 2026-10-03 (overnight) — release 1: the ladder, the King's room and an ending (agent drafts, Rylee decides)
 
 Rylee asked for a complete, polished, playable first release built through VEFR. Built tonight (all on branch `release-1/ladder`; plan in `docs/plans/release-1/PLAN.md`). **Everything below that is story text is an agent draft, not canon. Keep, rewrite or bin any of it; each is data, so swapping words takes minutes.**
@@ -8,7 +16,7 @@ Rylee asked for a complete, polished, playable first release built through VEFR.
 - **The King's room and the ending.** A sealed door on floor 6 at (11,1), opened by the crown seal, leads to `king-room`: a small chest with **gems** (treasure is a draft), a draft lore note (`library/a-note-under-the-seal.md`) and a stair home to town. Reading the note fires one rule: it sets `act-1-complete`, shows the end card (VEFR's new `complete-act` action: "Keep exploring" or "Start over", once per save) and says one narrator line. It does not start act 2 (ADR 0006 is unbuilt). The Keeper and the Tavern Regular have one new draft line each after the end.
 - **Tutorial moments, an About book, the cat.** Draft lines from rules (`tutorial-*`, `first-key-*`, `the-cat-notices`); an "About This Game" book on the cottage shelf (credits, tools, fonts). The brass ring is now a charm (+1 attack).
 - **Deep floors dressed.** Floors 4-6 and the King's room use the round-13 deep flagstone and wall; floor 6 map was hand-edited for the sealed door (a `vefr delve` rerun would overwrite it).
-- **Not done (and why).** Album, sound (the engine has no audio at all), stakes (no engine mechanic), act 2, walking frames, per-run floors, the round-12 cast monsters, the mole and beetle proofs as town folk. See the handoff.
+- **Not done (and why).** *(Written early that night; superseded the same night: the album, sound, the hero's walking frames and the round-12 cast monsters all landed later, see the entry above.)* What remained: stakes (no engine mechanic), acts 2 and 3 (deferred by Rylee after Act 1), per-run floors, the mole and beetle proofs as town folk.
 - **Existing saves:** new enemies change signatures, so floors repopulate on an old save. Start over for a clean run.
 
 ## 2026-10-02 (late) — art direction after the MiniMax test (Rylee)
