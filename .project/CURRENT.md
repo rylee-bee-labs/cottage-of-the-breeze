@@ -24,8 +24,8 @@
 
 ## Next, in order
 1. VEFR: act advance (ADR 0006), then status effects (`../vefr/design/elemental-and-status-effects.md`): both are needed for acts 2 and 3.
-2. Art: walking frames; the mole and robed rat proofs as town folk; props in the King's room.
-3. Sound: the engine has none; design it first (VEFR #144).
+2. Art: the mole and robed rat proofs as town folk; props in the King's room; walk frames for the other characters and monsters.
+3. Music (the nine sound cues are in; there is no music).
 4. Story: the floor-2 note (truth one) and the Keeper after the letter, written by Rylee.
 
 ## Known rough edges

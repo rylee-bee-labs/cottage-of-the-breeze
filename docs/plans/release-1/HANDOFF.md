@@ -21,7 +21,7 @@ Mission `cottage-release-1`. Plan: `PLAN.md` (Opus, with corrections found while
 - Nothing caught a softlocked lock: added the lock reachability check; it also refuses a sellable key.
 - No sticker shelf for a game: added the album.
 - Up-stairs said "down": fixed.
-- **Not done, recorded:** `point-to` shows raw region ids (no region display names); no teleport/`--at` for `vefr look` (the `wake` setting did not move the start); sound (the engine has none); status effects and act advance (needed for acts 2 and 3, see `docs/plans/acts-2-3/PLAN.md`).
+- **Not done, recorded:** `point-to` shows raw region ids (no region display names); no teleport/`--at` for `vefr look` (the `wake` setting did not move the start); music (sound cues were added later in the night: VEFR `sound`, nine synthesized cues, one switch); status effects and act advance (needed for acts 2 and 3, see `docs/plans/acts-2-3/PLAN.md`).
 
 ## Decisions made without Rylee (reversible)
 - Guardian art picks: moth, mushroom elder, stag beetle; mole and robed rat held back (`art/source/round11/PICKS.md`).
@@ -36,3 +36,8 @@ Opus planned once. Foremen/workers on Bazzite built V2 (MiniMax foreman), A1 (fo
 
 ## Verify
 `cd ../vefr && uv run vefr check --pack ../cottage-of-the-breeze/worlds/cottage-of-the-breeze`; the bot command in `.project/CURRENT.md`; `uv run --offline --with pillow python -m unittest discover -s art/tests -t .`.
+
+## Added later in the night (after the first merge)
+- VEFR `sound` (#257): nine synthesized cues, opt-in per pack, one switch in Menu > Display. Cottage opts in (`"sound": {"theme": "soft"}`). The bot checks that all nine fire.
+- VEFR walk sheets (#258): the hero walks in four directions (Codex sheet, `art/source/round16/walk/`, in `sprites/hero-sheet.png` + `hero.sheet.json`). The bot checks every direction shows walk frames.
+- Process slip: one art-source-only commit (the walk sheet source, `79071f7`) went straight to Cottage `main` instead of through a PR; it touches no game files. Everything after is on `release-1/polish`.
