@@ -8,9 +8,9 @@ round 7 ordering lesson, and at least one batched codex_batch.sh command. The
 batch count is checked so a one-picture call cannot slip in: Codex bills per
 tool call, so briefs always ask for 2 to 4 pictures at once.
 
-A short sanity test pins the folder to the nine briefs we know; the other tests
-loop over whatever the folder actually holds, so a new brief is covered the
-moment it lands.
+A short sanity test pins the folder to the twelve briefs we know; the other
+tests loop over whatever the folder actually holds, so a new brief is covered
+the moment it lands.
 """
 import re
 import unittest
@@ -23,7 +23,10 @@ REPO_ROOT = ART_DIR.parent                              # the parent of art/
 # The sanity list: exactly these briefs live in art/briefs/. Add a name here
 # when a brief arrives, drop one when a brief goes, or this test fails.
 EXPECTED_BRIEFS = (
+    "cellar-cast.md",
     "characters.md",
+    "gaps.md",
+    "guardians.md",
     "hero-walk.md",
     "items-containers.md",
     "monsters-and-boss.md",
@@ -89,7 +92,7 @@ class BriefTests(unittest.TestCase):
         found = tuple(sorted(p.name for p in BRIEF_DIR.glob("*.md")))
         self.assertEqual(
             found, tuple(sorted(EXPECTED_BRIEFS)),
-            "art/briefs/ does not hold exactly the expected nine briefs; "
+            "art/briefs/ does not hold exactly the expected twelve briefs; "
             "update EXPECTED_BRIEFS if a brief was added or removed")
 
     def test_each_brief_exists(self):
@@ -126,11 +129,19 @@ class BriefTests(unittest.TestCase):
                 self.assertTrue(list(batch_lines(read(name))),
                                 "%s: no codex_batch.sh command" % name)
 
-    def test_each_brief_says_training_not_cleared(self):
+    def test_each_brief_names_who_made_the_pictures(self):
+        # The stale "training: not cleared" line is gone (AGENTS.md: art we
+        # generate is distributable with attribution). What still matters is
+        # that a brief says whose work it is: Rylee's pick, and the tool that
+        # draws it (Codex, or Claude).
         for name in BRIEFS:
             with self.subTest(brief=name):
-                self.assertIn("training: not cleared", read(name),
-                              "%s: missing 'training: not cleared'" % name)
+                text = read(name)
+                self.assertIn("Rylee", text,
+                              "%s: does not name Rylee" % name)
+                self.assertTrue(
+                    "Claude" in text or "Codex" in text,
+                    "%s: names neither Claude nor Codex" % name)
 
     def test_each_brief_says_status_draft(self):
         for name in BRIEFS:
