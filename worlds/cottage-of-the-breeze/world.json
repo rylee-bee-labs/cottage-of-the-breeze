@@ -287,7 +287,7 @@
           "say": "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the town's top left corner."
         },
         {
-          "point-to": "the stair down"
+          "point-to": "floor-1"
         }
       ],
       "once": true
@@ -318,7 +318,7 @@
           "say": "A key. Keys stay in your bag. The stair down from here wants this one."
         },
         {
-          "point-to": "the stair down"
+          "point-to": "floor-3"
         }
       ],
       "once": true
@@ -363,7 +363,7 @@
           "say": "A crown pressed in red wax. Somewhere on this floor is a door that has been waiting for it."
         },
         {
-          "point-to": "the sealed door"
+          "point-to": "king-room"
         }
       ],
       "once": true
