@@ -26,13 +26,13 @@
         "#20242b"
       ],
       "solid": true,
-      "tile": "dungeon-wall"
+      "tile": "deep-wall"
     },
     ".": {
       "base": [
         "#1a1d22"
       ],
-      "tile": "dungeon-floor"
+      "tile": "deep-flagstone"
     },
     "u": {
       "base": [
