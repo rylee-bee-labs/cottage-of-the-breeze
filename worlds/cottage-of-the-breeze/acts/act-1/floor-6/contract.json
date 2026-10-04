@@ -30,13 +30,21 @@
         "#2b2f38"
       ],
       "tile": "dungeon-stairs-down"
+    },
+    "S": {
+      "base": [
+        "#1a1d22"
+      ],
+      "tile": "sealed-door"
     }
   },
   "pois": {
-    "24,17": "the stair up"
+    "24,17": "the stair up",
+    "11,1": "the sealed door"
   },
   "poi_text": {
-    "24,17": "Steps climb back toward the day."
+    "24,17": "Steps climb back toward the day.",
+    "11,1": "A stone door sealed with a crown of red wax."
   },
   "sanctuary_tiles": [],
   "water_by_phase": {},

@@ -122,7 +122,8 @@
   },
   "flags": {
     "read-the-letter": "The hero has read the letter from the chest on the first cellar floor.",
-    "keeper-came-back": "The Spell Keeper has told the hero the letter is hers."
+    "keeper-came-back": "The Spell Keeper has told the hero the letter is hers.",
+    "act-1-complete": "the note under the Cellar King's seal has been read"
   },
   "rules": [
     {
@@ -168,6 +169,26 @@
         }
       ],
       "once": true
+    },
+    {
+      "id": "the-seal-note-read",
+      "when": {
+        "reads": {
+          "what": "a-note-under-the-seal"
+        }
+      },
+      "once": true,
+      "then": [
+        {
+          "set": "act-1-complete"
+        },
+        {
+          "complete-act": "act-1"
+        },
+        {
+          "say": "Far above, a window is a little brighter than it was."
+        }
+      ]
     }
   ],
   "growth": {
