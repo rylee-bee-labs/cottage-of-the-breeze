@@ -65,15 +65,15 @@
     },
     {
       "id": "floor-3-rat2",
-      "name": "a cellar rat",
-      "sprite": "rat",
+      "name": "a cobweb-scarfed spider",
+      "sprite": "cellar-spider",
       "at": [
         43,
         20
       ],
-      "hp": 4,
-      "atk": 1,
-      "xp": 2
+      "hp": 5,
+      "atk": 2,
+      "xp": 5
     },
     {
       "id": "floor-3-shade-1",
@@ -89,15 +89,15 @@
     },
     {
       "id": "floor-3-shade-2",
-      "name": "a damp shade",
-      "sprite": "shade",
+      "name": "a crock mimic",
+      "sprite": "crock-mimic",
       "at": [
         26,
         24
       ],
-      "hp": 5,
-      "atk": 1,
-      "xp": 3
+      "hp": 6,
+      "atk": 2,
+      "xp": 6
     },
     {
       "id": "floor-3-shade-3",
@@ -179,15 +179,15 @@
     },
     {
       "id": "floor-3-moths-2",
-      "name": "a nest of moths",
-      "sprite": "moths",
+      "name": "a wick sprite",
+      "sprite": "wick-sprite",
       "at": [
         27,
         14
       ],
-      "hp": 3,
-      "atk": 1,
-      "xp": 2
+      "hp": 4,
+      "atk": 2,
+      "xp": 4
     },
     {
       "id": "floor-3-fat-1",
@@ -202,6 +202,22 @@
       "xp": 3,
       "drops": [
         "cloudy-potion"
+      ]
+    },
+    {
+      "id": "floor-3-keybearer",
+      "name": "the Keybearer, a great pale moth",
+      "sprite": "keybearer-moth",
+      "at": [
+        6,
+        6
+      ],
+      "hp": 16,
+      "atk": 2,
+      "xp": 20,
+      "sight": 0,
+      "drops": [
+        "bell-key"
       ]
     }
   ]

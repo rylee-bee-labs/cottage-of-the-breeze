@@ -1,0 +1,21 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "A battered copper soup ladle with a long wooden handle, polished bright. Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks on metal and leather, flat opaque fills on enamel and cloth. Warm palette of honey gold, deep amber, ochre, chestnut and russet leather, mossy green cloth and cream, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.",
+  "aspect_ratio": "1:1",
+  "seed": 7,
+  "n": 1,
+  "character_reference": false,
+  "trace_id": "0711018a91a32406afe9439d008dd47e",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-04T03:57:17Z",
+  "files": [
+    {
+      "name": "copper-ladle-1.jpg",
+      "bytes": 141768,
+      "sha256": "f7bd59b2074f2ddaf53b3d299b6ee8ec2e986bf0266f0b5b91f7ba6d003694e5"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}

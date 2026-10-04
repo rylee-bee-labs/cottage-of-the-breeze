@@ -89,27 +89,27 @@
     },
     {
       "id": "floor-1-rat-2",
-      "name": "a cellar rat",
-      "sprite": "rat",
+      "name": "a flowerpot toad",
+      "sprite": "toad",
       "at": [
         19,
         3
       ],
-      "hp": 4,
+      "hp": 5,
       "atk": 1,
-      "xp": 2
+      "xp": 3
     },
     {
       "id": "floor-1-rat-3",
-      "name": "a cellar rat",
-      "sprite": "rat",
+      "name": "a wick sprite",
+      "sprite": "wick-sprite",
       "at": [
         21,
         9
       ],
       "hp": 4,
-      "atk": 1,
-      "xp": 2
+      "atk": 2,
+      "xp": 4
     },
     {
       "id": "floor-1-fat-1",

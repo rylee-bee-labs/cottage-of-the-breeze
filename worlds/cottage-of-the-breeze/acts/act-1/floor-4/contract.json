@@ -11,13 +11,13 @@
         "#20242b"
       ],
       "solid": true,
-      "tile": "dungeon-wall"
+      "tile": "deep-wall"
     },
     ".": {
       "base": [
         "#1a1d22"
       ],
-      "tile": "dungeon-floor"
+      "tile": "deep-flagstone"
     },
     "u": {
       "base": [
@@ -113,17 +113,17 @@
     },
     {
       "id": "floor-4-deep-3",
-      "name": "a deep shade",
-      "sprite": "shade",
+      "name": "a cobweb wraith",
+      "sprite": "cobweb-wraith",
       "at": [
         35,
         4
       ],
-      "hp": 8,
+      "hp": 9,
       "atk": 2,
-      "xp": 8,
+      "xp": 9,
       "drops": [
-        "cloudy-potion"
+        "quilted-coat"
       ]
     },
     {
@@ -140,15 +140,15 @@
     },
     {
       "id": "floor-4-loud-2",
-      "name": "a loud rustle",
-      "sprite": "rustle",
+      "name": "a root tangle",
+      "sprite": "root-tangle",
       "at": [
         18,
         10
       ],
-      "hp": 5,
+      "hp": 10,
       "atk": 2,
-      "xp": 5
+      "xp": 10
     },
     {
       "id": "floor-4-moths-1",
@@ -200,15 +200,31 @@
     },
     {
       "id": "floor-4-rust-1",
-      "name": "a rustle",
-      "sprite": "rustle",
+      "name": "a cave cricket",
+      "sprite": "cave-cricket",
       "at": [
         10,
         28
       ],
-      "hp": 3,
-      "atk": 1,
-      "xp": 2
+      "hp": 6,
+      "atk": 3,
+      "xp": 9
+    },
+    {
+      "id": "floor-4-keybearer",
+      "name": "the Keybearer, an old mushroom elder",
+      "sprite": "keybearer-mushroom",
+      "at": [
+        2,
+        2
+      ],
+      "hp": 22,
+      "atk": 3,
+      "xp": 30,
+      "sight": 0,
+      "drops": [
+        "lantern-key"
+      ]
     }
   ]
 }

@@ -1,0 +1,44 @@
+{
+  "tile": 32,
+  "bg": "#0d0f12",
+  "hero_start": [
+    6,
+    6
+  ],
+  "pois": {
+    "6,7": "the way home"
+  },
+  "poi_text": {
+    "6,7": "A stair climbs all the way up to the town."
+  },
+  "sanctuary_tiles": [
+    "."
+  ],
+  "water_by_phase": {},
+  "flood_tiles": [],
+  "watch": {},
+  "hero_color": "#e8e5df",
+  "speaker_color": "#8b939c",
+  "speaker_head": "#d8d5df",
+  "legend": {
+    "#": {
+      "base": [
+        "#20242b"
+      ],
+      "solid": true,
+      "tile": "deep-wall"
+    },
+    ".": {
+      "base": [
+        "#1a1d22"
+      ],
+      "tile": "deep-flagstone"
+    },
+    "h": {
+      "base": [
+        "#2b2f38"
+      ],
+      "tile": "dungeon-stairs-up"
+    }
+  }
+}

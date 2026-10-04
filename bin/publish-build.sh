@@ -12,4 +12,9 @@ chmod 755 "$OUT"   # mktemp makes 0700; the gallery copies the mode and nginx th
 ( cd ~/code/Rylee-Bee/vefr && uv run python -c "
 import sys; from pathlib import Path; from vefr import cli
 Path(sys.argv[2], 'index.html').write_text(cli.weave_html(Path(sys.argv[1])))" "$PACK" "$OUT" )
+# Reproducibility (#75): record exactly which engine and pack revisions made this file.
+VEFR_SHA="$(git -C ~/code/Rylee-Bee/vefr rev-parse --short HEAD)"
+VEFR_DIRTY="$(git -C ~/code/Rylee-Bee/vefr status --porcelain --untracked-files=no | wc -l)"
+printf 'cottage-of-the-breeze %s\nvefr %s (uncommitted changes: %s)\n' "$SHA" "$VEFR_SHA" "$VEFR_DIRTY" > "$OUT/build-info.txt"
+echo "build: cottage $SHA, vefr $VEFR_SHA"
 GALLERY_BY=claude ~/.agents/bin/gallery build cottage-of-the-breeze "$OUT" --sha "$SHA"

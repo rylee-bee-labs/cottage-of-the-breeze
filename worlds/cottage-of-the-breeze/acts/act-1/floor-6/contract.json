@@ -11,13 +11,13 @@
         "#20242b"
       ],
       "solid": true,
-      "tile": "dungeon-wall"
+      "tile": "deep-wall"
     },
     ".": {
       "base": [
         "#1a1d22"
       ],
-      "tile": "dungeon-floor"
+      "tile": "deep-flagstone"
     },
     "u": {
       "base": [
@@ -30,13 +30,21 @@
         "#2b2f38"
       ],
       "tile": "dungeon-stairs-down"
+    },
+    "S": {
+      "base": [
+        "#1a1d22"
+      ],
+      "tile": "sealed-door"
     }
   },
   "pois": {
-    "24,17": "the stair up"
+    "24,17": "the stair up",
+    "11,1": "the sealed door"
   },
   "poi_text": {
-    "24,17": "Steps climb back toward the day."
+    "24,17": "Steps climb back toward the day.",
+    "11,1": "A stone door sealed with a crown of red wax."
   },
   "sanctuary_tiles": [],
   "water_by_phase": {},
@@ -66,30 +74,30 @@
     },
     {
       "id": "floor-6-deep-2",
-      "name": "a deep shade",
-      "sprite": "shade",
+      "name": "a cobweb wraith",
+      "sprite": "cobweb-wraith",
       "at": [
         39,
         9
       ],
-      "hp": 8,
+      "hp": 9,
       "atk": 2,
-      "xp": 8,
+      "xp": 9,
       "drops": [
         "cloudy-potion"
       ]
     },
     {
       "id": "floor-6-deep-3",
-      "name": "a deep shade",
-      "sprite": "shade",
+      "name": "a cobweb wraith",
+      "sprite": "cobweb-wraith",
       "at": [
         35,
         23
       ],
-      "hp": 8,
+      "hp": 9,
       "atk": 2,
-      "xp": 8,
+      "xp": 9,
       "drops": [
         "cloudy-potion"
       ]
@@ -111,15 +119,15 @@
     },
     {
       "id": "floor-6-hollow-2",
-      "name": "a hollow shade",
-      "sprite": "shade",
+      "name": "a barrel mimic",
+      "sprite": "barrel-mimic",
       "at": [
         34,
         14
       ],
-      "hp": 12,
+      "hp": 14,
       "atk": 3,
-      "xp": 18,
+      "xp": 21,
       "drops": [
         "cloudy-potion"
       ]
@@ -162,27 +170,27 @@
     },
     {
       "id": "floor-6-loud-1",
-      "name": "a loud rustle",
-      "sprite": "rustle",
+      "name": "a root tangle",
+      "sprite": "root-tangle",
       "at": [
         16,
         18
       ],
-      "hp": 5,
+      "hp": 10,
       "atk": 2,
-      "xp": 5
+      "xp": 10
     },
     {
       "id": "floor-6-loud-2",
-      "name": "a loud rustle",
-      "sprite": "rustle",
+      "name": "a cave cricket",
+      "sprite": "cave-cricket",
       "at": [
         11,
         3
       ],
-      "hp": 5,
-      "atk": 2,
-      "xp": 5
+      "hp": 6,
+      "atk": 3,
+      "xp": 9
     },
     {
       "id": "floor-6-moths-1",
@@ -248,6 +256,22 @@
       "xp": 3,
       "drops": [
         "cloudy-potion"
+      ]
+    },
+    {
+      "id": "floor-6-cellar-king",
+      "name": "the Cellar King, a very large crowned rat",
+      "sprite": "cellar-king",
+      "at": [
+        26,
+        3
+      ],
+      "hp": 36,
+      "atk": 3,
+      "xp": 80,
+      "sight": 0,
+      "drops": [
+        "crown-seal"
       ]
     }
   ]

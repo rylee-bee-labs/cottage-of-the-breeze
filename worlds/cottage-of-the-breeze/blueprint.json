@@ -92,6 +92,142 @@
         "atk": 3,
         "xp": 18
       }
+    },
+    "keybearer-moth": {
+      "extends": "nest-of-moths",
+      "defaults": {
+        "name": "the Keybearer, a great pale moth",
+        "sprite": "keybearer-moth",
+        "hp": 16,
+        "atk": 2,
+        "xp": 20,
+        "drops": [
+          "bell-key"
+        ],
+        "sight": 0
+      }
+    },
+    "keybearer-mushroom": {
+      "extends": "rustle",
+      "defaults": {
+        "name": "the Keybearer, an old mushroom elder",
+        "sprite": "keybearer-mushroom",
+        "hp": 22,
+        "atk": 3,
+        "xp": 30,
+        "drops": [
+          "lantern-key"
+        ],
+        "sight": 0
+      }
+    },
+    "keybearer-beetle": {
+      "extends": "hollow-shade",
+      "defaults": {
+        "name": "the Keybearer, an armoured stag beetle",
+        "sprite": "keybearer-beetle",
+        "hp": 28,
+        "atk": 3,
+        "xp": 40,
+        "drops": [
+          "helmet-key"
+        ],
+        "sight": 0
+      }
+    },
+    "cellar-king": {
+      "extends": "cellar-rat",
+      "defaults": {
+        "name": "the Cellar King, a very large crowned rat",
+        "sprite": "cellar-king",
+        "hp": 36,
+        "atk": 3,
+        "xp": 80,
+        "drops": [
+          "crown-seal"
+        ],
+        "sight": 0
+      }
+    },
+    "flowerpot-toad": {
+      "extends": "cellar-rat",
+      "defaults": {
+        "name": "a flowerpot toad",
+        "sprite": "toad",
+        "hp": 5,
+        "atk": 1,
+        "xp": 3
+      }
+    },
+    "crock-mimic": {
+      "extends": "damp-shade",
+      "defaults": {
+        "name": "a crock mimic",
+        "sprite": "crock-mimic",
+        "hp": 6,
+        "atk": 2,
+        "xp": 6
+      }
+    },
+    "wick-sprite": {
+      "extends": "nest-of-moths-3hp",
+      "defaults": {
+        "name": "a wick sprite",
+        "sprite": "wick-sprite",
+        "hp": 4,
+        "atk": 2,
+        "xp": 4
+      }
+    },
+    "cellar-spider": {
+      "extends": "cellar-rat",
+      "defaults": {
+        "name": "a cobweb-scarfed spider",
+        "sprite": "cellar-spider",
+        "hp": 5,
+        "atk": 2,
+        "xp": 5
+      }
+    },
+    "cobweb-wraith": {
+      "extends": "deep-shade",
+      "defaults": {
+        "name": "a cobweb wraith",
+        "sprite": "cobweb-wraith",
+        "hp": 9,
+        "atk": 2,
+        "xp": 9
+      }
+    },
+    "cave-cricket": {
+      "extends": "loud-rustle",
+      "defaults": {
+        "name": "a cave cricket",
+        "sprite": "cave-cricket",
+        "hp": 6,
+        "atk": 3,
+        "xp": 9
+      }
+    },
+    "barrel-mimic": {
+      "extends": "hollow-shade",
+      "defaults": {
+        "name": "a barrel mimic",
+        "sprite": "barrel-mimic",
+        "hp": 14,
+        "atk": 3,
+        "xp": 21
+      }
+    },
+    "root-tangle": {
+      "extends": "loud-rustle",
+      "defaults": {
+        "name": "a root tangle",
+        "sprite": "root-tangle",
+        "hp": 10,
+        "atk": 2,
+        "xp": 10
+      }
     }
   },
   "regions": {
@@ -120,7 +256,7 @@
         },
         {
           "id": "floor-1-rat-2",
-          "family": "cellar-rat",
+          "family": "flowerpot-toad",
           "at": [
             19,
             3
@@ -128,7 +264,7 @@
         },
         {
           "id": "floor-1-rat-3",
-          "family": "cellar-rat",
+          "family": "wick-sprite",
           "at": [
             21,
             9
@@ -177,7 +313,7 @@
         },
         {
           "id": "floor-2-rat-1",
-          "family": "cellar-rat",
+          "family": "cellar-spider",
           "at": [
             32,
             28
@@ -185,7 +321,7 @@
         },
         {
           "id": "floor-2-rat-2",
-          "family": "cellar-rat",
+          "family": "flowerpot-toad",
           "at": [
             31,
             8
@@ -201,15 +337,20 @@
         },
         {
           "id": "floor-2-moths-2",
-          "family": "nest-of-moths-3hp",
+          "family": "wick-sprite",
           "at": [
             20,
             26
-          ]
+          ],
+          "properties": {
+            "drops": [
+              "thread-bell"
+            ]
+          }
         },
         {
           "id": "floor-2-shade-1",
-          "family": "damp-shade",
+          "family": "crock-mimic",
           "at": [
             28,
             19
@@ -253,7 +394,7 @@
         },
         {
           "id": "floor-3-rat2",
-          "family": "cellar-rat",
+          "family": "cellar-spider",
           "at": [
             43,
             20
@@ -269,7 +410,7 @@
         },
         {
           "id": "floor-3-shade-2",
-          "family": "damp-shade",
+          "family": "crock-mimic",
           "at": [
             26,
             24
@@ -325,7 +466,7 @@
         },
         {
           "id": "floor-3-moths-2",
-          "family": "nest-of-moths-3hp",
+          "family": "wick-sprite",
           "at": [
             27,
             14
@@ -337,6 +478,14 @@
           "at": [
             5,
             7
+          ]
+        },
+        {
+          "id": "floor-3-keybearer",
+          "family": "keybearer-moth",
+          "at": [
+            6,
+            6
           ]
         }
       ]
@@ -377,11 +526,16 @@
         },
         {
           "id": "floor-4-deep-3",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             35,
             4
-          ]
+          ],
+          "properties": {
+            "drops": [
+              "quilted-coat"
+            ]
+          }
         },
         {
           "id": "floor-4-loud-1",
@@ -393,7 +547,7 @@
         },
         {
           "id": "floor-4-loud-2",
-          "family": "loud-rustle",
+          "family": "root-tangle",
           "at": [
             18,
             10
@@ -433,10 +587,18 @@
         },
         {
           "id": "floor-4-rust-1",
-          "family": "rustle",
+          "family": "cave-cricket",
           "at": [
             10,
             28
+          ]
+        },
+        {
+          "id": "floor-4-keybearer",
+          "family": "keybearer-mushroom",
+          "at": [
+            2,
+            2
           ]
         }
       ]
@@ -453,7 +615,7 @@
         },
         {
           "id": "floor-5-deep-2",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             35,
             28
@@ -461,7 +623,7 @@
         },
         {
           "id": "floor-5-deep-3",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             21,
             29
@@ -477,15 +639,20 @@
         },
         {
           "id": "floor-5-loud-1",
-          "family": "loud-rustle",
+          "family": "barrel-mimic",
           "at": [
             2,
             27
-          ]
+          ],
+          "properties": {
+            "drops": [
+              "copper-ladle"
+            ]
+          }
         },
         {
           "id": "floor-5-loud-2",
-          "family": "loud-rustle",
+          "family": "root-tangle",
           "at": [
             21,
             6
@@ -509,7 +676,7 @@
         },
         {
           "id": "floor-5-moths-1",
-          "family": "nest-of-moths",
+          "family": "cave-cricket",
           "at": [
             7,
             17
@@ -554,6 +721,14 @@
             29,
             28
           ]
+        },
+        {
+          "id": "floor-5-keybearer",
+          "family": "keybearer-beetle",
+          "at": [
+            1,
+            29
+          ]
         }
       ]
     },
@@ -569,7 +744,7 @@
         },
         {
           "id": "floor-6-deep-2",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             39,
             9
@@ -577,7 +752,7 @@
         },
         {
           "id": "floor-6-deep-3",
-          "family": "deep-shade",
+          "family": "cobweb-wraith",
           "at": [
             35,
             23
@@ -593,7 +768,7 @@
         },
         {
           "id": "floor-6-hollow-2",
-          "family": "hollow-shade",
+          "family": "barrel-mimic",
           "at": [
             34,
             14
@@ -625,7 +800,7 @@
         },
         {
           "id": "floor-6-loud-1",
-          "family": "loud-rustle",
+          "family": "root-tangle",
           "at": [
             16,
             18
@@ -633,7 +808,7 @@
         },
         {
           "id": "floor-6-loud-2",
-          "family": "loud-rustle",
+          "family": "cave-cricket",
           "at": [
             11,
             3
@@ -677,6 +852,14 @@
           "at": [
             2,
             13
+          ]
+        },
+        {
+          "id": "floor-6-cellar-king",
+          "family": "cellar-king",
+          "at": [
+            26,
+            3
           ]
         }
       ]
