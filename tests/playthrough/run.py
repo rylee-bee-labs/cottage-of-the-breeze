@@ -123,6 +123,24 @@ class Bot:
         if self.delay_ms:
             self.page.wait_for_timeout(self.delay_ms)
         self._observe_progress()
+        self._shot()
+
+    def _shot(self) -> None:
+        """With COTTAGE_SHOTS=<dir>, save one screenshot the first time each region is seen (for a human)."""
+        d = os.environ.get("COTTAGE_SHOTS")
+        if not d:
+            return
+        seen = getattr(self, "_seen_regions", set())
+        try:
+            region = self.page.evaluate("() => window.VEFR_COMBAT && window.VEFR_COMBAT.region")
+            if region and region not in seen and self.steps > 3:
+                seen.add(region)
+                self._seen_regions = seen
+                self.page.wait_for_timeout(500)
+                Path(d).mkdir(parents=True, exist_ok=True)
+                self.page.screenshot(path=str(Path(d) / f"{len(seen):02d}-{region}.png"))
+        except Exception:
+            pass
 
     def press_dir(self, direction) -> None:
         self.press(KEYS[direction])
