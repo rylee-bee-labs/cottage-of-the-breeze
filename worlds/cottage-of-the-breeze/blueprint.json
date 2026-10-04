@@ -103,7 +103,8 @@
         "xp": 20,
         "drops": [
           "bell-key"
-        ]
+        ],
+        "sight": 0
       }
     },
     "keybearer-mushroom": {
@@ -116,7 +117,8 @@
         "xp": 30,
         "drops": [
           "lantern-key"
-        ]
+        ],
+        "sight": 0
       }
     },
     "keybearer-beetle": {
@@ -129,7 +131,8 @@
         "xp": 40,
         "drops": [
           "helmet-key"
-        ]
+        ],
+        "sight": 0
       }
     },
     "cellar-king": {
@@ -137,12 +140,13 @@
       "defaults": {
         "name": "the Cellar King, a very large crowned rat",
         "sprite": "cellar-king",
-        "hp": 40,
-        "atk": 4,
+        "hp": 36,
+        "atk": 3,
         "xp": 80,
         "drops": [
           "crown-seal"
-        ]
+        ],
+        "sight": 0
       }
     },
     "flowerpot-toad": {

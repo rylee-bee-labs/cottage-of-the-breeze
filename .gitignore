@@ -8,3 +8,6 @@ data/
 *.bak-*
 CLAUDE.local.md
 .claude/settings.local.json
+tests/playthrough/report.json
+tests/playthrough/failure.png
+__pycache__/

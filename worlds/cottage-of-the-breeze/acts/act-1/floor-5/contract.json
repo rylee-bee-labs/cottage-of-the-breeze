@@ -251,6 +251,7 @@
       "hp": 28,
       "atk": 3,
       "xp": 40,
+      "sight": 0,
       "drops": [
         "helmet-key"
       ]

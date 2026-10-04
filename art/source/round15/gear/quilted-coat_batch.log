@@ -341,3 +341,10 @@ If installation is not possible in this environment, tell the user which depende
 - `references/codex-network.md`: fallback-only network/sandbox troubleshooting for CLI mode.
 - `scripts/image_gen.py`: fallback-only CLI implementation. Use only when the user explicitly chooses or confirms CLI mode.
 
+codex
+DONE
+hook: Stop
+hook: Stop Completed
+tokens used
+38,993
+DONE

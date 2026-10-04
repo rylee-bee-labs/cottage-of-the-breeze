@@ -221,6 +221,7 @@
       "hp": 22,
       "atk": 3,
       "xp": 30,
+      "sight": 0,
       "drops": [
         "lantern-key"
       ]

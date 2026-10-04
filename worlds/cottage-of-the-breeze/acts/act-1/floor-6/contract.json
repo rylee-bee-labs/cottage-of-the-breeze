@@ -266,9 +266,10 @@
         26,
         3
       ],
-      "hp": 40,
-      "atk": 4,
+      "hp": 36,
+      "atk": 3,
       "xp": 80,
+      "sight": 0,
       "drops": [
         "crown-seal"
       ]
