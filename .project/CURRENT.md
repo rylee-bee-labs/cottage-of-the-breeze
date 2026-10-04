@@ -6,6 +6,7 @@
 1. `AGENTS.md` (rules, art rights), then `NOTES.md` newest first (Rylee's words and decisions, and the agent drafts flagged for her).
 2. Validate: `cd ../vefr && uv run vefr check --pack ../cottage-of-the-breeze/worlds/cottage-of-the-breeze` (VEFR on `main`; `check` now also follows the locks).
 3. Play it through without a browser in front of you: `cd ../vefr && uv run --group test python ../cottage-of-the-breeze/tests/playthrough/run.py --pack ../cottage-of-the-breeze/worlds/cottage-of-the-breeze --viewport desktop` (also `phone`; `COTTAGE_SHOTS=<dir>` saves a screenshot of each region). It takes about three minutes and writes `tests/playthrough/report.json`.
+3b. Accessibility: `uv run --group test python ../cottage-of-the-breeze/tests/playthrough/axe_panels.py --pack ../cottage-of-the-breeze/worlds/cottage-of-the-breeze` (from `../vefr`) runs axe-core on the play screen, each menu panel and the end card; 0 violations on 2026-10-04.
 4. Publish a build after a merge: `bin/publish-build.sh` (records the cottage and VEFR revisions in `build-info.txt`).
 5. The VM is small: do not run VEFR's full suite or the bot while a Codex or other heavy job runs.
 
