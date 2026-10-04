@@ -125,6 +125,17 @@ class Bot:
         self._observe_progress()
         self._shot()
 
+    def shot(self, name: str) -> None:
+        d = os.environ.get("COTTAGE_SHOTS")
+        if not d:
+            return
+        try:
+            self.page.wait_for_timeout(400)
+            Path(d).mkdir(parents=True, exist_ok=True)
+            self.page.screenshot(path=str(Path(d) / f"{name}.png"))
+        except Exception:
+            pass
+
     def _shot(self) -> None:
         """With COTTAGE_SHOTS=<dir>, save one screenshot the first time each region is seen (for a human)."""
         d = os.environ.get("COTTAGE_SHOTS")
@@ -394,6 +405,7 @@ class Bot:
             cleared.add(region)
             self._cleared = cleared
             self.clear_floor(region, enemy_id)
+        shot_taken = False
         for _ in range(600):
             s = self.state()
             c = s["combat"]
@@ -410,6 +422,9 @@ class Bot:
                 self.drink()
                 continue
             at = tuple(c["hero"]["at"])
+            if not shot_taken and abs(at[0] - foe["at"][0]) + abs(at[1] - foe["at"][1]) <= 3:
+                shot_taken = True
+                self.shot(f"fight-{enemy_id}")
             d = self.next_dir(region, at, tuple(foe["at"]))
             if d is None:
                 raise RouteError(f"no path to {enemy_id} at {foe['at']}")
