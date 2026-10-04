@@ -1,5 +1,16 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-03 (overnight) — release 1: the ladder, the King's room and an ending (agent drafts, Rylee decides)
+
+Rylee asked for a complete, polished, playable first release built through VEFR. Built tonight (all on branch `release-1/ladder`; plan in `docs/plans/release-1/PLAN.md`). **Everything below that is story text is an agent draft, not canon. Keep, rewrite or bin any of it; each is data, so swapping words takes minutes.**
+
+- **The Keybearer ladder.** Floors 3, 4 and 5 each hold one Keybearer, a tougher variant of an existing family carrying that floor's key; the Cellar King on floor 6 carries the crown seal. Placed by BFS in a far room (floor 3 at 6,6; floor 4 at 2,2; floor 5 at 1,29; the King at 26,3). The stairs 3 to 4, 4 to 5 and 5 to 6 now need the key (`requires`); keys are `keep` and have **no value** (a sold key would soft-lock the game). Guardian names are descriptive placeholders ("the Keybearer, a great pale moth"); **proper names and epithets are yours**. Art picks: `art/source/round11/PICKS.md` (moth, mushroom elder, stag beetle; the mole and the robed rat are held back for later).
+- **The King's room and the ending.** A sealed door on floor 6 at (11,1), opened by the crown seal, leads to `king-room`: a small chest with **gems** (treasure is a draft), a draft lore note (`library/a-note-under-the-seal.md`) and a stair home to town. Reading the note fires one rule: it sets `act-1-complete`, shows the end card (VEFR's new `complete-act` action: "Keep exploring" or "Start over", once per save) and says one narrator line. It does not start act 2 (ADR 0006 is unbuilt). The Keeper and the Tavern Regular have one new draft line each after the end.
+- **Tutorial moments, an About book, the cat.** Draft lines from rules (`tutorial-*`, `first-key-*`, `the-cat-notices`); an "About This Game" book on the cottage shelf (credits, tools, fonts). The brass ring is now a charm (+1 attack).
+- **Deep floors dressed.** Floors 4-6 and the King's room use the round-13 deep flagstone and wall; floor 6 map was hand-edited for the sealed door (a `vefr delve` rerun would overwrite it).
+- **Not done (and why).** Album, sound (the engine has no audio at all), stakes (no engine mechanic), act 2, walking frames, per-run floors, the round-12 cast monsters, the mole and beetle proofs as town folk. See the handoff.
+- **Existing saves:** new enemies change signatures, so floors repopulate on an old save. Start over for a clean run.
+
 ## 2026-10-02 (late) — art direction after the MiniMax test (Rylee)
 
 - **Her words:** "I think I prefer the codex character designs. I enjoy the storybook and the cuter concepts for the mobs vs realism." And of the dressed scarred-rat guardian (a MiniMax draft): "I did rather enjoy the v6 guard style though. That was pretty cute!" And: "you're also more than welcome to use codex, was just an experiment!"
