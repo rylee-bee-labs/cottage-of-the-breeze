@@ -1,5 +1,10 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-04 (later) — interface direction: parchment and soft wood, Ledger type (Rylee)
+
+- **Her words:** "Scrapbook pages I think is my fav. It's working better now! Can we fix the font to be a little more 'cottage' and less stardew valley?" Then: "Oh I don't like the tape. Back to parchment and soft wood. Let's say 'ledger' font?" Earlier she had said of the first painted kit: "I prefer the older style over this", and asked for "radically different ui styles to help me visually narrow down. Not a picker, a system to help me refine."
+- **Claude's note (agent):** the interface lab now defaults to "Parchment & soft wood" with the Ledger voice (Crimson Pro). Nothing is built into the game yet; the plan is `docs/plans/native-ui/PLAN.md`.
+
 ## 2026-10-04 (after the first night) — what changed, and what Rylee decided
 
 - **Release 1 is a complete polished Act 1.** After the entry below was written, the same night added the album (25 stickers), nine soft synthesized sounds with a switch in Menu > Display, a four-direction walk cycle for the hero, eight unique cast monsters, seven pieces of gear with Codex art, and an accessibility pass. Published build `26c21ee`. Verification and state: `.project/CURRENT.md`.
