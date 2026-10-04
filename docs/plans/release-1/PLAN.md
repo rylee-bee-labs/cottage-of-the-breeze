@@ -1,5 +1,7 @@
 # Release 1 build plan (overnight 2026-10-03/04)
 
+> **Historical plan.** This is what was planned before building; it was written by Opus and corrected while building (see `HANDOFF.md` for what happened). Its "Deferred" list (album, sound, walk frames, act 2) reflects the plan at 23:00; album, sound and walk frames landed later that night. Acts 2 and 3 were left for later by Rylee's decision.
+
 Plan builder: Opus, 2026-10-03 ~23:00 CDT. Deadline 07:00. Coordinator integrates; foremen build on Bazzite.
 Story text written tonight is an **agent draft** (not canon): it is listed in `NOTES.md` ("Claude's note:") and in the morning report.
 

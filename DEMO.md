@@ -27,7 +27,7 @@ Things you can collect: gear for five slots (hand, body, head, feet, charm), pot
 
 ## What's still rough
 
-We'd rather tell you than have you wonder. The hero steps one tile at a time. The sounds are a few soft synthesized notes (switch them off in Menu > Display). Act 2 and 3 are not here yet: reading the note under the King's seal ends this part of the story, and you can keep exploring. Every name and line of story you read is a draft that Rylee has not signed off on, and the guardians have plain descriptions instead of names. If you connect a small model (the VEFR guide shows how), people make up fresh lines. Your bag, gear, album and journal are saved in this browser.
+We'd rather tell you than have you wonder. The hero steps one tile at a time. The sounds are a few soft synthesized notes (switch them off in Menu > Display). Acts 2 and 3 are planned and are not in this release: reading the note under the King's seal ends this part of the story, and you can keep exploring. Every name and line of story you read is a draft that Rylee has not signed off on, and the guardians have plain descriptions instead of names. If you connect a small model (the VEFR guide shows how), people make up fresh lines. Your bag, gear, album and journal are saved in this browser.
 
 ## Who made it
 
