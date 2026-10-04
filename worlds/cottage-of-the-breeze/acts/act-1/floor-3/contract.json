@@ -203,6 +203,21 @@
       "drops": [
         "cloudy-potion"
       ]
+    },
+    {
+      "id": "floor-3-keybearer",
+      "name": "the Keybearer, a great pale moth",
+      "sprite": "keybearer-moth",
+      "at": [
+        6,
+        6
+      ],
+      "hp": 16,
+      "atk": 2,
+      "xp": 20,
+      "drops": [
+        "bell-key"
+      ]
     }
   ]
 }

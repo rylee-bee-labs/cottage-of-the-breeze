@@ -47,7 +47,16 @@
       "rat": "sprites/rat.png",
       "shade": "sprites/shade.png",
       "moths": "sprites/moths.png",
-      "rustle": "sprites/rustle.png"
+      "rustle": "sprites/rustle.png",
+      "keybearer-moth": "sprites/keybearer-moth.png",
+      "keybearer-mushroom": "sprites/keybearer-mushroom.png",
+      "keybearer-beetle": "sprites/keybearer-beetle.png",
+      "cellar-king": "sprites/cellar-king.png",
+      "key-bell": "sprites/key-bell.png",
+      "key-lantern": "sprites/key-lantern.png",
+      "key-helmet": "sprites/key-helmet.png",
+      "seal-crown": "sprites/seal-crown.png",
+      "gems": "sprites/gems.png"
     },
     "hp": 6,
     "atk": 2,
@@ -65,7 +74,11 @@
       "moths": 0.65,
       "rustle": 0.85,
       "shade": 0.9,
-      "dwarf-smith": 0.85
+      "dwarf-smith": 0.85,
+      "keybearer-moth": 1.2,
+      "keybearer-mushroom": 1.2,
+      "keybearer-beetle": 1.2,
+      "cellar-king": 1.7
     }
   },
   "items": {
@@ -80,6 +93,31 @@
       "name": "a plain brass ring",
       "sprite": "ring",
       "value": 12
+    },
+    "bell-key": {
+      "name": "a bell key",
+      "sprite": "key-bell",
+      "keep": true
+    },
+    "lantern-key": {
+      "name": "a lantern key",
+      "sprite": "key-lantern",
+      "keep": true
+    },
+    "helmet-key": {
+      "name": "a helmet key",
+      "sprite": "key-helmet",
+      "keep": true
+    },
+    "crown-seal": {
+      "name": "the crown seal",
+      "sprite": "seal-crown",
+      "keep": true
+    },
+    "cellar-gems": {
+      "name": "a handful of cellar gems",
+      "sprite": "gems",
+      "value": 120
     }
   },
   "flags": {

@@ -253,7 +253,11 @@
       "to_at": [
         23,
         26
-      ]
+      ],
+      "requires": {
+        "item": "bell-key"
+      },
+      "locked_text": "The way down is shut fast. The great pale moth wears the key on a bell, somewhere in these halls."
     },
     {
       "from": "floor-4",
@@ -265,7 +269,11 @@
       "to_at": [
         44,
         18
-      ]
+      ],
+      "requires": {
+        "item": "lantern-key"
+      },
+      "locked_text": "The stair is locked. The mushroom elder carries its key on a little lantern."
     },
     {
       "from": "floor-5",
@@ -277,7 +285,11 @@
       "to_at": [
         24,
         17
-      ]
+      ],
+      "requires": {
+        "item": "helmet-key"
+      },
+      "locked_text": "The stair is locked tight. The armoured beetle guards the key."
     },
     {
       "from": "floor-4",

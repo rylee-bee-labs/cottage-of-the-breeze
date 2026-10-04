@@ -92,6 +92,58 @@
         "atk": 3,
         "xp": 18
       }
+    },
+    "keybearer-moth": {
+      "extends": "nest-of-moths",
+      "defaults": {
+        "name": "the Keybearer, a great pale moth",
+        "sprite": "keybearer-moth",
+        "hp": 16,
+        "atk": 2,
+        "xp": 20,
+        "drops": [
+          "bell-key"
+        ]
+      }
+    },
+    "keybearer-mushroom": {
+      "extends": "rustle",
+      "defaults": {
+        "name": "the Keybearer, an old mushroom elder",
+        "sprite": "keybearer-mushroom",
+        "hp": 22,
+        "atk": 3,
+        "xp": 30,
+        "drops": [
+          "lantern-key"
+        ]
+      }
+    },
+    "keybearer-beetle": {
+      "extends": "hollow-shade",
+      "defaults": {
+        "name": "the Keybearer, an armoured stag beetle",
+        "sprite": "keybearer-beetle",
+        "hp": 28,
+        "atk": 3,
+        "xp": 40,
+        "drops": [
+          "helmet-key"
+        ]
+      }
+    },
+    "cellar-king": {
+      "extends": "cellar-rat",
+      "defaults": {
+        "name": "the Cellar King, a very large crowned rat",
+        "sprite": "cellar-king",
+        "hp": 40,
+        "atk": 4,
+        "xp": 80,
+        "drops": [
+          "crown-seal"
+        ]
+      }
     }
   },
   "regions": {
@@ -338,6 +390,14 @@
             5,
             7
           ]
+        },
+        {
+          "id": "floor-3-keybearer",
+          "family": "keybearer-moth",
+          "at": [
+            6,
+            6
+          ]
         }
       ]
     },
@@ -437,6 +497,14 @@
           "at": [
             10,
             28
+          ]
+        },
+        {
+          "id": "floor-4-keybearer",
+          "family": "keybearer-mushroom",
+          "at": [
+            2,
+            2
           ]
         }
       ]
@@ -553,6 +621,14 @@
           "at": [
             29,
             28
+          ]
+        },
+        {
+          "id": "floor-5-keybearer",
+          "family": "keybearer-beetle",
+          "at": [
+            1,
+            29
           ]
         }
       ]
@@ -677,6 +753,14 @@
           "at": [
             2,
             13
+          ]
+        },
+        {
+          "id": "floor-6-cellar-king",
+          "family": "cellar-king",
+          "at": [
+            26,
+            3
           ]
         }
       ]

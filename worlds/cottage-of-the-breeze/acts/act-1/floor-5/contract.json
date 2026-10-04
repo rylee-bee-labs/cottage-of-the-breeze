@@ -236,6 +236,21 @@
       "hp": 5,
       "atk": 1,
       "xp": 3
+    },
+    {
+      "id": "floor-5-keybearer",
+      "name": "the Keybearer, an armoured stag beetle",
+      "sprite": "keybearer-beetle",
+      "at": [
+        1,
+        29
+      ],
+      "hp": 28,
+      "atk": 3,
+      "xp": 40,
+      "drops": [
+        "helmet-key"
+      ]
     }
   ]
 }

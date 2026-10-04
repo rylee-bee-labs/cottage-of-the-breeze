@@ -249,6 +249,21 @@
       "drops": [
         "cloudy-potion"
       ]
+    },
+    {
+      "id": "floor-6-cellar-king",
+      "name": "the Cellar King, a very large crowned rat",
+      "sprite": "cellar-king",
+      "at": [
+        26,
+        3
+      ],
+      "hp": 40,
+      "atk": 4,
+      "xp": 80,
+      "drops": [
+        "crown-seal"
+      ]
     }
   ]
 }

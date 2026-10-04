@@ -209,6 +209,21 @@
       "hp": 3,
       "atk": 1,
       "xp": 2
+    },
+    {
+      "id": "floor-4-keybearer",
+      "name": "the Keybearer, an old mushroom elder",
+      "sprite": "keybearer-mushroom",
+      "at": [
+        2,
+        2
+      ],
+      "hp": 22,
+      "atk": 3,
+      "xp": 30,
+      "drops": [
+        "lantern-key"
+      ]
     }
   ]
 }
