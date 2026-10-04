@@ -652,6 +652,15 @@ class Bot:
 
     # ---- closing checks -------------------------------------------
     def closing_checks(self) -> None:
+        album = self.page.evaluate("() => window.VEFR_ALBUM || null")
+        if album is not None:
+            need = {"first-steps", "cellar-king", "keybearer-moth", "the-warm-page", "quiet-room"}
+            have = set(album.get("found", []))
+            self.check(
+                "the album filled as the route was played",
+                need <= have,
+                f"{len(have)} of {album.get('total')} found; missing {sorted(need - have)}",
+            )
         self.check(
             "zero console.error / pageerror events",
             not self.console_errors,

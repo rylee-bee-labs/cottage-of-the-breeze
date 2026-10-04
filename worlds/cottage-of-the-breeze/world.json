@@ -455,5 +455,264 @@
   "saves": {
     "rules": "persist",
     "legacy": "from-log"
-  }
+  },
+  "album": [
+    {
+      "id": "first-steps",
+      "name": "First steps",
+      "kind": "open",
+      "when": {
+        "starts": {}
+      }
+    },
+    {
+      "id": "entered-floor-1",
+      "name": "Down to the first floor",
+      "kind": "open",
+      "when": {
+        "enters": {
+          "place": "floor-1"
+        }
+      }
+    },
+    {
+      "id": "entered-floor-2",
+      "name": "Down to the second floor",
+      "kind": "open",
+      "when": {
+        "enters": {
+          "place": "floor-2"
+        }
+      }
+    },
+    {
+      "id": "entered-floor-3",
+      "name": "Down to the third floor",
+      "kind": "open",
+      "when": {
+        "enters": {
+          "place": "floor-3"
+        }
+      }
+    },
+    {
+      "id": "entered-floor-4",
+      "name": "Down to the fourth floor",
+      "kind": "open",
+      "when": {
+        "enters": {
+          "place": "floor-4"
+        }
+      }
+    },
+    {
+      "id": "entered-floor-5",
+      "name": "Down to the fifth floor",
+      "kind": "open",
+      "when": {
+        "enters": {
+          "place": "floor-5"
+        }
+      }
+    },
+    {
+      "id": "entered-floor-6",
+      "name": "Down to the sixth floor",
+      "kind": "open",
+      "when": {
+        "enters": {
+          "place": "floor-6"
+        }
+      }
+    },
+    {
+      "id": "met-flowerpot-toad",
+      "name": "A flowerpot toad",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-1-rat-2"
+        }
+      }
+    },
+    {
+      "id": "met-wick-sprite",
+      "name": "A wick sprite",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-1-rat-3"
+        }
+      }
+    },
+    {
+      "id": "met-crock-mimic",
+      "name": "A crock mimic",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-2-shade-1"
+        }
+      }
+    },
+    {
+      "id": "met-cellar-spider",
+      "name": "A cobweb-scarfed spider",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-2-rat-1"
+        }
+      }
+    },
+    {
+      "id": "met-cobweb-wraith",
+      "name": "A cobweb wraith",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-4-deep-3"
+        }
+      }
+    },
+    {
+      "id": "met-cave-cricket",
+      "name": "A cave cricket",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-4-rust-1"
+        }
+      }
+    },
+    {
+      "id": "met-root-tangle",
+      "name": "A root tangle",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-4-loud-2"
+        }
+      }
+    },
+    {
+      "id": "met-barrel-mimic",
+      "name": "A barrel mimic",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-5-loud-1"
+        }
+      }
+    },
+    {
+      "id": "keybearer-moth",
+      "name": "The great pale moth",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-3-keybearer"
+        }
+      },
+      "shine": "foil"
+    },
+    {
+      "id": "keybearer-mushroom",
+      "name": "The old mushroom elder",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-4-keybearer"
+        }
+      },
+      "shine": "foil"
+    },
+    {
+      "id": "keybearer-beetle",
+      "name": "The armoured stag beetle",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-5-keybearer"
+        }
+      },
+      "shine": "foil"
+    },
+    {
+      "id": "cellar-king",
+      "name": "The Cellar King",
+      "kind": "open",
+      "when": {
+        "defeats": {
+          "what": "floor-6-cellar-king"
+        }
+      },
+      "shine": "holo"
+    },
+    {
+      "id": "the-letter",
+      "name": "A letter, folded small",
+      "kind": "riddle",
+      "when": {
+        "reads": {
+          "what": "a-letter-in-a-chest"
+        }
+      },
+      "riddle": "Someone kept a promise about cakes."
+    },
+    {
+      "id": "the-seal",
+      "name": "A crown in red wax",
+      "kind": "riddle",
+      "when": {
+        "picks-up": {
+          "what": "crown-seal"
+        }
+      },
+      "riddle": "A door on the deepest floor has been waiting for a very particular key."
+    },
+    {
+      "id": "the-warm-page",
+      "name": "The warm page",
+      "kind": "riddle",
+      "when": {
+        "reads": {
+          "what": "a-note-under-the-seal"
+        }
+      },
+      "riddle": "The last note is still a little warm."
+    },
+    {
+      "id": "quiet-room",
+      "name": "A quiet room",
+      "kind": "secret",
+      "when": {
+        "enters": {
+          "place": "king-room"
+        }
+      },
+      "shine": "holo"
+    },
+    {
+      "id": "cat-notices",
+      "name": "The cat noticed you",
+      "kind": "secret",
+      "when": {
+        "comes-near": {
+          "who": "hearth-cat",
+          "distance": 1
+        }
+      }
+    },
+    {
+      "id": "about-book",
+      "name": "The little cloth book",
+      "kind": "secret",
+      "when": {
+        "reads": {
+          "what": "about-this-game"
+        }
+      }
+    }
+  ]
 }
