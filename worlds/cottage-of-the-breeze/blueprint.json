@@ -96,7 +96,7 @@
     "keybearer-moth": {
       "extends": "nest-of-moths",
       "defaults": {
-        "name": "the Keybearer, a great pale moth",
+        "name": "Ashwing, the great pale moth",
         "sprite": "keybearer-moth",
         "hp": 16,
         "atk": 2,
@@ -110,7 +110,7 @@
     "keybearer-mushroom": {
       "extends": "rustle",
       "defaults": {
-        "name": "the Keybearer, an old mushroom elder",
+        "name": "Brother Sporeling, the old mushroom elder",
         "sprite": "keybearer-mushroom",
         "hp": 22,
         "atk": 3,
@@ -124,7 +124,7 @@
     "keybearer-beetle": {
       "extends": "hollow-shade",
       "defaults": {
-        "name": "the Keybearer, an armoured stag beetle",
+        "name": "Sir Hollowhorn, the armoured stag beetle",
         "sprite": "keybearer-beetle",
         "hp": 28,
         "atk": 3,

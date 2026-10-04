@@ -607,7 +607,7 @@
     },
     {
       "id": "keybearer-moth",
-      "name": "The great pale moth",
+      "name": "Ashwing",
       "kind": "open",
       "when": {
         "defeats": {
@@ -618,7 +618,7 @@
     },
     {
       "id": "keybearer-mushroom",
-      "name": "The old mushroom elder",
+      "name": "Brother Sporeling",
       "kind": "open",
       "when": {
         "defeats": {
@@ -629,7 +629,7 @@
     },
     {
       "id": "keybearer-beetle",
-      "name": "The armoured stag beetle",
+      "name": "Sir Hollowhorn",
       "kind": "open",
       "when": {
         "defeats": {
