@@ -92,7 +92,11 @@
     "brass-ring": {
       "name": "a plain brass ring",
       "sprite": "ring",
-      "value": 12
+      "value": 12,
+      "slot": "charm",
+      "mods": {
+        "atk": 1
+      }
     },
     "bell-key": {
       "name": "a bell key",
@@ -187,6 +191,160 @@
         },
         {
           "say": "Far above, a window is a little brighter than it was."
+        }
+      ]
+    },
+    {
+      "id": "tutorial-begin",
+      "when": {
+        "starts": {}
+      },
+      "then": [
+        {
+          "say": "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the town's top left corner."
+        },
+        {
+          "point-to": "floor-1"
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "tutorial-first-floor",
+      "when": {
+        "enters": {
+          "place": "floor-1"
+        }
+      },
+      "then": [
+        {
+          "say": "Walk into a monster to strike it. Press B for your bag: a cloudy potion heals you."
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "first-key-bell",
+      "when": {
+        "picks-up": {
+          "what": "bell-key"
+        }
+      },
+      "then": [
+        {
+          "say": "A key. Keys stay in your bag. The stair down from here wants this one."
+        },
+        {
+          "point-to": "floor-3"
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "first-key-lantern",
+      "when": {
+        "picks-up": {
+          "what": "lantern-key"
+        }
+      },
+      "then": [
+        {
+          "say": "The lantern key. It will not open anything on this floor."
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "first-key-helmet",
+      "when": {
+        "picks-up": {
+          "what": "helmet-key"
+        }
+      },
+      "then": [
+        {
+          "say": "The helmet key. One more stair to go."
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "the-seal-taken",
+      "when": {
+        "picks-up": {
+          "what": "crown-seal"
+        }
+      },
+      "then": [
+        {
+          "say": "A crown pressed in red wax. Somewhere on this floor is a door that has been waiting for it."
+        },
+        {
+          "point-to": "king-room"
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "the-cat-notices",
+      "when": {
+        "comes-near": {
+          "who": "hearth-cat",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": "The cat looks up, blinks slowly, and goes back to its nap."
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "keeper-after-the-end",
+      "when": {
+        "comes-near": {
+          "who": "keeper",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": {
+            "who": "keeper",
+            "line": "You came back up. I thought you might. Sit by the fire; I will find you something sweet."
+          }
+        }
+      ],
+      "once": true,
+      "if": [
+        {
+          "flag": "act-1-complete",
+          "is": true
+        }
+      ]
+    },
+    {
+      "id": "regular-after-the-end",
+      "when": {
+        "comes-near": {
+          "who": "tavern-regular",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": {
+            "who": "tavern-regular",
+            "line": "Funny. The cold in here is not as sharp as it was. Sit, if you like."
+          }
+        }
+      ],
+      "once": true,
+      "if": [
+        {
+          "flag": "act-1-complete",
+          "is": true
         }
       ]
     }
