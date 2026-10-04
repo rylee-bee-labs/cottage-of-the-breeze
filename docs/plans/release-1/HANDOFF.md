@@ -1,5 +1,15 @@
 # Release 1 handoff (overnight 2026-10-03/04)
 
+## Morning report (written 2026-10-04 ~01:00; the game was done and published by then)
+- **Play it:** https://gallery.hulganfamily.duckdns.org/cottage-of-the-breeze/builds/2026-10-04-26c21ee/ (build `26c21ee`, VEFR `77d8f68`-era main). Walk, E/F to interact, B for the bag, Menu for the Album and the Sound switch.
+- **What it is now:** a complete act 1. Cottage, town, tavern, six floors; three sleeping Keybearers (moth, mushroom elder, beetle) each carry a key to the next stair; the Cellar King carries the crown seal; the sealed door opens a room with gems, a note and a way home; reading the note ends the act with an end card. Eight unique cast monsters, seven pieces of gear (Codex art), a 25-sticker album, nine soft synthesized sounds, a hero who walks in four directions, tutorial lines and an About book.
+- **VEFR gained (all merged, tests first):** `complete-act` (#252), lock reachability in `vefr check` (#253), the album (#254), up-stairs label fix (#255), docs (#256), sound (#257), walk sheets (#258).
+- **Checks run:** VEFR full suite 1682 passed; Cottage art tests 121 pass; `vefr check` and `norns validate` ok; a keyboard-only bot plays cottage to ending and home on desktop (1280) and phone (390), 34 checks, 0 console errors; axe-core 0 violations on the play screen, seven menu panels and the end card.
+- **Merges and publish:** you approved merging in chat; every PR was merged after green CI (VEFR #252-#258, Cottage #78-#80) and a hand review of each worker diff. One build was published to the dev gallery (twice: release and polish).
+- **Cleanup:** my merged worktrees, branches and foreman clones on Bazzite removed; local branches whose PRs had merged deleted (VEFR 6, Cottage 3). Kept: `olympics-2026-09-26` (no PR, 381 commits ahead) and the remote `vefr` branch `release-1` (my integration branch, merged; delete when you like).
+- **Needs you:** keep/rewrite/bin every agent draft (see NOTES.md), name the three Keybearers, decide where acts 2 and 3 begin (`docs/plans/acts-2-3/PLAN.md`). Issues filed: vefr #259 (region display names for hints), #260 (`vefr look --at`).
+- **Intentionally not done:** acts 2 and 3 (need act advance and status effects first), music, stakes, walk frames for the other characters, a floor-2 note and the Keeper's long talk (your story).
+
 Mission `cottage-release-1`. Plan: `PLAN.md` (Opus, with corrections found while building). Everything below is on `release-1/ladder` (Cottage) and merged to VEFR `main`.
 
 ## What was built, by workstream
