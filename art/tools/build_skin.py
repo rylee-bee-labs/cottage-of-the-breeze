@@ -2,6 +2,7 @@
 """build_skin.py: turn a folder of raw drawn pictures into a finished skin folder.
 
   build_skin.py SOURCE_DIR OUT_DIR --name parchment-and-wood
+                [--credit TEXT] [--backdrop TEXT] [--font ROLE=FAMILY]...
 
 One command walks the geometry table below: every box piece goes through
 process_ui.process_box and every ornament through process_ui.process_strip
@@ -11,6 +12,18 @@ are copied byte for byte with shutil.copyfile, and skin.json is written LAST
 from the same table, so its slices can never disagree with the pictures. It
 prints one `wrote ...` line per file and nothing else; a missing SOURCE_DIR
 or a missing source picture is a plain one-line message with exit 2.
+
+The three optional flags write the settings a skin may declare, and every one
+of them is off by default: --credit replaces the credit line (the CREDIT
+constant below stays the default, byte for byte), --backdrop names a texture
+in the skin folder as the skin's backdrop and adds one top-level "backdrop"
+key, and a repeated --font ROLE=FAMILY fills a top-level "fonts" object
+(display=Crimson Pro writes "display": "Crimson Pro"), one family per role.
+Two --font flags for one role, or a flag that is not ROLE=FAMILY with a
+non-empty role and family, are each a plain one-line message with exit 2.
+Without the flags skin.json is exactly what it has always been: its keys come
+out in one fixed order - name, credit, backdrop, fonts, parts, ink - and
+"backdrop" and "fonts" join that order only when their flag asked for them.
 
 Running it twice into the same folder is byte-identical (idempotent): nothing
 varies from run to run - no timestamps, no randomness, and the JSON keys are
@@ -99,14 +112,33 @@ def build_parts():
     }
 
 
-def skin_document(name):
-    """The whole skin.json contents: name, credit, parts and ink, in that order."""
-    return {
-        "name": name,
-        "credit": CREDIT,
-        "parts": build_parts(),
-        "ink": INK,
-    }
+def parse_fonts(specs):
+    """The skin.json fonts block from --font ROLE=FAMILY flags, or fail plainly."""
+    fonts = {}
+    for spec in specs:
+        bits = spec.split("=")
+        if len(bits) != 2 or not bits[0] or not bits[1]:
+            fail(f"--font wants ROLE=FAMILY like display=Crimson Pro, got {spec!r}")
+        role, family = bits
+        if role in fonts:
+            fail(f"--font {role} is given twice, one family per role: {family!r}")
+        fonts[role] = family
+    return fonts
+
+
+def skin_document(name, credit=CREDIT, backdrop=None, fonts=None):
+    """The whole skin.json contents, keys in one fixed order: name, credit,
+    backdrop, fonts, parts, ink - backdrop and fonts join that order only
+    when their flag asked for them, so a build with no flags writes what it
+    always wrote."""
+    doc = {"name": name, "credit": credit}
+    if backdrop is not None:
+        doc["backdrop"] = backdrop
+    if fonts:
+        doc["fonts"] = fonts
+    doc["parts"] = build_parts()
+    doc["ink"] = INK
+    return doc
 
 
 def build_picture(source_path, out_path, kind, size, slice_size, fill_path):
@@ -135,10 +167,22 @@ def main(argv=None):
                     help="folder to write the finished skin into (made if missing)")
     ap.add_argument("--name", required=True,
                     help="the skin's name, written into skin.json")
+    ap.add_argument("--credit", metavar="TEXT", default=CREDIT,
+                    help="the credit line written into skin.json (default: the "
+                         "CREDIT line above)")
+    ap.add_argument("--backdrop", metavar="TEXT",
+                    help="name a texture in the skin folder as the skin's backdrop, "
+                         "adding one top-level \"backdrop\" key to skin.json "
+                         "(no key when not given)")
+    ap.add_argument("--font", action="append", dest="fonts", metavar="ROLE=FAMILY",
+                    help="a font family for one text role, like display=Crimson Pro; "
+                         "repeat for more roles to fill one top-level \"fonts\" object "
+                         "in skin.json (no key when not given)")
     a = ap.parse_args(argv)
 
     if not os.path.isdir(a.source_dir):
         fail(f"no such directory: {a.source_dir}")
+    fonts = parse_fonts(a.fonts or ())
     for source_name, _, _, _, _, _ in PICTURES:
         path = os.path.join(a.source_dir, source_name)
         if not os.path.isfile(path):
@@ -154,8 +198,9 @@ def main(argv=None):
 
     # skin.json last, after every picture, so a failed build never leaves one behind.
     skin_path = os.path.join(a.out_dir, "skin.json")
+    doc = skin_document(a.name, credit=a.credit, backdrop=a.backdrop, fonts=fonts)
     with open(skin_path, "w", encoding="utf-8") as fh:
-        fh.write(json.dumps(skin_document(a.name), indent=2, ensure_ascii=False) + "\n")
+        fh.write(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
     print(f"wrote {skin_path}")
     return 0
 

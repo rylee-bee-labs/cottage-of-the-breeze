@@ -100,7 +100,7 @@ class BuildSkinTest(unittest.TestCase):
     def tearDown(self):
         self._tmp.cleanup()
 
-    def run_build(self, src=None, out=None, name="test-skin"):
+    def run_build(self, src=None, out=None, name="test-skin", extra=()):
         """Run the build with both streams captured, returning (code, stdout, stderr)."""
         out_buf, err_buf = io.StringIO(), io.StringIO()
         code = None
@@ -108,7 +108,7 @@ class BuildSkinTest(unittest.TestCase):
             with contextlib.redirect_stdout(out_buf), contextlib.redirect_stderr(err_buf):
                 code = bs.main([src if src is not None else self.src,
                                 out if out is not None else self.out,
-                                "--name", name])
+                                "--name", name, *extra])
         except SystemExit as exc:
             code = exc.code
         return code, out_buf.getvalue(), err_buf.getvalue()
@@ -126,6 +126,12 @@ class BuildSkinTest(unittest.TestCase):
             with open(os.path.join(folder, name), "rb") as fh:
                 contents[name] = fh.read()
         return contents
+
+    def read_skin(self, out=None):
+        """skin.json's exact text as the build wrote it."""
+        with open(os.path.join(out if out is not None else self.out, "skin.json"),
+                  "r", encoding="utf-8") as fh:
+            return fh.read()
 
     def test_the_build_writes_every_expected_file(self):
         self.build()
@@ -222,6 +228,77 @@ class BuildSkinTest(unittest.TestCase):
         self.assertNotIn("Traceback", err)
         self.assertEqual(err.count("\n"), 1)
         self.assertIn("no such directory", err)
+
+    def test_no_new_flags_leaves_the_new_keys_out(self):
+        self.build()
+        skin = json.loads(self.read_skin())
+        self.assertEqual(list(skin), ["name", "credit", "parts", "ink"])
+        self.assertEqual(skin["credit"], CREDIT)
+        self.assertNotIn("backdrop", skin)
+        self.assertNotIn("fonts", skin)
+
+    def test_the_credit_flag_writes_its_own_credit_line(self):
+        code, _, err = self.run_build(extra=["--credit", "Soft Wood Studio; drawn here"])
+        self.assertEqual(code, 0, err)
+        skin = json.loads(self.read_skin())
+        self.assertEqual(skin["credit"], "Soft Wood Studio; drawn here")
+        self.assertEqual(list(skin), ["name", "credit", "parts", "ink"])
+
+    def test_the_backdrop_flag_adds_one_key_and_no_flag_leaves_it_out(self):
+        self.build()
+        self.assertNotIn("backdrop", json.loads(self.read_skin()))
+        code, _, err = self.run_build(extra=["--backdrop", "wood"])
+        self.assertEqual(code, 0, err)
+        skin = json.loads(self.read_skin())
+        self.assertEqual(skin["backdrop"], "wood")
+        self.assertEqual(list(skin), ["name", "credit", "backdrop", "parts", "ink"])
+
+    def test_font_flags_fill_one_fonts_object_in_flag_order(self):
+        code, _, err = self.run_build(extra=["--font", "display=Crimson Pro",
+                                             "--font", "body=Crimson Pro"])
+        self.assertEqual(code, 0, err)
+        skin = json.loads(self.read_skin())
+        self.assertEqual(skin["fonts"], {"display": "Crimson Pro",
+                                         "body": "Crimson Pro"})
+        self.assertEqual(list(skin), ["name", "credit", "fonts", "parts", "ink"])
+
+    def test_all_three_flags_keep_one_key_order_and_stay_byte_identical(self):
+        extra = ["--credit", "Rylee; drawn here", "--backdrop", "wood",
+                 "--font", "display=Crimson Pro", "--font", "body=Crimson Pro"]
+        code, _, err = self.run_build(extra=extra)
+        self.assertEqual(code, 0, err)
+        skin = json.loads(self.read_skin())
+        self.assertEqual(list(skin), ["name", "credit", "backdrop", "fonts",
+                                      "parts", "ink"])
+        self.assertEqual(skin["credit"], "Rylee; drawn here")
+        self.assertEqual(skin["backdrop"], "wood")
+        self.assertEqual(list(skin["fonts"]), ["display", "body"])
+        self.assertTrue(self.read_skin().endswith("\n"))
+        first = self.read_folder(self.out)
+        code, _, err = self.run_build(extra=extra)
+        self.assertEqual(code, 0, err)
+        self.assertEqual(first, self.read_folder(self.out))
+
+    def test_two_font_flags_for_one_role_exit_2_with_one_plain_line(self):
+        code, out, err = self.run_build(extra=["--font", "body=Crimson Pro",
+                                               "--font", "body=Ledger"])
+        self.assertEqual(code, 2)
+        self.assertEqual(out, "")
+        self.assertEqual(err.count("\n"), 1)           # one plain line
+        self.assertNotIn("Traceback", err)
+        self.assertIn("--font", err)
+        self.assertFalse(os.path.exists(self.out))
+
+    def test_a_font_flag_that_is_not_role_family_exits_2_with_one_plain_line(self):
+        for spec in ("display", "display=", "=Crimson Pro", "", "display=Crimson=Pro"):
+            with self.subTest(spec=spec):
+                code, out, err = self.run_build(extra=["--font", spec])
+                self.assertEqual(code, 2)
+                self.assertEqual(out, "")
+                self.assertEqual(err.count("\n"), 1)
+                self.assertNotIn("Traceback", err)
+                self.assertIn("--font", err)
+                self.assertFalse(os.path.exists(self.out))
 
 
 if __name__ == "__main__":
