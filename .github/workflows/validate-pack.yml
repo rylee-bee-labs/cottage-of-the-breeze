@@ -22,8 +22,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # The VEFR commit this pack is validated against (branch release-1 of vefr: complete-act + lock check; repin to main once those PRs merge).
-  VEFR_REF: 6ac02069fa026c874b043da839935b98b38d6215
+  # The VEFR commit this pack is validated against (vefr main after complete-act and the lock check merged; repin when the album lands).
+  VEFR_REF: ef968be87a46907f06de9173d7a4fbd983be27b2
 
 jobs:
   validate:
