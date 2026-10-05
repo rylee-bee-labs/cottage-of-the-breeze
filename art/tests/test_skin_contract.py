@@ -19,6 +19,14 @@ class SkinContractTests(unittest.TestCase):
         self.assertTrue(backdrop.strip())
         self.assertTrue((SKIN_DIR / backdrop).is_file())
 
+    def test_skin_backdrop_is_under_the_engine_cap(self):
+        backdrop = Path(self.skin["backdrop"])
+        candidate = SKIN_DIR / backdrop
+        # The rule comes from vefr.maplab.SKIN_PICTURE_BYTES; jpeg is not an allowed suffix, so the shipped picture must be webp or png.
+        self.assertTrue(candidate.is_file())
+        self.assertLessEqual(candidate.stat().st_size, 300000)
+        self.assertIn(backdrop.suffix.lower(), {".webp", ".png"})
+
     def test_skin_backdrop_is_a_legal_picture(self):
         backdrop = Path(self.skin["backdrop"])
         candidate = SKIN_DIR / backdrop
