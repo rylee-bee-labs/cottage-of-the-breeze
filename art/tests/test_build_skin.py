@@ -105,6 +105,12 @@ def photographic(size=256, alpha=False):
     return img
 
 
+def grain(size):
+    """Opaque photographic noise at a size no quality-80 save can squeeze
+    under the engine's cap: the picture that must be refused."""
+    return Image.effect_noise((size, size), 120).convert("RGB")
+
+
 class BuildSkinTest(unittest.TestCase):
     """One synthetic source folder, then every check the brief asks for."""
 
@@ -124,7 +130,7 @@ class BuildSkinTest(unittest.TestCase):
     def tearDown(self):
         self._tmp.cleanup()
 
-    def write_backdrop(self, alpha=False):
+    def write_backdrop(self, alpha=False, size=None):
         """Drop the optional backdrop source into the source folder.
 
         The alpha case is written as PNG under the backdrop's name: the name
@@ -134,6 +140,8 @@ class BuildSkinTest(unittest.TestCase):
         path = os.path.join(self.src, BACKDROP_SOURCE)
         if alpha:
             photographic(alpha=True).save(path, format="PNG")
+        elif size:
+            grain(size).save(path, quality=90)
         else:
             photographic().convert("RGB").save(path, quality=90)
         return path
@@ -271,6 +279,15 @@ class BuildSkinTest(unittest.TestCase):
         self.assertEqual(err.count("\n"), 1)           # one plain line
         self.assertIn("backdrop", err)
         self.assertNotIn(BACKDROP_OUT, out)            # nothing was written for it
+        self.assertFalse(os.path.exists(os.path.join(self.out, BACKDROP_OUT)))
+
+    def test_backdrop_over_the_engine_cap_is_refused(self):
+        self.write_backdrop(size=1100)     # 761718 bytes at quality 80
+        code, _, err = self.run_build()
+        self.assertEqual(code, 2)
+        self.assertNotIn("Traceback", err)
+        self.assertEqual(err.count("\n"), 1)
+        self.assertIn(str(bs.BACKDROP_MAX_BYTES), err)
         self.assertFalse(os.path.exists(os.path.join(self.out, BACKDROP_OUT)))
 
     def test_a_missing_source_picture_exits_2_with_a_plain_message(self):
