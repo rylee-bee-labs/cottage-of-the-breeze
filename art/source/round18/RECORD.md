@@ -48,3 +48,4 @@ sheet each part was drawn in, not by looking at pictures).
 - Sizes here are the pieces cut tight from their sheets; `build_skin.py` is what slices them down to the skin's
   geometry. Round 10's notes about uniform panel borders, button gloss and cursor contrast are worth re-reading
   against these before anything ships.
+The softer, even-toned alternate wooden backdrop is wired into the Cottage skin as a draft pending Rylee's pick.
