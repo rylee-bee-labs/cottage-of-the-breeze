@@ -1,5 +1,7 @@
 # CURRENT — Cottage of the Breeze (handoff, 2026-10-04)
 
+> **Live state** (last commit, CI on main, open PRs, recent merges, missions): `lab enter` at session start, or `now-block --print .` from this repo. This file keeps only what a command cannot tell you.
+
 **Stage: Release 1 is a complete, polished Act 1, published and playable.** Start in the cottage, go down six cellar floors, beat three Keybearers for three keys, beat the Cellar King for the crown seal, open the sealed door on floor 6, read the note in the King's room, see the end card, walk home. One offline HTML file. It was built through VEFR (new capabilities went into VEFR first) over the night of 2026-10-03/04.
 
 **Acts 2 and 3 are part of the larger game and were deliberately left for later: stopping after Act 1 was Rylee's decision.** Release 1 is not evidence that VEFR could not support more acts. Act advance (VEFR ADR 0006) and status effects (fire first) are the next capabilities *because* the future acts will want them. Plan: `docs/plans/acts-2-3/PLAN.md`.
