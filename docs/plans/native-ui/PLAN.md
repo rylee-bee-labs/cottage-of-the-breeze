@@ -22,6 +22,11 @@ Skin parts for `hud` icons, `controls`, `bubble`; apply the unused skin parts (s
 ## Order
 1. Mock on real art (this branch: art kit, artifact for Rylee). 2. Rylee picks the look. 3. Tests, then foremen. 4. Bot checks for fit at seven sizes (the measurement script in the handoff) and axe.
 
+## UI4 checks and captures
+- `VEFR_WOVEN=/tmp/weave/cottage-after.html uv run --group test pytest tests/browser/test_cottage_containment.py` — check stage fit at seven view sizes.
+- `VEFR_WOVEN=/tmp/weave/cottage-after.html uv run --group test pytest tests/browser/test_cottage_bot.py` — exercise the offline play view, menu, and message response.
+- `uv run --group test python scripts/capture_ui4.py --before /tmp/weave/cottage-before.html --after /tmp/weave/cottage-after.html --out /tmp/ui4-shots` — capture play, two menu tabs, and reachable messages at desktop and phone sizes.
+
 ## Update 2026-10-04 (later): Rylee's picks
 - She preferred the older painted/parchment look over the first Codex kit. From fifteen researched directions and an interface lab of eleven worlds she first liked **Scrapbook pages**, then decided against the tape: **back to parchment and soft wood** (the game's own look, rounder and quieter), with the **Ledger** type voice (**Crimson Pro**, a calm book serif). Her words: "Oh I don't like the tape. Back to parchment and soft wood. Let's say 'ledger' font?"
 - Earlier type note, still true: "a little more 'cottage' and less stardew valley". Handwriting faces are for short labels only, never long reading. Alternates seen in the lab: Fraunces + Alegreya, Cormorant Garamond + Lora, IM Fell English + IM Fell DW Pica.
