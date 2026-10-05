@@ -1,0 +1,20 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "--n 2 Flat front-on seamless tileable surface texture of a polished light honey-coloured wooden table top, gentle straight wood grain, warm muted earth tones, soft low-contrast shading, dusk teal tint only as the faintest cool undertone, lantern amber highlights, thin warm brown grain lines, cozy storybook game surface. Filling the entire frame edge to edge. No text, no letters, no objects, no tools, no drop shadow, no vignette, no knots or rings in the centre, no dark edges. Pale and even in tone across the whole surface so dark text reads on top of it. Edges must tile seamlessly left/right and top/bottom.",
+  "aspect_ratio": "1:1",
+  "n": 1,
+  "character_reference": true,
+  "trace_id": "07134f7ff95c735ebc3a5dba270e87ff",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-05T21:54:26Z",
+  "files": [
+    {
+      "name": "backdrop-1.jpg",
+      "bytes": 365965,
+      "sha256": "bd68182074248498ccea770d2f102d010b04fbb97b016e6568486fc651f7f9a7"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}
