@@ -17,24 +17,20 @@ class SkinContractTests(unittest.TestCase):
         backdrop = self.skin["backdrop"]
         self.assertIsInstance(backdrop, str)
         self.assertTrue(backdrop.strip())
-        self.assertTrue((SKIN_DIR / backdrop).is_file())
 
     def test_skin_backdrop_is_under_the_engine_cap(self):
         backdrop = Path(self.skin["backdrop"])
         candidate = SKIN_DIR / backdrop
-        # The rule comes from vefr.maplab.SKIN_PICTURE_BYTES; jpeg is not an allowed suffix, so the shipped picture must be webp or png.
-        self.assertTrue(candidate.is_file())
+        # vefr.maplab.SKIN_PICTURE_BYTES sets the engine's backdrop size cap.
         self.assertLessEqual(candidate.stat().st_size, 300000)
-        self.assertIn(backdrop.suffix.lower(), {".webp", ".png"})
 
     def test_skin_backdrop_is_a_legal_picture(self):
         backdrop = Path(self.skin["backdrop"])
         candidate = SKIN_DIR / backdrop
         # vefr.maplab._skin_picture_errors requires the resolved picture to stay in the skin folder.
         self.assertTrue(candidate.resolve().is_relative_to(SKIN_DIR.resolve()))
-        # vefr.cli._ART_TYPES accepts png, webp, jpg and gif, within its 8 MiB limit.
-        self.assertIn(backdrop.suffix.lower(), {".png", ".webp", ".jpg", ".gif"})
-        self.assertLessEqual(candidate.stat().st_size, 8 * 1024 * 1024)
+        # vefr.maplab.SKIN_SUFFIXES allows only webp and png for skin pictures.
+        self.assertIn(backdrop.suffix.lower(), {".webp", ".png"})
 
 
 if __name__ == "__main__":
