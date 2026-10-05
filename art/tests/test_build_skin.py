@@ -10,6 +10,7 @@ to fail a test first.
 import contextlib
 import io
 import json
+import math
 import os
 import sys
 import tempfile
@@ -28,6 +29,10 @@ STUD = (200, 60, 40)       # one odd block in the bottom-right corner, on purpos
 CREDIT = "Rylee and Claude; Codex proofs, training: not cleared"
 INK = {"on_panel": "#2B2118", "on_panel_dim": "#5A4A38"}
 TEXTURES = ("parchment.png", "wood.png", "brass.png")
+
+# The backdrop row is optional: no backdrop source means no backdrop picture.
+BACKDROP_SOURCE = "backdrop.jpg"
+BACKDROP_OUT = "backdrop.webp"
 
 # Every picture the build must write, and the size the plan fixes for it.
 SIZES = {
@@ -81,6 +86,25 @@ def raw_picture(width, height, inside):
     return img
 
 
+def photographic(size=256, alpha=False):
+    """An opaque drawn texture: smooth grain that a lossy save throws away.
+
+    A flat margin and a border ring would compress to almost nothing, so the
+    whole frame carries slow waves instead; that is what makes the lossy file
+    unmistakably smaller than the lossless one.
+    """
+    img = Image.new("RGBA", (size, size))
+    px = img.load()
+    for y in range(size):
+        for x in range(size):
+            px[x, y] = (
+                int(128 + 100 * math.sin(x / 23.0) * math.cos(y / 17.0)) % 256,
+                int(120 + 90 * math.sin((x + y) / 31.0)) % 256,
+                int(110 + 80 * math.cos(x / 13.0 + y / 29.0)) % 256,
+                0 if alpha and x < 8 and y < 8 else 255)
+    return img
+
+
 class BuildSkinTest(unittest.TestCase):
     """One synthetic source folder, then every check the brief asks for."""
 
@@ -99,6 +123,20 @@ class BuildSkinTest(unittest.TestCase):
 
     def tearDown(self):
         self._tmp.cleanup()
+
+    def write_backdrop(self, alpha=False):
+        """Drop the optional backdrop source into the source folder.
+
+        The alpha case is written as PNG under the backdrop's name: the name
+        is what the table asks for, and the rule is about the pixels, not the
+        suffix. A real JPEG cannot carry alpha at all.
+        """
+        path = os.path.join(self.src, BACKDROP_SOURCE)
+        if alpha:
+            photographic(alpha=True).save(path, format="PNG")
+        else:
+            photographic().convert("RGB").save(path, quality=90)
+        return path
 
     def run_build(self, src=None, out=None, name="test-skin", extra=()):
         """Run the build with both streams captured, returning (code, stdout, stderr)."""
@@ -171,9 +209,10 @@ class BuildSkinTest(unittest.TestCase):
         self.assertEqual(skin["parts"]["button"]["slice"], 14)
 
     def test_two_runs_into_the_same_folder_are_byte_identical(self):
+        self.write_backdrop()
         self.build()
         first = self.read_folder(self.out)
-        self.assertEqual(sorted(first), sorted(EXPECTED_FILES))
+        self.assertEqual(sorted(first), sorted(EXPECTED_FILES + (BACKDROP_OUT,)))
         self.build()
         second = self.read_folder(self.out)
         for name in sorted(first):
@@ -209,6 +248,30 @@ class BuildSkinTest(unittest.TestCase):
         raw = panel.tobytes()
         self.assertEqual(raw, panel.transpose(Image.FLIP_LEFT_RIGHT).tobytes())
         self.assertEqual(raw, panel.transpose(Image.FLIP_TOP_BOTTOM).tobytes())
+
+    def test_backdrop_saves_lossy_and_under_the_cap(self):
+        self.write_backdrop()
+        code, _, err = self.run_build()
+        self.assertEqual(code, 0, err)
+        path = os.path.join(self.out, BACKDROP_OUT)
+        with Image.open(path) as img:
+            self.assertEqual(img.format, "WEBP")
+        size = os.path.getsize(path)
+        with Image.open(os.path.join(self.src, BACKDROP_SOURCE)) as src:
+            lossless = io.BytesIO()
+            src.save(lossless, "WEBP", lossless=True)
+        self.assertLess(size, len(lossless.getvalue()))
+        self.assertLessEqual(size, bs.BACKDROP_MAX_BYTES)
+
+    def test_backdrop_with_alpha_is_refused(self):
+        self.write_backdrop(alpha=True)
+        code, out, err = self.run_build()
+        self.assertEqual(code, 2)
+        self.assertNotIn("Traceback", err)
+        self.assertEqual(err.count("\n"), 1)           # one plain line
+        self.assertIn("backdrop", err)
+        self.assertNotIn(BACKDROP_OUT, out)            # nothing was written for it
+        self.assertFalse(os.path.exists(os.path.join(self.out, BACKDROP_OUT)))
 
     def test_a_missing_source_picture_exits_2_with_a_plain_message(self):
         os.remove(os.path.join(self.src, "button-pressed.webp"))
