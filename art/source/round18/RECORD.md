@@ -48,3 +48,6 @@ sheet each part was drawn in, not by looking at pictures).
 - Sizes here are the pieces cut tight from their sheets; `build_skin.py` is what slices them down to the skin's
   geometry. Round 10's notes about uniform panel borders, button gloss and cursor contrast are worth re-reading
   against these before anything ships.
+- Each sheet folder keeps the run log of the batch that drew it (`*_batch.log`). A log is a transcript of the agent's
+  own session, so the author's home directory is written `$HOME` and the Codex session id `<redacted>`; nothing else
+  in the log is touched. `art/tests/test_run_logs.py` keeps both out of every run log in `art/source/`.
