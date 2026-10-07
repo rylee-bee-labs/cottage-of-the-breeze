@@ -290,6 +290,70 @@ class BuildSkinTest(unittest.TestCase):
         self.assertIn(str(bs.BACKDROP_MAX_BYTES), err)
         self.assertFalse(os.path.exists(os.path.join(self.out, BACKDROP_OUT)))
 
+    def test_a_failed_rebuild_takes_the_last_runs_skin_json_out(self):
+        """A rebuild that dies must not leave the old manifest advertising.
+
+        skin.json is written last, but "last" is no promise at all while the
+        folder still holds the previous run's manifest: a rebuild into a
+        folder that already has a skin has to take it out before it starts.
+        """
+        self.write_backdrop()
+        code, _, err = self.run_build(extra=["--backdrop", BACKDROP_OUT])
+        self.assertEqual(code, 0, err)
+        self.assertIn("skin.json", os.listdir(self.out))   # the run before this one
+        self.write_backdrop(alpha=True)                      # a see-through pixel
+        code, _, err = self.run_build(extra=["--backdrop", BACKDROP_OUT])
+        self.assertEqual(code, 2)
+        self.assertNotIn("Traceback", err)
+        self.assertEqual(err.count("\n"), 1)
+        self.assertNotIn("skin.json", os.listdir(self.out),
+                         "the failed rebuild left the last run's skin.json behind, "
+                         "still advertising the pictures it names")
+        self.assertNotIn(BACKDROP_OUT, os.listdir(self.out),
+                         "the failed rebuild left the last run's backdrop behind")
+
+    def test_a_rebuild_over_the_cap_takes_the_last_runs_skin_json_out(self):
+        """The byte cap refuses a backdrop the same way alpha does."""
+        self.write_backdrop()
+        code, _, err = self.run_build(extra=["--backdrop", BACKDROP_OUT])
+        self.assertEqual(code, 0, err)
+        self.write_backdrop(size=1100)             # 761718 bytes at quality 80
+        code, _, err = self.run_build(extra=["--backdrop", BACKDROP_OUT])
+        self.assertEqual(code, 2)
+        self.assertIn(str(bs.BACKDROP_MAX_BYTES), err)
+        self.assertNotIn("skin.json", os.listdir(self.out))
+        self.assertNotIn(BACKDROP_OUT, os.listdir(self.out))
+
+    def test_a_rebuild_without_a_backdrop_takes_the_old_one_out(self):
+        """A skin that drops its backdrop must not keep the old picture."""
+        self.write_backdrop()
+        code, _, err = self.run_build(extra=["--backdrop", BACKDROP_OUT])
+        self.assertEqual(code, 0, err)
+        self.assertIn(BACKDROP_OUT, os.listdir(self.out))
+        os.remove(os.path.join(self.src, BACKDROP_SOURCE))
+        code, _, err = self.run_build()
+        self.assertEqual(code, 0, err)
+        self.assertEqual(sorted(os.listdir(self.out)), sorted(EXPECTED_FILES))
+        self.assertNotIn("backdrop", json.loads(self.read_skin()))
+
+    def test_a_rebuild_refused_before_it_starts_keeps_the_previous_skin(self):
+        """The other half of the rule: nothing is cleared before the checks.
+
+        A missing source picture is found before the build touches OUT_DIR, so
+        the skin already in the folder is still a whole skin - its manifest
+        still matches the pictures beside it. Clearing on a typo'd source path
+        would throw a good skin away to no purpose.
+        """
+        self.write_backdrop()
+        code, _, err = self.run_build(extra=["--backdrop", BACKDROP_OUT])
+        self.assertEqual(code, 0, err)
+        before = self.read_folder(self.out)
+        os.remove(os.path.join(self.src, "tab.webp"))
+        code, _, err = self.run_build(extra=["--backdrop", BACKDROP_OUT])
+        self.assertEqual(code, 2)
+        self.assertEqual(err.count("\n"), 1)
+        self.assertEqual(self.read_folder(self.out), before)
+
     def test_a_missing_source_picture_exits_2_with_a_plain_message(self):
         os.remove(os.path.join(self.src, "button-pressed.webp"))
         code, out, err = self.run_build()

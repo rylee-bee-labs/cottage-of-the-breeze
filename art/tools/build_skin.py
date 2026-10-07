@@ -9,8 +9,12 @@ process_ui.process_box and every ornament through process_ui.process_strip
 (process_ui.py is the single source of truth for how a panel becomes a
 nine-slice - this tool never reimplements the mirroring), the three textures
 are copied byte for byte with shutil.copyfile, and skin.json is written LAST
-from the same table, so its slices can never disagree with the pictures. It
-prints one `wrote ...` line per file and nothing else; a missing SOURCE_DIR
+from the same table, so its slices can never disagree with the pictures. The
+last run's skin.json (and its backdrop) are taken out before the first new
+picture is written, so the promise holds for a rebuild into a folder that
+already holds a skin and not only for an empty one: a run that dies part way
+leaves no manifest at all, never one advertising the pictures of an older run.
+It prints one `wrote ...` line per file and nothing else; a missing SOURCE_DIR
 or a missing source picture is a plain one-line message with exit 2, except
 for the optional backdrop source, which a skin may leave out.
 
@@ -58,6 +62,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import process_ui
 from process_ui import fail, open_image
 
+SKIN_NAME = "skin.json"           # the manifest this tool owns, written last
+BACKDROP_OUT = "backdrop.webp"    # the one output the table makes lossy
+
 # The geometry table: (source name, output name, kind, (width, height), slice,
 # fill texture). kind is "box", "strip", "copy" or "backdrop"; only a box has a
 # slice, only the panel and the slot fill their inside from a texture, and only
@@ -86,7 +93,7 @@ PICTURES = (
     ("parchment.png", "parchment.png", "copy", (0, 0), 0, ""),
     ("wood.png", "wood.png", "copy", (0, 0), 0, ""),
     ("brass.png", "brass.png", "copy", (0, 0), 0, ""),
-    ("backdrop.jpg", "backdrop.webp", "backdrop", (0, 0), 0, ""),
+    ("backdrop.jpg", BACKDROP_OUT, "backdrop", (0, 0), 0, ""),
 )
 
 TOLERANCE = 28              # the colour match process_ui.py uses, passed on every call
@@ -192,6 +199,25 @@ def build_backdrop(source_path, out_path):
         fh.write(buf.getvalue())      # nothing is written until it is legal
 
 
+def clear_previous(out_dir):
+    """Take the last run's manifest and backdrop out before writing anything.
+
+    skin.json is written last so a failed build never leaves one behind, but
+    that only holds while the folder starts empty: a rebuild into a folder that
+    already holds a skin would, on failure, keep the old manifest and it would
+    go on advertising the old pictures. The backdrop goes the same way, because
+    it is the one output whose save can be refused (a see-through pixel, or the
+    engine's byte cap), so a failed run must not leave the previous one behind
+    either - it is a picture this run never made and this run never checked.
+    Every file the run goes on to write is written again, so this costs
+    nothing when the build succeeds.
+    """
+    for name in (SKIN_NAME, BACKDROP_OUT):
+        path = os.path.join(out_dir, name)
+        if os.path.isfile(path):
+            os.remove(path)
+
+
 def build_picture(source_path, out_path, kind, size, slice_size, fill_path):
     """Make one output picture with process_ui, or copy a texture byte for byte."""
     if kind == "copy":
@@ -245,6 +271,7 @@ def main(argv=None):
             fail(f"missing source picture: {path}")
 
     os.makedirs(a.out_dir, exist_ok=True)
+    clear_previous(a.out_dir)
     for source_name, output_name, kind, size, slice_size, fill in PICTURES:
         source_path = os.path.join(a.source_dir, source_name)
         if kind == "backdrop" and not os.path.isfile(source_path):
@@ -254,8 +281,9 @@ def main(argv=None):
         build_picture(source_path, out_path, kind, size, slice_size, fill_path)
         print(f"wrote {out_path}")
 
-    # skin.json last, after every picture, so a failed build never leaves one behind.
-    skin_path = os.path.join(a.out_dir, "skin.json")
+    # skin.json last, after every picture, and clear_previous took the old one
+    # out at the start, so a failed build never leaves a manifest behind.
+    skin_path = os.path.join(a.out_dir, SKIN_NAME)
     doc = skin_document(a.name, credit=a.credit, backdrop=a.backdrop, fonts=fonts)
     with open(skin_path, "w", encoding="utf-8") as fh:
         fh.write(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")
