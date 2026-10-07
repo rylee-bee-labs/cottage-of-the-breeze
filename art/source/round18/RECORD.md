@@ -35,13 +35,30 @@ sheet each part was drawn in, not by looking at pictures).
 | `cursor/cursor_v1.png` | `cursor` | 592 x 661 |
 | `textures/textures_v1.png` | `parchment` (via `process_tiles.py --grid 3x3 --tile 96`) | 288 x 288 |
 
+## The backdrop, which is not a draft sheet
+
+The soft-wood backdrop is not one of these sheets: it was drawn on 2026-10-05 with `offload image` (image-01) from one
+prompt asking for `--n 2`, a seamless tileable honey-wood table surface. The run came back with **one** picture, and
+its own record says so (`n: 1`, `success_count: 1`, one file). There is no second backdrop draft anywhere - the two
+backdrop drafts that were not chosen never existed.
+
+That one picture is the source of the backdrop the skin ships, so the source, the run record beside it
+(`backdrop.json`) and its credits travel with the skin in the skin pull request (#96), the way AGENTS.md asks: beside
+the picture they describe. They are not part of this round's draft sheets, and `ui-soft/backdrop/` is not a sheet
+folder here.
+
 ## Notes from cutting
 
 - Every sheet except one came back as a single piece, named straight from the table above. `bars-slots_v2.png` came
   back as four: the gold plate (1636 x 474) plus three small leaves (104 x 43, 105 x 82, 95 x 65). Cut all four with
   four `--names` and kept the biggest — the plate — as `gold-plate.webp`; the three leaves were dropped.
-- Not drawn in round 18: `button-hover`, `button-pressed`, `button-disabled`, `toggle-off` and the wood texture. Her
-  picks do not include them, so `skin-source/` does not hold them in any form; the build waits on her.
+- `dividers-cursor/` is the first pass at the divider, banner, corner and cursor in one brief (2026-10-04, 12:02Z,
+  four variations). Her "these are all radically different ideas" note came off that batch: `dividers/` and `cursor/`
+  (15:39Z and 15:41Z) are the redraws that split it, and the banner and corner were redrawn under `missing/`. The first
+  pass is kept here as a draft, superseded by all three.
+- Not drawn in round 18: `button-hover`, `button-pressed`, `button-disabled`, `toggle-off` and the wood texture (the
+  backdrop above is a different picture, and it ships with the skin). Her picks do not include the first four, so
+  `skin-source/` does not hold them in any form; the build waits on her.
 - `check_tiles.py ui-soft/skin-source` reports the pieces "wrong size" and "a transparent pixel" — it is a grid-tile
   checker and a cut-out piece is not a tile. Round 10's `skin-source/` reports the same way. The two textures,
   `parchment.png` and `brass.png`, both come back `ok`.
