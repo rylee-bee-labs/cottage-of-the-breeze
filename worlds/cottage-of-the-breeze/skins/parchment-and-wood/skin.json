@@ -1,6 +1,11 @@
 {
   "name": "parchment-and-wood",
   "credit": "Rylee and Claude; Codex proofs",
+  "fonts": {
+    "display": "Crimson Pro",
+    "body": "Crimson Pro"
+  },
+  "backdrop": "backdrop-alt-1.webp",
   "parts": {
     "panel": {
       "file": "panel.webp",

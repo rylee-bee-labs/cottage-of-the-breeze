@@ -68,3 +68,5 @@ folder here.
 - Each sheet folder keeps the run log of the batch that drew it (`*_batch.log`). A log is a transcript of the agent's
   own session, so the author's home directory is written `$HOME` and the Codex session id `<redacted>`; nothing else
   in the log is touched. `art/tests/test_run_logs.py` keeps both out of every run log in `art/source/`.
+
+The softer, even-toned alternate wooden backdrop is wired into the Cottage skin as a draft pending Rylee's pick.

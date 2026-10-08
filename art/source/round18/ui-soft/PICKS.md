@@ -3,3 +3,7 @@
 Chosen: panels **v3**, buttons **v1**, bars and slots **v2**, tabs and toggles **v2**, textures **v1**.
 Dividers and cursor: **redraw**. Her note: "these are all radically different ideas. can you split it up some?" -> separate dividers (a stitched line with a small knot) and cursor sets, four close variations each (`dividers/`, `cursor/`).
 All pieces are agent-drafted images (Codex), status draft until approved.
+
+## Backdrop
+
+Both `backdrop-1.jpg` and `backdrop-alt-1.jpg` exist as draft options. `backdrop-alt-1.jpg` is wired into the skin for review; Rylee picks between them before either ships.

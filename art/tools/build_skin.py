@@ -9,9 +9,14 @@ process_ui.process_box and every ornament through process_ui.process_strip
 (process_ui.py is the single source of truth for how a panel becomes a
 nine-slice - this tool never reimplements the mirroring), the three textures
 are copied byte for byte with shutil.copyfile, and skin.json is written LAST
-from the same table, so its slices can never disagree with the pictures. It
-prints one `wrote ...` line per file and nothing else; a missing SOURCE_DIR
-or a missing source picture is a plain one-line message with exit 2.
+from the same table, so its slices can never disagree with the pictures. The
+last run's skin.json (and its backdrop) are taken out before the first new
+picture is written, so the promise holds for a rebuild into a folder that
+already holds a skin and not only for an empty one: a run that dies part way
+leaves no manifest at all, never one advertising the pictures of an older run.
+It prints one `wrote ...` line per file and nothing else; a missing SOURCE_DIR
+or a missing source picture is a plain one-line message with exit 2, except
+for the optional backdrop source, which a skin may leave out.
 
 The three optional flags write the settings a skin may declare, and every one
 of them is off by default: --credit replaces the credit line (the CREDIT
@@ -27,15 +32,27 @@ out in one fixed order - name, credit, backdrop, fonts, parts, ink - and
 
 Running it twice into the same folder is byte-identical (idempotent): nothing
 varies from run to run - no timestamps, no randomness, and the JSON keys are
-inserted in one fixed order - and the pieces are saved as LOSSLESS WebP,
+inserted in one fixed order - and the parts are saved as LOSSLESS WebP,
 which Pillow encodes deterministically for the same pixels and settings and
 which round-trips the picture exactly, so the built panel decodes to the
-mirror-symmetric image process_box made (lossy WebP would not). The test in
-art/tests/test_build_skin.py proves both runs byte for byte. Needs Pillow:
+mirror-symmetric image process_box made (lossy WebP would not). The one
+exception is the full-bleed backdrop, and it is the rule the table enforces:
+the parts stay lossless because a nine-slice part is mirrored by process_ui
+and only a lossless save round-trips those mirrored pixels, and because a
+picture with alpha must keep its alpha; a backdrop is neither, because
+nothing mirrors it, it has no hard edges to ring, and a photographic texture
+has no alpha at all, so it saves as LOSSY WebP at BACKDROP_QUALITY, one
+fixed quality and one fixed method so the bytes still repeat. A backdrop
+that carries any see-through pixel is refused, because lossy never keeps
+alpha. The backdrop row is optional: a skin with no backdrop source builds
+without one and writes no "backdrop" key. The test in
+art/tests/test_build_skin.py proves both runs byte for byte, backdrop and
+all. Needs Pillow:
   uv run --offline --with pillow art/tools/build_skin.py SOURCE_DIR OUT_DIR
                                      --name parchment-and-wood
 """
 import argparse
+import io
 import json
 import os
 import shutil
@@ -45,10 +62,14 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import process_ui
 from process_ui import fail, open_image
 
+SKIN_NAME = "skin.json"           # the manifest this tool owns, written last
+BACKDROP_OUT = "backdrop.webp"    # the one output the table makes lossy
+
 # The geometry table: (source name, output name, kind, (width, height), slice,
-# fill texture). kind is "box", "strip" or "copy"; only a box has a slice, and
-# only the panel and the slot fill their inside from a texture. skin.json's
-# slices are read from here, so the JSON and the pictures cannot disagree.
+# fill texture). kind is "box", "strip", "copy" or "backdrop"; only a box has a
+# slice, only the panel and the slot fill their inside from a texture, and only
+# a backdrop row may go missing without stopping the build. skin.json's slices
+# are read from here, so the JSON and the pictures cannot disagree.
 PICTURES = (
     ("panel.webp", "panel.webp", "box", (96, 96), 32, "parchment.png"),
     ("speech.webp", "speech.webp", "box", (192, 96), 24, ""),
@@ -72,10 +93,24 @@ PICTURES = (
     ("parchment.png", "parchment.png", "copy", (0, 0), 0, ""),
     ("wood.png", "wood.png", "copy", (0, 0), 0, ""),
     ("brass.png", "brass.png", "copy", (0, 0), 0, ""),
+    ("backdrop.jpg", BACKDROP_OUT, "backdrop", (0, 0), 0, ""),
 )
 
 TOLERANCE = 28              # the colour match process_ui.py uses, passed on every call
 FILL_NAME = "parchment"     # the texture name skin.json declares for panel and slot
+# The one lossy save in this tool, and the cap that keeps it legal. Measured
+# from the JPEG source art/source/round18/ui-soft/backdrop/backdrop-alt-1.jpg
+# (Rylee, 2026-10-05, PR cottage-of-the-breeze#96: "WebP q80 is 51 KB, ~68 KB
+# inlined, vs lossless 706 KB, ~941 KB inlined; the source is already a JPEG"):
+# quality 80 writes 37632 bytes here and the lossless save of the very same
+# picture is 655044 bytes, recovering nothing the JPEG had not already thrown
+# away. The engine caps one skin picture at 300000 bytes
+# (vefr.maplab.SKIN_PICTURE_BYTES), so a backdrop has room and the parts have
+# no reason to be lossy. method is pinned because Pillow's default is not what
+# shipped the backdrop, and one fixed method keeps the bytes repeatable.
+BACKDROP_QUALITY = 80
+BACKDROP_METHOD = 6         # libwebp's slowest, and the setting the shipped file used
+BACKDROP_MAX_BYTES = 300000 # the engine's cap on one skin picture
 CREDIT = "Rylee and Claude; Codex proofs, training: not cleared"
 INK = {"on_panel": "#2B2118", "on_panel_dim": "#5A4A38"}
 
@@ -141,10 +176,55 @@ def skin_document(name, credit=CREDIT, backdrop=None, fonts=None):
     return doc
 
 
+def build_backdrop(source_path, out_path):
+    """Save an opaque photographic backdrop as lossy WebP, or refuse it plainly.
+
+    The rule: an opaque, photographic, full-bleed texture may be lossy, because
+    nothing mirrors it, nothing rings its edges and it has no alpha to keep. A
+    backdrop with any see-through pixel is refused, because lossy never keeps
+    alpha, and that alpha is the whole reason the parts stay lossless.
+    """
+    out = open_image(source_path)
+    if out.getchannel("A").getextrema()[0] != 255:
+        fail(f"backdrop {source_path} has a transparent pixel; a backdrop must be "
+             f"fully opaque, because only the parts stay lossless")
+    buf = io.BytesIO()
+    out.convert("RGB").save(buf, "WEBP", lossless=False, quality=BACKDROP_QUALITY,
+                            method=BACKDROP_METHOD)
+    if len(buf.getvalue()) > BACKDROP_MAX_BYTES:
+        fail(f"a backdrop of {len(buf.getvalue())} bytes is over the "
+             f"{BACKDROP_MAX_BYTES} byte cap the engine puts on one skin "
+             f"picture; lower BACKDROP_QUALITY")
+    with open(out_path, "wb") as fh:
+        fh.write(buf.getvalue())      # nothing is written until it is legal
+
+
+def clear_previous(out_dir):
+    """Take the last run's manifest and backdrop out before writing anything.
+
+    skin.json is written last so a failed build never leaves one behind, but
+    that only holds while the folder starts empty: a rebuild into a folder that
+    already holds a skin would, on failure, keep the old manifest and it would
+    go on advertising the old pictures. The backdrop goes the same way, because
+    it is the one output whose save can be refused (a see-through pixel, or the
+    engine's byte cap), so a failed run must not leave the previous one behind
+    either - it is a picture this run never made and this run never checked.
+    Every file the run goes on to write is written again, so this costs
+    nothing when the build succeeds.
+    """
+    for name in (SKIN_NAME, BACKDROP_OUT):
+        path = os.path.join(out_dir, name)
+        if os.path.isfile(path):
+            os.remove(path)
+
+
 def build_picture(source_path, out_path, kind, size, slice_size, fill_path):
     """Make one output picture with process_ui, or copy a texture byte for byte."""
     if kind == "copy":
         shutil.copyfile(source_path, out_path)
+        return
+    if kind == "backdrop":
+        build_backdrop(source_path, out_path)
         return
     if kind == "strip":
         out = process_ui.process_strip(open_image(source_path),
@@ -183,21 +263,27 @@ def main(argv=None):
     if not os.path.isdir(a.source_dir):
         fail(f"no such directory: {a.source_dir}")
     fonts = parse_fonts(a.fonts or ())
-    for source_name, _, _, _, _, _ in PICTURES:
+    for source_name, _, kind, _, _, _ in PICTURES:
         path = os.path.join(a.source_dir, source_name)
         if not os.path.isfile(path):
+            if kind == "backdrop":
+                continue        # a backdrop is optional: the build goes on without one
             fail(f"missing source picture: {path}")
 
     os.makedirs(a.out_dir, exist_ok=True)
+    clear_previous(a.out_dir)
     for source_name, output_name, kind, size, slice_size, fill in PICTURES:
         source_path = os.path.join(a.source_dir, source_name)
+        if kind == "backdrop" and not os.path.isfile(source_path):
+            continue        # an absent backdrop is not news: one wrote line per file, or none
         out_path = os.path.join(a.out_dir, output_name)
         fill_path = os.path.join(a.source_dir, fill) if fill else None
         build_picture(source_path, out_path, kind, size, slice_size, fill_path)
         print(f"wrote {out_path}")
 
-    # skin.json last, after every picture, so a failed build never leaves one behind.
-    skin_path = os.path.join(a.out_dir, "skin.json")
+    # skin.json last, after every picture, and clear_previous took the old one
+    # out at the start, so a failed build never leaves a manifest behind.
+    skin_path = os.path.join(a.out_dir, SKIN_NAME)
     doc = skin_document(a.name, credit=a.credit, backdrop=a.backdrop, fonts=fonts)
     with open(skin_path, "w", encoding="utf-8") as fh:
         fh.write(json.dumps(doc, indent=2, ensure_ascii=False) + "\n")

@@ -22,8 +22,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # The VEFR commit this pack is validated against (vefr main with complete-act, the lock check, the album, sound and walk sheets).
-  VEFR_REF: 77d8f688df30aa19cc7cbd46ae627624a2b994d7
+  # The VEFR commit this pack is validated against (vefr main with complete-act, the lock check, the album, sound and walk sheets, plus #306: a skinned panel is no longer flooded with the pack accent, which is what the parchment-and-wood look depends on).
+  VEFR_REF: 61490b00764f38dfd14385ccaabf9fd89edf56de
 
 jobs:
   validate:
