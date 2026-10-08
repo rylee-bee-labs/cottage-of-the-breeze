@@ -22,8 +22,13 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # The VEFR commit this pack is validated against (vefr main with complete-act, the lock check, the album, sound and walk sheets, plus #306: a skinned panel is no longer flooded with the pack accent, which is what the parchment-and-wood look depends on).
-  VEFR_REF: 61490b00764f38dfd14385ccaabf9fd89edf56de
+  # The VEFR commit this pack is validated against. Bumped to merged vefr main
+  # for the endless-dungeon lane: E1 play-time floors (#314), the E3 delve v3 JS
+  # twin (#311), the S2 event table (#309), the floor-key stream key (#313) and
+  # the E4 Sections (#332). Measured before the bump: `uv run norns validate
+  # --pack worlds/cottage-of-the-breeze` against this engine prints `ok:
+  # geometry, reachability, voices all pass`.
+  VEFR_REF: 7d5200dd32fc1b740faabccc9e4a6d52c639c217
 
 jobs:
   validate:
