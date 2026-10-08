@@ -1,0 +1,21 @@
+{
+  "section": 1,
+  "id": "cellar",
+  "floors": 9,
+  "size": {"w": [64, 80], "h": [48, 56]},
+  "rooms": [12, 18],
+  "tiles": {"#": "dungeon-wall", ".": "cellar-flagstone", "u": "dungeon-stairs-up",
+            "d": "dungeon-stairs-down"},
+  "fog": {"radius": 5},
+  "families": [
+    {"family": "cellar-rat", "weight": 5, "depth": [1, 9]},
+    {"family": "nest-of-moths", "weight": 3, "depth": [1, 9]},
+    {"family": "damp-shade", "weight": 2, "depth": [3, 9]},
+    {"family": "cellar-spider", "weight": 2, "depth": [4, 9]}
+  ],
+  "pattern": ["entry", "n", "n", "special", "landing", "n", "special", "n",
+              "warden"],
+  "specials": ["infested", "hub"],
+  "curve": {"hp": [1.0, 1.4], "atk": [1.0, 1.3]},
+  "warden": "cellar-king"
+}

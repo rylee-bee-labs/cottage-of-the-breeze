@@ -717,5 +717,10 @@
   ],
   "sound": {
     "theme": "soft"
+  },
+  "descent": {
+    "run_seed": "breeze",
+    "entry": {"region": "town", "at": [1, 1]},
+    "sections": ["cellar"]
   }
 }
