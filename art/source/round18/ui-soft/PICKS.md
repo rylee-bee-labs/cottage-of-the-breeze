@@ -25,3 +25,7 @@ Chosen by Rylee in the 2026-10-04 round-two picker (Codex vs Wan Pro): **All Cod
 ## Backdrop
 
 Both `backdrop-1.jpg` and `backdrop-alt-1.jpg` exist as draft options. `backdrop-alt-1.jpg` is wired into the skin for review; Rylee picks between them before either ships.
+
+## Status
+
+- **2026-10-08:** the eleven round-two picks are cut into `art/source/round18/ui-soft/skin-source/` (commit `9657082`, the round-two cut step), with `PROVENANCE.md` and `PROVENANCE.tsv` naming the sheet each cut came from; the skin is built from those cuts into `art/skins/parchment-and-wood/` and the part pictures copied into the pack's copy of the skin (`worlds/cottage-of-the-breeze/skins/parchment-and-wood/`), still on Crimson Pro and `backdrop-alt-1.webp`. The five pieces round 18 did not draw (`button-hover`, `button-pressed`, `button-disabled`, `toggle-off`, `wood.png`) are round-10 carry-overs, unchanged. Picks themselves unchanged.

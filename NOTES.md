@@ -1,5 +1,12 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 — the soft-wood skin is built from Rylee's round-two picks (Rylee)
+
+- **Her words (2026-10-08):** "Use my picks as they are". The eleven round-two picks in `art/source/round18/ui-soft/PICKS.md` (banner `missing/banner/banner_v3.png`, speech `missing/speech/speech_v3.png`, tooltip `missing/tooltip/tooltip_v2.png`, corner `missing/corner/corner_v3.png`, bar-frame `missing/bar-frame/bar-frame_v2.png`, bar-fill `missing/bar-fill/bar-fill_v1.png`, slot `missing/slot/slot_v3.png`, tab `missing/tab/tab_v3.png`, tab-selected `missing/tab-selected/tab-selected_v3.png`, divider `dividers/dividers_v2.png`, cursor `cursor/cursor_v2.png`) are cut into `art/source/round18/ui-soft/skin-source/` with `art/tools/split_sheet.py`, saved as lossless WebP keeping alpha; `PROVENANCE.md` and `PROVENANCE.tsv` name the sheet each cut came from and the `.credits.txt` beside it.
+- **Her standing rule (Rylee, 2026-10-02):** "Art we ship is art we made" — every cut keeps its `.credits.txt` beside the sheet it came from. None of the cuts are hand-redrawn or rescaled; `build_skin.py` owns the geometry.
+- **Five carry-overs:** `button-hover`, `button-pressed`, `button-disabled`, `toggle-off` and `wood.png` are round-10 pictures carried over byte-for-byte so `build_skin.py` has every row of its `PICTURES` table. They are placeholders pending Rylee's eye, not round-18 picks.
+- **Built and validated:** the skin is built from the new sources into `art/skins/parchment-and-wood/` (`check_ui.py` passes every part), and the part pictures are copied into `worlds/cottage-of-the-breeze/skins/parchment-and-wood/`. The pack's `skin.json` keeps `fonts` (display/body: Crimson Pro), `backdrop: backdrop-alt-1.webp`, the shorter credit line ("Rylee and Claude; Codex proofs") and `ink` exactly as PR #96 left them; the panel's `fill` is not added (VEFR reads `fill` as a picture file and the player ignores a panel fill); `backdrop-alt-1.webp` is not touched.
+
 ## 2026-10-04 (later) — interface direction: parchment and soft wood, Ledger type (Rylee)
 
 - **Her words:** "Scrapbook pages I think is my fav. It's working better now! Can we fix the font to be a little more 'cottage' and less stardew valley?" Then: "Oh I don't like the tape. Back to parchment and soft wood. Let's say 'ledger' font?" Earlier she had said of the first painted kit: "I prefer the older style over this", and asked for "radically different ui styles to help me visually narrow down. Not a picker, a system to help me refine."
