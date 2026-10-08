@@ -2,7 +2,7 @@
 
 ## Round two
 
-Rylee chose all eleven round-two sheets in the picker: all Codex, with none of the Wan Pro drafts picked. They are drawn and credited, but none is cut into `skin-source/` or the game yet. The cut waits on Rylee's pick.
+Rylee chose all eleven round-two sheets in the picker: all Codex, with none of the Wan Pro drafts picked. They are drawn, credited and cut into `skin-source/` (2026-10-08, the round-two cut step); the build still waits on Rylee.
 
 Rylee's picks of 2026-10-04, chosen in the skin picker artifact (`ui-soft/PICKS.md`): panels **v3**, buttons **v1**,
 bars and slots **v2**, tabs and toggles **v2**, textures **v1**, dividers **v1**, cursor **v1**, plus the first redraw of
