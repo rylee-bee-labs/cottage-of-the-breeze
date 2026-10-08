@@ -26,10 +26,12 @@ import os
 import subprocess
 import unittest
 
-# The last commit on main before this branch: cottage-of-the-breeze#95, "pin
-# ci-harness to ede6c5c and pass the Bazzite runner switch". Override with
-# SCOPE_BASE=<sha or ref> to check a branch against a different base.
-BASE = os.environ.get("SCOPE_BASE", "9bbde38")
+# The main this branch has merged: cottage-of-the-breeze#97, "keep the round 18
+# draft sheets in their own pull request", the tip at the time of the merge. It
+# was 9bbde38 (#95) until this branch merged main; a branch that has merged main
+# is judged on what it adds to it, not on what main did in the meantime. Override
+# with SCOPE_BASE=<sha or ref> to check a branch against a different base.
+BASE = os.environ.get("SCOPE_BASE", "9eca996")
 
 SCOPE = {
     # The pack opts into the two things the engine has supported and the pack
