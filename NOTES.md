@@ -1,5 +1,21 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 — one way down: town [1,1] is the generated descent (agent)
+
+- **Her words (Rylee, cottage#104):** "All new generated so it matches." Town tile `[1,1]` had **two** doors: the hand-authored `floor-1`, and — appended at run time by the Section descent's `wireEntry()` — the generated `cellar-0-1`. VEFR's `wireEntry()` appends and never replaces, so both survived and a player walking onto that tile got two exits. Reproduced in VEFR's own play kit against a build woven from `main` (log: `docs/playtests/2026-10-08-descent-104.md`):
+  `PROBE exits-from-town-[1,1] = 2 -> floor-1, cellar-0-1`.
+- **Changed:** the authored cellar door and its floors are gone. `acts/act-1/world.json` no longer lists `floor-1`..`floor-6` and `king-room` and no longer transitions to or from them; those seven directories are deleted; `blueprint.json` lost its six `act-1/floor-*` region records (refreshed with `vefr normalize`, never hand-edited into a contract). All 22 Blueprint **families** are kept, including the five the Section draws on (`cellar-rat`, `nest-of-moths`, `damp-shade`, `cellar-spider`, and `cellar-king` as warden).
+- **Verified, not assumed:** one exit from `[1,1]` (`cellar-0-1` only); a walked hero leaves the cottage, crosses the town and arrives in `cellar-0-1` at `[27,34]` with 20 generated enemies; `norns validate` and `vefr check` both print `ok:` on **vefr main** (`122b480`).
+
+### What this orphaned, and why it went anyway
+
+Removing the authored cellar removed the whole hand-built ladder with it, because it was authored *in* those floors:
+
+- **Act 1's ending is gone from the pack.** `the-seal-note-read` (which sets `act-1-complete` and fires `complete-act`) still exists, but the note it reads lived in `king-room`. `a-note-under-the-seal.md`, `a-letter-in-a-chest.md`, `a-coin-face-down.md`, `a-burned-page.md`, `a-candle-and-a-note.md` and `a-scrap-in-the-dust.md` all name a `region:` that no longer exists, so they cannot be found. `act-1-complete`, `keeper-after-the-end` and `regular-after-the-end` are now unreachable beats. **The generated descent has no ending at all.**
+- **The Keybearer ladder is gone:** `bell-key`, `lantern-key`, `helmet-key`, `crown-seal` and `cellar-gems` were only placed in the authored floors, so the items and the six rules that name them came out — 12 rules to 7, 25 album stickers to 5, 14 items to 9. The three locked stairs (3→4, 4→5, 5→6) went with them.
+- **Why the engine cannot fill the gap yet:** `vefr/sections.py` says plainly, "The warden, the vault and the key that opens them are E8's", and E8 is not built. A generated Section draws floors, mobs and a warden; it cannot yet place a key, a vault or an ending. Rylee's approved order puts "E8 guardian/key/vault progression" at step 4, **after** this change — so the gap is expected and scheduled, not a regression to undo.
+- **Nothing was silently dropped:** the four rules, twenty stickers and five items above are named here so the loss is on the record. `tutorial-begin` kept its line ("The stair is in the town's top left corner" — still true) and lost only its `point-to`, which named a region that no longer exists.
+
 ## 2026-10-08 (later) — the picker answers, and the soft-wood skin merged as cottage#107 (Rylee)
 
 Rylee answered the picker questions tonight. Her words, quoted exactly. `DESIGN.md` carries the same lines in the places they change.
