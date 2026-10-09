@@ -257,9 +257,9 @@
       "defaults": {
         "name": "a hollow cricket",
         "sprite": "cave-cricket",
-        "hp": 9,
-        "atk": 3,
-        "xp": 11
+        "hp": 11,
+        "atk": 4,
+        "xp": 13
       }
     },
     "silt-warden": {

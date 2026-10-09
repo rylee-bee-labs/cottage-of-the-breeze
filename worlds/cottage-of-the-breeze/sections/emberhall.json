@@ -8,12 +8,11 @@
             "d": "dungeon-stairs-down"},
   "fog": {"radius": 3},
   "families": [
-    {"family": "hollow-shade", "weight": 3, "depth": [1, 9]},
+    {"family": "hollow-shade", "weight": 4, "depth": [1, 9]},
     {"family": "howling-rustle", "weight": 3, "depth": [1, 9]},
-    {"family": "cobweb-wraith", "weight": 3, "depth": [1, 9]},
     {"family": "hollow-cricket", "weight": 3, "depth": [1, 9]},
-    {"family": "barrel-mimic", "weight": 2, "depth": [3, 9]},
-    {"family": "ember-warden", "weight": 1, "depth": [7, 9]}
+    {"family": "cobweb-wraith", "weight": 3, "depth": [1, 9]},
+    {"family": "barrel-mimic", "weight": 3, "depth": [1, 9]}
   ],
   "pattern": ["entry", "special", "n", "n", "landing", "n", "special", "n",
               "warden"],

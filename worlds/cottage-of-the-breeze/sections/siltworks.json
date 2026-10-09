@@ -10,11 +10,10 @@
   "families": [
     {"family": "cave-cricket", "weight": 4, "depth": [1, 9]},
     {"family": "deep-shade", "weight": 3, "depth": [1, 9]},
-    {"family": "cobweb-wraith", "weight": 3, "depth": [2, 9]},
+    {"family": "cobweb-wraith", "weight": 3, "depth": [1, 9]},
     {"family": "mire-toad", "weight": 2, "depth": [1, 9]},
     {"family": "rootwatcher", "weight": 2, "depth": [1, 9]},
-    {"family": "barrel-mimic", "weight": 2, "depth": [4, 9]},
-    {"family": "silt-warden", "weight": 1, "depth": [7, 9]}
+    {"family": "barrel-mimic", "weight": 2, "depth": [1, 9]}
   ],
   "pattern": ["entry", "n", "special", "n", "landing", "n", "special", "n",
               "warden"],

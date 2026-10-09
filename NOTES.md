@@ -85,11 +85,13 @@ deeper: "What the next floor looks like, A goal ahead, Collections".
     (fog radius 6, the widest in the chain). Carries root-tangles, flowerpot toads, wick
     sprites, moths, cave crickets and the new rootwatchers.
   - **siltworks** — the flooded ground below that, older and colder; fog 4, smaller rooms.
-    Carries deep shades, cobweb wraiths, cave crickets, barrel mimics, the new mire toads
-    and the Silt Warden.
+    Carries deep shades, cobweb wraiths, cave crickets, barrel mimics, rootwatchers and
+    the new mire toads. Its warden is the Silt Warden, named in the Section's `warden`
+    key — see the engine gaps below for why a named warden does not spawn yet.
   - **emberhall** — the sealed fire the town kept, the bottom of this descent; fog 3, the
     darkest and smallest rooms. Carries hollow shades, howling rustles, hollow crickets,
-    barrel mimics and the Ember Warden.
+    cobweb wraiths and barrel mimics, and it is the only place a hollow cricket — 11 hp,
+    4 attack — turns up. Its warden is the Ember Warden, named in the `warden` key.
 - **Every name here is an agent draft, not canon.** The three place names, the six new
   Blueprint families (`rootwatcher`, `mire-toad`, `hollow-cricket`, `silt-warden`,
   `root-warden`, `ember-warden`) and their monsters' names are all data and all changeable
@@ -99,8 +101,9 @@ deeper: "What the next floor looks like, A goal ahead, Collections".
   `mob_stats`' ramp are written into every Section as the contract asks, but neither is read
   by the play-time descent yet (see the engine gaps below), so the danger a player actually
   meets comes from the creatures each Section names and from how big its floors are.
-  Measured over all 36 floors: average mob hp `cellar 4.30 > rootworks 6.78 > siltworks
-  10.42 > emberhall 11.52`, deepest max attack `2 > 3 > 3 > 4`.
+  Measured over all 36 floors, and it rises on every measure:
+  average mob hp `cellar 4.30 > rootworks 6.78 > siltworks 9.23 > emberhall 10.63`,
+  highest attack on a floor `2 > 3 > 3 > 4`, fog radius `5 / 6 / 4 / 3`.
 - **Six new families went in through the Blueprint** and the lock was refreshed with
   `vefr normalize --out`; no contract's `enemies` list was hand-edited.
 - **Proven by walking, not by validating.** The real woven player, in VEFR's jsdom play
@@ -112,6 +115,17 @@ deeper: "What the next floor looks like, A goal ahead, Collections".
 
 ### What the engine could not do, filed as VEFR issues rather than worked around
 
+- **Half a Section is data the descent does not read yet.** The play-time descent (part
+  397) reads only `id`, `floors`, `size`, `rooms`, `fog`, `families` and `pattern` from a
+  Section. It does **not** read `curve` or `loot.tier` (`mob_stats` is never called, so the
+  depth ramp is written but not applied), the `depth` range on a family entry, the
+  `specials` a `special` slot draws, `tiles`, `warden`, `vault`, `elites`, `groups`,
+  `stamps` or `pois`. All of those are in the files as the contract asks, and all of them
+  take effect the day the engine reads them — but nothing in this pass may be described as
+  working on the strength of them. One consequence caught during the work: a family listed
+  in `families` with `depth: [7, 9]` spawned on **every** floor of its Section, which put
+  thirteen Ember Wardens in one descent. The wardens were moved out of `families` and are
+  named only in the Section's `warden` key, which is how `cellar-king` is already used.
 - **A Section cannot have its own tiles.** `shapes.SECTION` accepts `tiles` and `vefr check`
   validates it, but nothing reads it: the played floor's legend is the engine's shared
   `delve.LEGEND`, and its pictures come from `VEFR_REGION_TILES[region] || VEFR_TILES` —
@@ -135,10 +149,15 @@ Walking the chain with the monsters left in (the proof run above uses VEFR's own
 precedent of a quiet descent, so that the walk tests the chain and not a fight) the hero
 died on floor 2 of the **cellar**, which this change did not touch. The hero starts at 6 hp
 and 2 attack; a cellar spider is 5 hp and 2 attack, so one fight is most of the bar and two
-is the run. The Ember Warden at 32 hp cannot be killed at the starting 2 attack at all. The
-growth ladder (`0, 6, 15, 30, 55, 95, 150, 230` xp for +2 hp and +1 attack) would carry a
-player who clears a floor per fight, so this reads as "the descent is not survivable if you
-fight everything", which is a tuning call for Rylee rather than something to quietly patch.
+is the run. The same holds further down: a hollow cricket in emberhall is 11 hp at 4
+attack — two hits kill the 6 hp starting hero, and eleven of its own — while taking
+four a swing. The growth ladder
+(`0, 6, 15, 30, 55, 95, 150, 230` xp for +2 hp and +1 attack) would carry a player who
+clears a floor per fight, so this reads as "the descent is not survivable if you fight
+everything" — which is a tuning call for Rylee, not something to quietly patch. What it
+does mean is that the new Sections were tuned against *measured* numbers rather than
+against a fight, and the first person to walk down there with monsters in the dark should
+say how it feels.
 
 ## 2026-10-08 (later) — the six orphaned books are findable again (agent)
 
