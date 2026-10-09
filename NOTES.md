@@ -153,6 +153,101 @@ the player to react faster or remember anything.
 `docs/playtests/logs/authored-route-desktop.txt`; the Sections entry above for
 the seven read keys. **Not proven:** any walk.
 
+## 2026-10-08 — the play-through bot walks the descent a player walks (agent)
+
+**Before:** `tests/playthrough/run.py` had been red on `main` and on the
+three-Sections branch alike since cottage#110, failing on
+`"no open route from town to floor-1"` — `4/8 checks, ok=False`, in two
+steps. It was not a game bug. cottage#110 made the generated Section the
+only way down from town `[1,1]` and deleted the authored `floor-1`..`floor-6`
+and `king-room`; the bot's route was a list of those seven regions. **Now:**
+`31/31 checks, ok=True, 897 steps`, at 1280×720.
+
+**The route is read out of the pack, not written down in the bot.** The
+entry tile is `world.json` → `descent.entry`; the floors are each Section's
+own `id`/`floors`/`pattern`; the stairs are the transitions the engine wires
+on arrival; the books are `VEFR_LIBRARY`; and **the book that ends the act is
+found by reading the pack's own rules for `complete-act`**, not by a
+hardcoded id. Cottage → town → `[1,1]` → every floor of every Section
+(`cellar-0-1`..`cellar-0-9`), opening every book on the way → the vault on
+the warden floor, whose note ends the act → back up to town → a reload →
+Start over → a fight on the way down. Move a floor, a book or a landing in
+the pack and this bot follows it. The loop is over Sections, not over
+`floor-1`..`floor-6`, so the four-Section chain is evidenceable the day a
+second Section exists; **this pack declares one** and the run says so.
+
+**Three harness bugs the old bot would have had, found by walking the real
+game rather than by reading it.** (1) It cached `VEFR_REGIONS` and
+`VEFR_TRANSITIONS` at page load, but a generated floor is grown *on arrival*
+(`397-the-descent.js` `ensureRegion`/`wireFloor`) — so the tables had no
+`cellar-0-2` and routing could never leave floor 1. (2) A `map` book is
+found by *standing on it*, so pressing Interact on one that is already found
+does nothing at all; the old "open the book" loop pressed until it stalled.
+A chest book is the opposite: it records the moment the chest opens, and
+only the reader going down fires `reads`. (3) `comes-near` — behind "the cat
+noticed you" and the Keeper's line about the letter — fires from `tryNPC`,
+which only `#talk` and a canvas click run; Interact's own resident branch
+goes straight to `talkToSpeaker`. A keyboard player has to Tab to the Talk
+button, and the bot now does exactly that.
+
+**Three checks have no subject left, and are asserted as such rather than
+deleted.** `locked` (no transition in the pack names a `requires` since the
+authored floors went), `pickup` (no family the Section draws names a
+`drops`, and every descent book is a chest book — playtest finding B1
+restated as an assertion), `level` (see below). Each has a check that reads
+the game's own tables and goes **red** the day a subject comes back. The
+album check got *stronger*, not weaker: it now requires **every sticker the
+pack defines** (5 of 5) rather than five named ones out of twenty-five.
+
+**What replaced the keybearer ladder, honestly.** The old route covered
+three locked cellar stairs, three Keybearers and a sealed door to the king
+room: fifteen checks. Those subjects are gone from the pack, so no route can
+cover them today, and nothing here pretends otherwise. What replaced them is
+the same *intent* at new addresses: the act still ends, the chest still
+drops something, the end card still shows once with focus on Keep exploring
+and stays gone after a reload — the vault on `cellar-0-9` instead of the
+king room, and the keybearer cadence is now a named absence. **The king
+room itself has no subject and is not coming back** from this route; it was
+a room, and the Section has no rooms.
+
+**Three engine gaps found while doing this. None is fixed here** — this
+task repairs the harness, not the game or the engine.
+
+- **A hero cannot gain a level anywhere on the descent.** `growAward` is
+  paid in the monster's `xp` (`430-loot-on-the-floor.js:101`) and
+  `enemyEntry` (`397-the-descent.js`) copies id, name, at, hp, atk, sight
+  and drops — **no `xp`**, though the Blueprint family behind the monster
+  carries one. So the descent's mobs die silently as far as growth is
+  concerned: Rylee's "wander around and fight things loop", the thing this
+  repo calls a win, pays nothing on the only floors the game now has. The
+  bot asserts the absence (`a descent monster carries no xp…`) so the day
+  the engine pays it, the harness says so.
+- **`comes-near` is unreachable by the Interact key** (above). Every
+  resident beat gated on it — `cat-notices`, `keeper-after-the-end` — is
+  keyboard-unreachable except by Tab-ing to `#talk`.
+- **`--monsters` exists but is not the default.** The descent is walked with
+  the Section's families taken away, which is what vefr's own
+  `tests/test_descent_bot.py` does and why: the thing under test is the
+  route, not a fight. The lever is the engine's own documented harness hook
+  (`VEFR_DESCENT_DEF` is read at call time, "and a harness may plant its
+  own"), so **no pack file is touched** and `vefr check` still passes. The
+  run puts the families back at the end and fights, so the fight is proved
+  in view rather than assumed.
+
+**The bot can fail.** `tests/playthrough/negative_control.py` breaks the
+route on purpose twice — once by putting the authored `town [1,1] ->
+floor-1` door back (the exact thing that broke this bot), once with
+`--entry-at 4,5`, a tile that is not the way down — and fails unless each
+run comes back red *for the reason it was broken*. Output in
+`tests/playthrough/negative_control.md`.
+
+**Evidence.** `31/31 checks, ok=True, 897 steps` from the literal
+acceptance command (`python3 tests/playthrough/run.py --viewport desktop`)
+in a VEFR venv; every floor's far end is inside the explored map the
+descent itself saved, which is the engine's own answer to "was this floor
+walked" and the same question vefr asks of its three; `norns validate` and
+`vefr check` both print `ok:` on this pack, unchanged.
+
 ## 2026-10-08 — the drop check runs on every change now (agent)
 
 **The gate exists.** `.github/workflows/validate-pack.yml` gains one step,
