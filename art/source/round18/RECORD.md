@@ -76,3 +76,10 @@ folder here.
   in the log is touched. `art/tests/test_run_logs.py` keeps both out of every run log in `art/source/`.
 
 The softer, even-toned alternate wooden backdrop is wired into the Cottage skin as a draft pending Rylee's pick.
+
+- **2026-10-08, after the skin was played.** Three of the eleven picks are now built *from* a cut rather than cut
+  straight, because the running player showed two of them cannot be drawn at the sizes it gives them and a third
+  arrived as the wrong half of its prompt: `tab-selected` (already recorded), plus `banner` and `slot`, both rebuilt
+  as the parchment field inside their own frame by `art/tools/make_plate_field.py`. Each untouched cut is kept beside
+  its derived picture as `banner-v3.webp` / `slot-v3.webp`, and `skin-source/PROVENANCE.tsv` marks the derived rows
+  and carries the cuts unmarked. No pick changed; no sheet was redrawn.
