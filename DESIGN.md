@@ -74,6 +74,7 @@ learn → go deeper.
 
 ## Order
 1. **Library**: books and notes found in the world, kept, fed to the book export.
-2. **Delve**: floors, items, weight, spells, turns.
+2. **Delve**: floors, items, weight, spells, turns (what the VEFR ruleset
+   covers; what you carry is slots plus bag upgrades, above).
 3. **Loot**, then **spells**, then the E8 vaults (Rylee, 2026-10-08): loot
    comes "Before E8 vaults", spells "After loot". Decided; not built yet.
