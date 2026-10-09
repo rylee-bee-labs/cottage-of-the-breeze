@@ -28,7 +28,13 @@ env:
   # the E4 Sections (#332). Measured before the bump: `uv run norns validate
   # --pack worlds/cottage-of-the-breeze` against this engine prints `ok:
   # geometry, reachability, voices all pass`.
-  VEFR_REF: 7d5200dd32fc1b740faabccc9e4a6d52c639c217
+  #
+  # Bumped again 2026-10-09 to b5ed13d, merged vefr main: vefr#361, books pinned
+  # to a generated floor by place, chosen per run. That engine turns away a
+  # `found: map` book that names its tile with `at:` on a generated floor, which
+  # is what the five books on this branch now do; on the old pin they read as
+  # though they had nothing to fix. The CI run on this branch is the proof.
+  VEFR_REF: b5ed13dbe444d9eb0ee1e0cb1bf03300135dea3f
 
 jobs:
   validate:
