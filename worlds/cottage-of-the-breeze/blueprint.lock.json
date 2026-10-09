@@ -1,6 +1,19 @@
 {
-  "blueprint": 1,
+  "blueprint": 2,
   "normalizer": 1,
-  "source_sha256": "3c0ff9b156c9e16d830790cba14e8a7252f5ea3e9a39efb58d05edd8ed53c91d",
-  "outputs": []
+  "source_sha256": "4807a0566496165d967c2e357c2979cee68ebc1a94cd6dbe1ca2f05c9fc4d18a",
+  "outputs": [
+    {
+      "file": "world.json",
+      "pointers": [
+        "/items/cellar-gems"
+      ],
+      "records": [
+        {
+          "source": "/things/0",
+          "id": "cellar-gems"
+        }
+      ]
+    }
+  ]
 }
