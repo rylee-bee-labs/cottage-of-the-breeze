@@ -6,7 +6,7 @@
   "rooms": [10, 15],
   "tiles": {"#": "dungeon-wall", ".": "silt-flagstone", "u": "dungeon-stairs-up",
             "d": "dungeon-stairs-down"},
-  "fog": {"radius": 4},
+  "fog": {"radius": 6},
   "families": [
     {"family": "cave-cricket", "weight": 4, "depth": [1, 9]},
     {"family": "deep-shade", "weight": 3, "depth": [1, 9]},

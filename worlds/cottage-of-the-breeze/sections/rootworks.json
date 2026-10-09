@@ -6,7 +6,7 @@
   "rooms": [11, 16],
   "tiles": {"#": "dungeon-wall", ".": "root-flagstone", "u": "dungeon-stairs-up",
             "d": "dungeon-stairs-down"},
-  "fog": {"radius": 6},
+  "fog": {"radius": 7},
   "families": [
     {"family": "root-tangle", "weight": 4, "depth": [1, 9]},
     {"family": "flowerpot-toad", "weight": 3, "depth": [1, 9]},

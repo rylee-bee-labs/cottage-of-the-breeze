@@ -6,7 +6,7 @@
   "rooms": [12, 18],
   "tiles": {"#": "dungeon-wall", ".": "cellar-flagstone", "u": "dungeon-stairs-up",
             "d": "dungeon-stairs-down"},
-  "fog": {"radius": 5},
+  "fog": {"radius": 8},
   "families": [
     {"family": "cellar-rat", "weight": 6, "depth": [1, 9]},
     {"family": "nest-of-moths", "weight": 4, "depth": [1, 9]},
