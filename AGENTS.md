@@ -10,6 +10,18 @@ Read `README.md`, then `.project/CURRENT.md` (where things stand).
 - **Rylee writes the stories.** Canon (`STORY.md`, the pack's `logbok.md`,
   names, characters, found books) is hers. Agents build machinery, suggest
   when asked, and never promote an idea into canon on their own.
+- **Existing written content is preserved word for word** (Rylee, 2026-10-08:
+  "Preserve existing written items unless I explicitly approve changes").
+  The notes, letters and books in `library/`, sticker and item names, and resident
+  lines that already exist keep their exact text. Move them, re-home them or give
+  them a new place to be found, but do not reword them. A change to their wording
+  needs her explicit approval, named in `NOTES.md`. This replaces her earlier
+  "Anything may change" for these items.
+- **Story drafts are drafts** (Rylee, 2026-10-08: "approved for further
+  exploration, not canon. I alone approve changes to STORY.md"). Agents may draft
+  the story in `docs/story/` (for example `DRAFT.md`, `DRAFT-v2.md`), marked draft,
+  and new player-facing words stay draft until she approves them. A story-draft PR
+  is opened as a draft and held for her, never auto-merged.
   Suggestions go in `NOTES.md`, marked as an agent's ("Claude's note:"); `BRIEF.md`'s ✍️ parts
   are hers alone.
 - **Remake the systems, not the property.** *Castle of the Winds* is Rick
