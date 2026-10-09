@@ -6,7 +6,7 @@
   "rooms": [9, 14],
   "tiles": {"#": "dungeon-wall", ".": "ember-flagstone", "u": "dungeon-stairs-up",
             "d": "dungeon-stairs-down"},
-  "fog": {"radius": 3},
+  "fog": {"radius": 5},
   "families": [
     {"family": "hollow-shade", "weight": 4, "depth": [1, 9]},
     {"family": "howling-rustle", "weight": 3, "depth": [1, 9]},
