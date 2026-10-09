@@ -1,5 +1,56 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 — the drop check runs on every change now (agent)
+
+**The gate exists.** `.github/workflows/validate-pack.yml` gains one step,
+alongside the existing `norns validate` step and in the same job: *"Assert
+every chest drop resolves to a real item"* running
+`python3 tests/assert_chest_drops.py` over the same pack path
+(`worlds/cottage-of-the-breeze`) the validator is handed. One job, one new
+step; nothing else in the workflow moved.
+
+**What it catches.** A drop id the pack names but the item catalog does not
+hold — and, one step further, an item whose sprite is not a real entry in
+`player.sprites` or has no file in the pack. Neither `norns validate` nor
+`vefr check` can see this class, and that was measured rather than assumed:
+with `bell-key` restored to a family in the pack and freshly normalized so
+nothing was stale, **both printed `ok:` while `tests/assert_chest_drops.py`
+exited 1.** The pack shipped four such ids — `crown-seal`, `bell-key`,
+`lantern-key`, `helmet-key` — named by Blueprint families and by the
+Section's warden, so every kill that should have dropped one dropped nothing
+while CI stayed green. cottage#114 and cottage#119 fixed the instances; this
+is the gate that would have caught them.
+
+**Proven red, not asserted red.** On a copy of the pack, `/items/cellar-gems`
+was deleted from `world.json` — the exact defect the entry below was written
+about, and the item the chest book `a-note-under-the-seal` names. The
+workflow's own command exits 1 and names the defect in the log:
+
+```
+FAIL
+  - a-note-under-the-seal.md: drops names 'cellar-gems', not in world.json items
+```
+
+With the copy reverted, the same command prints `ok: every chest drop
+resolves to a real item with a real sprite` and exits 0. The step is not
+`continue-on-error` and takes no `if:` — if the assertion file is missing
+the step fails, which is the right way round.
+
+**Cost: about a second.** Stdlib-only Python over `world.json` and the
+library's front matter; no VEFR checkout, no `uvx`, no weave, no browser.
+It is placed after the validator, so a pack the engine rejects still fails
+first, on the validator that has always said so. A self-hosted runner
+(`vars.CI_RUNNER_LIGHT`) without `python3` on `PATH` would fail the step; that
+is reported rather than papered over, since no runner is named in this repo
+and the pinned alternative (a `setup-python` step) is a dependency on a runner
+choice this change is not making.
+
+**Known edge, not fixed here.** The assertion reads chest books' `drops:` and
+the item catalog; it does not yet walk `blueprint.json`'s families or a
+Section's `warden`, which is where `bell-key` and `crown-seal` were named.
+That is a widening of the check, and `tests/**` was out of scope for this
+change; it is named here so the next person knows what the green is worth.
+
 ## 2026-10-08 — the vault chest holds something again (agent)
 
 The "six orphaned books" entry below left one thing named as
