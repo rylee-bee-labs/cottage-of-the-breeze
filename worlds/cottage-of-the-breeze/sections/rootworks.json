@@ -1,0 +1,25 @@
+{
+  "section": 2,
+  "id": "rootworks",
+  "floors": 9,
+  "size": {"w": [60, 76], "h": [44, 52]},
+  "rooms": [11, 16],
+  "tiles": {"#": "dungeon-wall", ".": "root-flagstone", "u": "dungeon-stairs-up",
+            "d": "dungeon-stairs-down"},
+  "fog": {"radius": 6},
+  "families": [
+    {"family": "root-tangle", "weight": 4, "depth": [1, 9]},
+    {"family": "flowerpot-toad", "weight": 3, "depth": [1, 9]},
+    {"family": "wick-sprite", "weight": 3, "depth": [1, 9]},
+    {"family": "nest-of-moths", "weight": 3, "depth": [1, 9]},
+    {"family": "cave-cricket", "weight": 2, "depth": [3, 9]},
+    {"family": "rootwatcher", "weight": 2, "depth": [4, 9]}
+  ],
+  "pattern": ["entry", "n", "n", "special", "landing", "n", "special", "n",
+              "warden"],
+  "specials": ["infested", "hub"],
+  "curve": {"hp": [1.05, 1.45], "atk": [1.05, 1.35]},
+  "loot": {"tier": 2},
+  "pois": ["the root-choked stair", "a bed of cold earth", "the drowned garden-bed"],
+  "warden": "root-warden"
+}

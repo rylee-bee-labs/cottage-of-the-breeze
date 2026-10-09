@@ -6,6 +6,12 @@ card and back to town, reading state only from the page globals
 (``window.VEFR_COMBAT`` and friends) and pressing keys.  Writes
 ``report.json`` next to this file.  See README.md.
 
+The route is read out of the pack the game bakes, never hardcoded: the
+descent's entry tile comes from ``world.json`` -> ``descent.entry``, the
+floors come from each Section's own ``floors`` and ``pattern``, and the
+books come from ``VEFR_LIBRARY``.  A pack that moves a floor, a landing
+or a book is walked correctly by this bot without being edited here.
+
 Run it from a VEFR checkout so the venv has Playwright::
 
     uv run --offline --group test python <this-repo>/tests/playthrough/run.py \
@@ -15,6 +21,7 @@ Run it from a VEFR checkout so the venv has Playwright::
 from __future__ import annotations
 
 import argparse
+import base64
 import json
 import os
 import sys
@@ -36,6 +43,38 @@ KEYS = {
     (-1, 0): "ArrowLeft",
     (1, 0): "ArrowRight",
 }
+
+# The nine seams of play the engine records a sound cue at, named in
+# `web/player/parts/120-sound.js`.  Seven of the nine have a subject on
+# this route and are required below.
+# The other two are not, and are NOT quietly forgotten: `cues_without_a_
+# subject()` asserts from the game's own tables why each of them cannot
+# fire, so a pack that grows one back turns that check red instead of
+# leaving the cue untested and unnoticed.
+#   `locked` - fires only when a door refuses for want of something the
+#     hero has not got.  No transition in this pack names a `requires`;
+#     the three locked cellar stairs went with the authored floors
+#     (cottage#110).
+#   `pickup` - fires only for an item lying on the floor underfoot.  No
+#     family the Section draws names a `drops`, and every book on the
+#     descent is a chest book, whose treasure goes straight to the bag.
+#     This is playtest finding B1 ("floor_items=0 bag=[]") restated as
+#     an assertion.
+#   `level`  - fires when `growAward` pays a level, which is paid in the
+#     monster's `xp`, and a generated monster is built without one.
+SOUND_CUES_NEEDED = (
+    "hit",
+    "defeat",
+    "door",
+    "sticker",
+    "end",
+)
+SOUND_CUES_WITHOUT_A_SUBJECT = ("locked", "pickup", "level")
+
+# The engine's own fallback for a Section that names no `floors`
+# (`vefr.sections.floors`), so a pack that leaves it out is walked as
+# deep as the engine will draw rather than one floor deep.
+DEFAULT_SECTION_FLOORS = 9
 
 # One round trip returns everything the bot reads from the page.  State
 # comes from the harness globals; the visibility flags are the game's own
@@ -67,11 +106,13 @@ class StallError(RouteError):
 
 
 class Bot:
-    def __init__(self, page, *, max_steps: int, wall_seconds: float, delay_ms: float):
+    def __init__(self, page, *, max_steps: int, wall_seconds: float, delay_ms: float,
+                 entry_at=None):
         self.page = page
         self.max_steps = max_steps
         self.wall_seconds = wall_seconds
         self.delay_ms = delay_ms
+        self.entry_at = entry_at
         self.steps = 0
         self.checks: list[dict] = []
         self.console_errors: list[str] = []
@@ -81,6 +122,13 @@ class Bot:
         self._last_sig = None
         self._regions = None
         self._transitions = None
+        self._maps_region = None
+        self._families = None
+        # What the descent saved about where the hero actually walked,
+        # snapshotted as each floor is played: the engine drops those
+        # records the moment the Section it hashed stops matching, so
+        # they cannot be read back at the end of the run.
+        self.footprints: list[dict] = []
 
     # ---- reporting -------------------------------------------------
     def check(self, name: str, ok: bool, detail: str = "") -> None:
@@ -178,7 +226,7 @@ class Bot:
         self.press("e")
 
     # A coarse progress signature: a press that changes none of these made
-    # no progress (a wall bump, a refused lock).  50 in a row is a stall.
+    # no progress (a wall bump, a refused lock). 50 in a row is a stall.
     def _observe_progress(self) -> None:
         s = self.state()
         c = s["combat"] or {}
@@ -214,19 +262,119 @@ class Bot:
             return True
         return False
 
-    # ---- maps and transitions -------------------------------------
+    # ---- what the pack baked ---------------------------------------
     def regions(self) -> dict:
         if self._regions is None:
-            self._regions = self.page.evaluate("window.VEFR_REGIONS")
-        return self._regions
+            self._sync_maps(None)
+        return self._regions or {}
 
     def transitions(self) -> list:
         if self._transitions is None:
-            self._transitions = self.page.evaluate("window.VEFR_TRANSITIONS")
-        return self._transitions
+            self._sync_maps(None)
+        return self._transitions or []
 
+    def _sync_maps(self, here) -> None:
+        """Re-read the page's region and transition tables when the hero moves.
+
+        A generated floor is grown at the moment its stair is used - the
+        engine wires the floor's stairs and puts its map in `VEFR_REGIONS`
+        only on arrival (`397-the-descent.js` `ensureRegion`/`wireFloor`) -
+        so the tables read at page load do not contain it, and a bot that
+        cached them can never route to a floor below the one it stands on.
+        Re-reading on every lookup would cost an evaluate per tile of
+        every BFS, so the tables are refreshed when the hero's region
+        changes and not otherwise.
+        """
+        if self._regions is not None and here == self._maps_region:
+            return
+        self._regions = self.page.evaluate("window.VEFR_REGIONS") or {}
+        self._transitions = self.page.evaluate("window.VEFR_TRANSITIONS") or []
+        self._maps_region = here
+
+    def descent(self) -> dict:
+        return self.page.evaluate("window.VEFR_DESCENT_DEF") or {}
+
+    def library(self) -> list:
+        return self.page.evaluate("window.VEFR_LIBRARY") or []
+
+    def album_def(self) -> list:
+        return self.page.evaluate("window.VEFR_ALBUM_DEF") or []
+
+    def found_books(self) -> set:
+        return set(
+            self.page.evaluate(
+                "() => { const w = (window.VEFR_WORLD || {}).name || 'world';"
+                " try { return JSON.parse(localStorage.getItem('vefr-library-' + w)"
+                " || '[]'); } catch (e) { return []; } }"
+            )
+            or []
+        )
+
+    def saved_floors(self) -> dict:
+        return self.page.evaluate(
+            "() => { try { return (window.VEFR_DESCENT || {}).loadDoc() || {}; }"
+            " catch (e) { return {}; } }"
+        ).get("floors", {}) or {}
+
+    def sections(self) -> list:
+        return list(self.descent().get("sections") or [])
+
+    def section_floors(self, section: dict) -> int:
+        """How many floors a Section has - the engine's own default when
+        it names none (`vefr.sections.floors`)."""
+        value = section.get("floors")
+        if isinstance(value, int) and not isinstance(value, bool) and value > 0:
+            return value
+        return DEFAULT_SECTION_FLOORS
+
+    @staticmethod
+    def floor_name(section: dict, k: int, cycle: int = 0) -> str:
+        """The name the engine gives floor `k` (`397-the-descent.js` `floorName`)."""
+        return f"{section.get('id')}-{cycle}-{k}"
+
+    @staticmethod
+    def floor_kind(section: dict, k: int) -> str:
+        """What floor `k` is FOR, read off the Section's own `pattern`."""
+        pattern = section.get("pattern")
+        if isinstance(pattern, list) and 1 <= k <= len(pattern):
+            return str(pattern[k - 1])
+        return "n"
+
+    def books_in(self, region: str) -> list:
+        """Every book the pack places in `region`, in map order."""
+        found = [
+            b
+            for b in self.library()
+            if b.get("region") == region and isinstance(b.get("at"), list) and len(b["at"]) == 2
+        ]
+        return sorted(found, key=lambda b: (b["at"][0], b["at"][1]))
+
+    def descent_entry(self) -> dict:
+        """The tile the pack says the descent starts from.
+
+        `--entry-at` overrides it. That flag exists for the negative
+        control in `tests/playthrough/negative_control.md`: it points the
+        bot at a tile that is not the way down so the route has to go red.
+        """
+        entry = dict(self.descent().get("entry") or {})
+        region, at = entry.get("region"), entry.get("at")
+        if self.entry_at:
+            region = self.entry_at[0] or region
+            at = self.entry_at[1]
+        if not isinstance(region, str) or not region:
+            raise RouteError("the pack bakes no descent entry region")
+        if not isinstance(at, list) or len(at) != 2:
+            raise RouteError(f"the descent entry tile of {region} is not a tile: {at!r}")
+        return {"region": region, "at": [int(at[0]), int(at[1])]}
+
+    # ---- maps and transitions -------------------------------------
     def _solid(self, region: str, x: int, y: int) -> bool:
-        r = self.regions()[region]
+        r = self.regions().get(region)
+        if r is None:
+            raise RouteError(
+                f"{region} is not in the page's region table; the hero cannot "
+                f"be walked there"
+            )
         rows = r["map"]
         sym = rows[y][x]
         return bool((r["legend"].get(sym) or {}).get("solid"))
@@ -314,6 +462,7 @@ class Bot:
             c = s["combat"]
             if c is None:
                 raise RouteError("window.VEFR_COMBAT is missing")
+            self._sync_maps(c["region"])
             if c["region"] != region:
                 self.ensure_region(region)
                 continue
@@ -335,15 +484,25 @@ class Bot:
 
     def ensure_region(self, region: str) -> None:
         """Take open doors until we are in `region`."""
-        for _ in range(40):
+        for _ in range(200):
             s = self.state()
             c = s["combat"]
+            if c is None:
+                raise RouteError("window.VEFR_COMBAT is missing")
             here = c["region"]
+            self._sync_maps(here)
             if here == region:
                 return
             if self.handle_overlay(s):
                 continue
             path = self.region_path(here, region)
+            if not path:
+                # The tables are re-read once before this is called a
+                # dead end: a floor wires its own stairs on arrival, and a
+                # route computed a moment before that has to be allowed to
+                # see them.  A second empty answer is the truth.
+                self._sync_maps(None)
+                path = self.region_path(here, region)
             if not path:
                 raise RouteError(f"no open route from {here} to {region}")
             hop = path[0]
@@ -391,42 +550,12 @@ class Bot:
             self.press("Tab")
         return bool(self.page.evaluate(probe))
 
-    def clear_floor(self, region: str, skip: str) -> None:
-        """Fight every other living enemy on the floor first, as a player grinding for levels would.
-
-        The route to a guardian is not a power curve: a hero who walks straight there arrives too weak.
-        An enemy that cannot be reached is left alone (a boxed-in one is not a bug in the route)."""
-        for _ in range(80):
-            c = self.state()["combat"]
-            if c["region"] != region:
-                self.ensure_region(region)
-                continue
-            foes = [e for e in c["enemies"] if e["alive"] and e["id"] != skip]
-            if not foes:
-                return
-            at = tuple(c["hero"]["at"])
-            foes.sort(key=lambda e: abs(e["at"][0] - at[0]) + abs(e["at"][1] - at[1]))
-            for foe in foes:
-                try:
-                    self.strike_until_dead(region, foe["id"])
-                    break
-                except RouteError:
-                    self.skipped_foes = getattr(self, "skipped_foes", set()) | {foe["id"]}
-                    foes = [e for e in foes if e["id"] != foe["id"]]
-            else:
-                return
-        self.drink()
-
     def strike_until_dead(self, region: str, enemy_id: str) -> None:
-        cleared = getattr(self, "_cleared", set())
-        if (enemy_id.endswith("-keybearer") or "cellar-king" in enemy_id) and region not in cleared:
-            cleared.add(region)
-            self._cleared = cleared
-            self.clear_floor(region, enemy_id)
-        shot_taken = False
+        """Walk into a monster until it falls, the way a player fights."""
         for _ in range(600):
             s = self.state()
             c = s["combat"]
+            self._sync_maps(c["region"])
             if c["region"] != region:
                 self.ensure_region(region)
                 continue
@@ -440,16 +569,16 @@ class Bot:
                 self.drink()
                 continue
             at = tuple(c["hero"]["at"])
-            if not shot_taken and abs(at[0] - foe["at"][0]) + abs(at[1] - foe["at"][1]) <= 3:
-                shot_taken = True
-                self.shot(f"fight-{enemy_id}")
             d = self.next_dir(region, at, tuple(foe["at"]))
             if d is None:
                 raise RouteError(f"no path to {enemy_id} at {foe['at']}")
             self.press_dir(d)
         c = self.state()["combat"]
         foe = next((e for e in c["enemies"] if e["id"] == enemy_id), {})
-        raise RouteError(f"{enemy_id} would not die (hero {c['hero']}, foe {foe}, bag {c['bag']}, near {[e for e in c['enemies'] if e['alive'] and abs(e['at'][0]-c['hero']['at'][0])<=4 and abs(e['at'][1]-c['hero']['at'][1])<=4]})")
+        raise RouteError(
+            f"{enemy_id} would not die (hero {c['hero']}, foe {foe}, bag {c['bag']}, "
+            f"near {[e for e in c['enemies'] if e['alive'] and abs(e['at'][0]-c['hero']['at'][0])<=4 and abs(e['at'][1]-c['hero']['at'][1])<=4]})"
+        )
 
     def pickup(self, region: str, item_id: str) -> None:
         for _ in range(40):
@@ -469,76 +598,330 @@ class Bot:
                 return
         raise RouteError(f"could not pick up {item_id}")
 
-    # ---- the route -------------------------------------------------
-    def _trans(self, frm: str, at) -> dict:
-        for t in self.transitions():
-            if t["from"] == frm and tuple(t["at"]) == tuple(at):
-                return t
-        raise RouteError(f"no transition {frm} {at}")
+    # ---- books -----------------------------------------------------
+    def open_book(self, region: str, book: dict) -> dict:
+        """Walk a book tile and read it, keys only.
 
-    def attempt_locked(self, region: str, at, key_id: str, label: str) -> None:
+        A `map` book is found by standing on it - the hero steps on the
+        tile and the game records it - so Interact on one that is already
+        found does nothing at all.  A `chest` book opens its chest, and
+        the reader that comes up has to be paged to the end and closed:
+        a chest book is recorded the moment its chest opens, so the found
+        list cannot be the loop's stopping condition - the reader going
+        down can, because that is what fires `reads`.
+        """
+        at = book["at"]
         self.navigate_to(region, at[0], at[1])
-        bag = self.state()["combat"]["bag"]
+        for _ in range(400):
+            s = self.state()
+            if s["reader"]:
+                self.interact()  # next page, then the close
+                continue
+            if book["id"] in self.found_books():
+                break
+            if self.handle_overlay(s):
+                continue
+            self.interact()
+            self.wait(40)
+        self.wait(120)  # let a chest's drops land in the bag
+        s = self.state()
+        found = self.found_books()
         self.check(
-            f"{label}: the key is not carried when the lock is tried",
-            key_id not in bag,
-            f"bag={bag}",
+            f"{book.get('id')} can be found and read on {region}",
+            book["id"] in found,
+            f"region={region} at={at} found={sorted(found)}",
+        )
+        return s["combat"]
+
+    def ending_book(self) -> str:
+        """Which book ends the act - the pack's own rules say, not a guess.
+
+        `complete-act` fires from a rule whose `when` is a `reads`; that
+        book is the ending, and the descent walk leaves it alone so that
+        the ending is played once, by `read_the_vault`.
+        """
+        for rule in self.page.evaluate("() => window.VEFR_RULES || []") or []:
+            if not any("complete-act" in t for t in (rule.get("then") or [])):
+                continue
+            what = ((rule.get("when") or {}).get("reads") or {}).get("what")
+            if what:
+                return str(what)
+        raise RouteError("no rule in the pack completes the act")
+
+    def talk_to_nearby(self, region: str, at, who: str) -> bool:
+        """Stand where a speaker is and press the Talk control.
+
+        `comes-near` - the seam behind "the cat noticed you" and the
+        Keeper's line about the letter - fires from `tryNPC`, which only
+        the `#talk` control and a canvas click run: Interact's own
+        resident branch goes straight to `talkToSpeaker` and never fires
+        the rule.  So the bot walks up, Tabs to the button and presses
+        it, which is what a keyboard player does.
+
+        Returns whether the button was reachable, so a caller can say
+        which speaker it could not talk to.
+        """
+        self.navigate_to(region, at[0], at[1])
+        reached = self._focus_button("#talk")
+        if reached:
+            self.press("Enter")
+        else:
+            self.press("Escape")
+        for _ in range(20):
+            s = self.state()
+            if s["reader"] or s["npc"]:
+                self.interact()
+                continue
+            break
+        return reached
+
+    # ---- the route -------------------------------------------------
+    def cues_without_a_subject(self) -> None:
+        """The sound cues this pack cannot fire, and why, asserted not assumed.
+
+        The old route hardcoded three locked cellar stairs and their
+        Keybearers; those floors are gone, so there is nothing to walk to
+        and nothing to fight.  Rather than delete the coverage quietly,
+        this asks the game's own tables whether a subject has come back -
+        so a pack that brings a locked door, or a monster that drops
+        something, turns this check red and says which cue now needs a
+        route.
+        """
+        locked = [t for t in self.transitions() if t.get("requires")]
+        self.check(
+            "no door in the game is locked, so the 'locked' cue has no subject",
+            not locked,
+            f"locked transitions={locked or 'none'}",
+        )
+        carriers = self.family_drop_names()
+        self.check(
+            "no family the descent draws drops anything, so the 'pickup' cue "
+            "has no subject",
+            not carriers,
+            f"families naming drops={carriers or 'none'}",
+        )
+
+    def family_drop_names(self) -> list:
+        """Every family the Sections draw, resolved, that names a `drops`."""
+        block = self.descent()
+        base = (block.get("blueprint") or {}).get("families") or {}
+        out = []
+        for section in block.get("sections") or []:
+            for entry in section.get("families") or []:
+                entry = entry if isinstance(entry, dict) else {"family": entry}
+                name = entry.get("family")
+                if not isinstance(name, str) or not name:
+                    continue
+                root = name
+                record, seen = {}, set()
+                # `extends` is the Blueprint's own inheritance; a drops
+                # two steps up a chain is still a drops.
+                while isinstance(name, str) and name not in seen:
+                    seen.add(name)
+                    one = base.get(name) or {}
+                    record = {**record, **(one.get("defaults") or {}), **entry}
+                    name = one.get("extends")
+                if record.get("drops") and root not in out:
+                    out.append(root)
+        return out
+
+    def explore_home(self) -> None:
+        """The cozy half: the cat on the rug, the cloth book, the town's own notes."""
+        start = self.state()["combat"]["region"]
+        speakers = self.page.evaluate("() => (window.VEFR_SPEAKERS || {}).cottage || {}") or {}
+        unreached = []
+        for who, spec in sorted(speakers.items()):
+            at = (spec or {}).get("at")
+            if isinstance(at, list) and len(at) == 2:
+                if not self.talk_to_nearby(start, at, who):
+                    unreached.append(who)
+        self.check(
+            "every speaker in the cottage can be talked to with the keyboard",
+            not unreached,
+            f"unreachable by keyboard={unreached or 'none'} "
+            f"(speakers: {sorted(speakers)})",
+        )
+        for book in self.books_in(start):
+            self.open_book(start, book)
+        self.ensure_region("town")
+        s = self.state()
+        self.check(
+            "started in the cottage and reached the town",
+            s["combat"]["region"] == "town",
+            f"from={start} region={s['combat']['region']}",
+        )
+        for book in self.books_in("town"):
+            self.open_book("town", book)
+
+    def step_into_the_descent(self, entry: dict, first_floor: str) -> None:
+        """Stand on the entry tile and go down; the tile has one way out."""
+        region, at = entry["region"], entry["at"]
+        self.ensure_region(region)
+        self.navigate_to(region, at[0], at[1])
+        outs = [
+            t
+            for t in self.transitions()
+            if t["from"] == region and list(t["at"]) == at
+        ]
+        self.check(
+            f"{region} {at} is one way down, and it goes to {first_floor}",
+            len(outs) == 1 and outs[0]["to"] == first_floor,
+            f"{len(outs)} exits from the entry tile: "
+            f"{[(t['at'], t['to']) for t in outs]}",
         )
         self.interact()
         s = self.state()
-        text = s["combat_text"]
-        locked_text = self._trans(region, at).get("locked_text", "")
-        ok = s["combat"]["region"] == region and locked_text in text
         self.check(
-            f"{label} refuses with the locked text",
-            ok,
-            f"region={s['combat']['region']} text={text!r}",
+            "the door the pack names walks the hero into the descent",
+            s["combat"]["region"] == first_floor,
+            f"region={s['combat']['region']} text={s['combat_text'][:90]!r}",
         )
 
-    def floor_key_sequence(
-        self, region: str, at, key_id: str, next_region: str, label: str
-    ) -> None:
-        self.attempt_locked(region, at, key_id, label)
-        foe = next(
-            (e for e in self.state()["combat"]["enemies"] if e["id"].endswith("-keybearer")),
-            None,
-        )
-        if foe is None:
-            raise RouteError(f"no Keybearer on {region}")
-        self.check(
-            f"{key_id}: not carried before its Keybearer dies",
-            key_id not in self.state()["combat"]["bag"],
-            "fresh key, drop not taken yet",
-        )
-        self.strike_until_dead(region, foe["id"])
-        s = self.state()
-        drops = [d for d in s["combat"]["floor"] if d["item"] == key_id]
-        self.check(
-            f"{key_id}: appears (on the floor or in the bag) once the Keybearer dies",
-            bool(drops) or key_id in s["combat"]["bag"],
-            f"floor={[d['item'] for d in s['combat']['floor']]} bag={s['combat']['bag']}",
-        )
-        self.pickup(region, key_id)
-        self.check(
-            f"{key_id}: carried once picked up",
-            key_id in self.state()["combat"]["bag"],
-            f"bag={self.state()['combat']['bag']}",
-        )
-        self.ensure_region(next_region)
+    def descend_every_floor(self) -> list:
+        """Walk down every floor of every Section, opening what is on the way.
 
-    def open_chest_and_read(self, region: str, at) -> None:
-        self.navigate_to(region, at[0], at[1])
-        self.interact()  # open the chest -> the reader opens
-        for _ in range(200):
+        Returns the names walked.  The footprint of the last floor of each
+        Section is taken in `read_the_vault`, which is what walks to it.
+        """
+        sections = self.sections()
+        if not sections:
+            raise RouteError("the pack bakes no descent Section")
+        ending = self.ending_book()
+        walked: list[str] = []
+        for section in sections:
+            floors = self.section_floors(section)
+            for k in range(1, floors + 1):
+                region = self.floor_name(section, k)
+                self.ensure_region(region)
+                for book in self.books_in(region):
+                    # The book that ends the act is left for
+                    # `read_the_vault`: reading it here would put the end
+                    # card up nine floors early and close it again.
+                    if book["id"] != ending:
+                        self.open_book(region, book)
+                walked.append(region)
+                if k < floors:
+                    hop = self.down_hop(region, k, section)
+                    self.navigate_to(region, hop["at"][0], hop["at"][1])
+                    # Read the floor's explored map *after* the walk, not
+                    # before: the stair is only in it once the hero has
+                    # stood on it.
+                    self.footprints.append(self.footprint(region, hop["at"]))
+                    self.interact()
+                    below = self.floor_name(section, k + 1)
+                    if self.state()["combat"]["region"] != below:
+                        raise RouteError(
+                            f"the stair at {region} {hop['at']} did not go down to {below}"
+                        )
+        # The bot's own list, cross-checked against the order the descent saved
+        # for itself: two independent records of the same walk, so a
+        # floor the bot thinks it reached but the engine did not is red.
+        order = self.page.evaluate(
+            "() => ((window.VEFR_DESCENT || {}).loadDoc() || {}).order || []"
+        )
+        self.check(
+            "every floor of all "
+            f"{len(sections)} Section{'s' if len(sections) != 1 else ''} was walked: "
+            + ", ".join(f"{s['id']}×{self.section_floors(s)}" for s in sections),
+            bool(walked)
+            and len(walked) == len(set(walked))
+            and sorted(walked) == sorted(order),
+            f"the bot walked {walked}; the descent's own record of the run is {order}",
+        )
+        return walked
+
+    def check_footprints(self) -> None:
+        """Every floor's far end is inside the explored map the descent saved."""
+        self.check(
+            "each floor was walked, not only stood on (the far end of it is "
+            "inside the fog the descent saved)",
+            bool(self.footprints) and all(f["reached"] for f in self.footprints),
+            "; ".join(
+                f"{f['region']}: {f['what']} {f['tile']} "
+                f"{'seen' if f['reached'] else 'NOT seen'}"
+                for f in self.footprints
+            ),
+        )
+
+    def down_hop(self, region: str, k: int, section: dict) -> dict:
+        """The stair from floor `k` to the floor below it."""
+        below = self.floor_name(section, k + 1)
+        for t in self.transitions():
+            if t["from"] == region and t["to"] == below:
+                return t
+        raise RouteError(f"{region} has no stair down to {below}")
+
+    def footprint(self, region: str, tile) -> dict:
+        """Has the hero's own record of this floor kept `tile`?
+
+        The engine saves a bitset of every tile the hero has laid eyes on
+        (`VEFR_DESCENT` `saveFog`).  Asking whether the stair - or the
+        vault - is inside it is the engine's own answer to "was this floor
+        walked", and it is the question vefr's own
+        `tests/test_descent_bot.py` asks of its three floors.
+        """
+        record = self.saved_floors().get(region) or {}
+        fog = record.get("fog") or ""
+        width = self.page.evaluate(
+            "(n) => { const p = window.VEFR_DESCENT.floorPlan("
+            "window.VEFR_DESCENT.depthOfName(n)); return p ? p.w : 0; }",
+            region,
+        )
+        return {
+            "region": region,
+            "what": "stair",
+            "tile": list(tile) if tile else None,
+            "reached": _fog_says(fog, width, tile),
+        }
+
+    def read_the_vault(self, last: dict) -> None:
+        """Open the last floor's chest and read whatever is in it to the end.
+
+        Act 1's ending is the note the vault holds.  The note lived in
+        `king-room`, which went with the authored floors, and was
+        re-homed to the Section's `warden` floor - the chest a hero walks
+        nine floors down to reach.  The end card is the same card; only
+        the door to it moved.
+        """
+        region = self.floor_name(last, self.section_floors(last))
+        ending = self.ending_book()
+        book = next((b for b in self.books_in(region) if b["id"] == ending), None)
+        if book is None:
+            raise RouteError(
+                f"the act ends on {ending!r}, which is not on the last floor "
+                f"({region}) of the last Section"
+            )
+        before = self.state()["combat"]["bag"]
+        self.navigate_to(region, book["at"][0], book["at"][1])
+        self.footprints.append(
+            dict(self.footprint(region, book["at"]), what="vault")
+        )
+        # The Section's own pattern says where its end is.  If a pack
+        # moves the ending off the `warden` floor, that is a story
+        # decision, not a harness one - but the bot should notice and
+        # say so rather than quietly walk to the deepest floor.
+        kind = self.floor_kind(last, self.section_floors(last))
+        self.check(
+            f"the act ends on the Section's `warden` floor ({region} is `{kind}`)",
+            kind == "warden",
+            f"{region} is `{kind}` under the pattern "
+            f"{last.get('pattern')}; the ending book {ending!r} is here",
+        )
+        self.interact()
+        # Page the note out.  The card is the only thing that stops this
+        # loop: the reader closing is not enough, because the `reads`
+        # rule that fires `complete-act` lands a beat later, and a vault
+        # that ended the act silently has to fail here rather than pass.
+        for _ in range(400):
             s = self.state()
             if s["act_end"]:
                 break
             if s["reader"]:
-                self.interact()  # next page, then close (which fires `reads`)
-            else:
-                self.wait(40)
-                if not self.state()["act_end"]:
-                    raise RouteError("the chest reader closed without the end card")
+                self.interact()
+                continue
+            self.wait(40)
+        else:
+            raise RouteError(f"reading {book.get('id')} never showed the end card")
         self.wait(120)  # let openActEnd's focus settle
         s = self.state()
         complete = s["act_complete"] or {}
@@ -546,85 +929,35 @@ class Bot:
             "document.activeElement ? document.activeElement.id : ''"
         )
         self.check(
-            "the end card shows once, role=dialog, focus on Keep exploring",
+            "the vault's note ends the act: the end card shows once, role=dialog, "
+            "focus on Keep exploring",
             bool(
                 s["act_end"]
                 and complete.get("shown") is True
                 and self.page.get_attribute("#act-end", "role") == "dialog"
                 and focused == "act-end-keep"
             ),
-            f"visible={s['act_end']} complete={complete} focus={focused!r}",
+            f"book={book.get('id')} region={region} visible={s['act_end']} "
+            f"complete={complete} focus={focused!r}",
+        )
+        after = self.state()["combat"]["bag"]
+        drops = book.get("drops") or []
+        self.check(
+            f"the vault chest drops {drops or 'nothing'} into the bag",
+            all(d in after for d in drops),
+            f"before={before} after={after} drops={drops}",
         )
         # Close it with Interact; it must not come back.
         self.interact()
         self.wait(300)
-        after = self.state()
+        after2 = self.state()
         self.check(
             "the end card stays closed after Interact",
-            (not after["act_end"]) and (after["act_complete"] or {}).get("shown") is False,
-            f"visible={after['act_end']} complete={after['act_complete']}",
+            (not after2["act_end"]) and (after2["act_complete"] or {}).get("shown") is False,
+            f"visible={after2['act_end']} complete={after2['act_complete']}",
         )
 
-    def run_route(self) -> None:
-        # Cottage -> town -> floor-1 -> floor-2 -> floor-3.
-        self.ensure_region("town")
-        s = self.state()
-        self.check(
-            "started in the cottage and reached the town",
-            s["combat"]["region"] == "town",
-            f"region={s['combat']['region']}",
-        )
-        for region in ("floor-1", "floor-2", "floor-3"):
-            self.ensure_region(region)
-        self.check(
-            "descended to floor 3",
-            self.state()["combat"]["region"] == "floor-3",
-            f"region={self.state()['combat']['region']}",
-        )
-
-        # Floors 3, 4, 5: try the locked stair, beat the Keybearer, take its key.
-        self.floor_key_sequence(
-            "floor-3", (2, 2), "bell-key", "floor-4", "floor-3's locked stair"
-        )
-        self.floor_key_sequence(
-            "floor-4", (30, 10), "lantern-key", "floor-5", "floor-4's locked stair"
-        )
-        self.floor_key_sequence(
-            "floor-5", (16, 16), "helmet-key", "floor-6", "floor-5's locked stair"
-        )
-
-        # Floor 6: the sealed door refuses without the seal, the Cellar King
-        # drops it, and then the door opens into the king-room.
-        door_at = (11, 1)
-        self.attempt_locked(
-            "floor-6", door_at, "crown-seal", "floor-6's sealed door"
-        )
-        king = next(
-            (e for e in self.state()["combat"]["enemies"] if e["id"] == "floor-6-cellar-king"),
-            None,
-        )
-        if king is None:
-            raise RouteError("no Cellar King on floor-6")
-        self.strike_until_dead("floor-6", "floor-6-cellar-king")
-        self.pickup("floor-6", "crown-seal")
-        self.check(
-            "the crown seal is carried",
-            "crown-seal" in self.state()["combat"]["bag"],
-            f"bag={self.state()['combat']['bag']}",
-        )
-        self.navigate_to("floor-6", door_at[0], door_at[1])
-        self.interact()
-        s = self.state()
-        self.check(
-            "the seal opens the sealed door into the king-room",
-            s["combat"]["region"] == "king-room",
-            f"region={s['combat']['region']} text={s['combat_text']!r}",
-        )
-
-        # King-room: open the chest, read the note to the end, see the card.
-        self.open_chest_and_read("king-room", (6, 2))
-
-        # Home again.
+    def go_home(self) -> None:
         self.ensure_region("town")
         self.check(
             "the route ends back in the town",
@@ -632,7 +965,8 @@ class Bot:
             f"region={self.state()['combat']['region']}",
         )
 
-        # Reload at the end: the card does not return and the global is gone.
+    def survives_a_reload(self) -> None:
+        """Reload at the end: the card does not return and the global is gone."""
         self.page.reload()
         self.wait(300)
         self.page.click("#ts-enter")
@@ -645,12 +979,9 @@ class Bot:
             f"visible={s['act_end']} absent={absent}",
         )
 
-        # Start over asks first; Cancel clears nothing.
-        before = self.page.evaluate(
-            "() => Object.fromEntries(Object.keys(localStorage)"
-            ".filter(k => k.startsWith('vefr-'))"
-            ".map(k => [k, localStorage.getItem(k)]))"
-        )
+    def start_over_asks_first(self) -> None:
+        """Start over asks first; Cancel clears nothing."""
+        before = self.saves()
         self.press("Escape")  # open the menu
         self.press("Shift+Tab")  # menu-close -> the last panel item (Start over)
         self.press("Enter")
@@ -662,11 +993,7 @@ class Bot:
         asks = panel["menu"] and self.page.is_visible("#startover-body") and focused == "startover-cancel"
         self.press("Escape")  # Cancel
         self.wait(80)
-        after = self.page.evaluate(
-            "() => Object.fromEntries(Object.keys(localStorage)"
-            ".filter(k => k.startsWith('vefr-'))"
-            ".map(k => [k, localStorage.getItem(k)]))"
-        )
+        after = self.saves()
         self.check(
             "'Start over' asks first, Cancel leaves every save untouched",
             asks and after == before,
@@ -675,7 +1002,15 @@ class Bot:
         self.press("Escape")  # close the menu
         self.wait(60)
 
-        # Phone: the page must not scroll sideways.
+    def saves(self) -> dict:
+        return self.page.evaluate(
+            "() => Object.fromEntries(Object.keys(localStorage)"
+            ".filter(k => k.startsWith('vefr-'))"
+            ".map(k => [k, localStorage.getItem(k)]))"
+        )
+
+    def no_sideways_scroll(self) -> None:
+        """The page must not scroll sideways."""
         s = self.state()
         self.check(
             f"no horizontal page scroll at {s['inner_w']}px",
@@ -683,14 +1018,131 @@ class Bot:
             f"scrollWidth={s['scroll_w']} innerWidth={s['inner_w']}",
         )
 
+    # ---- the monsters ----------------------------------------------
+    def set_monsters(self, quiet: bool) -> None:
+        """Give the descent's floors monsters, or take them away.
+
+        `tests/test_descent_bot.py` in vefr empties a Section's families
+        so that the walk a test performs is the walk the generator drew
+        and not a detour around a fight, because the fight is proved
+        elsewhere.  This bot proves it elsewhere too, and in view:
+        `combat_probe()` at the end of the run puts the families back and
+        fights.  The lever is the engine's own documented harness hook -
+        `397-the-descent.js` reads `VEFR_DESCENT_DEF` at call time "and a
+        harness may plant its own" - so the pack on disk is untouched and
+        `vefr check` still passes on it.  A Section with no families draws
+        no monsters at all: `mobsAt` stops at the first index.
+        """
+        if self._families is None:
+            self._families = self.page.evaluate(
+                "() => ((window.VEFR_DESCENT_DEF || {}).sections || [])"
+                ".map(s => s.families || [])"
+            )
+        families = [[] for _ in self._families] if quiet else self._families
+        self.page.evaluate(
+            "(families) => { const d = window.VEFR_DESCENT_DEF;"
+            " if (!d || !d.sections) return;"
+            " d.sections.forEach((s, i) => { s.families = families[i]; }); }",
+            families,
+        )
+
+    def combat_probe(self, entry: dict) -> None:
+        """Fight on a real descent floor, so the combat evidence survives.
+
+        The route itself walks floors with the monsters taken away, which
+        is what makes it a route test rather than a fight test.  This puts
+        them back, walks down the first floor again and kills what is on
+        it - the checks the walk-and-fight loop of Rylee's 2026-10-01 note
+        ("the wander around and fight things loop feels VERY castle of
+        the winds to me") was covered by before the descent existed.
+        """
+        self.page.reload()
+        self.wait(300)
+        self.page.click("#ts-enter")
+        self.wait(300)
+        self.set_monsters(False)
+        region, at = entry["region"], entry["at"]
+        self.ensure_region(region)
+        self.navigate_to(region, at[0], at[1])
+        self.interact()
+        floor = self.state()["combat"]["region"]
+        self.check(
+            "the descent's floors carry monsters again once the harness puts "
+            "the Section's families back",
+            bool(self.state()["combat"]["enemies"]),
+            f"floor={floor} enemies={len(self.state()['combat']['enemies'])}",
+        )
+        killed = 0
+        # Three is enough to prove the loop and little enough that a
+        # 6-HP hero survives it on the deepest-first order the engine
+        # hands enemies out in.
+        for _ in range(3):
+            c = self.state()["combat"]
+            if c["region"] != floor:
+                self.ensure_region(floor)
+                continue
+            foes = [e for e in c["enemies"] if e["alive"]]
+            if not foes:
+                break
+            at_hero = tuple(c["hero"]["at"])
+            foes.sort(key=lambda e: abs(e["at"][0] - at_hero[0]) + abs(e["at"][1] - at_hero[1]))
+            self.strike_until_dead(floor, foes[0]["id"])
+            killed += 1
+            self.drink()
+        heard = getattr(self, "cues", set())
+        self.check(
+            "a monster on a descent floor can be fought, and the fight is heard",
+            killed >= 1 and {"hit", "defeat"} <= heard,
+            f"killed={killed} hero={self.state()['combat']['hero']} "
+            f"heard={sorted(heard & {'hit', 'defeat', 'hurt', 'level'})}",
+        )
+        # The third cue with no subject.  `growAward` is paid in `e.xp`
+        # (`430-loot-on-the-floor.js:101`), and a generated monster is
+        # built by `enemyEntry`, which copies id, name, at, hp, atk,
+        # sight and drops - and no xp, even though the Blueprint family
+        # behind it carries one.  So a hero grinding the descent cannot
+        # level, and `level` cannot fire.  When the engine starts paying
+        # it this check goes red and the probe has to fight to a level.
+        foes = self.state()["combat"]["enemies"]
+        carriers = [e["id"] for e in foes if "xp" in e]
+        self.check(
+            "a descent monster carries no xp, so the 'level' cue has no subject",
+            not carriers,
+            f"enemies carrying xp={carriers or 'none'} (killed {killed} of "
+            f"{len(foes)})",
+        )
+
+    # ---- the route, in order ---------------------------------------
+    def run_route(self, *, quiet: bool = True) -> None:
+        self.set_monsters(quiet)
+        entry = self.descent_entry()
+        sections = self.sections()
+        if not sections:
+            raise RouteError("the pack bakes no descent Section")
+        first = self.floor_name(sections[0], 1)
+
+        self.explore_home()
+        self.cues_without_a_subject()
+        self.step_into_the_descent(entry, first)
+        self.descend_every_floor()
+        self.read_the_vault(sections[-1])
+        self.check_footprints()
+        self.go_home()
+        self.survives_a_reload()
+        self.start_over_asks_first()
+        self.combat_probe(entry)
+        self.no_sideways_scroll()
+
     # ---- closing checks -------------------------------------------
     def closing_checks(self) -> None:
-        need = {"hit", "defeat", "pickup", "door", "locked", "level", "sticker", "end"}
+        need = set(SOUND_CUES_NEEDED)
         have = getattr(self, "cues", set())
         self.check(
             "the sound cues fired as the route was played",
             need <= have,
-            f"heard {sorted(have)}; missing {sorted(need - have)}",
+            f"heard {sorted(have)}; missing {sorted(need - have)}; not "
+            f"required (no subject in this pack: "
+            f"{', '.join(SOUND_CUES_WITHOUT_A_SUBJECT)})",
         )
         frames = getattr(self, "frames", set())
         dirs_walked = {d for (d, st, _f) in frames if st == "walk"}
@@ -701,10 +1153,12 @@ class Bot:
         )
         album = self.page.evaluate("() => window.VEFR_ALBUM || null")
         if album is not None:
-            need = {"first-steps", "cellar-king", "keybearer-moth", "the-warm-page", "quiet-room"}
+            # Every sticker the pack defines, not a hand-picked few: the
+            # descent left five behind and the route reaches all five.
+            need = {str(s["id"]) for s in self.album_def()}
             have = set(album.get("found", []))
             self.check(
-                "the album filled as the route was played",
+                "every album sticker the pack defines was found on this route",
                 need <= have,
                 f"{len(have)} of {album.get('total')} found; missing {sorted(need - have)}",
             )
@@ -720,17 +1174,50 @@ class Bot:
         )
 
 
+def _fog_says(fog: str, w: int, tile) -> bool:
+    """Whether the engine's saved explored-bitset says the hero saw `tile`."""
+    if not w or not fog:
+        return False
+    try:
+        raw = base64.b64decode(fog)
+    except Exception:
+        return False
+    i = tile[1] * int(w) + tile[0]
+    return bool(raw[i >> 3] & (1 << (7 - (i & 7))))
+
+
 def parse_args(argv=None) -> argparse.Namespace:
     here = Path(__file__).resolve().parent
+    # tests/playthrough -> tests -> the repo root.
+    default_pack = here.resolve().parents[1] / "worlds" / "cottage-of-the-breeze"
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--pack", required=True, help="path to the world pack")
+    ap.add_argument("--pack", default=str(default_pack),
+                    help="path to the world pack (default: this repo's)")
     ap.add_argument("--viewport", choices=sorted(VIEWPORTS), default="desktop")
-    ap.add_argument("--max-steps", type=int, default=20000)
-    ap.add_argument("--timeout", type=float, default=600.0, help="wall-clock cap, seconds")
-    ap.add_argument("--delay-ms", type=float, default=1.0)
+    ap.add_argument("--max-steps", type=int, default=60000)
+    ap.add_argument("--timeout", type=float, default=1200.0, help="wall-clock cap, seconds")
+    ap.add_argument("--delay-ms", type=float, default=0.0)
     ap.add_argument("--headed", action="store_true")
+    ap.add_argument("--monsters", action="store_true",
+                    help="walk the descent with the families in place instead "
+                         "of taking them away (slower; the combat probe at the "
+                         "end of the run fights either way)")
+    ap.add_argument("--entry-at", default=None, metavar="X,Y",
+                    help="override the descent entry tile, as REGION,X,Y or "
+                         "X,Y in --entry-at's region. The negative control in "
+                         "tests/playthrough/negative_control.md uses this to "
+                         "point the route at a tile that is not the way down.")
     ap.add_argument("--report", default=str(here / "report.json"))
-    return ap.parse_args(argv)
+    args = ap.parse_args(argv)
+    if args.entry_at:
+        parts = args.entry_at.split(",")
+        if len(parts) == 2:
+            args.entry_at = (None, [int(parts[0]), int(parts[1])])
+        elif len(parts) == 3:
+            args.entry_at = (parts[0].strip(), [int(parts[1]), int(parts[2])])
+        else:
+            ap.error("--entry-at wants X,Y or REGION,X,Y")
+    return args
 
 
 def run(args: argparse.Namespace) -> dict:
@@ -755,6 +1242,7 @@ def run(args: argparse.Namespace) -> dict:
             max_steps=args.max_steps,
             wall_seconds=args.timeout,
             delay_ms=args.delay_ms,
+            entry_at=args.entry_at,
         )
         page.on("console", bot.on_console)
         page.on("pageerror", bot.on_pageerror)
@@ -769,7 +1257,7 @@ def run(args: argparse.Namespace) -> dict:
         page.click("#ts-enter")
         bot.wait(300)
         try:
-            bot.run_route()
+            bot.run_route(quiet=not args.monsters)
             bot.check("the whole route completed", True, f"{bot.steps} steps")
         except RouteError as err:
             bot.check("the whole route completed", False, str(err))

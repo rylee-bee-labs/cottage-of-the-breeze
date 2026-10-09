@@ -98,10 +98,372 @@ sides of the fix above. **No player fought the Cellar King**: the
 read-back is the running game's own baked state read from a real
 browser, which proves the id resolves and the picture is there, not that
 someone walked nine floors and picked it up.
+## 2026-10-08 (later still) — `.project/CURRENT.md` back to truth, and three things it had to stop saying (agent)
+
+This entry exists because the correction needed recording, not because anything
+in the pack moved. `main` did not change in this pass; `.project/CURRENT.md` and
+this line are the whole diff.
+
+**What was false.** The last "Latest activity" entry in `CURRENT.md` said the
+Keybearer ladder, the Cellar King, the sealed door and Act 1's ending are gone
+from the pack. Three of those four clauses were wrong and one had become true
+again:
+
+- The descent is **four Sections and 36 floors** — `cellar > rootworks >
+  siltworks > emberhall` — not one cellar (cottage#118). `world.json` →
+  `descent.sections` names all four.
+- **Act 1 still ends.** `a-note-under-the-seal` sits in a chest on `cellar-0-9`
+  and its `reads` rule fires `complete-act`; the vault chest drops
+  `cellar-gems` (cottage#113, cottage#114). The claim that the generated
+  descent has no ending "until E8 lands" was true when the authored cellar went
+  and stopped being true when the books were re-homed.
+- **The Cellar King is in the pack as data** — `sections/cellar.json` names him
+  in `warden`, and `blueprint.json` carries the family. What is true is
+  narrower and now says so instead: the play-time descent does not read
+  `warden`, so he is named rather than spawned. The old sentence and the
+  "he drops a wax seal" note could not both stand, and the wrong one went.
+- The authored `floor-1`..`floor-6` and `king-room`, the Keybearer ladder, the
+  locked stairs and the sealed door **are** gone (cottage#110). That clause was
+  right and is kept.
+
+**Two things the brief this pass answered from was wrong about, checked rather
+than passed on:**
+
+- **There is no `docs/story/DRAFT.md` on `main`.** `docs/story/` holds
+  `RESEARCH.md` and nothing else; `git log --all -- docs/story` shows the story
+  draft has never landed here. `AGENTS.md` names `DRAFT.md` as the *convention*
+  for where a draft would go, which is what the brief read as a file. So
+  `CURRENT.md` routes to `RESEARCH.md` and says plainly that no draft is on
+  `main`, rather than pointing a reader at a path that 404s.
+- **The play-through bot's recorded count is 31 checks, not 33.** `NOTES.md`
+  2026-10-08 ("the play-through bot walks the descent a player walks") records
+  `31/31 checks, ok=True, 897 steps` at 1280×720; the `34/34` in
+  `docs/playtests/logs/authored-route-*.txt` is the pre-cottage#110 authored
+  route. `CURRENT.md` therefore does not quote a check count at all — it points
+  at the run and its output.
+
+**What `CURRENT.md` says the next step is, and why.** Play the descent on
+current `main` with the monsters in, at both viewports, and record it. The
+gentle start (cottage#121) says *Not proven: any walk*; the play-test report on
+file describes `c1b645a`, before the authored cellar went and before the gentle
+start, so its top finding is fixed and its "floors 3–9 are unreachable" has
+never met a 36-floor chain. The bot that can do it is green as of cottage#122.
+
+**Not a build claim.** `bin/publish-build.sh` and the gallery CLI are not
+runnable from an agent session, so no milestone build and no gallery URL is
+claimed anywhere in this pass. `CURRENT.md` says so under "Not established".
+
+**Evidence.** `world.json` → `descent.sections` and `player.hp`; `sections/*.json`
+(four files, `warden` each); `blueprint.json` → `families["cellar-king"]`;
+`library/a-note-under-the-seal.md` (`region: cellar-0-9`, `chest: yes`,
+`drops: cellar-gems`); `world.json` → `rules` → `the-seal-note-read` fires
+`complete-act`; `docs/story/` holds one file; `git log --all --oneline -- docs/story`;
+`python3 tests/assert_chest_drops.py worlds/cottage-of-the-breeze` → exit 0.
+**Not run here:** the walk itself, and `norns validate` / `vefr check` — there is
+no VEFR checkout and no `uv` in this clone, and this pass changed no pack file.
+
+## 2026-10-08 — the first floor is full, not strong (agent)
+
+The descent asks: make floor 1 survivable for a brand-new hero, under Rylee's
+"Rising" answer — **"gentle near the top, some fights to fear deeper down"** —
+without flattening the curve. This entry answers the first half with numbers
+and changes two lines. **The second half is not done here, and the reason is
+not a tuning judgement: the fix that floor 1 actually needs is an engine gap,
+and this clone had no engine.** Read the "What could not be done" section
+before treating any of this as a finished job.
+
+### The shape of the problem, measured
+
+The play-test logs carry five generated floors. Their monster count against
+their walkable tiles:
+
+| floor | walkable | monsters | density |
+|---|---|---|---|
+| `cellar-0-1` (run-1) | 602 | 20 | 1 per 30.1 |
+| `cellar-0-1` (run-2) | 855 | 28 | 1 per 30.5 |
+| `cellar-0-1` (run-3) | 1065 | 35 | 1 per 30.4 |
+| `cellar-0-2` (run-3) | 781 | 26 | 1 per 30.0 |
+
+Five independent floors, one density to within half a tile: **the descent
+spawns one monster per thirty walkable tiles.** That is not a number the pack
+sets anywhere — it is engine policy derived from floor area, which is what
+finding B3 says.
+
+Now the same measurement on the **authored** cellar, the floors this game was
+actually balanced around, from `logs/authored-route-desktop.txt`:
+
+| floor | walkable | monsters | density |
+|---|---|---|---|
+| `floor-1` | 440 | 6 | 1 per 73.3 |
+| `floor-2` | 592 | 10 | 1 per 59.2 |
+| `floor-3` | 654 | 13 | 1 per 50.3 |
+
+The authored cellar ran at **one monster per fifty to seventy tiles** and the
+play-test bot cleared it green, floor by floor, on both viewports. The
+generated cellar runs **2.4 times denser**. So the anomaly is not that the
+monsters got stronger — the cellar's monsters are the softest in the descent
+(4–5 hp, 1–2 attack, and two thirds of the pool is `cellar-rat` and
+`nest-of-moths` at 4 hp / 1 attack) — **the anomaly is how many of them there
+are.**
+
+The sharpest single number in the logs is the one careful run:
+`FLOOR depth=0 … hp=6/6` then, after crossing **one** floor, `FLOOR depth=1 …
+hp=1/6`. Five of six hit points spent on floor 1, and 35 monsters still
+standing behind the hero. A hero with a six-point damage budget and no healing
+item anywhere on the floor cannot survive 35 encounters. That is arithmetic,
+not opinion.
+
+**So: count, not hit points, not attack.** Which is inconvenient, because
+count is the one thing the pack cannot reach.
+
+### What changed
+
+Two lines, both in keys the play-time descent really reads (`id`, `floors`,
+`size`, `rooms`, `fog`, `families`, `pattern` — the seven from the Sections
+entry above; nothing was set on `depth`, `curve`, `loot.tier` or a new `mobs`
+key, because the first is inert at play time (vefr#351) and the other three
+are not read either. A setting the engine never reads would look exactly like
+a successful fix, so none were written).
+
+- **`world.json` — `player.hp` 6 → 10.** The hero now takes 10 hits from the
+  common cellar rat (1 attack) or 5 from a cellar spider (2 attack), instead
+  of 6 and 3. `atk` stays at 2, and that is deliberate: at 3 attack a 4 hp rat
+  still takes two swings, so the raise buys nothing against the 77% majority
+  of the pool while making the emberhall bottom measurably easier — the wrong
+  direction for a "rising" curve.
+- **`sections/cellar.json` — family weights 5/3/2/2 → 6/4/1/1.** The cellar's
+  two gentle families carry more of the floor; the two 5 hp families are rarer,
+  and with them the cellar's only `atk 2` monster. The floor's expected damage
+  goes from 1.17 to **1.00** and its expected hp from 4.33 to **4.17**.
+
+### The curve still rises
+
+Measured the same way for every section (family weights × Blueprint stats,
+`extends` resolved):
+
+| Section | hp avg | max atk on a floor | fog | before → after |
+|---|---|---|---|---|
+| cellar | **4.17** | 2 | 5 | 4.33 → 4.17 |
+| rootworks | 6.88 | 3 | 6 | unchanged |
+| siltworks | 9.06 | 3 | 4 | unchanged |
+| emberhall | 10.88 | 4 | 3 | unchanged |
+
+Monotone on every measure, and the bottom is untouched: a hollow cricket is
+still 11 hp at 4 attack and still kills the hero in **three** hits while
+needing six swings to kill. Only the top moved, which is what "gentle near the
+top" asks for.
+
+### What could not be done, and why
+
+**The engine was not in this clone, so none of this was played.** There is no
+`vefr` checkout, no `uv`, no `norns`, no browser, and no network credential to
+fetch one. That means `norns validate`, `vefr check`, `vefr normalize` and the
+three-seed walk **were not run**. The numbers above are arithmetic over the
+Blueprint and the play-test logs, not a recorded walk. **Floor 1 is not proven
+survivable, and nothing here should be described as if it were.** CI will run
+the validators on the pull request; the walk is still owed and is listed as the
+next step below.
+
+**The count cannot be fixed from the pack as the engine stands, and this is
+the real finding.** Count comes from area at one per thirty tiles, and area
+comes from `size` and `rooms`. Those are the only keys that reach it. Cutting
+them to bring floor 1 near the authored cellar's six monsters means redrawing
+every cellar floor — and two floor-1 books are placed at fixed tiles
+(`a-scrap-in-the-dust` at `[27,36]`, the letter chest `a-letter-in-a-chest` at
+`[23,34]`), coordinates that were flood-verified against **the current**
+layout. Shrinking the floors would put them in walls or out of bounds, which is
+the exact silent failure the "six orphaned books" entry above was written about:
+a book naming a region or tile that does not resolve simply cannot be found,
+and neither validator flags it. Trading "the hero dies on floor 1" for "floor 1
+has nothing in it" is a loss, not a fix. **So the geometry was left alone, and
+that is the one lever big enough to work is the one lever not taken.**
+
+Two smaller things for whoever has the engine:
+
+- **A `mobs` (or density) key the descent actually reads would close this in
+  one line.** `shapes.SECTION` would validate it; the descent would have to
+  read it. Until then the count is the coin-flip B3 describes and no Section
+  file can stop it.
+- **A heal on floor 1 was the obvious second lever and was left out on
+  purpose.** `library/a-letter-in-a-chest.md` already carries `chest: yes` and
+  `drops: brass-ring` on floor 1, and adding `cloudy-potion` would have been a
+  front-matter-only edit. But the front matter here is `drops: <comma list>`
+  and the engine's own list syntax could not be checked without it — if it
+  wants a YAML list, the id parses as one string and the chest opens **empty**,
+  which is the vault-chest bug from the entry below, one floor up.
+  `tests/assert_chest_drops.py` parses the comma form, so it would have gone
+  green and proved nothing. **Left out deliberately**, not forgotten.
+
+**The Blueprint was not touched, on purpose.** Editing `blueprint.json` at all
+changes its `source_sha256`, which `blueprint.lock.json` records; that hash is
+not reproducible outside the normalizer (it is not the file's bytes, nor any
+`json.dumps` form of it — checked), so any Blueprint edit here would have left
+the lock stale and CI red with no way to refresh it. The family *weights* live
+in the Section file, which is outside the lock, so the change above was made
+where it can be made honestly.
+
+### Not boring
+
+The cellar keeps all four of its creatures — nothing was deleted, only
+reweighted — and floor 1 still carries two found objects, the scrap and the
+letter chest with its brass ring (+1 attack, a real first-floore keepsake). No
+reflexes and nothing to memorize is untouched: nothing about the change asks
+the player to react faster or remember anything.
+
+**Evidence.** `sections/cellar.json:11-14`, `world.json:76`; play-test logs
+`docs/playtests/logs/descent-desktop-seed-run{1,2,3-sneak}.txt`,
+`docs/playtests/logs/authored-route-desktop.txt`; the Sections entry above for
+the seven read keys. **Not proven:** any walk.
+
+## 2026-10-08 — the play-through bot walks the descent a player walks (agent)
+
+**Before:** `tests/playthrough/run.py` had been red on `main` and on the
+three-Sections branch alike since cottage#110, failing on
+`"no open route from town to floor-1"` — `4/8 checks, ok=False`, in two
+steps. It was not a game bug. cottage#110 made the generated Section the
+only way down from town `[1,1]` and deleted the authored `floor-1`..`floor-6`
+and `king-room`; the bot's route was a list of those seven regions. **Now:**
+`31/31 checks, ok=True, 897 steps`, at 1280×720.
+
+**The route is read out of the pack, not written down in the bot.** The
+entry tile is `world.json` → `descent.entry`; the floors are each Section's
+own `id`/`floors`/`pattern`; the stairs are the transitions the engine wires
+on arrival; the books are `VEFR_LIBRARY`; and **the book that ends the act is
+found by reading the pack's own rules for `complete-act`**, not by a
+hardcoded id. Cottage → town → `[1,1]` → every floor of every Section
+(`cellar-0-1`..`cellar-0-9`), opening every book on the way → the vault on
+the warden floor, whose note ends the act → back up to town → a reload →
+Start over → a fight on the way down. Move a floor, a book or a landing in
+the pack and this bot follows it. The loop is over Sections, not over
+`floor-1`..`floor-6`, so the four-Section chain is evidenceable the day a
+second Section exists; **this pack declares one** and the run says so.
+
+**Three harness bugs the old bot would have had, found by walking the real
+game rather than by reading it.** (1) It cached `VEFR_REGIONS` and
+`VEFR_TRANSITIONS` at page load, but a generated floor is grown *on arrival*
+(`397-the-descent.js` `ensureRegion`/`wireFloor`) — so the tables had no
+`cellar-0-2` and routing could never leave floor 1. (2) A `map` book is
+found by *standing on it*, so pressing Interact on one that is already found
+does nothing at all; the old "open the book" loop pressed until it stalled.
+A chest book is the opposite: it records the moment the chest opens, and
+only the reader going down fires `reads`. (3) `comes-near` — behind "the cat
+noticed you" and the Keeper's line about the letter — fires from `tryNPC`,
+which only `#talk` and a canvas click run; Interact's own resident branch
+goes straight to `talkToSpeaker`. A keyboard player has to Tab to the Talk
+button, and the bot now does exactly that.
+
+**Three checks have no subject left, and are asserted as such rather than
+deleted.** `locked` (no transition in the pack names a `requires` since the
+authored floors went), `pickup` (no family the Section draws names a
+`drops`, and every descent book is a chest book — playtest finding B1
+restated as an assertion), `level` (see below). Each has a check that reads
+the game's own tables and goes **red** the day a subject comes back. The
+album check got *stronger*, not weaker: it now requires **every sticker the
+pack defines** (5 of 5) rather than five named ones out of twenty-five.
+
+**What replaced the keybearer ladder, honestly.** The old route covered
+three locked cellar stairs, three Keybearers and a sealed door to the king
+room: fifteen checks. Those subjects are gone from the pack, so no route can
+cover them today, and nothing here pretends otherwise. What replaced them is
+the same *intent* at new addresses: the act still ends, the chest still
+drops something, the end card still shows once with focus on Keep exploring
+and stays gone after a reload — the vault on `cellar-0-9` instead of the
+king room, and the keybearer cadence is now a named absence. **The king
+room itself has no subject and is not coming back** from this route; it was
+a room, and the Section has no rooms.
+
+**Three engine gaps found while doing this. None is fixed here** — this
+task repairs the harness, not the game or the engine.
+
+- **A hero cannot gain a level anywhere on the descent.** `growAward` is
+  paid in the monster's `xp` (`430-loot-on-the-floor.js:101`) and
+  `enemyEntry` (`397-the-descent.js`) copies id, name, at, hp, atk, sight
+  and drops — **no `xp`**, though the Blueprint family behind the monster
+  carries one. So the descent's mobs die silently as far as growth is
+  concerned: Rylee's "wander around and fight things loop", the thing this
+  repo calls a win, pays nothing on the only floors the game now has. The
+  bot asserts the absence (`a descent monster carries no xp…`) so the day
+  the engine pays it, the harness says so.
+- **`comes-near` is unreachable by the Interact key** (above). Every
+  resident beat gated on it — `cat-notices`, `keeper-after-the-end` — is
+  keyboard-unreachable except by Tab-ing to `#talk`.
+- **`--monsters` exists but is not the default.** The descent is walked with
+  the Section's families taken away, which is what vefr's own
+  `tests/test_descent_bot.py` does and why: the thing under test is the
+  route, not a fight. The lever is the engine's own documented harness hook
+  (`VEFR_DESCENT_DEF` is read at call time, "and a harness may plant its
+  own"), so **no pack file is touched** and `vefr check` still passes. The
+  run puts the families back at the end and fights, so the fight is proved
+  in view rather than assumed.
+
+**The bot can fail.** `tests/playthrough/negative_control.py` breaks the
+route on purpose twice — once by putting the authored `town [1,1] ->
+floor-1` door back (the exact thing that broke this bot), once with
+`--entry-at 4,5`, a tile that is not the way down — and fails unless each
+run comes back red *for the reason it was broken*. Output in
+`tests/playthrough/negative_control.md`.
+
+**Evidence.** `31/31 checks, ok=True, 897 steps` from the literal
+acceptance command (`python3 tests/playthrough/run.py --viewport desktop`)
+in a VEFR venv; every floor's far end is inside the explored map the
+descent itself saved, which is the engine's own answer to "was this floor
+walked" and the same question vefr asks of its three; `norns validate` and
+`vefr check` both print `ok:` on this pack, unchanged.
+
+## 2026-10-08 — the drop check runs on every change now (agent)
+
+**The gate exists.** `.github/workflows/validate-pack.yml` gains one step,
+alongside the existing `norns validate` step and in the same job: *"Assert
+every chest drop resolves to a real item"* running
+`python3 tests/assert_chest_drops.py` over the same pack path
+(`worlds/cottage-of-the-breeze`) the validator is handed. One job, one new
+step; nothing else in the workflow moved.
+
+**What it catches.** A drop id the pack names but the item catalog does not
+hold — and, one step further, an item whose sprite is not a real entry in
+`player.sprites` or has no file in the pack. Neither `norns validate` nor
+`vefr check` can see this class, and that was measured rather than assumed:
+with `bell-key` restored to a family in the pack and freshly normalized so
+nothing was stale, **both printed `ok:` while `tests/assert_chest_drops.py`
+exited 1.** The pack shipped four such ids — `crown-seal`, `bell-key`,
+`lantern-key`, `helmet-key` — named by Blueprint families and by the
+Section's warden, so every kill that should have dropped one dropped nothing
+while CI stayed green. cottage#114 and cottage#119 fixed the instances; this
+is the gate that would have caught them.
+
+**Proven red, not asserted red.** On a copy of the pack, `/items/cellar-gems`
+was deleted from `world.json` — the exact defect the entry below was written
+about, and the item the chest book `a-note-under-the-seal` names. The
+workflow's own command exits 1 and names the defect in the log:
+
+```
+FAIL
+  - a-note-under-the-seal.md: drops names 'cellar-gems', not in world.json items
+```
+
+With the copy reverted, the same command prints `ok: every chest drop
+resolves to a real item with a real sprite` and exits 0. The step is not
+`continue-on-error` and takes no `if:` — if the assertion file is missing
+the step fails, which is the right way round.
+
+**Cost: about a second.** Stdlib-only Python over `world.json` and the
+library's front matter; no VEFR checkout, no `uvx`, no weave, no browser.
+It is placed after the validator, so a pack the engine rejects still fails
+first, on the validator that has always said so. A self-hosted runner
+(`vars.CI_RUNNER_LIGHT`) without `python3` on `PATH` would fail the step; that
+is reported rather than papered over, since no runner is named in this repo
+and the pinned alternative (a `setup-python` step) is a dependency on a runner
+choice this change is not making.
+
+**Known edge, not fixed here.** The assertion reads chest books' `drops:` and
+the item catalog; it does not yet walk `blueprint.json`'s families or a
+Section's `warden`, which is where `bell-key` and `crown-seal` were named.
+That is a widening of the check, and `tests/**` was out of scope for this
+change; it is named here so the next person knows what the green is worth.
 
 ## 2026-10-08 — the vault chest holds something again (agent)
 
-The entry above ("the six orphaned books") left one thing named as
+The "six orphaned books" entry below left one thing named as
 unfixed: *"The vault chest drops nothing... `a-note-under-the-seal` still
 says `drops: cellar-gems`, and `cellar-gems` is not in the pack's item
 catalog (it went with the authored floors), so the bake drops the id
@@ -169,6 +531,94 @@ generated client-side, so the chest was never opened by a player in this
 session. What is proven is the data and the code path that consumes it
 (`giveChestDrops` in `web/packaged.html` adds each id to the bag), not a
 walk.
+
+## 2026-10-08 — three more Sections under the cellar (agent)
+
+Built against Rylee's picker answers recorded below: mood "Change by section", danger
+"Rising" — "gentle near the top, some fights to fear deeper down" — and what pulls her
+deeper: "What the next floor looks like, A goal ahead, Collections".
+
+- **What is there now.** `sections/rootworks.json`, `sections/siltworks.json` and
+  `sections/emberhall.json`, chained after the cellar in `world.json`'s `descent.sections`
+  so the descent runs `cellar > rootworks > siltworks > emberhall` — 36 floors. `cellar`
+  itself is untouched; it stays gentle.
+  - **rootworks** — the damp ground under the cottage garden; green, close, still lit
+    (fog radius 6, the widest in the chain). Carries root-tangles, flowerpot toads, wick
+    sprites, moths, cave crickets and the new rootwatchers.
+  - **siltworks** — the flooded ground below that, older and colder; fog 4, smaller rooms.
+    Carries deep shades, cobweb wraiths, cave crickets, barrel mimics, rootwatchers and
+    the new mire toads. Its warden is the Silt Warden, named in the Section's `warden`
+    key — see the engine gaps below for why a named warden does not spawn yet.
+  - **emberhall** — the sealed fire the town kept, the bottom of this descent; fog 3, the
+    darkest and smallest rooms. Carries hollow shades, howling rustles, hollow crickets,
+    cobweb wraiths and barrel mimics, and it is the only place a hollow cricket — 11 hp,
+    4 attack — turns up. Its warden is the Ember Warden, named in the `warden` key.
+- **Every name here is an agent draft, not canon.** The three place names, the six new
+  Blueprint families (`rootwatcher`, `mire-toad`, `hollow-cricket`, `silt-warden`,
+  `root-warden`, `ember-warden`) and their monsters' names are all data and all changeable
+  without a rewrite: the Section files name creatures by Blueprint id and carry no text.
+  `STORY.md` is untouched.
+- **Rising danger is done with what is there, not with a knob.** The Section loot tier and
+  `mob_stats`' ramp are written into every Section as the contract asks, but neither is read
+  by the play-time descent yet (see the engine gaps below), so the danger a player actually
+  meets comes from the creatures each Section names and from how big its floors are.
+  Measured over all 36 floors, and it rises on every measure:
+  average mob hp `cellar 4.30 > rootworks 6.78 > siltworks 9.23 > emberhall 10.63`,
+  highest attack on a floor `2 > 3 > 3 > 4`, fog radius `5 / 6 / 4 / 3`.
+- **Six new families went in through the Blueprint** and the lock was refreshed with
+  `vefr normalize --out`; no contract's `enemies` list was hand-edited.
+- **Proven by walking, not by validating.** The real woven player, in VEFR's jsdom play
+  kit, on three run seeds (`breeze`, `breeze/run-1`, `breeze/run-2`): out of the cottage,
+  across the town to `[1,1]`, then down all 36 floors, every floor walked from its up-stair
+  to its down-stair and every stair used. All three runs crossed all three Section
+  boundaries (depth 9→10, 18→19, 27→28) and reached the bottom; the descent then rolled on
+  into cycle 1 (`cellar-1-1`), so the chain is endless as intended.
+
+### What the engine could not do, filed as VEFR issues rather than worked around
+
+- **Half a Section is data the descent does not read yet.** The play-time descent (part
+  397) reads only `id`, `floors`, `size`, `rooms`, `fog`, `families` and `pattern` from a
+  Section. It does **not** read `curve` or `loot.tier` (`mob_stats` is never called, so the
+  depth ramp is written but not applied), the `depth` range on a family entry, the
+  `specials` a `special` slot draws, `tiles`, `warden`, `vault`, `elites`, `groups`,
+  `stamps` or `pois`. All of those are in the files as the contract asks, and all of them
+  take effect the day the engine reads them — but nothing in this pass may be described as
+  working on the strength of them. One consequence caught during the work: a family listed
+  in `families` with `depth: [7, 9]` spawned on **every** floor of its Section, which put
+  thirteen Ember Wardens in one descent. The wardens were moved out of `families` and are
+  named only in the Section's `warden` key, which is how `cellar-king` is already used.
+- **A Section cannot have its own tiles.** `shapes.SECTION` accepts `tiles` and `vefr check`
+  validates it, but nothing reads it: the played floor's legend is the engine's shared
+  `delve.LEGEND`, and its pictures come from `VEFR_REGION_TILES[region] || VEFR_TILES` —
+  so every generated floor in every Section draws the same ground. **No new tile art was
+  made for this pass.** It would have shipped as art nothing draws, which is worse than
+  reusing what exists. Rootworks, siltworks and emberhall currently differ by their
+  creatures, their fog and their floor shape.
+- **The entry stair keeps the previous run's arrival tile.** `startRun` calls
+  `resetRegions`, which drops a transition only when *both* its ends are generated — the
+  town is not — so `town[1,1] -> cellar-0-1` survives with the old run's `to_at` and the
+  hero arrives mid-floor. On a run where the stale tile is a wall, the hero arrives inside
+  one. Found while proving three seeds; the harness re-wires the entry rather than the pack
+  carrying a workaround.
+- **Dying on a generated floor throws you out of the descent.** `cozyDeath` returns the hero
+  to where they woke, and a generated floor is not that, so they land back in town with a
+  full bar and have to walk to `[1,1]` and start again at floor 1.
+
+### Claude's note (agent): what the play-through turned up about balance
+
+Walking the chain with the monsters left in (the proof run above uses VEFR's own
+precedent of a quiet descent, so that the walk tests the chain and not a fight) the hero
+died on floor 2 of the **cellar**, which this change did not touch. The hero starts at 6 hp
+and 2 attack; a cellar spider is 5 hp and 2 attack, so one fight is most of the bar and two
+is the run. The same holds further down: a hollow cricket in emberhall is 11 hp at 4
+attack — two hits kill the 6 hp starting hero, and eleven of its own — while taking
+four a swing. The growth ladder
+(`0, 6, 15, 30, 55, 95, 150, 230` xp for +2 hp and +1 attack) would carry a player who
+clears a floor per fight, so this reads as "the descent is not survivable if you fight
+everything" — which is a tuning call for Rylee, not something to quietly patch. What it
+does mean is that the new Sections were tuned against *measured* numbers rather than
+against a fight, and the first person to walk down there with monsters in the dark should
+say how it feels.
 
 ## 2026-10-08 (later) — the six orphaned books are findable again (agent)
 

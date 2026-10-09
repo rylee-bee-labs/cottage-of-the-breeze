@@ -73,7 +73,7 @@
       "quilted-coat": "sprites/quilted-coat.png",
       "thread-bell": "sprites/thread-bell.png"
     },
-    "hp": 6,
+    "hp": 10,
     "atk": 2,
     "wake": {
       "region": "town",
@@ -428,7 +428,10 @@
       ]
     },
     "sections": [
-      "cellar"
+      "cellar",
+      "rootworks",
+      "siltworks",
+      "emberhall"
     ]
   }
 }
