@@ -1,5 +1,22 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 (later) — the picker answers, and the soft-wood skin merged as cottage#107 (Rylee)
+
+Rylee answered the picker questions tonight. Her words, quoted exactly. `DESIGN.md` carries the same lines in the places they change.
+
+- **Loot, order:** "Before E8 vaults".
+- **Inventory:** "Simpler: slots plus bag upgrades". This **replaces** the grid containers `DESIGN.md` carried (small grids per container, shaped items, a weight limit); that line is struck in `DESIGN.md`, not left standing beside the new answer. Decided, not built yet.
+- **Spells, order:** "After loot". So the order is loot → spells → E8 vaults.
+- **What the town gives:** "Rest, trade, identify".
+- **Danger:** "Rising" — gentle near the top, some fights to fear deeper down.
+- **Mood:** "Change by section".
+- **What pulls her deeper:** "What the next floor looks like, A goal ahead, Collections".
+- **Devices:** "Both equally".
+- **Builds:** "A link per playable milestone".
+- **The soul (Rylee, 2026-10-08):** "No existing work is sacred except the soul of it". The soul, confirmed by her ("Yes, that's it"): curious, low-bandwidth exploring; the thrill of opening something and finding something fun; a cozy storybook world; no reflexes and nothing to memorize; 30 minutes that turns into four hours. Judge every change against it.
+- **Also tonight:** the soft-wood skin, built from her round-two picks, merged as cottage#107.
+- **Claude's note (agent):** nothing on this list is built by tonight's notes; every line above is a decision on disk only. The devices, builds and pull-deeper answers are recorded here and are not yet in the `DESIGN.md` checklist, which carries the systems answers only.
+
 ## 2026-10-08 — the soft-wood skin is built from Rylee's round-two picks (Rylee)
 
 - **Her words (2026-10-08):** "Use my picks as they are". The eleven round-two picks in `art/source/round18/ui-soft/PICKS.md` (banner `missing/banner/banner_v3.png`, speech `missing/speech/speech_v3.png`, tooltip `missing/tooltip/tooltip_v2.png`, corner `missing/corner/corner_v3.png`, bar-frame `missing/bar-frame/bar-frame_v2.png`, bar-fill `missing/bar-fill/bar-fill_v1.png`, slot `missing/slot/slot_v3.png`, tab `missing/tab/tab_v3.png`, tab-selected `missing/tab-selected/tab-selected_v3.png`, divider `dividers/dividers_v2.png`, cursor `cursor/cursor_v2.png`) are cut into `art/source/round18/ui-soft/skin-source/` with `art/tools/split_sheet.py`, saved as lossless WebP keeping alpha; `PROVENANCE.md` and `PROVENANCE.tsv` name the sheet each cut came from and the `.credits.txt` beside it.
