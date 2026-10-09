@@ -4,13 +4,21 @@
 > Winds* systems, described in our own words from public descriptions of
 > the game. Names, numbers and story are ours to decide.
 
-## Where each system stands (2026-10-04)
+## The soul (Rylee, 2026-10-08)
+
+Her words: "No existing work is sacred except the soul of it". The soul, which
+she confirmed when it was read back to her ("Yes, that's it"): curious,
+low-bandwidth exploring; the thrill of opening something and finding something
+fun; a cozy storybook world; no reflexes and nothing to memorize; 30 minutes
+that turns into four hours. Judge every change against it.
+
+## Where each system stands (2026-10-04, revised 2026-10-08)
 
 | System | State |
 | --- | --- |
 | Town | Built: a cottage, a tavern with the Spell Keeper, the Trader's shop, a temple (where you wake) and the burned old tavern, seven residents. No identifier or bank yet; the temple has no inside yet. |
 | Floors | Six floors: three authored, three generated at build time. The cellar is act 1, ending with the Cellar King, a sealed door and a room beyond (built). Per-run generation: phase 1 built. |
-| Inventory | A bag (use, sell) and a worn-gear section with five slots (built). The grid-and-shapes design below is not built. |
+| Inventory | A bag (use, sell) and a worn-gear section with five slots (built). Carrying is decided as slots plus bag upgrades (2026-10-08); the grid-and-shapes design this file carried before is replaced, and bag upgrades are decided, not built yet. |
 | Items | Potions, keys, a seal, gems and eight wearable items with painted icons. Rarity, traits and identifying are not built. |
 | Growth | Built and on: classic levels. |
 | Spells | Not built. |
@@ -25,9 +33,9 @@ learn → go deeper.
 
 | System | What it does | VEFR ruleset |
 |---|---|---|
-| Town | Shops, a temple to heal, someone who identifies things, a bank | existing town + Talk (later) |
+| Town | Shops, a temple to heal, someone who identifies things, a bank. What the town gives is decided as "Rest, trade, identify" (2026-10-08); the bank is not part of that answer | existing town + Talk (later) |
 | Floors | Each floor deeper and harder; stairs up and down | **Delve** (new) |
-| Inventory | Limits by weight *and* bulk, not slots; packs, belts and bags hold more | Delve |
+| Inventory | Slots plus bag upgrades (decided 2026-10-08). ~~Limits by weight *and* bulk, not slots; packs, belts and bags hold more~~ — replaced, struck | Delve |
 | Items | Plain, cursed or enchanted; unknown until identified | Delve + Vault |
 | Spells | Six schools (attack, defense, healing, movement, divination, other); learn one per level, or from spellbooks you find | Delve |
 | Time | Time spent changes what merchants stock | Delve |
@@ -37,12 +45,19 @@ learn → go deeper.
 - **Losing:** the player picks Cozy (wake in the temple) or Classic (death
   is real) at the start; Classic can switch to Cozy, never back.
 - **Time:** turn-based. Each step or action is one turn; then monsters act.
-- **Carrying:** grids inside containers. Each container is its own small
-  grid (a backpack 6×4, a belt 4×1 for quick potions, a pouch 2×2) and
-  items have shapes (a sword 1×3, armor 2×3, a ring 1×1). A bigger pack
-  or another pouch is a real upgrade. A gentle weight limit keeps hauling
-  armor home feeling heavy. (Rylee loves inventory games: "I'm a diablo
-  sucker".)
+- **Carrying:** "Simpler: slots plus bag upgrades" (Rylee, 2026-10-08). Slots,
+  and bags that upgrade into more slots. **Replaces** the grid-and-shapes design
+  this file carried before (small grids per container, shaped items, a weight
+  limit): it is gone from this list, and the Systems table row is struck.
+  Decided, not built yet — the bag you can use and sell is built, bag upgrades
+  are not. (Rylee loves inventory games: "I'm a diablo sucker".)
+- **Town:** "Rest, trade, identify" (Rylee, 2026-10-08) — what the town gives
+  you for going back up. Rest and trade exist (the temple, the Trader's shop);
+  identify is decided, not built yet.
+- **Danger:** "Rising" (Rylee, 2026-10-08) — gentle near the top, some fights to
+  fear deeper down. Decided; the depth curve itself is not built yet.
+- **Mood:** "Change by section" (Rylee, 2026-10-08) — each Section carries its
+  own mood. Decided, not built yet.
 - **Floors:** generated from rules and a seed once per game, then
   remembered for that playthrough. Hand-drawn floors can replace any
   generated one.
@@ -60,3 +75,5 @@ learn → go deeper.
 ## Order
 1. **Library**: books and notes found in the world, kept, fed to the book export.
 2. **Delve**: floors, items, weight, spells, turns.
+3. **Loot**, then **spells**, then the E8 vaults (Rylee, 2026-10-08): loot
+   comes "Before E8 vaults", spells "After loot". Decided; not built yet.
