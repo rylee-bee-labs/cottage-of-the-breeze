@@ -1,7 +1,7 @@
 ---
 title: A Candle and a Note
 found: map
-at: [30, 41]
+place: near-up
 region: cellar-0-5
 kind: note
 ---

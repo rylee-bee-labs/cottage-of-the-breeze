@@ -1,5 +1,45 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 (later still) — the five descent books are pinned to a place, not a tile (agent)
+
+VEFR `b5ed13d` (vefr#361) taught the descent to place books by **anchor**
+rather than by tile: a book with `place: near-up | near-down | anywhere`
+names the stair it belongs to, and the floor draws its tile from that
+floor's own `book|<id>` stream every run. Five of our books still carried
+an `at:` on a `cellar-0-*` floor — a tile that is redrawn on every New
+descent — and the engine now refuses that outright
+(`vefr/src/vefr/library.py:281`: *"a book with place takes no at"*). This
+is that fix. **Front matter only: the `at:` line is deleted and replaced
+by a `place:` line, and not one word of any book's prose is touched.**
+
+| Book | Was | Now | Why there |
+| --- | --- | --- | --- |
+| `a-scrap-in-the-dust` | `cellar-0-1` [27,36] | `place: near-up` | "A scrap of paper on the floor, older than the stair." It lies at the foot of the stair you arrive on, which is the same reading the fixed tile gave it (two steps from where the stair puts you). |
+| `a-letter-in-a-chest` | `cellar-0-1` [23,34] | `place: anywhere` | Still a chest, still `drops: brass-ring`, still mid-floor rather than at the door (the fixed tile was eight steps in). The research's own example is *the letter is in an open chest she opened for the ring*, so it belongs where the searching takes her, not at the arrival. The one floor-1 book that is not `near-up`, and the reason is the ring. |
+| `a-coin-face-down` | `cellar-0-3` [52,46] | `place: near-up` | "Deliberate, not dropped", and "it reads like someone's habit, not yours" — a habit is the tile every arrival walks past. Same reading as the fixed tile (four steps off the arrival stair). |
+| `a-candle-and-a-note` | `cellar-0-5` [30,41] | `place: near-up` | Floor 5 is the Section's **landing** — its up-stair goes straight back to town. "Someone sat here a long while, and never came back up" belongs by the way home, which is what `near-up` is on that floor. |
+| `a-note-under-the-seal` | `cellar-0-9` [37,29] | `place: near-up` | "You made it down. Good. Sit a moment; the stairs are long." … "Take what you found. Take it up." It is written to someone who has just arrived at the foot of a stair and is being sent back up it, so it sits by the stair she came down. `near-down` is the other honest reading ("the stairs ahead are long"); this one follows the note's own "Take it up" / "it knows the way home". |
+
+**The sixth re-homed book (`a-burned-page`, `town`) is not touched.** Town
+is an authored floor and does not move, so its `at:` is still the right
+field for it — and its tile names the ruin on the map.
+
+**Does the cellar's ninth floor have a down stair?** Yes, and it is worth
+saying why because `a-note-under-the-seal` is the one book whose floor is
+a Section's last. `cellar` declares `floors: 9`
+(`sections/cellar.json:4`) and `world.json`'s `descent.sections` chains
+four Sections, so the run is 36 floors; the walk recorded above crossed
+**depth 9→10** — `cellar-0-9` into `rootworks-0-1` — using that stair, on
+three seeds. A `warden` floor is not the bottom of the descent (the
+descent rolls on into `cellar-1-1`), so `near-down` would have been legal
+there too. It is not used, for the reason in the table.
+
+**Not run here, and not claimed.** This clone has no VEFR, no `uv` and no
+network, so `norns validate`, `vefr check` and the 200-run pin sweep are
+the landing machine's to run, not this entry's to assert. `python3
+tests/assert_chest_drops.py` passes here, so both `drops:` books still
+resolve (`brass-ring`, `cellar-gems`).
+
 ## 2026-10-08 — the Cellar King drops something real; three dead key names are gone (agent)
 
 The entry below closed the chest and left one line on the record: *"The
