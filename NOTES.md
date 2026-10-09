@@ -1,5 +1,69 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 (later still) — `.project/CURRENT.md` back to truth, and three things it had to stop saying (agent)
+
+This entry exists because the correction needed recording, not because anything
+in the pack moved. `main` did not change in this pass; `.project/CURRENT.md` and
+this line are the whole diff.
+
+**What was false.** The last "Latest activity" entry in `CURRENT.md` said the
+Keybearer ladder, the Cellar King, the sealed door and Act 1's ending are gone
+from the pack. Three of those four clauses were wrong and one had become true
+again:
+
+- The descent is **four Sections and 36 floors** — `cellar > rootworks >
+  siltworks > emberhall` — not one cellar (cottage#118). `world.json` →
+  `descent.sections` names all four.
+- **Act 1 still ends.** `a-note-under-the-seal` sits in a chest on `cellar-0-9`
+  and its `reads` rule fires `complete-act`; the vault chest drops
+  `cellar-gems` (cottage#113, cottage#114). The claim that the generated
+  descent has no ending "until E8 lands" was true when the authored cellar went
+  and stopped being true when the books were re-homed.
+- **The Cellar King is in the pack as data** — `sections/cellar.json` names him
+  in `warden`, and `blueprint.json` carries the family. What is true is
+  narrower and now says so instead: the play-time descent does not read
+  `warden`, so he is named rather than spawned. The old sentence and the
+  "he drops a wax seal" note could not both stand, and the wrong one went.
+- The authored `floor-1`..`floor-6` and `king-room`, the Keybearer ladder, the
+  locked stairs and the sealed door **are** gone (cottage#110). That clause was
+  right and is kept.
+
+**Two things the brief this pass answered from was wrong about, checked rather
+than passed on:**
+
+- **There is no `docs/story/DRAFT.md` on `main`.** `docs/story/` holds
+  `RESEARCH.md` and nothing else; `git log --all -- docs/story` shows the story
+  draft has never landed here. `AGENTS.md` names `DRAFT.md` as the *convention*
+  for where a draft would go, which is what the brief read as a file. So
+  `CURRENT.md` routes to `RESEARCH.md` and says plainly that no draft is on
+  `main`, rather than pointing a reader at a path that 404s.
+- **The play-through bot's recorded count is 31 checks, not 33.** `NOTES.md`
+  2026-10-08 ("the play-through bot walks the descent a player walks") records
+  `31/31 checks, ok=True, 897 steps` at 1280×720; the `34/34` in
+  `docs/playtests/logs/authored-route-*.txt` is the pre-cottage#110 authored
+  route. `CURRENT.md` therefore does not quote a check count at all — it points
+  at the run and its output.
+
+**What `CURRENT.md` says the next step is, and why.** Play the descent on
+current `main` with the monsters in, at both viewports, and record it. The
+gentle start (cottage#121) says *Not proven: any walk*; the play-test report on
+file describes `c1b645a`, before the authored cellar went and before the gentle
+start, so its top finding is fixed and its "floors 3–9 are unreachable" has
+never met a 36-floor chain. The bot that can do it is green as of cottage#122.
+
+**Not a build claim.** `bin/publish-build.sh` and the gallery CLI are not
+runnable from an agent session, so no milestone build and no gallery URL is
+claimed anywhere in this pass. `CURRENT.md` says so under "Not established".
+
+**Evidence.** `world.json` → `descent.sections` and `player.hp`; `sections/*.json`
+(four files, `warden` each); `blueprint.json` → `families["cellar-king"]`;
+`library/a-note-under-the-seal.md` (`region: cellar-0-9`, `chest: yes`,
+`drops: cellar-gems`); `world.json` → `rules` → `the-seal-note-read` fires
+`complete-act`; `docs/story/` holds one file; `git log --all --oneline -- docs/story`;
+`python3 tests/assert_chest_drops.py worlds/cottage-of-the-breeze` → exit 0.
+**Not run here:** the walk itself, and `norns validate` / `vefr check` — there is
+no VEFR checkout and no `uv` in this clone, and this pass changed no pack file.
+
 ## 2026-10-08 — the first floor is full, not strong (agent)
 
 The descent asks: make floor 1 survivable for a brand-new hero, under Rylee's
