@@ -1,0 +1,146 @@
+### phone {'width': 390, 'height': 844} scrollW=390 canvas={'x': 0, 'y': 0, 'w': 390, 'h': 844, 'share': 100}
+combat buttons: [{"id": "", "cls": "", "text": "Strike", "x": 0, "y": 0, "w": 0, "h": 0}, {"id": "", "cls": "", "text": "Console", "x": 0, "y": 0, "w": 0, "h": 0}, {"id": "", "cls": "", "text": "Hurl an insult", "x": 0, "y": 0, "w": 0, "h": 0}]
+boxes: [
+ {
+  "id": "interact",
+  "x": 200,
+  "y": 746,
+  "w": 44,
+  "h": 44,
+  "label": "Go through the door F",
+  "clipped": true,
+  "scrollW": 47,
+  "clientW": 42
+ },
+ {
+  "id": "dpad",
+  "x": 8,
+  "y": 700,
+  "w": 136,
+  "h": 136,
+  "label": "\u2191\n          \u2190\n          ",
+  "clipped": false,
+  "scrollW": 136,
+  "clientW": 136
+ },
+ {
+  "id": "toasts-toggle",
+  "x": 234,
+  "y": 75,
+  "w": 81,
+  "h": 44,
+  "label": "Messages",
+  "clipped": false,
+  "scrollW": 79,
+  "clientW": 79
+ },
+ {
+  "id": "menu-open",
+  "x": 279,
+  "y": 8,
+  "w": 79,
+  "h": 44,
+  "label": "Menu",
+  "clipped": false,
+  "scrollW": 77,
+  "clientW": 77
+ },
+ {
+  "id": "menu",
+  "x": 0,
+  "y": 0,
+  "w": 0,
+  "h": 0,
+  "label": "Paused\n    \n      Journa",
+  "clipped": false,
+  "scrollW": 0,
+  "clientW": 0
+ },
+ {
+  "id": "status",
+  "x": 234,
+  "y": 125,
+  "w": 140,
+  "h": 73,
+  "label": "Move with the arrow keys",
+  "clipped": false,
+  "scrollW": 138,
+  "clientW": 138
+ }
+]
+clipped: ['interact']
+under 44px: []
+
+### desktop {'width': 1280, 'height': 720} scrollW=1280 canvas={'x': 0, 'y': 0, 'w': 1280, 'h': 720, 'share': 100}
+combat buttons: [{"id": "", "cls": "", "text": "Strike", "x": 0, "y": 0, "w": 0, "h": 0}, {"id": "", "cls": "", "text": "Console", "x": 0, "y": 0, "w": 0, "h": 0}, {"id": "", "cls": "", "text": "Hurl an insult", "x": 0, "y": 0, "w": 0, "h": 0}]
+boxes: [
+ {
+  "id": "interact",
+  "x": 602,
+  "y": 636,
+  "w": 230,
+  "h": 44,
+  "label": "Go through the door F",
+  "clipped": false,
+  "scrollW": 228,
+  "clientW": 228
+ },
+ {
+  "id": "dpad",
+  "x": 0,
+  "y": 0,
+  "w": 0,
+  "h": 0,
+  "label": "\u2191\n          \u2190\n          ",
+  "clipped": false,
+  "scrollW": 0,
+  "clientW": 0
+ },
+ {
+  "id": "toasts-toggle",
+  "x": 228,
+  "y": 94,
+  "w": 81,
+  "h": 44,
+  "label": "Messages",
+  "clipped": false,
+  "scrollW": 79,
+  "clientW": 79
+ },
+ {
+  "id": "menu-open",
+  "x": 957,
+  "y": 36,
+  "w": 79,
+  "h": 44,
+  "label": "Menu",
+  "clipped": false,
+  "scrollW": 77,
+  "clientW": 77
+ },
+ {
+  "id": "menu",
+  "x": 0,
+  "y": 0,
+  "w": 0,
+  "h": 0,
+  "label": "Paused\n    \n      Journa",
+  "clipped": false,
+  "scrollW": 0,
+  "clientW": 0
+ },
+ {
+  "id": "status",
+  "x": 228,
+  "y": 144,
+  "w": 194,
+  "h": 53,
+  "label": "Move with the arrow keys",
+  "clipped": false,
+  "scrollW": 192,
+  "clientW": 192
+ }
+]
+clipped: []
+under 44px: []
+

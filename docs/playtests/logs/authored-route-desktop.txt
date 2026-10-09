@@ -1,0 +1,181 @@
+[bot] chromium 153.0.8010.12
+
+34/34 checks passed, 1714 steps, ok=True
+{
+  "viewport": "desktop",
+  "steps": 1714,
+  "checks": [
+    {
+      "name": "title screen shows the Begin button",
+      "ok": true,
+      "detail": "found #ts-enter"
+    },
+    {
+      "name": "started in the cottage and reached the town",
+      "ok": true,
+      "detail": "region=town"
+    },
+    {
+      "name": "descended to floor 3",
+      "ok": true,
+      "detail": "region=floor-3"
+    },
+    {
+      "name": "floor-3's locked stair: the key is not carried when the lock is tried",
+      "ok": true,
+      "detail": "bag=[]"
+    },
+    {
+      "name": "floor-3's locked stair refuses with the locked text",
+      "ok": true,
+      "detail": "region=floor-3 text='The way down is shut fast. The great pale moth wears the key on a bell, somewhere in these halls.'"
+    },
+    {
+      "name": "bell-key: not carried before its Keybearer dies",
+      "ok": true,
+      "detail": "fresh key, drop not taken yet"
+    },
+    {
+      "name": "bell-key: appears (on the floor or in the bag) once the Keybearer dies",
+      "ok": true,
+      "detail": "floor=['bell-key', 'cloudy-potion', 'cloudy-potion'] bag=[]"
+    },
+    {
+      "name": "bell-key: carried once picked up",
+      "ok": true,
+      "detail": "bag=['cloudy-potion', 'bell-key', 'cloudy-potion']"
+    },
+    {
+      "name": "floor-4's locked stair: the key is not carried when the lock is tried",
+      "ok": true,
+      "detail": "bag=['cloudy-potion', 'bell-key', 'cloudy-potion']"
+    },
+    {
+      "name": "floor-4's locked stair refuses with the locked text",
+      "ok": true,
+      "detail": "region=floor-4 text='The stair is locked. The mushroom elder carries its key on a little lantern.'"
+    },
+    {
+      "name": "lantern-key: not carried before its Keybearer dies",
+      "ok": true,
+      "detail": "fresh key, drop not taken yet"
+    },
+    {
+      "name": "lantern-key: appears (on the floor or in the bag) once the Keybearer dies",
+      "ok": true,
+      "detail": "floor=['quilted-coat', 'cloudy-potion', 'cloudy-potion', 'cloudy-potion', 'lantern-key'] bag=['bell-key']"
+    },
+    {
+      "name": "lantern-key: carried once picked up",
+      "ok": true,
+      "detail": "bag=['bell-key', 'lantern-key']"
+    },
+    {
+      "name": "floor-5's locked stair: the key is not carried when the lock is tried",
+      "ok": true,
+      "detail": "bag=['bell-key', 'lantern-key', 'cloudy-potion']"
+    },
+    {
+      "name": "floor-5's locked stair refuses with the locked text",
+      "ok": true,
+      "detail": "region=floor-5 text='The stair is locked tight. The armoured beetle guards the key.'"
+    },
+    {
+      "name": "helmet-key: not carried before its Keybearer dies",
+      "ok": true,
+      "detail": "fresh key, drop not taken yet"
+    },
+    {
+      "name": "helmet-key: appears (on the floor or in the bag) once the Keybearer dies",
+      "ok": true,
+      "detail": "floor=['cloudy-potion', 'cloudy-potion', 'helmet-key'] bag=['bell-key', 'lantern-key', 'copper-ladle']"
+    },
+    {
+      "name": "helmet-key: carried once picked up",
+      "ok": true,
+      "detail": "bag=['bell-key', 'lantern-key', 'copper-ladle', 'helmet-key']"
+    },
+    {
+      "name": "floor-6's sealed door: the key is not carried when the lock is tried",
+      "ok": true,
+      "detail": "bag=['bell-key', 'lantern-key', 'copper-ladle', 'helmet-key', 'cloudy-potion']"
+    },
+    {
+      "name": "floor-6's sealed door refuses with the locked text",
+      "ok": true,
+      "detail": "region=floor-6 text='A stone door sealed with a crown of red wax. It has a hollow the shape of a seal.'"
+    },
+    {
+      "name": "the crown seal is carried",
+      "ok": true,
+      "detail": "bag=['bell-key', 'lantern-key', 'copper-ladle', 'helmet-key', 'crown-seal']"
+    },
+    {
+      "name": "the seal opens the sealed door into the king-room",
+      "ok": true,
+      "detail": "region=king-room text='You found a sticker: A quiet room.'"
+    },
+    {
+      "name": "the end card shows once, role=dialog, focus on Keep exploring",
+      "ok": true,
+      "detail": "visible=True complete={'act': 'act-1', 'shown': True} focus='act-end-keep'"
+    },
+    {
+      "name": "the end card stays closed after Interact",
+      "ok": true,
+      "detail": "visible=False complete={'act': 'act-1', 'shown': False}"
+    },
+    {
+      "name": "the route ends back in the town",
+      "ok": true,
+      "detail": "region=town"
+    },
+    {
+      "name": "after a reload the end card does not show and VEFR_ACT_COMPLETE is absent",
+      "ok": true,
+      "detail": "visible=False absent=True"
+    },
+    {
+      "name": "'Start over' asks first, Cancel leaves every save untouched",
+      "ok": true,
+      "detail": "confirmVisible/focusOk=True saves_unchanged=True"
+    },
+    {
+      "name": "no horizontal page scroll at 1280px",
+      "ok": true,
+      "detail": "scrollWidth=1280 innerWidth=1280"
+    },
+    {
+      "name": "the whole route completed",
+      "ok": true,
+      "detail": "1714 steps"
+    },
+    {
+      "name": "the sound cues fired as the route was played",
+      "ok": true,
+      "detail": "heard ['defeat', 'door', 'end', 'hit', 'hurt', 'level', 'locked', 'pickup', 'sticker']; missing []"
+    },
+    {
+      "name": "the hero's walk frames showed for every direction she walked",
+      "ok": true,
+      "detail": "walked in ['down', 'left', 'right', 'up']; 20 distinct poses"
+    },
+    {
+      "name": "the album filled as the route was played",
+      "ok": true,
+      "detail": "18 of 25 found; missing []"
+    },
+    {
+      "name": "zero console.error / pageerror events",
+      "ok": true,
+      "detail": "none"
+    },
+    {
+      "name": "no failed network requests",
+      "ok": true,
+      "detail": "none"
+    }
+  ],
+  "console_errors": [],
+  "ok": true
+}
