@@ -1,0 +1,6 @@
+MENU LINE BEFORE: {"on_menu_open": "Run 1 of the descent (breeze). Deepest floor reached: 0. A new descent starts the same Sections over with a fresh seed.", "in_descent_panel": "Run 1 of the descent (breeze). Deepest floor reached: 0. A new descent starts the same Sections over with a fresh seed."}
+AFTER NEW DESCENT: {"region": "cellar-0-1", "at": [54, 18], "hp": 6, "text": "To reach floor-1, go north-west."}
+MENU LINE ON FLOOR 1: {"on_menu_open": "Run 2 of the descent (breeze/run-1). Deepest floor reached: 0. A new descent starts the same Sections over with a fresh seed.", "in_descent_panel": "Run 2 of the descent (breeze/run-1). Deepest floor reached: 1. A new descent starts the same Sections over with a fresh seed."}
+STAIRS cellar-0-1: {'up': [54, 18], 'down': [10, 30]}
+AT UP STAIR: "cellar-0-1" [54, 18]
+WALKED UP FROM DESCENT FLOOR 1 -> {"region": "town", "at": [1, 1], "hp": 6, "text": "To reach floor-1, go north-west."}

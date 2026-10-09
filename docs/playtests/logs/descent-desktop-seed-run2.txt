@@ -1,0 +1,42 @@
+== desk2 viewport=desktop pack=/var/home/agent/worktrees/offload/cottage-of-the-breeze-descent-playtest-20261008-195453-3613/worlds/cottage-of-the-breeze
+DESCENT_ON True
+DESCENT_DOC {"v": 1, "gen": 3, "run": 0, "seed": "breeze", "card": 3, "flags": {}, "floors": {}, "order": []}
+REGIONS_AT_START ['town', 'cottage', 'tavern', 'floor-1', 'floor-2', 'floor-3', 'floor-4', 'floor-5', 'floor-6', 'king-room']
+NEW_DESCENT_ROW[0] {"exists": true, "visible": true, "rowHidden": false, "label": "Descent"}
+NEW_DESCENT_MENU[0] {"exists": true, "visible": true, "label": "Start a new descent", "line": "Run 1 of the descent (breeze). Deepest floor reached: 0. A new descent starts the same Sections over with a fresh seed."}
+NEW_DESCENT_DOC[0] {"v": 1, "gen": 3, "run": 1, "seed": "breeze/run-1", "card": 3, "flags": {}, "floors": {"cellar-0-1": {"g": 3, "h": "00e70f43a5f2", "k": "breeze/run-1/cellar/0/1", "n": 1, "s": "cellar", "kills": [], "chests": [], "drops": [], "secrets": [], "fog": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAfwAAAAAAAAAB/wAAAAAAAAAD/gAAAAAAAAAH/AAAAAAAAAAf/AAAAAAAAAAf8AAAAAAAAAA/4AAAAAAAAAB/wAAAAAAAAAB/AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}}, "order": ["cellar-0-1"]}
+NEW_DESCENT_ROW[1] {"exists": true, "visible": true, "rowHidden": false, "label": "Descent"}
+NEW_DESCENT_MENU[1] {"exists": true, "visible": true, "label": "Start a new descent", "line": "Run 2 of the descent (breeze/run-1). Deepest floor reached: 1. A new descent starts the same Sections over with a fresh seed."}
+NEW_DESCENT_DOC[1] {"v": 1, "gen": 3, "run": 2, "seed": "breeze/run-2", "card": 3, "flags": {}, "floors": {"cellar-0-1": {"g": 3, "h": "00e70f43a5f2", "k": "breeze/run-2/cellar/0/1", "n": 1, "s": "cellar", "kills": [], "chests": [], "drops": [], "secrets": [], "fog": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAP4AAAAAAAAAAH/AAAAAAAAAAB/wAAAAAAAAAAf8AAAAAAAAAAP/gAAAAAAAAAB/wAAAAAAAAAAf8AAAAAAAAAAH/AAAAAAAAAAA/gAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="}}, "order": ["cellar-0-1"]}
+ENTRY_DEF {"region": "town", "at": [1, 1]}
+ENTRY_SKIPPED already inside the generated descent cellar-0-1
+FLOOR depth=0 region=cellar-0-1 size=74x54 walkable=855 legend=['#', '.', 'd', 'u'] enemies=28 foe_ids=['m0', 'm1', 'm10', 'm11', 'm12', 'm13', 'm14', 'm15'] foe_hp=[4, 5] foe_atk=[1, 2] floor_items=0 bag=[] hp=6/6
+STAIRS depth=0 region=cellar-0-1 up=(17, 25) down=(64, 45)
+WALK_TO_DOWN depth=0 region=cellar-0-1 hero=[17, 25] target=(64, 45)
+DESCEND_FAILED depth=0 region=cellar-0-1 RouteError('region routing loop reaching cellar-0-1')
+DEATHS_TOTAL 0
+REGION_CHANGE {"from": "cottage", "to": "cellar-0-1", "hero": [54, 18], "hp": 6, "t": 1791508042460}
+REGION_CHANGE {"from": "cellar-0-1", "to": "town", "hero": [11, 11], "hp": 6, "t": 1791508045993}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 3], "hp": 6, "t": 1791508046163}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046207}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 2], "hp": 6, "t": 1791508046279}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046308}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 2], "hp": 6, "t": 1791508046329}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046359}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 3], "hp": 6, "t": 1791508046405}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046468}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 3], "hp": 6, "t": 1791508046479}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046607}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 2], "hp": 6, "t": 1791508046629}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046707}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 2], "hp": 6, "t": 1791508046730}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046808}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 2], "hp": 6, "t": 1791508046879}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046909}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 2], "hp": 6, "t": 1791508046929}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508046959}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 3], "hp": 6, "t": 1791508047005}
+REGION_CHANGE {"from": "floor-1", "to": "town", "hero": [1, 1], "hp": 6, "t": 1791508047056}
+REGION_CHANGE {"from": "town", "to": "floor-1", "hero": [3, 3], "hp": 6, "t": 1791508047108}
+FINAL {"region": "town", "descent_line": "Run 3 of the descent (breeze/run-2). Deepest floor reached: 0. A new descent starts the same Sections over with a fresh seed."}
+ERRORS []

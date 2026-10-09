@@ -1,0 +1,151 @@
+### phone {'width': 390, 'height': 844} verb row visible: True
+{
+ "viewport": {
+  "w": 390,
+  "h": 844
+ },
+ "boxes": [
+  {
+   "sel": "#verb-row",
+   "x": 237,
+   "y": 504,
+   "w": 141,
+   "h": 144
+  },
+  {
+   "sel": "#interact",
+   "x": 200,
+   "y": 746,
+   "w": 44,
+   "h": 44
+  },
+  {
+   "sel": ".dpad",
+   "x": 8,
+   "y": 700,
+   "w": 136,
+   "h": 136
+  },
+  {
+   "sel": "#toasts",
+   "x": 226,
+   "y": 129,
+   "w": 156,
+   "h": 155
+  },
+  {
+   "sel": ".acts",
+   "x": 156,
+   "y": 746,
+   "w": 226,
+   "h": 90
+  }
+ ],
+ "verbButtons": [
+  {
+   "t": "Strike",
+   "x": 286,
+   "y": 504,
+   "w": 92,
+   "h": 44,
+   "clipped": false
+  },
+  {
+   "t": "Console",
+   "x": 275,
+   "y": 554,
+   "w": 103,
+   "h": 44,
+   "clipped": false
+  },
+  {
+   "t": "Hurl an insult",
+   "x": 237,
+   "y": 604,
+   "w": 141,
+   "h": 44,
+   "clipped": false
+  }
+ ],
+ "interactClipped": {
+  "w": 42,
+  "scrollW": 47,
+  "clipped": true,
+  "label": "Interact F"
+ }
+}
+OVERLAP #verb-row x verb 'Strike' = 4048px2
+OVERLAP #verb-row x verb 'Console' = 4532px2
+OVERLAP #verb-row x verb 'Hurl an insult' = 6204px2
+### desktop {'width': 1280, 'height': 720} verb row visible: True
+{
+ "viewport": {
+  "w": 1280,
+  "h": 720
+ },
+ "boxes": [
+  {
+   "sel": "#verb-row",
+   "x": 16,
+   "y": 660,
+   "w": 349,
+   "h": 44
+  },
+  {
+   "sel": "#interact",
+   "x": 699,
+   "y": 588,
+   "w": 133,
+   "h": 44
+  },
+  {
+   "sel": "#toasts",
+   "x": 220,
+   "y": 136,
+   "w": 210,
+   "h": 135
+  },
+  {
+   "sel": ".acts",
+   "x": 699,
+   "y": 586,
+   "w": 357,
+   "h": 46
+  }
+ ],
+ "verbButtons": [
+  {
+   "t": "Strike",
+   "x": 16,
+   "y": 660,
+   "w": 92,
+   "h": 44,
+   "clipped": false
+  },
+  {
+   "t": "Console",
+   "x": 114,
+   "y": 660,
+   "w": 103,
+   "h": 44,
+   "clipped": false
+  },
+  {
+   "t": "Hurl an insult",
+   "x": 223,
+   "y": 660,
+   "w": 141,
+   "h": 44,
+   "clipped": false
+  }
+ ],
+ "interactClipped": {
+  "w": 131,
+  "scrollW": 131,
+  "clipped": false,
+  "label": "Interact F"
+ }
+}
+OVERLAP #verb-row x verb 'Strike' = 4048px2
+OVERLAP #verb-row x verb 'Console' = 4532px2
+OVERLAP #verb-row x verb 'Hurl an insult' = 6204px2
