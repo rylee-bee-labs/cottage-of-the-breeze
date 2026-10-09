@@ -50,3 +50,13 @@ If runtime or deployment evidence is missing, say **UNKNOWN**.
   descent has no keys or ending until E8 lands (see `NOTES.md` 2026-10-08,
   "one way down"). Verified with VEFR's play kit; log in
   `docs/playtests/2026-10-08-descent-104.md`.
+- **2026-10-08:** the four ids the descent named but the catalog did not
+  (`crown-seal`, `bell-key`, `lantern-key`, `helmet-key`) are settled. The
+  Cellar King — who is in the pack after all, as the generated Section's
+  `warden` on floor 9, not as the deleted `king-room` — now drops a real
+  item, `crown-seal` ("the Cellar King's wax seal"), and the three
+  Keybearer ids are gone with their unspawned families. No dangling item id
+  is left in the pack; `tests/assert_chest_drops.py` and
+  `tests/playthrough/warden_drops.py` check for it (see `NOTES.md`
+  2026-10-08, "the Cellar King drops something real"). The Keybearer
+  ladder itself is still E8's.
