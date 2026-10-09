@@ -1,5 +1,158 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 — the first floor is full, not strong (agent)
+
+The descent asks: make floor 1 survivable for a brand-new hero, under Rylee's
+"Rising" answer — **"gentle near the top, some fights to fear deeper down"** —
+without flattening the curve. This entry answers the first half with numbers
+and changes two lines. **The second half is not done here, and the reason is
+not a tuning judgement: the fix that floor 1 actually needs is an engine gap,
+and this clone had no engine.** Read the "What could not be done" section
+before treating any of this as a finished job.
+
+### The shape of the problem, measured
+
+The play-test logs carry five generated floors. Their monster count against
+their walkable tiles:
+
+| floor | walkable | monsters | density |
+|---|---|---|---|
+| `cellar-0-1` (run-1) | 602 | 20 | 1 per 30.1 |
+| `cellar-0-1` (run-2) | 855 | 28 | 1 per 30.5 |
+| `cellar-0-1` (run-3) | 1065 | 35 | 1 per 30.4 |
+| `cellar-0-2` (run-3) | 781 | 26 | 1 per 30.0 |
+
+Five independent floors, one density to within half a tile: **the descent
+spawns one monster per thirty walkable tiles.** That is not a number the pack
+sets anywhere — it is engine policy derived from floor area, which is what
+finding B3 says.
+
+Now the same measurement on the **authored** cellar, the floors this game was
+actually balanced around, from `logs/authored-route-desktop.txt`:
+
+| floor | walkable | monsters | density |
+|---|---|---|---|
+| `floor-1` | 440 | 6 | 1 per 73.3 |
+| `floor-2` | 592 | 10 | 1 per 59.2 |
+| `floor-3` | 654 | 13 | 1 per 50.3 |
+
+The authored cellar ran at **one monster per fifty to seventy tiles** and the
+play-test bot cleared it green, floor by floor, on both viewports. The
+generated cellar runs **2.4 times denser**. So the anomaly is not that the
+monsters got stronger — the cellar's monsters are the softest in the descent
+(4–5 hp, 1–2 attack, and two thirds of the pool is `cellar-rat` and
+`nest-of-moths` at 4 hp / 1 attack) — **the anomaly is how many of them there
+are.**
+
+The sharpest single number in the logs is the one careful run:
+`FLOOR depth=0 … hp=6/6` then, after crossing **one** floor, `FLOOR depth=1 …
+hp=1/6`. Five of six hit points spent on floor 1, and 35 monsters still
+standing behind the hero. A hero with a six-point damage budget and no healing
+item anywhere on the floor cannot survive 35 encounters. That is arithmetic,
+not opinion.
+
+**So: count, not hit points, not attack.** Which is inconvenient, because
+count is the one thing the pack cannot reach.
+
+### What changed
+
+Two lines, both in keys the play-time descent really reads (`id`, `floors`,
+`size`, `rooms`, `fog`, `families`, `pattern` — the seven from the Sections
+entry above; nothing was set on `depth`, `curve`, `loot.tier` or a new `mobs`
+key, because the first is inert at play time (vefr#351) and the other three
+are not read either. A setting the engine never reads would look exactly like
+a successful fix, so none were written).
+
+- **`world.json` — `player.hp` 6 → 10.** The hero now takes 10 hits from the
+  common cellar rat (1 attack) or 5 from a cellar spider (2 attack), instead
+  of 6 and 3. `atk` stays at 2, and that is deliberate: at 3 attack a 4 hp rat
+  still takes two swings, so the raise buys nothing against the 77% majority
+  of the pool while making the emberhall bottom measurably easier — the wrong
+  direction for a "rising" curve.
+- **`sections/cellar.json` — family weights 5/3/2/2 → 6/4/1/1.** The cellar's
+  two gentle families carry more of the floor; the two 5 hp families are rarer,
+  and with them the cellar's only `atk 2` monster. The floor's expected damage
+  goes from 1.17 to **1.00** and its expected hp from 4.33 to **4.17**.
+
+### The curve still rises
+
+Measured the same way for every section (family weights × Blueprint stats,
+`extends` resolved):
+
+| Section | hp avg | max atk on a floor | fog | before → after |
+|---|---|---|---|---|
+| cellar | **4.17** | 2 | 5 | 4.33 → 4.17 |
+| rootworks | 6.88 | 3 | 6 | unchanged |
+| siltworks | 9.06 | 3 | 4 | unchanged |
+| emberhall | 10.88 | 4 | 3 | unchanged |
+
+Monotone on every measure, and the bottom is untouched: a hollow cricket is
+still 11 hp at 4 attack and still kills the hero in **three** hits while
+needing six swings to kill. Only the top moved, which is what "gentle near the
+top" asks for.
+
+### What could not be done, and why
+
+**The engine was not in this clone, so none of this was played.** There is no
+`vefr` checkout, no `uv`, no `norns`, no browser, and no network credential to
+fetch one. That means `norns validate`, `vefr check`, `vefr normalize` and the
+three-seed walk **were not run**. The numbers above are arithmetic over the
+Blueprint and the play-test logs, not a recorded walk. **Floor 1 is not proven
+survivable, and nothing here should be described as if it were.** CI will run
+the validators on the pull request; the walk is still owed and is listed as the
+next step below.
+
+**The count cannot be fixed from the pack as the engine stands, and this is
+the real finding.** Count comes from area at one per thirty tiles, and area
+comes from `size` and `rooms`. Those are the only keys that reach it. Cutting
+them to bring floor 1 near the authored cellar's six monsters means redrawing
+every cellar floor — and two floor-1 books are placed at fixed tiles
+(`a-scrap-in-the-dust` at `[27,36]`, the letter chest `a-letter-in-a-chest` at
+`[23,34]`), coordinates that were flood-verified against **the current**
+layout. Shrinking the floors would put them in walls or out of bounds, which is
+the exact silent failure the "six orphaned books" entry above was written about:
+a book naming a region or tile that does not resolve simply cannot be found,
+and neither validator flags it. Trading "the hero dies on floor 1" for "floor 1
+has nothing in it" is a loss, not a fix. **So the geometry was left alone, and
+that is the one lever big enough to work is the one lever not taken.**
+
+Two smaller things for whoever has the engine:
+
+- **A `mobs` (or density) key the descent actually reads would close this in
+  one line.** `shapes.SECTION` would validate it; the descent would have to
+  read it. Until then the count is the coin-flip B3 describes and no Section
+  file can stop it.
+- **A heal on floor 1 was the obvious second lever and was left out on
+  purpose.** `library/a-letter-in-a-chest.md` already carries `chest: yes` and
+  `drops: brass-ring` on floor 1, and adding `cloudy-potion` would have been a
+  front-matter-only edit. But the front matter here is `drops: <comma list>`
+  and the engine's own list syntax could not be checked without it — if it
+  wants a YAML list, the id parses as one string and the chest opens **empty**,
+  which is the vault-chest bug from the entry below, one floor up.
+  `tests/assert_chest_drops.py` parses the comma form, so it would have gone
+  green and proved nothing. **Left out deliberately**, not forgotten.
+
+**The Blueprint was not touched, on purpose.** Editing `blueprint.json` at all
+changes its `source_sha256`, which `blueprint.lock.json` records; that hash is
+not reproducible outside the normalizer (it is not the file's bytes, nor any
+`json.dumps` form of it — checked), so any Blueprint edit here would have left
+the lock stale and CI red with no way to refresh it. The family *weights* live
+in the Section file, which is outside the lock, so the change above was made
+where it can be made honestly.
+
+### Not boring
+
+The cellar keeps all four of its creatures — nothing was deleted, only
+reweighted — and floor 1 still carries two found objects, the scrap and the
+letter chest with its brass ring (+1 attack, a real first-floore keepsake). No
+reflexes and nothing to memorize is untouched: nothing about the change asks
+the player to react faster or remember anything.
+
+**Evidence.** `sections/cellar.json:11-14`, `world.json:76`; play-test logs
+`docs/playtests/logs/descent-desktop-seed-run{1,2,3-sneak}.txt`,
+`docs/playtests/logs/authored-route-desktop.txt`; the Sections entry above for
+the seven read keys. **Not proven:** any walk.
+
 ## 2026-10-08 — the drop check runs on every change now (agent)
 
 **The gate exists.** `.github/workflows/validate-pack.yml` gains one step,
