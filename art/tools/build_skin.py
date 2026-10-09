@@ -66,8 +66,9 @@ SKIN_NAME = "skin.json"           # the manifest this tool owns, written last
 BACKDROP_OUT = "backdrop.webp"    # the one output the table makes lossy
 
 # The geometry table: (source name, output name, kind, (width, height), slice,
-# fill texture). kind is "box", "strip", "copy" or "backdrop"; only a box has a
-# slice, only the panel and the slot fill their inside from a texture, and only
+# fill texture). kind is "box", "strip", "copy" or "backdrop"; only a box is
+# rebuilt (a strip is scaled, a copy is already the finished picture), only the
+# panel fills its inside from a texture, and only
 # a backdrop row may go missing without stopping the build. skin.json's slices
 # are read from here, so the JSON and the pictures cannot disagree.
 PICTURES = (
@@ -85,9 +86,17 @@ PICTURES = (
     ("bar-frame.webp", "bar-frame.webp", "box", (192, 32), 10, ""),
     ("bar-fill.webp", "bar-fill.webp", "strip", (176, 20), 0, ""),
     ("gold-plate.webp", "gold-plate.webp", "box", (96, 32), 10, ""),
-    ("slot.webp", "slot.webp", "box", (64, 64), 16, "parchment.png"),
     ("divider.webp", "divider.webp", "strip", (192, 16), 0, ""),
-    ("banner.webp", "banner.webp", "strip", (192, 48), 0, ""),
+    # The banner and the slot are the two parts the player lays across a box
+    # of no fixed shape (`plate()`, not a nine-slice), so what ships is not the
+    # framed ornament but the soft parchment field inside its frame - see
+    # make_plate_field.py, and the framed cuts kept beside these as
+    # banner-v3.webp and slot-v3.webp. They are copied rather than rebuilt
+    # because they are already the exact picture that was looked at in play.
+    # The slice each one used to carry stays in the table so skin.json keeps
+    # the shape it has always shipped.
+    ("banner-field.webp", "banner.webp", "copy", (0, 0), 0, ""),
+    ("slot-field.webp", "slot.webp", "copy", (0, 0), 16, ""),
     ("corner.webp", "corner.webp", "strip", (48, 48), 0, ""),
     ("cursor.webp", "cursor.webp", "strip", (32, 32), 0, ""),
     ("parchment.png", "parchment.png", "copy", (0, 0), 0, ""),

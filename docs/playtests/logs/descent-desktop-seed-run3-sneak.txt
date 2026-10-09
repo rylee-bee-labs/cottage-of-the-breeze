@@ -1,0 +1,32 @@
+== desktop-sneak3 viewport=desktop pack=/var/home/agent/worktrees/offload/cottage-of-the-breeze-descent-playtest-20261008-195453-3613/worlds/cottage-of-the-breeze
+DESCENT_ON True
+DESCENT_DOC {"v": 1, "gen": 3, "run": 0, "seed": "breeze", "card": 3, "flags": {}, "floors": {}, "order": []}
+REGIONS_AT_START ['town', 'cottage', 'tavern', 'floor-1', 'floor-2', 'floor-3', 'floor-4', 'floor-5', 'floor-6', 'king-room']
+NEW_DESCENT_ROW[0] {"exists": true, "visible": true, "rowHidden": false, "label": "Descent"}
+NEW_DESCENT_MENU[0] {"exists": true, "visible": true, "label": "Start a new descent", "line": "Run 1 of the descent (breeze). Deepest floor reached: 0. A new descent starts the same Sections over with a fresh seed."}
+NEW_DESCENT_DOC[0] {"v": 1, "gen": 3, "run": 1, "seed": "breeze/run-1", "card": 3, "flags": {}, "floors": {"cellar-0-1": {"g": 3, "h": "00e70f43a5f2", "k": "breeze/run-1/cellar/0/1", "n": 1, "s": "cellar", "kills": [], "chests": [], "drops": [], "secrets": [], "fog": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAfwAAAAAAAAAB/wAAAAAAAAAD/gAAAAAAAAAH/AAAAAAAAAAf/AAAAAAAAAAf8AAAAAAAAAA/4AAAAAAAAAB/wAAAAAAAAAB/AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"}}, "order": ["cellar-0-1"]}
+NEW_DESCENT_ROW[1] {"exists": true, "visible": true, "rowHidden": false, "label": "Descent"}
+NEW_DESCENT_MENU[1] {"exists": true, "visible": true, "label": "Start a new descent", "line": "Run 2 of the descent (breeze/run-1). Deepest floor reached: 1. A new descent starts the same Sections over with a fresh seed."}
+NEW_DESCENT_DOC[1] {"v": 1, "gen": 3, "run": 2, "seed": "breeze/run-2", "card": 3, "flags": {}, "floors": {"cellar-0-1": {"g": 3, "h": "00e70f43a5f2", "k": "breeze/run-2/cellar/0/1", "n": 1, "s": "cellar", "kills": [], "chests": [], "drops": [], "secrets": [], "fog": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAP4AAAAAAAAAAH/AAAAAAAAAAB/wAAAAAAAAAAf8AAAAAAAAAAP/gAAAAAAAAAB/wAAAAAAAAAAf8AAAAAAAAAAH/AAAAAAAAAAA/gAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="}}, "order": ["cellar-0-1"]}
+NEW_DESCENT_ROW[2] {"exists": true, "visible": true, "rowHidden": false, "label": "Descent"}
+NEW_DESCENT_MENU[2] {"exists": true, "visible": true, "label": "Start a new descent", "line": "Run 3 of the descent (breeze/run-2). Deepest floor reached: 1. A new descent starts the same Sections over with a fresh seed."}
+NEW_DESCENT_DOC[2] {"v": 1, "gen": 3, "run": 3, "seed": "breeze/run-3", "card": 3, "flags": {}, "floors": {"cellar-0-1": {"g": 3, "h": "00e70f43a5f2", "k": "breeze/run-3/cellar/0/1", "n": 1, "s": "cellar", "kills": [], "chests": [], "drops": [], "secrets": [], "fog": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAD+AAAAAAAAAAD/gAAAAAAAAAB/wAAAAAAAAAA/4AAAAAAAAAA/+AAAAAAAAAAP+AAAAAAAAAAH/AAAAAAAAAAD/gAAAAAAAAAA/gAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="}}, "order": ["cellar-0-1"]}
+ENTRY_DEF {"region": "town", "at": [1, 1]}
+ENTRY_SKIPPED already inside the generated descent cellar-0-1
+FLOOR depth=0 region=cellar-0-1 size=73x55 walkable=1065 legend=['#', '.', 'd', 'u'] enemies=35 foe_ids=['m0', 'm1', 'm10', 'm11', 'm12', 'm13', 'm14', 'm15'] foe_hp=[4, 5] foe_atk=[1, 2] floor_items=0 bag=[] hp=6/6
+STAIRS depth=0 region=cellar-0-1 up=(21, 32) down=(64, 40)
+WALK_TO_DOWN depth=0 region=cellar-0-1 hero=[21, 32] target=(64, 40)
+SNEAK_TO_DOWN depth=0 region=cellar-0-1 result=arrived
+AT_DOWN depth=0 region=cellar-0-1 hero=[64, 40] text='You hit a cellar rat for 2. a cellar rat falls.'
+DESCENDED depth=0 from=cellar-0-1 at=(64, 40) to=cellar-0-2 text='You hit a cellar rat for 2. a cellar rat falls.'
+FLOOR depth=1 region=cellar-0-2 size=73x54 walkable=781 legend=['#', '.', 'd', 'u'] enemies=26 foe_ids=['m0', 'm1', 'm10', 'm11', 'm12', 'm13', 'm14', 'm15'] foe_hp=[4, 5] foe_atk=[1, 2] floor_items=0 bag=[] hp=1/6
+STAIRS depth=1 region=cellar-0-2 up=(70, 8) down=(18, 22)
+WALK_TO_DOWN depth=1 region=cellar-0-2 hero=[70, 8] target=(18, 22)
+SNEAK_TO_DOWN depth=1 region=cellar-0-2 result=left
+DESCEND_FAILED depth=1 region=cellar-0-2 could not reach the stair (left)
+DEATHS_TOTAL 0
+REGION_CHANGE {"from": "cottage", "to": "cellar-0-1", "hero": [54, 18], "hp": 6, "t": 1791507753788}
+REGION_CHANGE {"from": "cellar-0-1", "to": "cellar-0-2", "hero": [70, 8], "hp": 1, "t": 1791507759038}
+REGION_CHANGE {"from": "cellar-0-2", "to": "town", "hero": [11, 11], "hp": 6, "t": 1791507761260}
+FINAL {"region": "town", "descent_line": "Run 4 of the descent (breeze/run-3). Deepest floor reached: 0. A new descent starts the same Sections over with a fresh seed."}
+ERRORS []

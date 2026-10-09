@@ -1,0 +1,18 @@
+# Cottage pack validation against VEFR main
+
+Date: 2026-10-08
+VEFR: main @ 122b48066cc1ebd111d6d2e234e655901f3798a9
+Pack: worlds/cottage-of-the-breeze (commit c1b645a10862072253c726bd7a8cfd7d6e327ece)
+
+Command:
+PACK="$PWD/worlds/cottage-of-the-breeze"; cd ~/code/Rylee-Bee/vefr && uv run norns validate --pack "$PACK" && uv run vefr check --pack "$PACK"
+
+Output (stdout and stderr, verbatim and untrimmed; the first ok line is
+`norns validate`, the second is `vefr check`. The uv environment was already
+built when this capture was taken, so the one-time dependency resolution lines
+of a first run do not appear):
+
+ok: /var/home/agent/worktrees/offload/cottage-of-the-breeze-vefr-main-validation-20261008-195452-1561/worlds/cottage-of-the-breeze - geometry, reachability, voices all pass
+ok: /var/home/agent/worktrees/offload/cottage-of-the-breeze-vefr-main-validation-20261008-195452-1561/worlds/cottage-of-the-breeze - geometry, reachability, voices all pass
+
+Exit status: 0

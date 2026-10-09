@@ -1,0 +1,24 @@
+{
+  "section": 4,
+  "id": "emberhall",
+  "floors": 9,
+  "size": {"w": [56, 70], "h": [40, 48]},
+  "rooms": [9, 14],
+  "tiles": {"#": "dungeon-wall", ".": "ember-flagstone", "u": "dungeon-stairs-up",
+            "d": "dungeon-stairs-down"},
+  "fog": {"radius": 5},
+  "families": [
+    {"family": "hollow-shade", "weight": 4, "depth": [1, 9]},
+    {"family": "howling-rustle", "weight": 3, "depth": [1, 9]},
+    {"family": "hollow-cricket", "weight": 3, "depth": [1, 9]},
+    {"family": "cobweb-wraith", "weight": 3, "depth": [1, 9]},
+    {"family": "barrel-mimic", "weight": 3, "depth": [1, 9]}
+  ],
+  "pattern": ["entry", "special", "n", "n", "landing", "n", "special", "n",
+              "warden"],
+  "specials": ["treasure", "infested", "hub"],
+  "curve": {"hp": [1.2, 1.75], "atk": [1.2, 1.6]},
+  "loot": {"tier": 4},
+  "pois": ["the banked fire", "a chair nobody sat in", "the sealed lintel"],
+  "warden": "ember-warden"
+}

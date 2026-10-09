@@ -1,8 +1,8 @@
 ---
 title: A Coin, Face Down
 found: map
-at: [3, 10]
-region: floor-1
+place: near-up
+region: cellar-0-3
 kind: note
 ---
 A single coin, set face-down on the stone. Deliberate, not dropped.

@@ -1,5 +1,5 @@
 {
-  "blueprint": 1,
+  "blueprint": 2,
   "families": {
     "nest-of-moths": {
       "defaults": {
@@ -101,9 +101,6 @@
         "hp": 16,
         "atk": 2,
         "xp": 20,
-        "drops": [
-          "bell-key"
-        ],
         "sight": 0
       }
     },
@@ -115,9 +112,6 @@
         "hp": 22,
         "atk": 3,
         "xp": 30,
-        "drops": [
-          "lantern-key"
-        ],
         "sight": 0
       }
     },
@@ -129,9 +123,6 @@
         "hp": 28,
         "atk": 3,
         "xp": 40,
-        "drops": [
-          "helmet-key"
-        ],
         "sight": 0
       }
     },
@@ -228,641 +219,85 @@
         "atk": 2,
         "xp": 10
       }
+    },
+    "rootwatcher": {
+      "extends": "root-tangle",
+      "defaults": {
+        "name": "a rootwatcher",
+        "sprite": "root-tangle",
+        "hp": 13,
+        "atk": 3,
+        "xp": 13
+      }
+    },
+    "mire-toad": {
+      "extends": "flowerpot-toad",
+      "defaults": {
+        "name": "a mire toad",
+        "sprite": "toad",
+        "hp": 8,
+        "atk": 2,
+        "xp": 5,
+        "drops": [
+          "cloudy-potion"
+        ]
+      }
+    },
+    "hollow-cricket": {
+      "extends": "cave-cricket",
+      "defaults": {
+        "name": "a hollow cricket",
+        "sprite": "cave-cricket",
+        "hp": 11,
+        "atk": 4,
+        "xp": 13
+      }
+    },
+    "silt-warden": {
+      "extends": "barrel-mimic",
+      "defaults": {
+        "name": "the Silt Warden, a vast slow thing",
+        "sprite": "barrel-mimic",
+        "hp": 26,
+        "atk": 3,
+        "xp": 45,
+        "drops": [
+          "cloudy-potion"
+        ],
+        "sight": 0
+      }
+    },
+    "ember-warden": {
+      "extends": "hollow-shade",
+      "defaults": {
+        "name": "the Ember Warden",
+        "sprite": "hollow-shade",
+        "hp": 32,
+        "atk": 4,
+        "xp": 70,
+        "drops": [
+          "cloudy-potion"
+        ],
+        "sight": 0
+      }
+    },
+    "root-warden": {
+      "extends": "hollow-shade",
+      "defaults": {
+        "name": "the Root Warden",
+        "sprite": "root-tangle",
+        "hp": 18,
+        "atk": 2,
+        "xp": 26,
+        "sight": 0
+      }
     }
   },
-  "regions": {
-    "act-1/floor-1": {
-      "enemies": [
-        {
-          "id": "floor-1-rat",
-          "family": "cellar-rat",
-          "at": [
-            1,
-            10
-          ],
-          "properties": {
-            "drops": [
-              "cloudy-potion"
-            ]
-          }
-        },
-        {
-          "id": "floor-1-rat-1",
-          "family": "cellar-rat",
-          "at": [
-            10,
-            11
-          ]
-        },
-        {
-          "id": "floor-1-rat-2",
-          "family": "flowerpot-toad",
-          "at": [
-            19,
-            3
-          ]
-        },
-        {
-          "id": "floor-1-rat-3",
-          "family": "wick-sprite",
-          "at": [
-            21,
-            9
-          ]
-        },
-        {
-          "id": "floor-1-fat-1",
-          "family": "fat-cellar-rat",
-          "at": [
-            27,
-            5
-          ]
-        },
-        {
-          "id": "floor-1-moths-1",
-          "family": "nest-of-moths-3hp",
-          "at": [
-            8,
-            8
-          ]
-        }
-      ]
-    },
-    "act-1/floor-2": {
-      "enemies": [
-        {
-          "id": "floor-2-shade",
-          "family": "damp-shade",
-          "at": [
-            32,
-            14
-          ],
-          "properties": {
-            "drops": [
-              "brass-ring"
-            ]
-          }
-        },
-        {
-          "id": "floor-2-moths",
-          "family": "nest-of-moths-3hp",
-          "at": [
-            27,
-            23
-          ]
-        },
-        {
-          "id": "floor-2-rat-1",
-          "family": "cellar-spider",
-          "at": [
-            32,
-            28
-          ]
-        },
-        {
-          "id": "floor-2-rat-2",
-          "family": "flowerpot-toad",
-          "at": [
-            31,
-            8
-          ]
-        },
-        {
-          "id": "floor-2-moths-1",
-          "family": "nest-of-moths-3hp",
-          "at": [
-            45,
-            17
-          ]
-        },
-        {
-          "id": "floor-2-moths-2",
-          "family": "wick-sprite",
-          "at": [
-            20,
-            26
-          ],
-          "properties": {
-            "drops": [
-              "thread-bell"
-            ]
-          }
-        },
-        {
-          "id": "floor-2-shade-1",
-          "family": "crock-mimic",
-          "at": [
-            28,
-            19
-          ]
-        },
-        {
-          "id": "floor-2-shade-2",
-          "family": "damp-shade",
-          "at": [
-            34,
-            18
-          ]
-        },
-        {
-          "id": "floor-2-fat-1",
-          "family": "fat-cellar-rat",
-          "at": [
-            39,
-            29
-          ]
-        },
-        {
-          "id": "floor-2-rust-1",
-          "family": "rustle",
-          "at": [
-            12,
-            27
-          ]
-        }
-      ]
-    },
-    "act-1/floor-3": {
-      "enemies": [
-        {
-          "id": "floor-3-rustle",
-          "family": "rustle",
-          "at": [
-            36,
-            10
-          ]
-        },
-        {
-          "id": "floor-3-rat2",
-          "family": "cellar-spider",
-          "at": [
-            43,
-            20
-          ]
-        },
-        {
-          "id": "floor-3-shade-1",
-          "family": "damp-shade",
-          "at": [
-            6,
-            27
-          ]
-        },
-        {
-          "id": "floor-3-shade-2",
-          "family": "crock-mimic",
-          "at": [
-            26,
-            24
-          ]
-        },
-        {
-          "id": "floor-3-shade-3",
-          "family": "damp-shade",
-          "at": [
-            38,
-            21
-          ]
-        },
-        {
-          "id": "floor-3-deep-1",
-          "family": "deep-shade",
-          "at": [
-            42,
-            8
-          ]
-        },
-        {
-          "id": "floor-3-deep-2",
-          "family": "deep-shade",
-          "at": [
-            26,
-            9
-          ]
-        },
-        {
-          "id": "floor-3-loud-1",
-          "family": "loud-rustle",
-          "at": [
-            31,
-            21
-          ]
-        },
-        {
-          "id": "floor-3-loud-2",
-          "family": "loud-rustle",
-          "at": [
-            3,
-            10
-          ]
-        },
-        {
-          "id": "floor-3-moths-1",
-          "family": "nest-of-moths-3hp",
-          "at": [
-            19,
-            8
-          ]
-        },
-        {
-          "id": "floor-3-moths-2",
-          "family": "wick-sprite",
-          "at": [
-            27,
-            14
-          ]
-        },
-        {
-          "id": "floor-3-fat-1",
-          "family": "fat-cellar-rat",
-          "at": [
-            5,
-            7
-          ]
-        },
-        {
-          "id": "floor-3-keybearer",
-          "family": "keybearer-moth",
-          "at": [
-            6,
-            6
-          ]
-        }
-      ]
-    },
-    "act-1/floor-4": {
-      "enemies": [
-        {
-          "id": "floor-4-fat-1",
-          "family": "fat-cellar-rat",
-          "at": [
-            14,
-            29
-          ]
-        },
-        {
-          "id": "floor-4-fat-2",
-          "family": "fat-cellar-rat",
-          "at": [
-            16,
-            18
-          ]
-        },
-        {
-          "id": "floor-4-deep-1",
-          "family": "deep-shade",
-          "at": [
-            40,
-            6
-          ]
-        },
-        {
-          "id": "floor-4-deep-2",
-          "family": "deep-shade",
-          "at": [
-            38,
-            9
-          ]
-        },
-        {
-          "id": "floor-4-deep-3",
-          "family": "cobweb-wraith",
-          "at": [
-            35,
-            4
-          ],
-          "properties": {
-            "drops": [
-              "quilted-coat"
-            ]
-          }
-        },
-        {
-          "id": "floor-4-loud-1",
-          "family": "loud-rustle",
-          "at": [
-            42,
-            29
-          ]
-        },
-        {
-          "id": "floor-4-loud-2",
-          "family": "root-tangle",
-          "at": [
-            18,
-            10
-          ]
-        },
-        {
-          "id": "floor-4-moths-1",
-          "family": "nest-of-moths",
-          "at": [
-            39,
-            22
-          ]
-        },
-        {
-          "id": "floor-4-moths-2",
-          "family": "nest-of-moths",
-          "at": [
-            5,
-            4
-          ]
-        },
-        {
-          "id": "floor-4-shade-1",
-          "family": "damp-shade",
-          "at": [
-            12,
-            19
-          ]
-        },
-        {
-          "id": "floor-4-shade-2",
-          "family": "damp-shade",
-          "at": [
-            42,
-            24
-          ]
-        },
-        {
-          "id": "floor-4-rust-1",
-          "family": "cave-cricket",
-          "at": [
-            10,
-            28
-          ]
-        },
-        {
-          "id": "floor-4-keybearer",
-          "family": "keybearer-mushroom",
-          "at": [
-            2,
-            2
-          ]
-        }
-      ]
-    },
-    "act-1/floor-5": {
-      "enemies": [
-        {
-          "id": "floor-5-deep-1",
-          "family": "deep-shade",
-          "at": [
-            24,
-            8
-          ]
-        },
-        {
-          "id": "floor-5-deep-2",
-          "family": "cobweb-wraith",
-          "at": [
-            35,
-            28
-          ]
-        },
-        {
-          "id": "floor-5-deep-3",
-          "family": "cobweb-wraith",
-          "at": [
-            21,
-            29
-          ]
-        },
-        {
-          "id": "floor-5-deep-4",
-          "family": "deep-shade",
-          "at": [
-            33,
-            15
-          ]
-        },
-        {
-          "id": "floor-5-loud-1",
-          "family": "barrel-mimic",
-          "at": [
-            2,
-            27
-          ],
-          "properties": {
-            "drops": [
-              "copper-ladle"
-            ]
-          }
-        },
-        {
-          "id": "floor-5-loud-2",
-          "family": "root-tangle",
-          "at": [
-            21,
-            6
-          ]
-        },
-        {
-          "id": "floor-5-howl-1",
-          "family": "howling-rustle",
-          "at": [
-            32,
-            25
-          ]
-        },
-        {
-          "id": "floor-5-howl-2",
-          "family": "howling-rustle",
-          "at": [
-            37,
-            17
-          ]
-        },
-        {
-          "id": "floor-5-moths-1",
-          "family": "cave-cricket",
-          "at": [
-            7,
-            17
-          ]
-        },
-        {
-          "id": "floor-5-moths-2",
-          "family": "nest-of-moths",
-          "at": [
-            23,
-            26
-          ]
-        },
-        {
-          "id": "floor-5-moths-3",
-          "family": "nest-of-moths",
-          "at": [
-            39,
-            14
-          ]
-        },
-        {
-          "id": "floor-5-fat-1",
-          "family": "fat-cellar-rat",
-          "at": [
-            5,
-            24
-          ]
-        },
-        {
-          "id": "floor-5-fat-2",
-          "family": "fat-cellar-rat",
-          "at": [
-            43,
-            27
-          ]
-        },
-        {
-          "id": "floor-5-shade-1",
-          "family": "damp-shade",
-          "at": [
-            29,
-            28
-          ]
-        },
-        {
-          "id": "floor-5-keybearer",
-          "family": "keybearer-beetle",
-          "at": [
-            1,
-            29
-          ]
-        }
-      ]
-    },
-    "act-1/floor-6": {
-      "enemies": [
-        {
-          "id": "floor-6-deep-1",
-          "family": "deep-shade",
-          "at": [
-            43,
-            22
-          ]
-        },
-        {
-          "id": "floor-6-deep-2",
-          "family": "cobweb-wraith",
-          "at": [
-            39,
-            9
-          ]
-        },
-        {
-          "id": "floor-6-deep-3",
-          "family": "cobweb-wraith",
-          "at": [
-            35,
-            23
-          ]
-        },
-        {
-          "id": "floor-6-hollow-1",
-          "family": "hollow-shade",
-          "at": [
-            5,
-            15
-          ]
-        },
-        {
-          "id": "floor-6-hollow-2",
-          "family": "barrel-mimic",
-          "at": [
-            34,
-            14
-          ]
-        },
-        {
-          "id": "floor-6-howl-1",
-          "family": "howling-rustle",
-          "at": [
-            14,
-            10
-          ]
-        },
-        {
-          "id": "floor-6-howl-2",
-          "family": "howling-rustle",
-          "at": [
-            15,
-            2
-          ]
-        },
-        {
-          "id": "floor-6-howl-3",
-          "family": "howling-rustle",
-          "at": [
-            43,
-            10
-          ]
-        },
-        {
-          "id": "floor-6-loud-1",
-          "family": "root-tangle",
-          "at": [
-            16,
-            18
-          ]
-        },
-        {
-          "id": "floor-6-loud-2",
-          "family": "cave-cricket",
-          "at": [
-            11,
-            3
-          ]
-        },
-        {
-          "id": "floor-6-moths-1",
-          "family": "nest-of-moths",
-          "at": [
-            38,
-            21
-          ]
-        },
-        {
-          "id": "floor-6-moths-2",
-          "family": "nest-of-moths",
-          "at": [
-            26,
-            22
-          ]
-        },
-        {
-          "id": "floor-6-moths-3",
-          "family": "nest-of-moths",
-          "at": [
-            18,
-            9
-          ]
-        },
-        {
-          "id": "floor-6-fat-1",
-          "family": "fat-cellar-rat",
-          "at": [
-            34,
-            19
-          ]
-        },
-        {
-          "id": "floor-6-fat-2",
-          "family": "fat-cellar-rat",
-          "at": [
-            2,
-            13
-          ]
-        },
-        {
-          "id": "floor-6-cellar-king",
-          "family": "cellar-king",
-          "at": [
-            26,
-            3
-          ]
-        }
-      ]
-    }
-  }
+  "regions": {},
+  "things": [
+    {"id": "cellar-gems", "name": "a handful of cellar gems",
+     "sprite": "gems", "value": 120},
+    {"id": "crown-seal", "name": "the Cellar King's wax seal",
+     "sprite": "seal-crown", "value": 150}
+  ]
 }

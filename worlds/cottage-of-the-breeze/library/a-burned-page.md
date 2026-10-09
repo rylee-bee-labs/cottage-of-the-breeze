@@ -1,8 +1,8 @@
 ---
 title: A Burned Page
 found: map
-at: [12, 10]
-region: floor-1
+at: [5, 8]
+region: town
 kind: note
 ---
 Half a page, scorched at the edge. It still smells of smoke.

@@ -73,7 +73,7 @@
       "quilted-coat": "sprites/quilted-coat.png",
       "thread-bell": "sprites/thread-bell.png"
     },
-    "hp": 6,
+    "hp": 10,
     "atk": 2,
     "wake": {
       "region": "town",
@@ -120,31 +120,6 @@
       "mods": {
         "atk": 1
       }
-    },
-    "bell-key": {
-      "name": "a bell key",
-      "sprite": "key-bell",
-      "keep": true
-    },
-    "lantern-key": {
-      "name": "a lantern key",
-      "sprite": "key-lantern",
-      "keep": true
-    },
-    "helmet-key": {
-      "name": "a helmet key",
-      "sprite": "key-helmet",
-      "keep": true
-    },
-    "crown-seal": {
-      "name": "the crown seal",
-      "sprite": "seal-crown",
-      "keep": true
-    },
-    "cellar-gems": {
-      "name": "a handful of cellar gems",
-      "sprite": "gems",
-      "value": 120
     },
     "hearth-poker": {
       "name": "a hearth shovel",
@@ -205,6 +180,16 @@
       "mods": {
         "hp": 2
       }
+    },
+    "cellar-gems": {
+      "name": "a handful of cellar gems",
+      "sprite": "gems",
+      "value": 120
+    },
+    "crown-seal": {
+      "name": "the Cellar King's wax seal",
+      "sprite": "seal-crown",
+      "value": 150
     }
   },
   "flags": {
@@ -285,85 +270,6 @@
       "then": [
         {
           "say": "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the town's top left corner."
-        },
-        {
-          "point-to": "floor-1"
-        }
-      ],
-      "once": true
-    },
-    {
-      "id": "tutorial-first-floor",
-      "when": {
-        "enters": {
-          "place": "floor-1"
-        }
-      },
-      "then": [
-        {
-          "say": "Walk into a monster to strike it. Press B for your bag: a cloudy potion heals you."
-        }
-      ],
-      "once": true
-    },
-    {
-      "id": "first-key-bell",
-      "when": {
-        "picks-up": {
-          "what": "bell-key"
-        }
-      },
-      "then": [
-        {
-          "say": "A key. Keys stay in your bag. The stair down from here wants this one."
-        },
-        {
-          "point-to": "floor-3"
-        }
-      ],
-      "once": true
-    },
-    {
-      "id": "first-key-lantern",
-      "when": {
-        "picks-up": {
-          "what": "lantern-key"
-        }
-      },
-      "then": [
-        {
-          "say": "The lantern key. It will not open anything on this floor."
-        }
-      ],
-      "once": true
-    },
-    {
-      "id": "first-key-helmet",
-      "when": {
-        "picks-up": {
-          "what": "helmet-key"
-        }
-      },
-      "then": [
-        {
-          "say": "The helmet key. One more stair to go."
-        }
-      ],
-      "once": true
-    },
-    {
-      "id": "the-seal-taken",
-      "when": {
-        "picks-up": {
-          "what": "crown-seal"
-        }
-      },
-      "then": [
-        {
-          "say": "A crown pressed in red wax. Somewhere on this floor is a door that has been waiting for it."
-        },
-        {
-          "point-to": "king-room"
         }
       ],
       "once": true
@@ -466,190 +372,6 @@
       }
     },
     {
-      "id": "entered-floor-1",
-      "name": "Down to the first floor",
-      "kind": "open",
-      "when": {
-        "enters": {
-          "place": "floor-1"
-        }
-      }
-    },
-    {
-      "id": "entered-floor-2",
-      "name": "Down to the second floor",
-      "kind": "open",
-      "when": {
-        "enters": {
-          "place": "floor-2"
-        }
-      }
-    },
-    {
-      "id": "entered-floor-3",
-      "name": "Down to the third floor",
-      "kind": "open",
-      "when": {
-        "enters": {
-          "place": "floor-3"
-        }
-      }
-    },
-    {
-      "id": "entered-floor-4",
-      "name": "Down to the fourth floor",
-      "kind": "open",
-      "when": {
-        "enters": {
-          "place": "floor-4"
-        }
-      }
-    },
-    {
-      "id": "entered-floor-5",
-      "name": "Down to the fifth floor",
-      "kind": "open",
-      "when": {
-        "enters": {
-          "place": "floor-5"
-        }
-      }
-    },
-    {
-      "id": "entered-floor-6",
-      "name": "Down to the sixth floor",
-      "kind": "open",
-      "when": {
-        "enters": {
-          "place": "floor-6"
-        }
-      }
-    },
-    {
-      "id": "met-flowerpot-toad",
-      "name": "A flowerpot toad",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-1-rat-2"
-        }
-      }
-    },
-    {
-      "id": "met-wick-sprite",
-      "name": "A wick sprite",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-1-rat-3"
-        }
-      }
-    },
-    {
-      "id": "met-crock-mimic",
-      "name": "A crock mimic",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-2-shade-1"
-        }
-      }
-    },
-    {
-      "id": "met-cellar-spider",
-      "name": "A cobweb-scarfed spider",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-2-rat-1"
-        }
-      }
-    },
-    {
-      "id": "met-cobweb-wraith",
-      "name": "A cobweb wraith",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-4-deep-3"
-        }
-      }
-    },
-    {
-      "id": "met-cave-cricket",
-      "name": "A cave cricket",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-4-rust-1"
-        }
-      }
-    },
-    {
-      "id": "met-root-tangle",
-      "name": "A root tangle",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-4-loud-2"
-        }
-      }
-    },
-    {
-      "id": "met-barrel-mimic",
-      "name": "A barrel mimic",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-5-loud-1"
-        }
-      }
-    },
-    {
-      "id": "keybearer-moth",
-      "name": "Ashwing",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-3-keybearer"
-        }
-      },
-      "shine": "foil"
-    },
-    {
-      "id": "keybearer-mushroom",
-      "name": "Brother Sporeling",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-4-keybearer"
-        }
-      },
-      "shine": "foil"
-    },
-    {
-      "id": "keybearer-beetle",
-      "name": "Sir Hollowhorn",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-5-keybearer"
-        }
-      },
-      "shine": "foil"
-    },
-    {
-      "id": "cellar-king",
-      "name": "The Cellar King",
-      "kind": "open",
-      "when": {
-        "defeats": {
-          "what": "floor-6-cellar-king"
-        }
-      },
-      "shine": "holo"
-    },
-    {
       "id": "the-letter",
       "name": "A letter, folded small",
       "kind": "riddle",
@@ -661,17 +383,6 @@
       "riddle": "Someone kept a promise about cakes."
     },
     {
-      "id": "the-seal",
-      "name": "A crown in red wax",
-      "kind": "riddle",
-      "when": {
-        "picks-up": {
-          "what": "crown-seal"
-        }
-      },
-      "riddle": "A door on the deepest floor has been waiting for a very particular key."
-    },
-    {
       "id": "the-warm-page",
       "name": "The warm page",
       "kind": "riddle",
@@ -681,17 +392,6 @@
         }
       },
       "riddle": "The last note is still a little warm."
-    },
-    {
-      "id": "quiet-room",
-      "name": "A quiet room",
-      "kind": "secret",
-      "when": {
-        "enters": {
-          "place": "king-room"
-        }
-      },
-      "shine": "holo"
     },
     {
       "id": "cat-notices",
@@ -720,7 +420,18 @@
   },
   "descent": {
     "run_seed": "breeze",
-    "entry": {"region": "town", "at": [1, 1]},
-    "sections": ["cellar"]
+    "entry": {
+      "region": "town",
+      "at": [
+        1,
+        1
+      ]
+    },
+    "sections": [
+      "cellar",
+      "rootworks",
+      "siltworks",
+      "emberhall"
+    ]
   }
 }

@@ -1,8 +1,8 @@
 ---
 title: A Candle and a Note
 found: map
-at: [26, 16]
-region: floor-1
+place: near-up
+region: cellar-0-5
 kind: note
 ---
 Someone sat here a long while, and never came back up.

@@ -1,8 +1,8 @@
 ---
 title: A Scrap in the Dust
 found: map
-at: [4, 4]
-region: floor-1
+place: near-up
+region: cellar-0-1
 kind: note
 ---
 A scrap of paper on the floor, older than the stair.
