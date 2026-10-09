@@ -228,6 +228,78 @@
         "atk": 2,
         "xp": 10
       }
+    },
+    "rootwatcher": {
+      "extends": "root-tangle",
+      "defaults": {
+        "name": "a rootwatcher",
+        "sprite": "root-tangle",
+        "hp": 13,
+        "atk": 3,
+        "xp": 13
+      }
+    },
+    "mire-toad": {
+      "extends": "flowerpot-toad",
+      "defaults": {
+        "name": "a mire toad",
+        "sprite": "toad",
+        "hp": 8,
+        "atk": 2,
+        "xp": 5,
+        "drops": [
+          "cloudy-potion"
+        ]
+      }
+    },
+    "hollow-cricket": {
+      "extends": "cave-cricket",
+      "defaults": {
+        "name": "a hollow cricket",
+        "sprite": "cave-cricket",
+        "hp": 9,
+        "atk": 3,
+        "xp": 11
+      }
+    },
+    "silt-warden": {
+      "extends": "barrel-mimic",
+      "defaults": {
+        "name": "the Silt Warden, a vast slow thing",
+        "sprite": "barrel-mimic",
+        "hp": 26,
+        "atk": 3,
+        "xp": 45,
+        "drops": [
+          "cloudy-potion"
+        ],
+        "sight": 0
+      }
+    },
+    "ember-warden": {
+      "extends": "hollow-shade",
+      "defaults": {
+        "name": "the Ember Warden",
+        "sprite": "hollow-shade",
+        "hp": 32,
+        "atk": 4,
+        "xp": 70,
+        "drops": [
+          "cloudy-potion"
+        ],
+        "sight": 0
+      }
+    },
+    "root-warden": {
+      "extends": "hollow-shade",
+      "defaults": {
+        "name": "the Root Warden",
+        "sprite": "root-tangle",
+        "hp": 18,
+        "atk": 2,
+        "xp": 26,
+        "sight": 0
+      }
     }
   },
   "regions": {},

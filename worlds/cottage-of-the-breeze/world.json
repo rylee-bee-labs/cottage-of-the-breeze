@@ -423,7 +423,10 @@
       ]
     },
     "sections": [
-      "cellar"
+      "cellar",
+      "rootworks",
+      "siltworks",
+      "emberhall"
     ]
   }
 }

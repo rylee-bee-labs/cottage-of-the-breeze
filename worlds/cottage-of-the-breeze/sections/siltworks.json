@@ -1,0 +1,26 @@
+{
+  "section": 3,
+  "id": "siltworks",
+  "floors": 9,
+  "size": {"w": [58, 72], "h": [42, 50]},
+  "rooms": [10, 15],
+  "tiles": {"#": "dungeon-wall", ".": "silt-flagstone", "u": "dungeon-stairs-up",
+            "d": "dungeon-stairs-down"},
+  "fog": {"radius": 4},
+  "families": [
+    {"family": "cave-cricket", "weight": 4, "depth": [1, 9]},
+    {"family": "deep-shade", "weight": 3, "depth": [1, 9]},
+    {"family": "cobweb-wraith", "weight": 3, "depth": [2, 9]},
+    {"family": "mire-toad", "weight": 2, "depth": [1, 9]},
+    {"family": "rootwatcher", "weight": 2, "depth": [1, 9]},
+    {"family": "barrel-mimic", "weight": 2, "depth": [4, 9]},
+    {"family": "silt-warden", "weight": 1, "depth": [7, 9]}
+  ],
+  "pattern": ["entry", "n", "special", "n", "landing", "n", "special", "n",
+              "warden"],
+  "specials": ["infested", "treasure"],
+  "curve": {"hp": [1.1, 1.6], "atk": [1.1, 1.45]},
+  "loot": {"tier": 3},
+  "pois": ["the silted well-head", "a drowned lamp", "the leaning marker"],
+  "warden": "silt-warden"
+}
