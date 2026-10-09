@@ -2,7 +2,7 @@
 
 ## 2026-10-08 — the vault chest holds something again (agent)
 
-The entry above ("the six orphaned books") left one thing named as
+The "six orphaned books" entry below left one thing named as
 unfixed: *"The vault chest drops nothing... `a-note-under-the-seal` still
 says `drops: cellar-gems`, and `cellar-gems` is not in the pack's item
 catalog (it went with the authored floors), so the bake drops the id
@@ -70,6 +70,94 @@ generated client-side, so the chest was never opened by a player in this
 session. What is proven is the data and the code path that consumes it
 (`giveChestDrops` in `web/packaged.html` adds each id to the bag), not a
 walk.
+
+## 2026-10-08 — three more Sections under the cellar (agent)
+
+Built against Rylee's picker answers recorded below: mood "Change by section", danger
+"Rising" — "gentle near the top, some fights to fear deeper down" — and what pulls her
+deeper: "What the next floor looks like, A goal ahead, Collections".
+
+- **What is there now.** `sections/rootworks.json`, `sections/siltworks.json` and
+  `sections/emberhall.json`, chained after the cellar in `world.json`'s `descent.sections`
+  so the descent runs `cellar > rootworks > siltworks > emberhall` — 36 floors. `cellar`
+  itself is untouched; it stays gentle.
+  - **rootworks** — the damp ground under the cottage garden; green, close, still lit
+    (fog radius 6, the widest in the chain). Carries root-tangles, flowerpot toads, wick
+    sprites, moths, cave crickets and the new rootwatchers.
+  - **siltworks** — the flooded ground below that, older and colder; fog 4, smaller rooms.
+    Carries deep shades, cobweb wraiths, cave crickets, barrel mimics, rootwatchers and
+    the new mire toads. Its warden is the Silt Warden, named in the Section's `warden`
+    key — see the engine gaps below for why a named warden does not spawn yet.
+  - **emberhall** — the sealed fire the town kept, the bottom of this descent; fog 3, the
+    darkest and smallest rooms. Carries hollow shades, howling rustles, hollow crickets,
+    cobweb wraiths and barrel mimics, and it is the only place a hollow cricket — 11 hp,
+    4 attack — turns up. Its warden is the Ember Warden, named in the `warden` key.
+- **Every name here is an agent draft, not canon.** The three place names, the six new
+  Blueprint families (`rootwatcher`, `mire-toad`, `hollow-cricket`, `silt-warden`,
+  `root-warden`, `ember-warden`) and their monsters' names are all data and all changeable
+  without a rewrite: the Section files name creatures by Blueprint id and carry no text.
+  `STORY.md` is untouched.
+- **Rising danger is done with what is there, not with a knob.** The Section loot tier and
+  `mob_stats`' ramp are written into every Section as the contract asks, but neither is read
+  by the play-time descent yet (see the engine gaps below), so the danger a player actually
+  meets comes from the creatures each Section names and from how big its floors are.
+  Measured over all 36 floors, and it rises on every measure:
+  average mob hp `cellar 4.30 > rootworks 6.78 > siltworks 9.23 > emberhall 10.63`,
+  highest attack on a floor `2 > 3 > 3 > 4`, fog radius `5 / 6 / 4 / 3`.
+- **Six new families went in through the Blueprint** and the lock was refreshed with
+  `vefr normalize --out`; no contract's `enemies` list was hand-edited.
+- **Proven by walking, not by validating.** The real woven player, in VEFR's jsdom play
+  kit, on three run seeds (`breeze`, `breeze/run-1`, `breeze/run-2`): out of the cottage,
+  across the town to `[1,1]`, then down all 36 floors, every floor walked from its up-stair
+  to its down-stair and every stair used. All three runs crossed all three Section
+  boundaries (depth 9→10, 18→19, 27→28) and reached the bottom; the descent then rolled on
+  into cycle 1 (`cellar-1-1`), so the chain is endless as intended.
+
+### What the engine could not do, filed as VEFR issues rather than worked around
+
+- **Half a Section is data the descent does not read yet.** The play-time descent (part
+  397) reads only `id`, `floors`, `size`, `rooms`, `fog`, `families` and `pattern` from a
+  Section. It does **not** read `curve` or `loot.tier` (`mob_stats` is never called, so the
+  depth ramp is written but not applied), the `depth` range on a family entry, the
+  `specials` a `special` slot draws, `tiles`, `warden`, `vault`, `elites`, `groups`,
+  `stamps` or `pois`. All of those are in the files as the contract asks, and all of them
+  take effect the day the engine reads them — but nothing in this pass may be described as
+  working on the strength of them. One consequence caught during the work: a family listed
+  in `families` with `depth: [7, 9]` spawned on **every** floor of its Section, which put
+  thirteen Ember Wardens in one descent. The wardens were moved out of `families` and are
+  named only in the Section's `warden` key, which is how `cellar-king` is already used.
+- **A Section cannot have its own tiles.** `shapes.SECTION` accepts `tiles` and `vefr check`
+  validates it, but nothing reads it: the played floor's legend is the engine's shared
+  `delve.LEGEND`, and its pictures come from `VEFR_REGION_TILES[region] || VEFR_TILES` —
+  so every generated floor in every Section draws the same ground. **No new tile art was
+  made for this pass.** It would have shipped as art nothing draws, which is worse than
+  reusing what exists. Rootworks, siltworks and emberhall currently differ by their
+  creatures, their fog and their floor shape.
+- **The entry stair keeps the previous run's arrival tile.** `startRun` calls
+  `resetRegions`, which drops a transition only when *both* its ends are generated — the
+  town is not — so `town[1,1] -> cellar-0-1` survives with the old run's `to_at` and the
+  hero arrives mid-floor. On a run where the stale tile is a wall, the hero arrives inside
+  one. Found while proving three seeds; the harness re-wires the entry rather than the pack
+  carrying a workaround.
+- **Dying on a generated floor throws you out of the descent.** `cozyDeath` returns the hero
+  to where they woke, and a generated floor is not that, so they land back in town with a
+  full bar and have to walk to `[1,1]` and start again at floor 1.
+
+### Claude's note (agent): what the play-through turned up about balance
+
+Walking the chain with the monsters left in (the proof run above uses VEFR's own
+precedent of a quiet descent, so that the walk tests the chain and not a fight) the hero
+died on floor 2 of the **cellar**, which this change did not touch. The hero starts at 6 hp
+and 2 attack; a cellar spider is 5 hp and 2 attack, so one fight is most of the bar and two
+is the run. The same holds further down: a hollow cricket in emberhall is 11 hp at 4
+attack — two hits kill the 6 hp starting hero, and eleven of its own — while taking
+four a swing. The growth ladder
+(`0, 6, 15, 30, 55, 95, 150, 230` xp for +2 hp and +1 attack) would carry a player who
+clears a floor per fight, so this reads as "the descent is not survivable if you fight
+everything" — which is a tuning call for Rylee, not something to quietly patch. What it
+does mean is that the new Sections were tuned against *measured* numbers rather than
+against a fight, and the first person to walk down there with monsters in the dark should
+say how it feels.
 
 ## 2026-10-08 (later) — the six orphaned books are findable again (agent)
 
