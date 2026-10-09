@@ -1,5 +1,103 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 — the Cellar King drops something real; three dead key names are gone (agent)
+
+The entry below closed the chest and left one line on the record: *"The
+Cellar King still drops `crown-seal`, and the three Keybearer families
+still drop `bell-key`, `lantern-key` and `helmet-key`. None of those
+four ids are in the catalog either... **It should not stay unfixed.**"*
+This is that.
+
+**The defect, confirmed rather than assumed.** Four item ids are named in
+`blueprint.json` and nowhere else in the pack, and none is in
+`world.json`'s `items`. `norns validate` and `vefr check` both print
+`ok:` on that pack — the one-floor-up twin of the chest that shipped
+green. The id is discarded twice and silently: `_drop_ids`
+(`vefr/cli.py:1794`) keeps a drop only when the catalog names it, and
+`placeDrops` (`web/packaged.html`) returns before `floor.push` for an id
+the catalog does not have. Nothing errors; the walk succeeds; the Cellar
+King simply drops nothing.
+
+### The table, and the reason for each line
+
+| id | verdict | what it is now, and why |
+| --- | --- | --- |
+| `crown-seal` | **restored as a real drop** | The Section's `warden` is `cellar-king`, so this one is actually reachable: it is the Cellar King on floor 9, the one thing at the bottom of the descent a player earns. Restored through the Blueprint's `things` list (`vefr normalize` writes `/items/crown-seal`; the lock tracks the pointer), never hand-edited into a contract. The sprite is `seal-crown`, which is the picture the art was **authored** for this exact object — `art/briefs/gaps.md`: *"the Cellar King's seal, a round wax seal pressed with a crown"* — so the name promises only itself and not a door. |
+| `bell-key` | **removed** | Named by `keybearer-moth`. **That family never spawns**: the cellar Section's `families` are `cellar-rat`, `nest-of-moths`, `damp-shade` and `cellar-spider`. Its door was an authored floor cottage#110 deleted. Nothing in `acts/`, `world.json` or `sections/` gates on it (`grep -rn 'requires\|lock'` finds no gate). |
+| `lantern-key` | **removed** | As above, from `keybearer-mushroom` (also never spawned). |
+| `helmet-key` | **removed** | As above, from `keybearer-beetle` (also never spawned). |
+
+**Why three names go rather than three items come back.** Guardians,
+keys and vaults are Rylee's step 4, recorded in her approved order as
+**E8 vaults**, and E8 is not built (filed as vefr#341). `vefr/sections.py`
+says so in as many words: "The warden, the vault and the key that opens
+them are E8's". Restoring three items today would put three keys in a
+bag with no door to spend them on — a name promising more than the game
+delivers — for three mobs that never appear. **The three families keep
+their records, sprites and named characters** (Ashwing, Brother Sporeling,
+Sir Hollowhorn) so E8 can draw on them; only the dangling `drops` line
+is gone.
+
+**What the Cellar King drops now: "the Cellar King's wax seal"**
+(`crown-seal`, sprite `seal-crown`, `value` 150). It follows `cellar-gems`
+(`value` 120, cottage#114): a treasure with a picture and no invented
+mechanics. `value` 150 rather than 120 because the warden's drop should
+beat the chest's — a number, not a promise. **No existing words were
+changed anywhere**: no book, note, name or line was touched; the only
+words added are the item's own name, which did not exist before.
+
+### A check that was missing, now in the repo
+
+`tests/assert_chest_drops.py` covered chest books only, so it passed on
+this pack with all four ids dangling. It now asserts, for **every** place
+the pack names a drop — Blueprint families (following `extends`), a
+Section's `families` and `warden`, act contract `enemies[].drops`, and a
+chest book's `drops` — that the id is in `world.json`'s `items`, has a
+`sprite`, that the sprite is a real entry in `player.sprites`, and that
+the file is on disk. A Section naming a family the Blueprint does not
+define is flagged too: that draws no mob and says nothing, which is the
+same defect one level up.
+
+**Proven to bite, five ways, each reverted:** deleting `/items/crown-seal`
+(the exact original defect) → `FAIL … blueprint family 'cellar-king':
+names 'crown-seal', not in world.json items`; putting `bell-key` back on
+a family → the same for `keybearer-moth`; an item whose sprite is not in
+`player.sprites`; an item whose sprite has no file; a Section naming a
+family that is not there.
+
+**The result that matters:** with `bell-key` back on `keybearer-moth` and
+the pack freshly `vefr normalize`d so nothing is stale,
+`norns validate` and `vefr check` both print
+`ok: … geometry, reachability, voices all pass` while the assertion exits
+1. That is the whole point — the validators cannot see this class of bug.
+
+`tests/playthrough/warden_drops.py` (new, beside the existing browser
+bot) is the woven read-back: it weaves the pack, opens the HTML in
+headless Chromium and asks the page what the descent's mobs drop, through
+the globals the engine itself reads. On the old weave it prints
+`FAIL … crown-seal (named by cellar-king (warden))`; on the new one
+`ok: every drop the descent names is in the catalog with a baked picture`.
+
+**Left out on purpose.** `tests/assert_chest_drops.py` now checks far more
+than chests and its filename says otherwise — renaming it is a
+coordinator's call, not something this change should make silently. It
+is also not run by CI: `.github/workflows/validate-pack.yml` runs only
+`norns validate`, so a dangling id could still reach `main` unless
+someone wires the assertion into the workflow. And the three Keybearer
+sprites (`key-bell`, `key-lantern`, `key-helmet`) are now unclaimed by
+any item; they stay in `player.sprites` and on disk, waiting on E8's
+decision, which is not this task's.
+
+**Evidence, and its edge.** `norns validate` and `vefr check` print `ok:`;
+`vefr normalize` reports `fresh`; the assertion exits 0; the headless
+read-back resolves `crown-seal` to `{name: "the Cellar King's wax
+seal", sprite: "seal-crown", value: 150}` with the picture baked into
+`VEFR_SPRITES` as a real PNG, so the bag draws it and not a fallback dot.
+The read-back of the *before* weave and of the *after* weave are the two
+sides of the fix above. **No player fought the Cellar King**: the
+read-back is the running game's own baked state read from a real
+browser, which proves the id resolves and the picture is there, not that
+someone walked nine floors and picked it up.
 ## 2026-10-08 (later still) — `.project/CURRENT.md` back to truth, and three things it had to stop saying (agent)
 
 This entry exists because the correction needed recording, not because anything

@@ -110,3 +110,7 @@ All on `main`; each is written up in `NOTES.md` under its own date.
   walked; that is the next step above.
 - **2026-10-08:** `tests/playthrough/run.py` was red on `main` and is repaired;
   it reads its route out of the pack (cottage#122).
+- **2026-10-08:** the Cellar King (the cellar Section's `warden`) drops a real item, `crown-seal`
+  ("the Cellar King's wax seal"), and the three Keybearer ids are gone with their unspawned families; no
+  drop names an id the catalog lacks, and `tests/assert_chest_drops.py` checks every place a drop is
+  named (cottage#119). The Keybearer ladder itself is E8's.
