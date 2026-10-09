@@ -158,17 +158,18 @@ someone who knows. At the end it will read like someone who has been down this w
 time, saying the only true thing they can, in the dark. That is the cellar's whole job:
 it states the thesis in a dead voice, before you know a single name.
 
-**And the one thing this draft will not settle.** The note says the town *put* a fire
-over the room. Rylee's account says the hearth was *banked*, and that The Breeze later
-burned when the banked fire was left untended. Those are different: intent against
-accident. **The draft holds both accounts and chooses neither.** It has been escalated
-to Claude as an architecture question — which of the two accounts the world is built
-on is a call about the world's shape and its existing data, not a matter of prose, and
-until it is ruled on, the note stands word for word and the prose stands as decided.
-Rylee decided the *burning*: **The Breeze burned later, by accident. Nobody set it.**
-No arson, no villain standing in the snow forty years later, no second meeting. A
-banked hearth that was banked to keep people warm through a winter, left a little too
-long, in a building nobody was using, in a town that had stopped talking about why.
+**The note and the fire.** The note says the town *put* a fire over the room and a
+seal over the fire. Read that again and it does not say something the draft has to
+choose between: that is the banking, in the bank's own words. The town deliberately
+banked its hearth over the sealed passage to the travellers' room, in the winter, on
+purpose, to keep people warm through a severe one.
+
+**The Breeze burned later, by accident. Nobody set it.** No arson, no villain standing
+in the snow forty years later, no second meeting. That fire is the same banked fire,
+left a little too long untended in a building nobody was using, in a town that had
+stopped talking about why. **Deliberate banking, accidental burning** — two events
+forty years apart, not one contradiction. The note stands word for word, and it is
+simply true.
 
 ### Section 2 — The Long Well
 
@@ -212,8 +213,9 @@ home. He went, and his coat stayed on its hook, and **his fate remains unresolve
 coat is not a clue to a death. It is a clue that somebody still owns it.
 
 **The answer.** The town closed the room on purpose, in a severe winter, and did the
-arithmetic out loud and in writing. Whether it then put a fire over the room or merely
-banked one is the question this draft holds open, above.
+arithmetic out loud and in writing. Then it put a fire over the room and a seal over
+the fire, which is what the seal note has been saying all along. The burning came four
+decades later and by accident.
 
 ### Section 3 — The Banked Fire
 
@@ -306,7 +308,7 @@ kindness score and no moral explanation and nothing to unlock. **The final secti
 at the Blue Door and the kept room.** There is nothing beyond the Blue Door.
 
 The kept room is the room under the hearth. You unseal it with the coal. It is empty,
-and it is empty and there are **six places set**.
+and there are **six places set**.
 
 Six. Not five, not a dozen, not a crowd. Six places, laid out, at a table, as though
 someone expected six people and is early. You do not find out who they were for. The
@@ -410,9 +412,9 @@ The Regular's line changes and that is all he gets, and it is enough:
 
 > *"Merrin. I knew his name. I have known his name since I was nine."*
 
-**Bramble comes up the stairs with you.** So does a very old yellow dog who has not
-aged a day, who walks into a cottage that has a lit hearth in it, and who sleeps in
-front of it. And the Spell Keeper, who has kept a cake back every week for forty years
+**Bramble comes up the stairs with you** — the old yellow dog, who has not aged a
+day, who walks into a cottage that has a lit hearth in it, and who sleeps in front of
+it. And the Spell Keeper, who has kept a cake back every week for forty years
 for somebody who came up the stair and was not the one she was keeping it for, puts the
 cake down and says:
 
@@ -465,7 +467,7 @@ New:
   warm, and I am glad.*
 - **A Dog Bowl, Full of Weather** — *A blue-painted door, and a bowl beside it, and forty
   years of rain standing in it perfectly level.*
-- **The Table, Laid for Six** — *Six places. Four plates. The bread is not old. Nobody
+- **The Table, Laid for Six** — *Six places. Six plates. The bread is not old. Nobody
   has been able to explain the bread.*
 - **Wax and Ash** — *…a scrap of red wax with a thumbprint in it, still faintly warm…*
 
@@ -475,9 +477,11 @@ Each resident gets at most one line per section, in their own voice file, in **t
 voice, never explaining. Today these are plain change lines; nothing here needs a quest
 log.
 
-- **Spell Keeper**, once the letter has been read: nothing. She does not claim it. The
-  existing line at `world.json:239` says *"You found my letter"* and **that line is
-  contradicted by v2 and is flagged, not changed** — see the notes file.
+- **Spell Keeper**, once the letter has been read: nothing new. She does not claim to
+  have written it. The existing line at `world.json:239` says *"You found my letter"*
+  and **it stands word for word, because it is true** — Oren wrote the letter, its last
+  line is *"Tell the keeper I kept my word about the cakes"*, and a letter whose last
+  line is a message to her is hers to call hers.
 - **Spell Keeper**, once the coal is home: *"I have kept a cake back every week for
   forty years. Sit down."*
 - **Tavern Regular**, after the Ledger is read: *"Merrin. I knew his name. I have known
@@ -537,11 +541,16 @@ Written here anyway, because the story is the spec:
 ## Open questions I could not answer for Rylee
 
 1. **Is the seal note's "it put a fire over the room" the world's account, or the
-   bank's?** This has gone to Claude as an architecture question and is unanswered here.
-   The draft holds both accounts.
+   bank's?** Settled: it is the bank's, and the two were never in conflict. The town
+   deliberately banked its hearth over the sealed passage in the winter, which is what
+   the note describes; The Breeze burned decades later, by accident, when that same
+   fire was left untended. The note stands word for word and reads as plainly true.
 2. **Whose hand is the second line on the ledger's last page?** Not decided.
-3. **Whose note is the one by the fire?** Not decided, and not collapsed onto either of
-   the two people the draft already leaves unresolved.
+3. **Whose note is the one by the fire?** Not decided. The letter is closed — Oren
+   wrote it, its last line is *"Tell the keeper I kept my word about the cakes"*, and
+   her existing *"You found my letter"* stands word for word — so the note by the fire
+   is a separate question and is not collapsed onto either of the two people the draft
+   already leaves unresolved.
 4. **Old Merrin's name.** He needs one and I picked it. Change it freely.
 5. **The Cellar King's name** is still unchosen and I have left it that way.
 6. **How long the last room's silence lasts** — settled, by Rylee, and this draft
