@@ -71,7 +71,17 @@
       "mended-boots": "sprites/mended-boots.png",
       "copper-ladle": "sprites/copper-ladle.png",
       "quilted-coat": "sprites/quilted-coat.png",
-      "thread-bell": "sprites/thread-bell.png"
+      "thread-bell": "sprites/thread-bell.png",
+      "candle-stub": "sprites/candle-stub.png",
+      "shoe-button": "sprites/shoe-button.png",
+      "rat-tooth": "sprites/rat-tooth.png",
+      "jam-jar-lid": "sprites/jam-jar-lid.png",
+      "moth-wing": "sprites/moth-wing.png",
+      "bird-feather": "sprites/bird-feather.png",
+      "cold-ember": "sprites/cold-ember.png",
+      "music-box-spring": "sprites/music-box-spring.png",
+      "spider-silk": "sprites/spider-silk.png",
+      "thimble": "sprites/thimble.png"
     },
     "hp": 10,
     "atk": 2,
@@ -192,34 +202,44 @@
       "value": 150
     },
     "candle-stub": {
-      "name": "a stub of tallow candle"
+      "name": "a stub of tallow candle",
+      "sprite": "candle-stub"
     },
     "shoe-button": {
-      "name": "a shoe button"
+      "name": "a shoe button",
+      "sprite": "shoe-button"
     },
     "rat-tooth": {
-      "name": "a small yellow tooth"
+      "name": "a small yellow tooth",
+      "sprite": "rat-tooth"
     },
     "jam-jar-lid": {
-      "name": "a jar lid, rusted shut"
+      "name": "a jar lid, rusted shut",
+      "sprite": "jam-jar-lid"
     },
     "moth-wing": {
-      "name": "a grey moth wing"
+      "name": "a grey moth wing",
+      "sprite": "moth-wing"
     },
     "bird-feather": {
-      "name": "a single down feather"
+      "name": "a single down feather",
+      "sprite": "bird-feather"
     },
     "cold-ember": {
-      "name": "a cold grey ember"
+      "name": "a cold grey ember",
+      "sprite": "cold-ember"
     },
     "music-box-spring": {
-      "name": "a music-box spring"
+      "name": "a music-box spring",
+      "sprite": "music-box-spring"
     },
     "spider-silk": {
-      "name": "a ball of spider silk"
+      "name": "a ball of spider silk",
+      "sprite": "spider-silk"
     },
     "thimble": {
-      "name": "a thimble, dented"
+      "name": "a thimble, dented",
+      "sprite": "thimble"
     }
   },
   "flags": {

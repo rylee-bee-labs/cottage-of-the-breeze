@@ -1,0 +1,5 @@
+music-box-spring.png
+  Drawn by us, with MiniMax image-01 via ~/.agents/bin/offload image,
+  2026-10-09 for the album finds. Prompt, seed and trace id are in
+  art/source/round19/finds/<name>.json. Cut to 128x128 with
+  art/tools/process_sprites.py.
