@@ -66,8 +66,9 @@ SKIN_NAME = "skin.json"           # the manifest this tool owns, written last
 BACKDROP_OUT = "backdrop.webp"    # the one output the table makes lossy
 
 # The geometry table: (source name, output name, kind, (width, height), slice,
-# fill texture). kind is "box", "strip", "copy" or "backdrop"; only a box has a
-# slice, only the panel and the slot fill their inside from a texture, and only
+# fill texture). kind is "box", "strip", "copy" or "backdrop"; only a box is
+# rebuilt (a strip is scaled, a copy is already the finished picture), only the
+# panel fills its inside from a texture, and only
 # a backdrop row may go missing without stopping the build. skin.json's slices
 # are read from here, so the JSON and the pictures cannot disagree.
 PICTURES = (
