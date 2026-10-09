@@ -122,7 +122,9 @@ of the four is the villain**, and none of the four is killed.
 
 ### Carried across word for word
 
-References below were re-measured against `docs/story/DRAFT.md` on 2026-10-09.
+References below were re-measured against `docs/story/DRAFT.md` on 2026-10-09. The whole table was
+re-measured in that pass, and rows marked "not in #111" were checked against that file's full heading
+list: they are v2's own material, not passages #111 ever carried.
 
 | Passage | #111 | In v2 now | Changed, and why |
 | --- | --- | --- | --- |
@@ -132,7 +134,7 @@ References below were re-measured against `docs/story/DRAFT.md` on 2026-10-09.
 | The town, opening paragraph | `draft:33-35` | `## The town` | Unchanged. | **No.** |
 | The townspeople table, all seven rows | `draft:39-47` | `### Who is there, and what each of them wants` | All seven rows verbatim, including the Fisher and the Hearth Cat. | **No.** The table is preserved item by item, not summarised. |
 | What the town is losing, slowly | `draft:51-61` | same heading | First paragraph unchanged; the last two paragraphs extended with Rylee's forty-year winter account, marked as an addition. | **Extended, not replaced.** #111 had no winter; Rylee's decision is quoted in the draft. |
-| How it plays | `draft:57-61` | `**How it plays.**` in the town section | Unchanged. | **No.** |
+| How it plays | **not in #111** — there is no such passage in `docs/story/DRAFT.md` | `**How it plays.**` in the town section | Written for v2: the town gets *less careful*, not friendly, and the first sign is a door held open. | **New.** There was no #111 ancestor to carry across. |
 | The sections preamble | `draft:65-67` | `## The sections` | Unchanged. | **No.** |
 | S1 — the place | `draft:71-75` | `### Section 1 — The Cellar Under the Cottage` | Unchanged. | **No.** |
 | S1 — the mood | `draft:77-80` | same | Unchanged, including "It is the gentlest place in the game and the first one you are not afraid of." | **No.** |
@@ -159,7 +161,7 @@ References below were re-measured against `docs/story/DRAFT.md` on 2026-10-09.
 | The unsaid paragraph under the reveal ladder | `draft:213-216` | same | Unchanged, in full. | **No.** |
 | The final resolve, first paragraph | `draft:220-221` | `## The final resolve` | Unchanged: "You take the coal up. That is the whole mechanical resolve and it is deliberately small: one warm thing in your bag, and the stairs home are long." | **No.** |
 | The part-2 door | `draft:239-249` | `## The part-2 door` | Unchanged, in full, including "Bramble will look at it when you take him up." | **No.** |
-| The two devices, both | `draft:255-267` | `## The two devices, kept` | Unchanged in substance; the letter paragraph is anchored to Oren and to the Spell Keeper's cake instead of to her authorship. | **Rylee's decision 1** (the letter is Oren's). |
+| The two devices, kept | **not in #111** — #111 has no section by this name; it has the same two ideas, "Each answer arrives twice, in different clothes" and "residents are lines, not geometry", written differently | `## The two devices, kept` | Written for v2, from #111's two ideas. The letter paragraph is anchored to Oren and to the Spell Keeper's cake instead of to her authorship. | **Rylee's decision 1** (the letter is Oren's), and a new heading. |
 | Words this implies: books and notes | `draft:256-276` | `### Books and notes found in the world` | All eight existing items and all six new items, verbatim, **with the existing eight explicitly marked as untouched and listed for reference only.** | Marked, not changed. |
 | Words this implies: stickers | `draft:298-305` | `### Stickers` | All six, verbatim. | **No.** |
 | Words this implies: items | `draft:307-313` | `### Items` | All five, verbatim. | **No.** |
