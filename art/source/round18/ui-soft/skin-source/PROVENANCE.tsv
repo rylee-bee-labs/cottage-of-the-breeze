@@ -1,11 +1,13 @@
 part	source_sheet	credits	sha256	carryover
-banner	missing/banner/banner_v3.png	missing/banner/banner_v3.credits.txt	6b6c75bd5818e7a2604e363946bbd69228ffcc6b41bdee1da39cd9aeb6d769f4
+banner-field	missing/banner/banner_v3.png	missing/banner/banner_v3.credits.txt	6b6c75bd5818e7a2604e363946bbd69228ffcc6b41bdee1da39cd9aeb6d769f4	derived
+banner-v3	missing/banner/banner_v3.png	missing/banner/banner_v3.credits.txt	6b6c75bd5818e7a2604e363946bbd69228ffcc6b41bdee1da39cd9aeb6d769f4
 speech	missing/speech/speech_v3.png	missing/speech/speech_v3.credits.txt	8bbc7df89d4387ee5ba60b205733c430c91f8cbf91da37a5e27216a37e186783
 tooltip	missing/tooltip/tooltip_v2.png	missing/tooltip/tooltip_v2.credits.txt	9ca97b539dd38acc7a67a3e391b2eb1685a577e4e52f262882ba597c4e5f4684
 corner	missing/corner/corner_v3.png	missing/corner/corner_v3.credits.txt	dfb9fc8af03d73ae004af5e325a5f9bf456b029ebd75e8452641a2ebc981ed36
 bar-frame	missing/bar-frame/bar-frame_v2.png	missing/bar-frame/bar-frame_v2.credits.txt	cac88dd421a1b21746a61a59655ee99f7cc9030436dbb10450e38263b6bd3ebe
 bar-fill	missing/bar-fill/bar-fill_v1.png	missing/bar-fill/bar-fill_v1.credits.txt	570e3c555331c43b98a37e5e14cc88996bc1cf27ba0d0454ef0971ad46c7db1b
-slot	missing/slot/slot_v3.png	missing/slot/slot_v3.credits.txt	3cd215726aae875cb33829768567d99f7578149c6f5a65f19c3baa2c2c69f77c
+slot-field	missing/slot/slot_v3.png	missing/slot/slot_v3.credits.txt	3cd215726aae875cb33829768567d99f7578149c6f5a65f19c3baa2c2c69f77c	derived
+slot-v3	missing/slot/slot_v3.png	missing/slot/slot_v3.credits.txt	3cd215726aae875cb33829768567d99f7578149c6f5a65f19c3baa2c2c69f77c
 tab	missing/tab/tab_v3.png	missing/tab/tab_v3.credits.txt	d1cad60c33ebb102b2a31a05a7a00019d0dcb182f2d8089de1bcf6197500545a
 tab-selected	missing/tab/tab_v3.png	missing/tab/tab_v3.credits.txt	d1cad60c33ebb102b2a31a05a7a00019d0dcb182f2d8089de1bcf6197500545a	derived
 tab-selected-panel-v3	missing/tab-selected/tab-selected_v3.png	missing/tab-selected/tab-selected_v3.credits.txt	485daf576b0f7fec094d45419f5d96bcda54f7fa277f6b311c1ad12305ad7970

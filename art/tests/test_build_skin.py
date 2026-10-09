@@ -120,12 +120,18 @@ class BuildSkinTest(unittest.TestCase):
         self.src = os.path.join(self.dir, "skin-source")
         self.out = os.path.join(self.dir, "skin")
         os.makedirs(self.src)
-        for i, (name, (width, height)) in enumerate(SIZES.items()):
-            if name in TEXTURES:
+        # One source picture per row of the geometry table, made at the size
+        # the OUTPUT is pinned to: a `copy` row hands the source straight
+        # through, so its source has to be the finished size already.
+        for i, (source, output, kind, _, _, _) in enumerate(bs.PICTURES):
+            if output not in SIZES:
+                continue          # the optional backdrop row; write_backdrop adds it
+            width, height = SIZES[output]
+            if output in TEXTURES:
                 img = Image.new("RGB", (width, height), base_colour(i))
             else:
                 img = raw_picture(width, height, base_colour(i))
-            img.save(os.path.join(self.src, name))
+            img.save(os.path.join(self.src, source))
 
     def tearDown(self):
         self._tmp.cleanup()

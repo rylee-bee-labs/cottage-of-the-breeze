@@ -4,27 +4,34 @@ This folder holds one picture per part of the soft-wood skin, under the exact
 source names `build_skin.py`'s `PICTURES` table looks for (`panel.webp`,
 `button.webp`, ...). Every picture here came from a sheet that round 18 drew,
 cut with `art/tools/split_sheet.py` and saved as lossless WebP, or from round
-10 as a carry-over. None of it is hand-redrawn or rescaled — `build_skin.py`
-owns the geometry and the mirroring.
+10 as a carry-over; three are made *from* such a cut by a tool in
+`art/tools/` and are marked as such below. None of it is hand-redrawn or
+rescaled — `build_skin.py` owns the geometry and the mirroring.
+
+Every WebP in this folder is lossless. That is not Pillow's default for WebP,
+which is lossy, so each tool that writes one passes `lossless=True` itself.
 
 ## The eleven round-two picks
 
 All eleven pieces come from the sheets Rylee picked on 2026-10-04
-(`ui-soft/PICKS.md`): ten are cuts, and `tab-selected.webp` is derived from one
-of them — see **The one pick that is not a straight cut** below. Each sheet has
-its own `.credits.txt` beside it; that file is the attribution for the picture
-here. The five picture rows the brief calls "round 18 never drew" are not from
-round 18 sheets at all — see **Carry-overs** below.
+(`ui-soft/PICKS.md`). Eight are straight cuts and three are derived from cuts
+of sheets she picked — `tab-selected.webp`, `banner-field.webp` and
+`slot-field.webp`; see **The three that are not straight cuts** below. Each
+sheet has its own `.credits.txt` beside it; that file is the attribution for
+the picture here. The five picture rows the brief calls "round 18 never drew"
+are not from round 18 sheets at all — see **Carry-overs** below.
 
 | Part | Sheet (under `ui-soft/`) | Credits file |
 | --- | --- | --- |
-| `banner.webp` | `missing/banner/banner_v3.png` | `missing/banner/banner_v3.credits.txt` |
+| `banner-field.webp` | `missing/banner/banner_v3.png` (derived - see below) | `missing/banner/banner_v3.credits.txt` |
+| `banner-v3.webp` | `missing/banner/banner_v3.png` | `missing/banner/banner_v3.credits.txt` |
 | `speech.webp` | `missing/speech/speech_v3.png` | `missing/speech/speech_v3.credits.txt` |
 | `tooltip.webp` | `missing/tooltip/tooltip_v2.png` | `missing/tooltip/tooltip_v2.credits.txt` |
 | `corner.webp` | `missing/corner/corner_v3.png` | `missing/corner/corner_v3.credits.txt` |
 | `bar-frame.webp` | `missing/bar-frame/bar-frame_v2.png` | `missing/bar-frame/bar-frame_v2.credits.txt` |
 | `bar-fill.webp` | `missing/bar-fill/bar-fill_v1.png` | `missing/bar-fill/bar-fill_v1.credits.txt` |
-| `slot.webp` | `missing/slot/slot_v3.png` | `missing/slot/slot_v3.credits.txt` |
+| `slot-field.webp` | `missing/slot/slot_v3.png` (derived - see below) | `missing/slot/slot_v3.credits.txt` |
+| `slot-v3.webp` | `missing/slot/slot_v3.png` | `missing/slot/slot_v3.credits.txt` |
 | `tab.webp` | `missing/tab/tab_v3.png` | `missing/tab/tab_v3.credits.txt` |
 | `tab-selected.webp` | `missing/tab/tab_v3.png` (derived - see below) | `missing/tab/tab_v3.credits.txt` |
 | `divider.webp` | `dividers/dividers_v2.png` | `dividers/dividers_v2.credits.txt` |
@@ -45,13 +52,23 @@ v1 pick is the round-two pick too, and re-cutting it from the same sheet
 returned the same bytes (`2e59e3114e2e486f7acc6163d86bec4aaf85d81a32b9576a86de44e01b11749a`),
 so the file is unchanged.
 
-## The one pick that is not a straight cut: `tab-selected.webp`
+## The three that are not straight cuts
 
-`tab-selected.webp` is **derived, not cut**. It is `tab.webp` - Rylee's own
-`tab_v3` pick - with every colour moved one step toward the honey cream that
-`tab-selected_v3.png` is drawn in, by `art/tools/make_selected_tab.py`. Nothing
-is redrawn, reshaped or resampled: the alpha is carried across untouched, so the
-selected chip is the *same silhouette* as the tab at rest.
+Three of the eleven are **derived, not cut**: `tab-selected.webp`,
+`banner-field.webp` and `slot-field.webp`. In each case the sheet Rylee picked
+is kept here untouched, under a `-v3` name that says which pick it is, and what
+the build reads is a picture made from it by a tool that can be re-run or
+undone. `check_ui.py` passes all three either way - they are legal pictures -
+so the reason for each is a *look*, and the look was checked in the running
+game (`art/skins/parchment-and-wood/look-*.png`).
+
+### `tab-selected.webp` - same silhouette, lighter
+
+`tab-selected.webp` is `tab.webp` - Rylee's own `tab_v3` pick - with every
+colour moved one step toward the honey cream that `tab-selected_v3.png` is drawn
+in, by `art/tools/make_selected_tab.py`. Nothing is redrawn, reshaped or
+resampled: the alpha is carried across untouched, so the selected chip is the
+*same silhouette* as the tab at rest.
 
 The reason is in the sheet. `missing/tab-selected/tab-selected_v3.png` was asked
 for as "the same tab but selected: lighter honey wood, parchment face joined to a
@@ -68,12 +85,64 @@ So the cut is kept, under the name it actually is -
 record of the pick - and `tab-selected.webp` is built the way the prompt asked:
 the tab chip she did pick, lightened toward the palette of the one she picked for
 this slot. That is the whole of the adjustment, and `make_selected_tab.py` is
-what makes it, so it can be re-run or undone.
+what makes it.
 
 The palette is the one thing `tab-selected_v3.png` is good for, and taking it from
 there is why the provenance row for this part names `tab_v3.png` and its credits
-rather than the sheet it was built to come from. `PROVENANCE.tsv` marks the row
-`derived`, and carries `tab-selected-panel-v3` beside it as the unchanged cut.
+rather than the sheet it was built to come from.
+
+### `banner-field.webp` and `slot-field.webp` - the field inside the frame
+
+Most parts are nine-slices: the player gives them a `slice` and stretches only
+the middle, so a rim keeps its thickness whatever box it lands in. These two are
+not. The player lays them across a whole box with `plate()` - `background-size:
+100% 100%` - and the boxes have no shape a picture can assume:
+
+- **the banner** is `.toasts`, `width: min(210px, 36%)` and as tall as the
+  messages make it: 210 x 153 on a desktop, 156 x 194 on a phone, and a
+  different height again with one message instead of two;
+- **the slot** is `.equip-row`, a list line about 510 x 32.
+
+So every pixel is scaled by a different and often large factor in each
+direction. A framed ornament cannot survive that. `banner_v3` is a ribbon with
+swallow tails; stretched over the message stack the tails drag out past the
+panel as long flanges and the hems smear into bars - it read, in play, as a
+rendering fault. `slot_v3` is a square honey frame; stretched across a bag row
+its bevelled corner and its corner highlight become a hard band of glare down
+one side of every row.
+
+What survives stretching is a field with nothing in it but colour, because a soft
+gradient scaled by ten in one direction is still a soft gradient.
+`art/tools/make_plate_field.py` takes the parchment field drawn *inside* the
+ornament's frame - the one part of the pick that is plain - crops to it,
+smooths its colour and fades its edges. The cuts stay here as `banner-v3.webp`
+and `slot-v3.webp`, and the framed ornaments can be put back the moment the
+player gives either part a box of its own shape.
+
+What is lost is the thing that made them pictures: the ribbon's tails, the slot's
+frame. Both are still hers and still here; they are just not what a 510 x 32
+line can be drawn with. In their place each part is now the parchment the pick
+was drawn in, which is what the player actually needed from it.
+
+`PROVENANCE.tsv` marks all three rows `derived` and carries the `-v3` cuts beside
+them, unmarked, as the record of what Rylee picked.
+
+The two fields are made from the *built* part rather than from the sheet, so
+that what the tool reads is the same 64 x 64 and 192 x 48 picture `check_ui.py`
+judges. To rebuild them, strip the kept cut back to that size and run the tool:
+
+```sh
+uv run --offline --with pillow art/tools/process_ui.py strip \
+    art/source/round18/ui-soft/skin-source/slot-v3.webp /tmp/slot.webp --size 64x64
+uv run --offline --with pillow art/tools/make_plate_field.py \
+    /tmp/slot.webp art/source/round18/ui-soft/skin-source/slot-field.webp --flatten 0.5
+
+uv run --offline --with pillow art/tools/process_ui.py strip \
+    art/source/round18/ui-soft/skin-source/banner-v3.webp /tmp/banner.webp --size 192x48
+uv run --offline --with pillow art/tools/make_plate_field.py /tmp/banner.webp \
+    art/source/round18/ui-soft/skin-source/banner-field.webp \
+    --inset 0.17,0.354,0.18,0.375 --flatten 0.5
+```
 
 ## Carry-overs from round 10
 
@@ -104,13 +173,14 @@ uses — see `RECORD.md`, "every `.credits.txt` holds the exact prompt").
 per source file with the part, the sheet path, the credits path, the
 sha256 of the sheet (so a reviewer can check the cut against the picture it
 claims to come from), and a marker in the fifth column: `carryover` on the
-round-10 rows, `derived` on the one row that is not a straight cut (see above).
+round-10 rows, `derived` on the three rows that are not straight cuts (see above).
 The table is sorted: picks first (in the order the brief lists them), then
 carry-overs (in alphabetical part order). Path columns for picks are
 repo-relative to `art/source/round18/ui-soft/`; the carry-overs' sheet
 column is the filename in `art/source/round10/ui/skin-source/`.
 
-`tab-selected-panel-v3` has no marker: it is an ordinary cut, kept because it is
-the picture Rylee's `tab-selected` pick actually drew. It is not an input to the
-build - `build_skin.py` reads `tab-selected.webp` - so it is kept beside this
-file as the record of the pick, not as a part.
+`tab-selected-panel-v3`, `banner-v3` and `slot-v3` have no marker: each is an
+ordinary cut, kept because it is the picture Rylee's pick for that slot actually
+drew. None of them is an input to the build - `build_skin.py` reads
+`tab-selected.webp`, `banner-field.webp` and `slot-field.webp` - so they are kept
+beside this file as the record of the picks, not as parts.

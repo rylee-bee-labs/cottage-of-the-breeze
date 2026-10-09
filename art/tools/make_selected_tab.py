@@ -22,8 +22,10 @@ Blending toward a light warm cream keeps the drawn outlines readable (blending
 toward white at this strength keeps them too) and reads as "lighter honey wood"
 beside the at-rest chip rather than as a different piece. Nothing is redrawn,
 reshaped or resampled: the output is the input's pixels, moved one step along the
-line to the cream, and saved with Pillow's defaults, which are lossless for WebP
-and round-trip the alpha exactly.
+line to the cream. A `.webp` output is saved with `lossless=True` on purpose -
+Pillow's default for WebP is lossy, which would put a second, unintended
+quantisation between the drawing and the part - and a `.png` output is lossless
+whatever the settings, so in both cases the file round-trips the blend exactly.
 
 Running it twice on the same input gives identical bytes: the blend is a fixed
 per-pixel arithmetic step and there is no randomness or timestamp. A missing
@@ -90,7 +92,7 @@ def main(argv=None):
     except OSError:
         fail(f"cannot read {a.input!r}")
 
-    out.save(a.output)
+    out.save(a.output, **({"lossless": True} if a.output.lower().endswith(".webp") else {}))
     print(f"wrote {a.output}")
     return 0
 
