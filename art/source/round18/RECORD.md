@@ -4,6 +4,8 @@
 
 Rylee chose all eleven round-two sheets in the picker: all Codex, with none of the Wan Pro drafts picked. They are drawn, credited and cut into `skin-source/` (2026-10-08, the round-two cut step); the build still waits on Rylee.
 
+Ten of the eleven are straight cuts. The eleventh, `tab-selected`, is derived: `missing/tab-selected/tab-selected_v3.png` came back as the parchment *panel* its prompt describes beneath the tab, not as the tab chip, so cut straight it was sliced and mirrored into a shapeless pale blob in the 96x40 tab slot. The chip is now `missing/tab/tab_v3.png` (also Rylee's) lightened toward that sheet's honey cream by `art/tools/make_selected_tab.py`, keeping the tab's own silhouette; the original cut is kept beside it as `tab-selected-panel-v3.webp` so the pick is still traceable.
+
 Rylee's picks of 2026-10-04, chosen in the skin picker artifact (`ui-soft/PICKS.md`): panels **v3**, buttons **v1**,
 bars and slots **v2**, tabs and toggles **v2**, textures **v1**, dividers **v1**, cursor **v1**, plus the first redraw of
 each part that was missing from the batch sheets (`ui-soft/missing/` — speech, tooltip, tab, tab-selected, bar-frame,
@@ -27,7 +29,7 @@ sheet each part was drawn in, not by looking at pictures).
 | `missing/tooltip/tooltip_v1.png` | `tooltip` | 1192 x 712 |
 | `buttons/buttons_v1.png` | `button` | 1334 x 397 |
 | `missing/tab/tab_v1.png` | `tab` | 1529 x 488 |
-| `missing/tab-selected/tab-selected_v1.png` | `tab-selected` | 1204 x 1043 |
+| `missing/tab-selected/tab-selected_v1.png` | `tab-selected` (superseded in round two: that cut is replaced, and the chip is derived - above) | 1204 x 1043 |
 | `tabs-toggles/tabs_toggles_v2.png` | `toggle-on` | 1321 x 469 |
 | `missing/bar-frame/bar-frame_v1.png` | `bar-frame` | 1666 x 253 |
 | `missing/bar-fill/bar-fill_v1.png` | `bar-fill` | 1953 x 121 |

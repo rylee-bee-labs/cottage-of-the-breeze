@@ -7,7 +7,8 @@ bar-frame	missing/bar-frame/bar-frame_v2.png	missing/bar-frame/bar-frame_v2.cred
 bar-fill	missing/bar-fill/bar-fill_v1.png	missing/bar-fill/bar-fill_v1.credits.txt	570e3c555331c43b98a37e5e14cc88996bc1cf27ba0d0454ef0971ad46c7db1b
 slot	missing/slot/slot_v3.png	missing/slot/slot_v3.credits.txt	3cd215726aae875cb33829768567d99f7578149c6f5a65f19c3baa2c2c69f77c
 tab	missing/tab/tab_v3.png	missing/tab/tab_v3.credits.txt	d1cad60c33ebb102b2a31a05a7a00019d0dcb182f2d8089de1bcf6197500545a
-tab-selected	missing/tab-selected/tab-selected_v3.png	missing/tab-selected/tab-selected_v3.credits.txt	485daf576b0f7fec094d45419f5d96bcda54f7fa277f6b311c1ad12305ad7970
+tab-selected	missing/tab/tab_v3.png	missing/tab/tab_v3.credits.txt	d1cad60c33ebb102b2a31a05a7a00019d0dcb182f2d8089de1bcf6197500545a	derived
+tab-selected-panel-v3	missing/tab-selected/tab-selected_v3.png	missing/tab-selected/tab-selected_v3.credits.txt	485daf576b0f7fec094d45419f5d96bcda54f7fa277f6b311c1ad12305ad7970
 divider	dividers/dividers_v2.png	dividers/dividers_v2.credits.txt	961402ecfe2a7645ac411984ffd54cc26137689b68ce74134fae32a1e6c5dc64
 cursor	cursor/cursor_v2.png	cursor/cursor_v2.credits.txt	186fb6a6c1ab304a99c52b47d05323cc1eca14232f221b2e7e27c763dda2486c
 button-hover	button-hover.webp		899bbe33413d1c56abd2355bab9ebbe47cbfc7ff0a58e4843c4753cd81988b44	carryover
