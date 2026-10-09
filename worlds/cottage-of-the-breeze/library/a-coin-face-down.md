@@ -1,7 +1,7 @@
 ---
 title: A Coin, Face Down
 found: map
-at: [52, 46]
+place: near-up
 region: cellar-0-3
 kind: note
 ---

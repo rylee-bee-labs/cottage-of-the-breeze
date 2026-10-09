@@ -1,7 +1,7 @@
 ---
 title: A Note Under the Seal
 found: map
-at: [37, 29]
+place: near-up
 region: cellar-0-9
 chest: yes
 drops: cellar-gems

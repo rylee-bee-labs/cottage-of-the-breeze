@@ -1,7 +1,7 @@
 ---
 title: A Scrap in the Dust
 found: map
-at: [27, 36]
+place: near-up
 region: cellar-0-1
 kind: note
 ---
