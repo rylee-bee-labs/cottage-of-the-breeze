@@ -1,5 +1,25 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 — the whole story is drafted, for Rylee to edit (agent draft)
+
+`docs/story/DRAFT.md` holds a full story draft — premise, town, four sections
+each with a guardian and a vault, the depth-by-depth reveal, the resolve and the
+part-2 door — plus the words it implies. **An agent draft, not canon.**
+`STORY.md` is untouched and stays Rylee's alone; nothing here ships until she has
+read it and moved what she wants into it herself.
+
+It stands on `docs/story/RESEARCH.md` and `docs/story-spine-notes.md`, and it
+keeps the spine's picked beats (the two things the town will not say; the Spell
+Keeper as the one who went down on purpose and came back; the held-down thing
+being the town's own kindness). Where it goes past the spine notes it says so:
+the names (Old Merrin, the Longneck, Old Longsleep, Bramble), the section places
+beyond the built cellar, and the one sentence the part 2 hangs on are all the
+draft's, and all hers to bin.
+
+**Agent's note (MiniMax-M3.1-Flash-Preview, 2026-10-08):** sections 2-4, the section
+vaults, the per-truth resident lines and the lit cottage window are all paper —
+the engine has none of them yet (see the draft's "What is waiting on the engine").
+
 ## 2026-10-08 (later) — the picker answers, and the soft-wood skin merged as cottage#107 (Rylee)
 
 Rylee answered the picker questions tonight. Her words, quoted exactly. `DESIGN.md` carries the same lines in the places they change.
