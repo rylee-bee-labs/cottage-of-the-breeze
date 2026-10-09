@@ -1,3 +1,5 @@
+> Promoted to `docs/story/STORY.md` on 2026-10-09 by Claude's review under Rylee's delegation.
+
 # Cottage of the Breeze — story draft, v2
 
 **DRAFT. Not canon.** Written for Rylee to read and edit. Nothing here ships until
