@@ -1,0 +1,22 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "A single small yellowed rat tooth, long and curved, one root, ivory yellow with age. Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks, flat opaque fills. Warm palette of honey gold, deep amber, ochre, chestnut and cream, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.",
+  "width": 1024,
+  "height": 1024,
+  "seed": 31,
+  "n": 1,
+  "character_reference": false,
+  "trace_id": "0718426de6e531fa72121fb2cea152c0",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-09T15:59:59Z",
+  "files": [
+    {
+      "name": "rat-tooth-1.jpg",
+      "bytes": 120887,
+      "sha256": "e9bbf210b5d5cd6c74cf1831f635e400a51c68938a690d9277a549a273950e0d"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}
