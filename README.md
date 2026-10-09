@@ -33,7 +33,8 @@ uvx --from "vefr @ git+https://github.com/Rylee-Bee/vefr@b5ed13dbe444d9eb0ee1e0c
 ```
 cottage-of-the-breeze/
   BRIEF.md  DESIGN.md  STORY.md  NOTES.md      the new-game kit
-  art/mood/  art/source/                        empty; originals + prompts
+  art/mood/                                    empty (only .gitkeep)
+  art/source/round*/                           890 files: generated art + prompts
   worlds/cottage-of-the-breeze/                 the VEFR pack
   .project/CURRENT.md                           where things stand
 ```
