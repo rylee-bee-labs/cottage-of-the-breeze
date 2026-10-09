@@ -40,7 +40,13 @@ If runtime or deployment evidence is missing, say **UNKNOWN**.
 
 ## Latest activity
 
-- **2026-10-08:** the soft-wood skin is built from Rylee's round-two picks
+- **2026-10-08:** the soft-wood skin merged to `main` as cottage#107
   (see `NOTES.md` 2026-10-08 for the full entry); the cuts (`PROVENANCE.md` /
-  `PROVENANCE.tsv`) and the built skin live on branch
-  `offload/skin-build-20261008-174610-1824`. Awaiting merge to `main`.
+  `PROVENANCE.tsv`) and the built skin are on `main`.
+- **2026-10-08:** town `[1,1]` has exactly one way down now — the generated
+  Section descent (`cellar-0-1`). The hand-authored cellar (`floor-1`..
+  `floor-6`, `king-room`) is gone, so the Keybearer ladder, the Cellar King,
+  the sealed door and Act 1's ending are no longer in the pack; the generated
+  descent has no keys or ending until E8 lands (see `NOTES.md` 2026-10-08,
+  "one way down"). Verified with VEFR's play kit; log in
+  `docs/playtests/2026-10-08-descent-104.md`.
