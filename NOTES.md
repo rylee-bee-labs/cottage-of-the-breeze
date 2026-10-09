@@ -1,5 +1,49 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 (later) — the six orphaned books are findable again (agent)
+
+The entry below ("one way down") deleted `floor-1`..`floor-6` and
+`king-room` and left six books naming a region that no longer exists, so
+they could not be found at all: the validator does not flag them, so
+nothing caught it. Each is re-homed here. **Front matter only — no book's
+words were changed**, because the story draft is Rylee's to edit and
+`storywords` is held until she has.
+
+**The rule these placements follow** (research, "Delivering a story to a
+player who will not read a quest log" and "The thrill of opening
+something, made of what"): *every story beat rides something she wanted
+anyway; the story never asks for its own container.* So each book sits
+where she is already going, and the two that were chest books stay chest
+books — the thrill that carries the story is the thrill she came for.
+
+| Book | Was | Now | Why there |
+| --- | --- | --- | --- |
+| `a-scrap-in-the-dust` | `floor-1` [4,4] | `cellar-0-1` [27,36] | The premise ("Two things this town will not say") two steps from where the stair puts you: she goes down wanting to go down, and the floor tells her what she is doing. |
+| `a-letter-in-a-chest` | `floor-1` [20,14] | `cellar-0-1` [23,34] | Still a chest, still `drops: brass-ring`, eight steps into the first floor. This is the research's own example — *the letter is in an open chest she opened for the ring* — so it stays exactly that, and `the-letter-read` → `the-keeper-knows` → the Keeper's line works again. |
+| `a-coin-face-down` | `floor-1` [3,10] | `cellar-0-3` [52,46] | Mid-descent, four steps off the arrival stair. "On the stone" is cellar flagstone, and a coin nobody dropped belongs to someone else's descent, not to a town street. |
+| `a-candle-and-a-note` | `floor-1` [26,16] | `cellar-0-5` [30,41] | Floor 5 is the Section's **landing** — its up-stair goes straight back to town. "Someone sat here a long while, and never came back up" belongs by the way home. |
+| `a-note-under-the-seal` | `king-room` [6,2] | `cellar-0-9` [37,29] | The bottom floor, the `warden` kind. She walks to the bottom wanting to see what is down there; the chest is the vault the note describes, and reading it still sets `act-1-complete` and fires `complete-act`. |
+| `a-burned-page` | `floor-1` [12,10] | `town` [5,8] | The town's own rubble, on the tile the map already names "the old tavern, burned". It is three steps from the town centre on the road she crosses all the time, and it puts the page at the ruin while the tab stays behind the Keeper's counter — the same truth twice in different clothes, which is what the research asks for. |
+
+**Verified, not assumed.** The floors were drawn the way the woven player
+draws them (`vefr.delve.floor_plan`, the Python twin of `floorPlan` in
+`web/packaged.html`, same `breeze` run seed, cycle 0), then flooded from
+the stair the hero arrives on. Every tile is walkable and reachable:
+2 steps (scrap), 8 (letter chest), 4 (coin), 4 (candle), 4 (seal chest);
+the page is 3 steps from the town centre. `norns validate` and
+`vefr check` both print `ok:`; the woven file bakes all ten books with the
+regions, `chest: yes` and `drops` above.
+
+**Two things this did not fix, said out loud.** (1) The vault chest drops
+nothing: `a-note-under-the-seal` still says `drops: cellar-gems`, and
+`cellar-gems` is not in the pack's item catalog (it went with the authored
+floors), so the bake drops the id silently — visible in the woven
+`VEFR_LIBRARY` as `drops: []`. That is a treasure decision and a
+`world.json` item, both out of scope here. (2) No browser walk-through
+was possible in the clone that did this (no Playwright/Chromium, no
+`uv`, no node), so reachability is proven by flood fill over the exact
+floors the player walks plus the baked output, not by a recorded walk.
+
 ## 2026-10-08 — one way down: town [1,1] is the generated descent (agent)
 
 - **Her words (Rylee, cottage#104):** "All new generated so it matches." Town tile `[1,1]` had **two** doors: the hand-authored `floor-1`, and — appended at run time by the Section descent's `wireEntry()` — the generated `cellar-0-1`. VEFR's `wireEntry()` appends and never replaces, so both survived and a player walking onto that tile got two exits. Reproduced in VEFR's own play kit against a build woven from `main` (log: `docs/playtests/2026-10-08-descent-104.md`):

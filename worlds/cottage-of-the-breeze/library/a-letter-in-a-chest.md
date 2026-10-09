@@ -1,8 +1,8 @@
 ---
 title: A Letter, Folded Small
 found: map
-at: [20, 14]
-region: floor-1
+at: [23, 34]
+region: cellar-0-1
 chest: yes
 drops: brass-ring
 kind: note

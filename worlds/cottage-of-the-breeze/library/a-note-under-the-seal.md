@@ -1,8 +1,8 @@
 ---
 title: A Note Under the Seal
 found: map
-at: [6, 2]
-region: king-room
+at: [37, 29]
+region: cellar-0-9
 chest: yes
 drops: cellar-gems
 kind: note
