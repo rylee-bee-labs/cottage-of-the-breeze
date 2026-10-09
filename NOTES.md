@@ -1142,3 +1142,37 @@ heal. No identifying or haggling yet.
 ## 2026-10-04 — the Keybearers have names (Rylee)
 
 Rylee picked the names: floor 3 **Ashwing** (the great pale moth), floor 4 **Brother Sporeling** (the old mushroom elder), floor 5 **Sir Hollowhorn** (the armoured stag beetle). Changed in `blueprint.json` and the album, then `vefr normalize`; `vefr check` passes. Their epithets and any lines are still open; the King's name is not chosen yet.
+
+## 2026-10-09 — Album census: what the 25 old stickers do now
+
+The one-way-down change (`4bed847`) took the album from 25 stickers to 5, and nothing has been written down about what happened to the other 20. This is the census. Rylee's pick on 2026-10-09 was *Keep what still fits*: every old sticker the game can still award stays word for word, and only the ones whose trigger no longer exists are dropped. The album is now 19: those 6 kept, plus the 13 new finds the descent can earn (`57ceb3d`).
+
+| id | name | status | what awards it, or what removed it |
+|---|---|---|---|
+| first-steps | First steps | kept | `starts:{}` — unconditional |
+| entered-floor-1 | Down to the first floor | dropped | `4bed847` deleted the authored `floor-1`; the descent is town [1,1] -> cellar-0-1 |
+| entered-floor-2 | Down to the second floor | dropped | `4bed847`; there is no `floor-2` region, depths are `cellar-0-1..cellar-0-9` |
+| entered-floor-3 | Down to the third floor | dropped | `4bed847`, same |
+| entered-floor-4 | Down to the fourth floor | dropped | `4bed847`, same |
+| entered-floor-5 | Down to the fifth floor | dropped | `4bed847`, same |
+| entered-floor-6 | Down to the sixth floor | dropped | `4bed847`, same; the deepest floor is `cellar-0-9` |
+| met-flowerpot-toad | A flowerpot toad | could come back with | `4bed847`; `defeats floor-1-rat-2` was a per-floor instance id. The `flowerpot-toad` family still spawns (`sections/rootworks.json`) but no sticker can name a family |
+| met-wick-sprite | A wick sprite | could come back with | `4bed847`; same, `defeats floor-1-rat-3` |
+| met-crock-mimic | A crock mimic | could come back with | `4bed847`; `defeats floor-2-shade-1`. The `crock-mimic` family is declared but spawned by no Section |
+| met-cellar-spider | A cobweb-scarfed spider | could come back with | `4bed847`; `defeats floor-2-rat-1` |
+| met-cobweb-wraith | A cobweb wraith | could come back with | `4bed847`; `defeats floor-4-deep-3` |
+| met-cave-cricket | A cave cricket | could come back with | `4bed847`; `defeats floor-4-rust-1` |
+| met-root-tangle | A root tangle | could come back with | `4bed847`; `defeats floor-4-loud-2` |
+| met-barrel-mimic | A barrel mimic | could come back with | `4bed847`; `defeats floor-5-loud-1` |
+| keybearer-moth | Ashwing | could come back with | `4bed847` and `6360de4`; the family is declared and spawned by no Section |
+| keybearer-mushroom | Brother Sporeling | could come back with | `4bed847` and `6360de4`; spawned by no Section |
+| keybearer-beetle | Sir Hollowhorn | could come back with | `4bed847` and `6360de4`; spawned by no Section |
+| cellar-king | The Cellar King | could come back with | `4bed847`; the family is the cellar warden and still drops `crown-seal`, but a defeat sticker can name no family |
+| the-letter | A letter, folded small | kept | reads `a-letter-in-a-chest`, in a chest on `cellar-0-1`, the first descent floor |
+| the-seal | A crown in red wax | kept | picks up `crown-seal`, the `cellar-king` warden's drop on `cellar-0-9` |
+| the-warm-page | The warm page | kept | reads `a-note-under-the-seal`, in a chest on `cellar-0-9` |
+| quiet-room | A quiet room | dropped | `4bed847`; the `king-room` region and the sealed door that led there are gone |
+| cat-notices | The cat noticed you | kept | comes near `hearth-cat`, a standing speaker in the cottage |
+| about-book | The little cloth book | kept | reads `about-this-game`, on the cottage shelf |
+
+The rule behind all of this is short: a sticker can only be earned when its `when` names an id the pack declares. A `reads` or `picks-up` can name an item or a library page; a `comes-near` can name a speaker or a POI. A `defeats` can name neither of those — it names the mob's own runtime id, which on a generated floor is `m0`, `m1`, ... and `w` for a warden, never the Blueprint family the mob was spawned from. So the twelve rows marked *could come back with* need a VEFR feature first: a defeat that matches a Blueprint family rather than an instance id. That feature was deliberately not built for this change, so those stickers are reported here and left out of the album. Two of them are worth noting as the sharpest case: the Keybearers and the Cellar King do not go back in as they stand, because nothing in the engine can earn them at all today.

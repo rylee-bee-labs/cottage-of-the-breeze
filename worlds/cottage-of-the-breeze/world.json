@@ -190,6 +190,36 @@
       "name": "the Cellar King's wax seal",
       "sprite": "seal-crown",
       "value": 150
+    },
+    "candle-stub": {
+      "name": "a stub of tallow candle"
+    },
+    "shoe-button": {
+      "name": "a shoe button"
+    },
+    "rat-tooth": {
+      "name": "a small yellow tooth"
+    },
+    "jam-jar-lid": {
+      "name": "a jar lid, rusted shut"
+    },
+    "moth-wing": {
+      "name": "a grey moth wing"
+    },
+    "bird-feather": {
+      "name": "a single down feather"
+    },
+    "cold-ember": {
+      "name": "a cold grey ember"
+    },
+    "music-box-spring": {
+      "name": "a music-box spring"
+    },
+    "spider-silk": {
+      "name": "a ball of spider silk"
+    },
+    "thimble": {
+      "name": "a thimble, dented"
     }
   },
   "flags": {
@@ -383,6 +413,17 @@
       "riddle": "Someone kept a promise about cakes."
     },
     {
+      "id": "the-seal",
+      "name": "A crown in red wax",
+      "kind": "riddle",
+      "when": {
+        "picks-up": {
+          "what": "crown-seal"
+        }
+      },
+      "riddle": "A door on the deepest floor has been waiting for a very particular key."
+    },
+    {
       "id": "the-warm-page",
       "name": "The warm page",
       "kind": "riddle",
@@ -411,6 +452,143 @@
       "when": {
         "reads": {
           "what": "about-this-game"
+        }
+      }
+    },
+    {
+      "id": "the-hearth",
+      "name": "A fire worth staying for",
+      "kind": "open",
+      "when": {
+        "comes-near": {
+          "who": "the hearth",
+          "distance": 1
+        }
+      }
+    },
+    {
+      "id": "the-stair-down",
+      "name": "The stair down",
+      "kind": "riddle",
+      "riddle": "It stands in the town with one step down, and everyone walks past it.",
+      "when": {
+        "comes-near": {
+          "who": "the stair down",
+          "distance": 1
+        }
+      }
+    },
+    {
+      "id": "the-tab",
+      "name": "The burnt tavern's tab",
+      "kind": "open",
+      "when": {
+        "reads": {
+          "what": "the-burnt-taverns-tab"
+        }
+      }
+    },
+    {
+      "id": "a-candle-stub",
+      "name": "A stub of tallow candle",
+      "kind": "open",
+      "when": {
+        "picks-up": {
+          "what": "candle-stub"
+        }
+      }
+    },
+    {
+      "id": "a-shoe-button",
+      "name": "A shoe button",
+      "kind": "open",
+      "when": {
+        "picks-up": {
+          "what": "shoe-button"
+        }
+      }
+    },
+    {
+      "id": "a-rat-tooth",
+      "name": "A small yellow tooth",
+      "kind": "open",
+      "when": {
+        "picks-up": {
+          "what": "rat-tooth"
+        }
+      }
+    },
+    {
+      "id": "a-jar-lid",
+      "name": "A jar lid, rusted shut",
+      "kind": "open",
+      "when": {
+        "picks-up": {
+          "what": "jam-jar-lid"
+        }
+      }
+    },
+    {
+      "id": "a-moth-wing",
+      "name": "A grey moth wing",
+      "kind": "open",
+      "when": {
+        "picks-up": {
+          "what": "moth-wing"
+        }
+      }
+    },
+    {
+      "id": "a-down-feather",
+      "name": "A single down feather",
+      "kind": "open",
+      "shine": "foil",
+      "when": {
+        "picks-up": {
+          "what": "bird-feather"
+        }
+      }
+    },
+    {
+      "id": "a-ball-of-silk",
+      "name": "A ball of spider silk",
+      "kind": "open",
+      "when": {
+        "picks-up": {
+          "what": "spider-silk"
+        }
+      }
+    },
+    {
+      "id": "a-dented-thimble",
+      "name": "A thimble, dented",
+      "kind": "secret",
+      "when": {
+        "picks-up": {
+          "what": "thimble"
+        }
+      }
+    },
+    {
+      "id": "a-cold-ember",
+      "name": "A cold grey ember",
+      "kind": "riddle",
+      "riddle": "The shades keep one, and it has not been warm in a long while.",
+      "when": {
+        "picks-up": {
+          "what": "cold-ember"
+        }
+      }
+    },
+    {
+      "id": "a-music-box-spring",
+      "name": "A music-box spring",
+      "kind": "riddle",
+      "riddle": "It is very small, it is very light, and it is no use at all.",
+      "shine": "foil",
+      "when": {
+        "picks-up": {
+          "what": "music-box-spring"
         }
       }
     }
