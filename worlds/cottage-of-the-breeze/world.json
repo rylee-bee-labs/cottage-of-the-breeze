@@ -185,6 +185,11 @@
       "name": "a handful of cellar gems",
       "sprite": "gems",
       "value": 120
+    },
+    "crown-seal": {
+      "name": "the Cellar King's wax seal",
+      "sprite": "seal-crown",
+      "value": 150
     }
   },
   "flags": {

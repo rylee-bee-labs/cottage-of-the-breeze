@@ -1,17 +1,22 @@
 {
   "blueprint": 2,
   "normalizer": 1,
-  "source_sha256": "4807a0566496165d967c2e357c2979cee68ebc1a94cd6dbe1ca2f05c9fc4d18a",
+  "source_sha256": "2a8516026f907a8238d5ca1c1348482bed06aaabec8aceddd9b9ceeed0ee9721",
   "outputs": [
     {
       "file": "world.json",
       "pointers": [
-        "/items/cellar-gems"
+        "/items/cellar-gems",
+        "/items/crown-seal"
       ],
       "records": [
         {
           "source": "/things/0",
           "id": "cellar-gems"
+        },
+        {
+          "source": "/things/1",
+          "id": "crown-seal"
         }
       ]
     }

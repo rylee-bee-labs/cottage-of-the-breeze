@@ -101,9 +101,6 @@
         "hp": 16,
         "atk": 2,
         "xp": 20,
-        "drops": [
-          "bell-key"
-        ],
         "sight": 0
       }
     },
@@ -115,9 +112,6 @@
         "hp": 22,
         "atk": 3,
         "xp": 30,
-        "drops": [
-          "lantern-key"
-        ],
         "sight": 0
       }
     },
@@ -129,9 +123,6 @@
         "hp": 28,
         "atk": 3,
         "xp": 40,
-        "drops": [
-          "helmet-key"
-        ],
         "sight": 0
       }
     },
@@ -233,6 +224,8 @@
   "regions": {},
   "things": [
     {"id": "cellar-gems", "name": "a handful of cellar gems",
-     "sprite": "gems", "value": 120}
+     "sprite": "gems", "value": 120},
+    {"id": "crown-seal", "name": "the Cellar King's wax seal",
+     "sprite": "seal-crown", "value": 150}
   ]
 }
