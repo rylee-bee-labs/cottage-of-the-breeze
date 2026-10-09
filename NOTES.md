@@ -1,5 +1,128 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-09 — the first floor carries a heal; and the deferral above was guarding the wrong syntax (agent)
+
+This closes play-test finding **M2** ("Any healing anywhere in the descent",
+`docs/playtests/2026-10-09-descent.md:403`).
+
+### The deferral's reason was real, and it was about the wrong file
+
+The "gentle start" entry below left a heal out on purpose: *"`library/a-letter-in-a-chest.md`
+already carries `chest: yes` and `drops: brass-ring` on floor 1, and adding
+`cloudy-potion` would have been a front-matter-only edit. But the front matter
+here is `drops: <comma list>` and the engine's own list syntax could not be
+checked without it — if it wants a YAML list, the id parses as one string and
+the chest opens **empty**"* — **Left out deliberately**, not forgotten.
+
+That reasoning is sound and the conclusion was wrong, because the heal was
+never a front-matter problem. **`cloudy-potion` already exists**, and has since
+cottage#72:
+
+| where | what it is |
+|---|---|
+| `world.json` → `items/cloudy-potion` | `"a cloudy potion"`, sprite `potion`, `value` 8, **`heal` 3**, `use: "drink"` |
+| `sprites/potion.png` | a real file, and `potion` is a real `player.sprites` entry |
+
+So no item was created, no Blueprint edit was needed, and **brief scope item 7
+does not apply** — there was nothing to create through the Blueprint. The
+defect was pure *placement*: ten Blueprint families already carry
+`drops: ["cloudy-potion"]`, and **the cellar Section — floors 1 to 9 — drew
+none of them.** Verified by flattening every family's `extends` chain against
+`world.json`'s `items`:
+
+| Section | floors | families drawn | carry a heal |
+|---|---|---|---|
+| **cellar** | **1–9** | cellar-rat, nest-of-moths, damp-shade, cellar-spider | **NONE** |
+| rootworks | 10–18 | + flowerpot-toad, wick-sprite, cave-cricket, rootwatcher | none drawn (warden only) |
+| siltworks | 19–27 | + deep-shade, cobweb-wraith, mire-toad, barrel-mimic | 4 of 6 |
+| emberhall | 28–36 | + hollow-shade, howling-rustle, hollow-cricket | 3 of 5 |
+
+M2's own words — *"the bag is empty on arrival on every floor and no floor
+carries a potion"* — are true of the cellar and **false of the bottom half**,
+where potions have always dropped. Rylee's "Rising — gentle near the top, some
+fights to fear deeper down" was therefore **inverted only at the top**, which
+is exactly where a player first feels it.
+
+### What changed
+
+One line in `worlds/cottage-of-the-breeze/sections/cellar.json`: `cellar-rat`
+weight 6 → 5, and `fat-cellar-rat` weight 1, both `depth: [1, 9]`.
+
+- **No front matter was touched.** The comma-list question the deferral worried
+  about is simply not reached — `drops` in a Section is a JSON list read from
+  the Blueprint, and the vault chest's front matter is untouched.
+- **`fat-cellar-rat` already exists** in `blueprint.json` (`hp 6, atk 1, xp 3,
+  drops ["cloudy-potion"]`, sprite `rat`) and **was drawn by no Section at
+  all** — a family authored, never placed. Nothing was invented: the name, the
+  stats and the drop are the ones already in the file.
+- **`blueprint.json` was deliberately not edited.** Its `source_sha256` is not
+  the file's bytes and is not reproducible without `vefr normalize`
+  (`3f57ebf…` on disk vs the lock's `0f06030b…`), so any Blueprint edit here
+  would have left `blueprint.lock.json` stale and CI red with no way to
+  refresh it. Placing an existing family needs no Blueprint change at all.
+
+### The curve still rises
+
+`fat-cellar-rat` has **atk 1, identical to `cellar-rat`**, and the hero's
+survival is atk-driven, so the danger curve is **byte-identical before and
+after**. Measured off the pack's own `curve` and family stats (hero 10 hp),
+worst-atk per floor, `main` vs this branch:
+
+| floor | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |
+|---|---|---|---|---|---|---|---|---|---|
+| worst atk | 1.00 | 1.04 | 1.07 | 2.23 | 2.30 | 2.38 | 2.45 | 2.53 | 2.60 |
+| **before = after** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+Across sections, from each Section's first floor, the hero survives **10.0 →
+5.0 → 3.3 → 2.5** worst hits (cellar → rootworks → siltworks → emberhall).
+"Rising" holds and is now backed by a heal at the shallow end. The one real
+difference: the toughest thing on a cellar floor is 6 hp instead of 4, so about
+one spawn in twelve takes an extra hit. Section weight total is **unchanged at
+12**, so spawn density is untouched — the monster-density question stays
+exactly where it was (vefr#357, another task).
+
+### Evidence, and its honest edge
+
+`python3 tests/assert_chest_drops.py` → `ok: every drop the pack names resolves
+to a real item with a real sprite` (it now walks the new family: `fat-cellar-rat`
+→ `cloudy-potion` → sprite `potion` → `sprites/potion.png` on disk).
+`python3 -m unittest discover -s art/tests -t .` → 219 tests, `OK`.
+`git diff main -- worlds/cottage-of-the-breeze/library/a-letter-in-a-chest.md`
+is **empty** — that book's prose *and* front matter are byte-identical.
+
+**Not proven: any walk.** This sandbox has no VEFR checkout, no `uv`, no
+browser and no network (the proxy 403s every route), so `norns validate`,
+`vefr check` and `tests/playthrough/run.py` could not be run, and **no log
+here shows a hero's health rising.** The change is pack data on a path that is
+*already proven live in this pack* — `cellar-king` drops `crown-seal` on cellar
+floor 9 every single run through the same Blueprint `drops` list — and that is
+the honest difference between this and a mock: the mechanism is exercised at
+play today, this change points more of it at floor 1. **The acceptance commands
+in the brief must still be run before merge.**
+
+### One thing this found that is now a lie in the bot
+
+`tests/playthrough/run.py`'s `cues_without_a_subject()` asserts *"no family
+the descent draws drops anything, so the 'pickup' cue has no subject."* That
+was already **false on `main`** before this change — running the test's own
+`family_drop_names()` against current `main` returns
+`['deep-shade', 'cobweb-wraith', 'mire-toad', 'barrel-mimic', 'hollow-shade']`.
+The tripwire was written when the cellar drew no droppers and never revisited
+after cottage#118 gave the lower Sections heal-carriers. Left alone here
+(out of scope), but **the bot's `pickup` check is red on `main` today** and
+someone should decide whether `pickup` moves to `SOUND_CUES_NEEDED`.
+
+### Exact text for Rylee
+
+> The first floor of the cellar now has a heal. Not a new potion and not a new
+> chest — the cloudy potion you already had in the Blueprint was simply never
+> placed on the top nine floors, so a hero who went down and came back up
+> thirsty had nothing to reach for. The cellar now draws one fat cellar rat in
+> twelve; kill it and the potion is in your bag. It hits exactly as hard as
+> the rat it replaces, so the floors below still get frightening faster than
+> the top ones, which is the shape you asked for. Nothing you have written
+> changed — the letter in the chest is word for word what it was.
+
 ## 2026-10-08 (later still) — the five descent books are pinned to a place, not a tile (agent)
 
 VEFR `b5ed13d` (vefr#361) taught the descent to place books by **anchor**

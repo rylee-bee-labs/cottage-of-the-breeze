@@ -8,7 +8,8 @@
             "d": "dungeon-stairs-down"},
   "fog": {"radius": 5},
   "families": [
-    {"family": "cellar-rat", "weight": 6, "depth": [1, 9]},
+    {"family": "cellar-rat", "weight": 5, "depth": [1, 9]},
+    {"family": "fat-cellar-rat", "weight": 1, "depth": [1, 9]},
     {"family": "nest-of-moths", "weight": 4, "depth": [1, 9]},
     {"family": "damp-shade", "weight": 1, "depth": [3, 9]},
     {"family": "cellar-spider", "weight": 1, "depth": [4, 9]}
