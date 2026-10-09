@@ -180,6 +180,11 @@
       "mods": {
         "hp": 2
       }
+    },
+    "cellar-gems": {
+      "name": "a handful of cellar gems",
+      "sprite": "gems",
+      "value": 120
     }
   },
   "flags": {

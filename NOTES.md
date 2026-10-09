@@ -1,5 +1,76 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 — the vault chest holds something again (agent)
+
+The entry above ("the six orphaned books") left one thing named as
+unfixed: *"The vault chest drops nothing... `a-note-under-the-seal` still
+says `drops: cellar-gems`, and `cellar-gems` is not in the pack's item
+catalog (it went with the authored floors), so the bake drops the id
+silently."* That is the one this entry closes.
+
+**Confirmed first, not taken on trust.** Wove the pack at `main` and read
+the library back out of the woven file: `a-note-under-the-seal` baked
+`"chest": true, "drops": []`. The engine's `_drop_ids` (`vefr/cli.py`)
+keeps a drop only when the catalog names it, so the id vanished with no
+error anywhere. `norns validate` and `vefr check` both printed `ok:`
+on that broken pack — the empty chest validated perfectly.
+
+**What the chest holds now: one thing, "a handful of cellar gems"**
+(`cellar-gems`, sprite `gems`, `value` 120). Restored through the
+Blueprint, not hand-edited into `world.json`: `blueprint.json` moves from
+format `1` to `2` to carry a `things` list holding the one record, and
+`vefr normalize` writes `/items/cellar-gems` and tracks the pointer in
+`blueprint.lock.json`. The record is the authored one, recovered from
+`4bed847` — the same name, sprite and value cottage#110 deleted — so no
+new words were invented. The book's front matter already said
+`drops: cellar-gems` and needed no edit, and the note's own prose
+already calls them gems ("a note lies folded on top of the gems"), which
+is why this id is the honest one. **No book's words were changed.**
+
+**Why one thing and not a named handful.** Rylee's word for the soul is
+"the thrill of opening something and finding something fun", and a chest
+of one lump of treasure is thin. But `gems` is the **only** unclaimed
+item sprite in the pack. The other four that look free — `key-bell`,
+`key-helmet`, `key-lantern`, `seal-crown` — are the Keybearer ladder's,
+and that ladder is the step Rylee ordered *later* ("E8 vaults"; loot
+"Before E8 vaults"). Every other item sprite is already claimed by an
+existing item. New art is not this task's, and inventing a second gem
+that reuses the same picture reads as a bug. So: one real thing now, with
+the best picture in the pack, at four to five times the value of any
+other item — and **a second and third treasure are waiting on a sprite
+decision**, not on a naming one. If Rylee wants the fuller handful, the
+unblocking move is new sprite sheets (Codex first, then Wan, per
+`AGENTS.md`), and the names follow in a minute after that.
+
+**A check that was missing, now in the repo.** `tests/assert_chest_drops.py`
+asserts that every id in every chest book's `drops` exists in
+`world.json`'s `items`, and that its sprite is a real entry in
+`player.sprites` with a real file. Neither validator does this, which is
+how an empty chest shipped green. Proven to bite: deleting
+`/items/cellar-gems` again makes it fail with the exact original
+defect, and restoring it passes.
+
+**Left out on purpose.** The Cellar King still drops `crown-seal`, and the
+three Keybearer families still drop `bell-key`, `lantern-key` and
+`helmet-key`. None of those four ids are in the catalog either, so they
+are being dropped at play the same silent way this chest was — one floor
+up, from the warden on `cellar-0-9`. That is the Keybearer ladder
+(cottage#110 removed the items and the six rules that named them), which
+Rylee ordered at step 4, and this task is the chest, so it is named here
+rather than fixed here. **It should not stay unfixed.**
+
+**Evidence, and its edge.** `norns validate` and `vefr check` both print
+`ok:` on this pack; `vefr normalize` reports `fresh`; the woven read-back
+goes from `drops: []` to `drops: ['cellar-gems']` resolving to
+`{"name": "a handful of cellar gems", "sprite": "gems", "value": 120}`,
+with `gems` baked into `VEFR_SPRITES` as a real PNG so the bag draws the
+picture rather than a fallback dot. **The game was not run and there is
+no screenshot**: the clone had no browser and no node, and the descent is
+generated client-side, so the chest was never opened by a player in this
+session. What is proven is the data and the code path that consumes it
+(`giveChestDrops` in `web/packaged.html` adds each id to the bag), not a
+walk.
+
 ## 2026-10-08 (later) — the six orphaned books are findable again (agent)
 
 The entry below ("one way down") deleted `floor-1`..`floor-6` and
