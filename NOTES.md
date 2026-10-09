@@ -1,5 +1,120 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-08 (late) — the way down from town: what a player sees, and what is still the engine's (agent)
+
+Agent draft, and a small one. One line of pack data changed — the base colour
+of the `S` glyph in `acts/act-1/town/contract.json`. Nothing else in the pack
+moved, no player-facing words were written or reworded, and neither Blueprint
+file was touched.
+
+**The point of interest the brief asked for is already there.** Finding **M5**
+of `docs/playtests/2026-10-09-descent.md` says "There is no point of interest,
+no label and no hint on the town tile at `[1,1]`". The point of interest and
+its text are on `main`, and were when that report was written (the hint is
+there too — it names the wrong place, which is C2, below):
+
+- `acts/act-1/town/contract.json:50` — `"1,1": "the stair down"` in `pois`,
+  added 2026-09-29 in `6aad325` ("pack: the stair goes down to a first dungeon
+  floor"). `git show c1b645a:…/town/contract.json` — the commit the report was
+  played against — has the same six `pois` lines.
+- `acts/act-1/town/contract.json:85` — `"1,1": "The stair goes down into the
+  dark."` in `poi_text`, same commit.
+- `world.json:418-424` — `descent.entry` is `{"region": "town", "at": [1,1]}`,
+  and `acts/act-1/world.json:119-168` declares no authored transition on
+  `[1,1]`, so the descent entry is the only way off that tile.
+
+A second POI on the same tile is not possible (one key per tile in `pois`) and
+rewording `"the stair down"` would break Rylee's "Preserve existing written
+items unless I explicitly approve changes" (`AGENTS.md:13-19`). So M5 is filed
+here as **wrong as written**, and the work below is about the one thing about
+that tile that was genuinely true: nobody could tell from across the room that
+it was the way *down*.
+
+**What a player sees today.** From
+`docs/playtests/screenshots/bot-phone/01-town.png` (390×844, taken before the
+authored cellar went), the tile at `[1,1]` draws **the same
+picture as the cottage door at `[4,5]`** — the same pale-framed archway, one
+tile wide. And `S`'s base colour was `#212a20`, the same colour the grass
+glyph uses (`contract.json:3-9`), so the stair sat flush in a field looking like
+another door. The town is 22×14 tiles, so the whole town is on screen at both
+sizes: this was never about distance, it was about legibility.
+
+**What changed.** `contract.json:35-40`, the `S` legend entry:
+`"base": ["#212a20"]` → `"base": ["#131311"]`. `#131311` is this pack's own
+out-of-play background — `contract.json:80`, and the same value in
+`cottage/contract.json:39` and `tavern/contract.json:47` — so wherever the
+stairs picture leaves the base showing, the tile is now the colour of "not the
+play area" instead of the colour of a field. The picture is untouched and still
+`dungeon-stairs-down`.
+
+**Not verified, and stated as such.** There is no VEFR checkout, no `uv` and no
+browser in this clone, so **nobody has seen this tile rendered with the new
+base**. Whether it reads as a dark opening depends on how much of the base the
+stairs picture leaves showing, which I could not measure. The honest claim is
+"the grass no longer paints the stair", not "the stair now reads as down".
+
+**Still not fixed, with the reason.**
+
+- **C2 — the way-ahead hint names a raw id.** The hint names the *target
+  region*, not the Section, and since `#110` removed the authored `floor-1` the
+  target is a generated region (`cellar-0-1`). The only Section field the
+  play-time descent reads is `id` (`NOTES.md:596-606`, `.project/CURRENT.md:68-72`),
+  and `id` is what *becomes* the generated region id — the descent document
+  carries `"s": "cellar"` beside `"cellar-0-1"`
+  (`docs/playtests/logs/descent-desktop-clear-floor-seed-run1.txt:7`), and the
+  pack's own floors run `cellar-0-1` to `cellar-0-9`
+  (`library/a-note-under-the-seal.md:5`). Renaming it renames every floor region
+  in the pack — `world.json:426-429` lists the Sections by id, and
+  `blueprint.json` carries families hung off them — and it would produce a
+  *less* readable id, not a name. There is no display-name
+  field on a Section, and `shapes.SECTION` is checked by `vefr check` in CI
+  (`.github/workflows/validate-pack.yml`), so guessing at an unrecognised `name`
+  key could fail the landing validators. **This is VEFR #259** ("region display
+  names for hints", `docs/plans/release-1/HANDOFF.md:12` and `:37`), and it is
+  the whole of C2 now that the authored regions are gone. Not half-done here on
+  purpose.
+- **C3 — arriving greets you with the way out.** The arrival POI is the
+  engine's own naming of the up-stair anchor on a generated floor. The pack's
+  only lever is a Section's `pois`, and the play-time descent does not read it
+  (`NOTES.md:596-606`). Engine behaviour, filed below.
+- **The picture itself.** `dungeon-stairs-down` is engine art; the town ships
+  four tile pictures (`tiles/cobblestone-street.grid3x3.webp`,
+  `grass.grid3x3.webp`, `stone-wall.webp`, `wood-floor.webp`) and none for the
+  stairs, so making the stair *look* like a stair and not like a door is new
+  art. Out of scope this pass and not attempted.
+- **`sections/cellar.json` has no `pois` and no `loot`**, while
+  `rootworks.json:23`, `siltworks.json:23` and `emberhall.json:22` each carry a
+  three-name `pois` array and a `loot` tier. Left alone deliberately: those keys
+  are read by nothing today (`NOTES.md:596-606`), so filling in the cellar's
+  would be data that draws nothing and would make C3 look fixed when it is not.
+  Recorded for whoever takes the engine side.
+
+**Ready-to-file VEFR issues.** `gh` is not installed in this sandbox and no
+token is set, so **nothing is filed and no issue number is claimed** beyond
+#259, which already exists.
+
+1. *Extend #259 (region display names for hints) with the descent.* A generated
+   floor's region is named `<section-id>-<cycle>-<depth>`. A Section needs one
+   field that says what the game calls the place, so the hint reads "To reach
+   the Cellar, go north-west" instead of a raw id. Accept: a pack whose Section
+   names itself weaves a hint that uses that name, and a pack that names none
+   weaves byte-identically to today.
+2. *The arrival POI on a generated floor is the way back up.* The hero lands on
+   the up-stair anchor, so the big button and the POI both say "up" on arrival.
+   The pack has no field that changes this — a Section's `pois` is not read.
+   Accept: arriving on a generated floor greets the player with what that floor
+   is, and the way down is findable from the arrival tile.
+
+**Evidence.** `acts/act-1/town/contract.json:35-40` (the change), `:48-55`
+(`pois`), `:84-88` (`poi_text`), `acts/act-1/town/map.md:2` (the `S` glyph at
+row 1, column 1), `world.json:416-431` (`descent`), `acts/act-1/world.json:119-168`
+(no transition on `[1,1]`), `sections/*.json`, `NOTES.md:596-606`,
+`.project/CURRENT.md:68-72`, `docs/playtests/screenshots/bot-phone/01-town.png`.
+**Not run here:** `norns validate`, `vefr check`, and the play-through bot —
+there is no VEFR checkout, no `uv`, no browser and no network in this clone, so
+the pack has not been run. `python3 tests/assert_chest_drops.py
+worlds/cottage-of-the-breeze` → exit 0, before and after this change.
+
 ## 2026-10-08 (later still) — `.project/CURRENT.md` back to truth, and three things it had to stop saying (agent)
 
 This entry exists because the correction needed recording, not because anything
