@@ -4,24 +4,16 @@ The companion to `docs/story/DRAFT-v2.md`. Nothing here is canon either; this is
 the reasoning that sits behind the draft, so that Claude can review the choices
 and Rylee can read them.
 
-**Read this first: what this pass had to work from.** The sandbox the first pass was
-written in could not reach `/var/home/agent/missions/…` at all and the clone had no
-`origin` remote, so `git show origin/docs/story-draft:docs/story/DRAFT.md` failed and
-**no prose of #111 reached the first pass at all.** That was the first pass's main
-failure and the coordinator named it.
+**Read this first: what the references in this file are.** The first pass could not
+read `docs/story/DRAFT.md` at all and quoted nothing from #111. The second pass quoted
+#111 from a transcript. Both limits were superseded on 2026-10-09 by a re-measuring pass
+that opened the file itself: every `draft:NN-NN` reference in the tables below was
+measured against `docs/story/DRAFT.md`, and the rows marked **not in #111** were checked
+against that file's full heading list, so they are v2's own material rather than
+passages #111 ever carried. The tables are therefore measured, not transcribed.
 
-**This second pass had the full text of #111**, quoted verbatim in the packet, and
-`docs/story/DRAFT.md` is still not on any branch in this clone. So the restoration below
-is against the packet's quotation, which the coordinator transcribed. Two things follow
-and both are worth stating plainly:
-
-- Everything quoted here from #111 is quoted from **the packet's transcript of it**,
-  not from a file I opened. The coordinator should diff it against the real file before
-  this is read as an exact restoration.
-- The Rylee decision files are still not readable from here. Every decision quoted in
-  this notes file and in the draft comes from the packet's verbatim "Decisions in
-  force", which the coordinator states it verified against the files. Where a claim was
-  checkable against the repo itself I checked it and cite it below.
+#111 itself is still not to be merged as-is: its branch is behind `main` and re-adds
+records `main` deleted. See [§ On PR #111's branch](#on-pr-111s-branch) below.
 
 ---
 
@@ -30,13 +22,22 @@ and both are worth stating plainly:
 - `docs/story/DRAFT-v2.md` and this file merged to `main` on 2026-10-09 as
   Rylee-Bee/cottage-of-the-breeze#130. It was meant to be held as a draft PR for
   Rylee; the landing tool armed auto-merge and the coordinator's session is not
-  permitted to disarm it, so it merged itself. Nothing was promoted to canon:
-  `STORY.md` is untouched and both files say DRAFT / Not canon.
-- PR #111 stays open for Rylee and carries a pointer to v2. It should not be
-  merged as-is: its branch is behind `main` and re-adds records `main` deleted.
-- Two questions are with Claude and unanswered as of this writing: whether the
-  shipped `a-note-under-the-seal.md:16` line can stand beside Rylee's
-  accidental-fire pick, and the draft review itself.
+  permitted to disarm it, so it merged itself.
+- Claude reviewed the draft. The review's two rulings and four prose fixes merged
+  to `main` on 2026-10-10 as #134 (96bec9f).
+- **The canon has landed.** #138 (squash `37e08f7`, merged 2026-10-10) added
+  `docs/story/STORY.md` — the story itself, without the notes, the open
+  questions or the engine list — and marked `docs/story/DRAFT-v2.md` promoted.
+  So: the canon page is `docs/story/STORY.md`; the **root** `STORY.md`
+  ("Rylee's words only") is a different file, still untouched and still empty.
+  Nothing under `worlds/` changed to promote it, and no existing written item was
+  altered.
+- PR #111 is **closed** (2026-10-10T00:27:00Z), with a pointer to #130 and to
+  the canon PR #138.
+- Both questions are answered. The fire question was answered by Claude on
+  2026-10-09: the seal note's deliberate banking and Rylee's accidental burning
+  are not in conflict, the note stands word for word, and nothing under
+  `worlds/` changes. The draft review was answered and applied as #134.
 
 ## Contradictions
 
@@ -267,7 +268,7 @@ be true, with the exact wording at risk, so Rylee can rule on each one.**
 | `worlds/cottage-of-the-breeze/world.json` | 198 | `"act-1-complete": "the note under the Cellar King's seal has been read"` | The description of the flag names the old ending trigger. |
 | `worlds/cottage-of-the-breeze/world.json` | 311, 335 | `{"flag": "act-1-complete", ...}` in `keeper-after-the-end` and `regular-after-the-end` | Those two lines are warmth after the end, not story. They survive v2 as written. **Listed only because they key off the flag above.** |
 | `docs/story-spine-notes.md` | 12, 27, 29 | "the Spell Keeper. She is the one who is glad you keep going down. The letter in the chest … is hers." / "its author is not yet named" / "**Truth two revealed:** the Keeper is the one who came back \| The Keeper herself, after you carry the letter back to her" | Working notes, not canon and not a pack item, but they now contradict the letter's own text. Worth a one-line correction when Rylee next edits that file. |
-| `STORY.md` | — | — | **Nothing to change.** It is empty and stays empty. Nothing in this PR proposes writing to it. |
+| `STORY.md` (the root one, "Rylee's words only") | — | — | **Nothing to change.** It is empty and stays empty. Nothing in this PR proposes writing to it. The canon page is a different file, `docs/story/STORY.md`, added by #138. |
 | `NOTES.md` | — | — | **Nothing to change.** No existing entry is in conflict with v2 that is not already settled by a decision; those decisions are already recorded at `NOTES.md:963` for the spine and belong in Rylee's own words. |
 | Every item in `worlds/cottage-of-the-breeze/library/` | — | — | **Untouched.** All ten files are byte-identical. `git diff --name-only cc71db7 --` names only the two v2 markdown files. (This clone has no `origin/main` ref; `cc71db7` is main.) |
 | Every `voices/*.md` | — | — | **Untouched.** Including `worlds/cottage-of-the-breeze/acts/act-1/cottage/voices/hearth-cat.md`, whose cat persona v2 explicitly preserves ("Please preserve the cat's opinion of all this."). |
@@ -360,6 +361,8 @@ names the gap, not a workaround.
 The packet is right that it must not be built on: `docs/story-draft` is behind
 `main` and re-adds the `acts/act-1/floor-1`..`floor-6` and `king-room` records
 that cottage#110 deleted. Building v2 on it would resurrect them. This branch is
-based on `cc71db7` (main, as of this pass) and touches two files. The branch is
-also not present in this clone, which is why #111's prose was restored from the
-packet's transcript — see [§ Passages carried across](#passages-carried-across).
+based on `cc71db7` (main, as of this pass) and touches two files. The branch was
+not present in this clone either, so #111's prose was first restored from the
+packet's transcript; that limit no longer applies — the `draft:NN-NN` references
+below were re-measured against `docs/story/DRAFT.md` itself on 2026-10-09. See
+[§ Passages carried across](#passages-carried-across).
