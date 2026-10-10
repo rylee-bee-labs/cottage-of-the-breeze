@@ -70,8 +70,8 @@ food and the fuel and the good blankets were counted out among themselves and ke
 because a severe winter is a thing you can starve in, and nineteen frightened people
 did the arithmetic and got an answer they could live with. Underneath the common
 hearth the passage was sealed and the fire was banked — kept low and slow and
-covered, so it would last, because that was the whole point. Kindness was on the
-fire's list. Kindness was what got banked.
+covered, so it would last, because that was the whole point. Kindness was what got
+banked.
 
 **They thought kindness was something they could run out of.**
 
@@ -103,7 +103,7 @@ gentlest place in the game and the first one you are not afraid of. Danger is ba
 a word down here. Rats, moths, a spider in a good corner.
 
 **The guardian.** The **Cellar King** — a very large crowned rat who has been holding
-a stair shut with a seal for longer than the cottage has stood. It is not clever and
+a stair shut with a seal for forty years. It is not clever and
 it is not cruel. It is doing a job someone gave it a long time ago and it is tired.
 
 **The vault.** A ring of old red wax, a small chest, and a note folded on top of the
@@ -148,10 +148,10 @@ passage to the travellers' room, in the winter, on purpose, to keep people warm
 through a severe one.
 
 **The Breeze burned later, by accident. Nobody set it.** No arson, no villain
-standing in the snow forty years later, no second meeting. That fire is the same
+standing in the snow, no second meeting. That fire is the same
 banked fire, left a little too long untended in a building nobody was using, in a
 town that had stopped talking about why. **Deliberate banking, accidental burning** —
-two events forty years apart, not one contradiction. The note stands word for word,
+two events some winters apart, not one contradiction. The note stands word for word,
 and it is simply true.
 
 ### Section 2 — The Long Well
@@ -196,7 +196,7 @@ is not a clue to a death. It is a clue that somebody still owns it.
 **The answer.** The town closed the room on purpose, in a severe winter, and did the
 arithmetic out loud and in writing. Then it put a fire over the room and a seal over
 the fire, which is what the seal note has been saying all along. The burning came
-four decades later and by accident.
+some winters later, and by accident.
 
 ### Section 3 — The Banked Fire
 
@@ -334,7 +334,7 @@ villain because there was never one — there was a town, and a fire, and a room
 
 **This is the ending, and it is also the spine of the whole game.**
 
-There is no final boss after the King. There is no speech in the square. There is no
+There is no final boss. There is no speech in the square. There is no
 kindness score and no moral explanation and nothing to unlock. **The final section
 ends at the Blue Door and the kept room.** There is nothing beyond the Blue Door.
 
@@ -389,7 +389,7 @@ mechanic. **There are no more than three**, because a fourth is a schedule.
 
 **Hard limits, because the moment these slip the thing stops working.** The kept room
 is never: a chore, a check-in, a daily task, a thing with a deadline, a reward for
-returning, a shop, a hub with quests in it, a crowd, a hub, or a place the game asks
+returning, a shop, a hub with quests in it, a crowd, or a place the game asks
 you to come back to. The player can keep exploring afterwards, forever, and the room
 will still be empty and warm and will not ask anything of them.
 
@@ -417,8 +417,8 @@ you walk past them, and what they do not say, which is more.
 workhorse. Read the first time, it is a note from somebody who went missing. Read it
 after you have met the Spell Keeper and understood she came back from her own descent
 years ago and has kept a cake back every week since, it becomes a promise about
-*cakes* — a small, ridiculous, specific promise made in the dark, kept by a man who
-then went down anyway. It means more. Nothing about it changed. You did.
+*cakes* — a small, ridiculous, specific promise made in the dark, by a man who
+meant to come back for one. It means more. Nothing about it changed. You did.
 
 The coin, face down, works the other way: the first time it is a coin. The second time,
 someone else's habit, someone else's superstition, laid down on purpose and left. It
@@ -428,7 +428,7 @@ reads like someone's habit, not yours.
 
 The door is left exactly where it is, and what is behind it is **unresolved**:
 
-> **Under the hearth-slate in the kind room there is a second stair, and it is warm,
+> **Under the hearth-slate in the kept room there is a second stair, and it is warm,
 > and nobody in this town has ever once mentioned it.**
 
 Bramble will look at it when you take him up. That is the only omen. Nothing forces
