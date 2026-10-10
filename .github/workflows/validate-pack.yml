@@ -52,7 +52,7 @@ jobs:
       - name: Validate the pack (pinned VEFR)
         run: >-
           uvx --no-progress
-          --from "vefr @ git+https://github.com/Rylee-Bee/vefr@${VEFR_REF}"
+          --from "vefr @ git+https://github.com/rylee-bee-labs/vefr@${VEFR_REF}"
           norns validate --pack worlds/cottage-of-the-breeze
 
       # Neither `norns validate` nor `vefr check` can see a drop id the item
