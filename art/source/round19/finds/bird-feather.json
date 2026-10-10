@@ -1,0 +1,22 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "A single small down feather, soft and fluffy, pale cream and grey, quill stub at the base. Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks, flat opaque fills. Warm palette of honey gold, deep amber, ochre, chestnut and cream, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.",
+  "width": 1024,
+  "height": 1024,
+  "seed": 67,
+  "n": 1,
+  "character_reference": false,
+  "trace_id": "071842a714f808bb05fe53cf77e655ed",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-09T16:00:58Z",
+  "files": [
+    {
+      "name": "bird-feather-1.jpg",
+      "bytes": 160499,
+      "sha256": "2afc24f5b12565bcba3b9df529f09f822d6ee960b1bd73e489ca3593e5d2b2b9"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}

@@ -291,6 +291,50 @@
         "xp": 26,
         "sight": 0
       }
+    },
+    "cellar-rat-finds": {
+      "extends": "cellar-rat",
+      "defaults": {
+        "drops": [
+          "candle-stub",
+          "shoe-button",
+          "rat-tooth",
+          "jam-jar-lid"
+        ]
+      }
+    },
+    "nest-of-moths-finds": {
+      "extends": "nest-of-moths",
+      "defaults": {
+        "drops": [
+          "candle-stub",
+          "shoe-button",
+          "moth-wing",
+          "bird-feather"
+        ]
+      }
+    },
+    "damp-shade-finds": {
+      "extends": "damp-shade",
+      "defaults": {
+        "drops": [
+          "candle-stub",
+          "shoe-button",
+          "cold-ember",
+          "music-box-spring"
+        ]
+      }
+    },
+    "cellar-spider-finds": {
+      "extends": "cellar-spider",
+      "defaults": {
+        "drops": [
+          "candle-stub",
+          "shoe-button",
+          "spider-silk",
+          "thimble"
+        ]
+      }
     }
   },
   "regions": {},

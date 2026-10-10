@@ -1,0 +1,22 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "A single small rounded lump of cold dead ash, pale grey and bone white, sitting alone and spent. It is an object held in the hand, not a campfire: there is NO fire anywhere in the picture, no flame, no glow, no orange light, no sparks, no smoke, no logs, no stones. Just one small dusty grey lump. Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks, flat opaque fills. Palette of ash grey, pale bone, chestnut and muted cream, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.",
+  "width": 1024,
+  "height": 1024,
+  "seed": 733,
+  "n": 1,
+  "character_reference": false,
+  "trace_id": "071843536c5554dfef3a0b3700fdaa3d",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-09T16:03:54Z",
+  "files": [
+    {
+      "name": "cold-ember-v3-1.jpg",
+      "bytes": 86691,
+      "sha256": "bde619f4b202a172f8d66d13b5c3d572fd9afa7953fefb89ce25bb428551f5f0"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}

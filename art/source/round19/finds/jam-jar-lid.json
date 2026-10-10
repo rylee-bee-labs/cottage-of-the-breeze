@@ -1,0 +1,22 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "A round metal jar lid, rusted shut, orange rust patches, faded checked cloth edge gone, dented rim. Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks on metal, flat opaque fills. Warm palette of honey gold, deep amber, ochre, chestnut and russet, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.",
+  "width": 1024,
+  "height": 1024,
+  "seed": 41,
+  "n": 1,
+  "character_reference": false,
+  "trace_id": "0718427fea0785c8b319f33913e62126",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-09T16:00:16Z",
+  "files": [
+    {
+      "name": "jam-jar-lid-1.jpg",
+      "bytes": 241221,
+      "sha256": "41067d60f7d822104b71bfd0c5a80cbbea077bce2158731e53955583563b7355"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}

@@ -109,9 +109,10 @@ have seen, or to have said out loud, by the end of Section 4.
 
 **What stays unresolved, on purpose:** Oren's fate. Merrin's fate. Who the six
 places at the table are for. Whose note is the one by the fire in the Banked Fire.
-Whose hand the second line on the ledger's last page is in. Whether the town meant to
-put the fire over the room or merely left it untended (see
-[§ Needs Rylee](#needs-rylee)). None of these is answered in prose anywhere in v2.
+Whose hand the second line on the ledger's last page is in. None of these is answered
+in prose anywhere in v2. (The fire itself is settled and is not on this list: the town
+banked a fire over the room on purpose and The Breeze burned decades later by
+accident. See [§ Needs Rylee](#needs-rylee).)
 
 **The four-section spine, and who is in it.** The Cellar King falls when the seal
 breaks. The Longneck stands and will keep standing after you leave. Old Longsleep is
@@ -173,7 +174,7 @@ References below were re-measured against `docs/story/DRAFT.md` on 2026-10-09.
 
 | Passage | What changed and why |
 | --- | --- |
-| S2's answer, *"The fire was set on purpose. By the town. To hold down a room."* | **Cut.** Rylee: the sealing was deliberate, the burning was not. v2 states the sealing as decided and **holds the burning open**, because the seal note says the town put a fire over the room and Rylee's account says the banked fire was left untended. That question has gone to Claude as an architecture question; see [§ Needs Rylee](#needs-rylee). |
+| S2's answer, *"The fire was set on purpose. By the town. To hold down a room."* | **Cut.** Rylee: the sealing was deliberate, the burning was not. v2 states the sealing as decided and the burning as accidental, and the two do not conflict. The seal note's *"it put a fire over the room, and a seal over the fire"* **is** the banking, done on purpose that winter; the Breeze burned four decades later when that same banked fire was left untended. Deliberate banking, accidental burning. The note stands word for word; see [§ Needs Rylee](#needs-rylee). |
 | S3's note, *"I am going to go back down for him."* | **Cut, one clause of it.** It was the rescue quest Rylee refused. What is left is *"I am not going to be able to bring it up myself"* — the same writer, the same warmth, the same refusal to die on stage, without sending anybody back down. |
 | S3's answer, *"The letter in the cellar is hers. So is the coal."* | **Cut.** The letter is Oren's and the draft says so. The coal is unnamed: v2 says the coal is the note-writer's and does **not** decide who wrote the note. |
 | S4's Bramble, the two sentences about grief | **Rewritten.** See [§ Bramble](#bramble) below. |
@@ -237,7 +238,7 @@ line.
 
 1. **Where does the kept room physically sit?** Under the common hearth, below the Blue Door, in the cottage. — It is what was sealed, and the Blue Door is the way back up.
 2. **Who says "There's room"?** Unnamed; a townsperson already known. — Rylee wrote "Someone makes room at the table"; naming the speaker turns an act into a character beat.
-3. **Does the Spell Keeper know about the letter?** She reacts to it; v2 does not say she authored it. — `world.json:239` currently has her say "You found my letter," which is exactly the line at risk. Listed, not changed.
+3. **Does the Spell Keeper know about the letter?** She reacts to it; Oren wrote it. — `world.json:239` has her say "You found my letter," and that stands word for word, because it is true: the letter's last line is *"Tell the keeper I kept my word about the cakes"*, so it is addressed to her in the only line that matters and it is hers to call hers. **Not changed, and no longer at risk.**
 4. **Are the three Keybearers awake, dead, or asleep in v2?** Asleep. — They are the descent's household texture, not its stakes; "wake, take key, sleep again" keeps them harmless, which matches "nobody down here wants anything from you."
 5. **Is the Cellar King the moral of the story?** No. He is the door. — A named antagonist would make the town the villain; the point is that the town was not being villainous.
 6. **Does the player ever go back down after the ending?** Yes, freely. — Rylee's "The player can keep exploring afterward."
@@ -261,27 +262,28 @@ be true, with the exact wording at risk, so Rylee can rule on each one.**
 
 | Path | Line | Exact wording at risk | Why v2 conflicts |
 | --- | --- | --- | --- |
-| `worlds/cottage-of-the-breeze/world.json` | 239 | `"line": "Oh. You found my letter. I did say I'd come back. I only took the long way round. Here, I kept one back for you."` | The Spell Keeper claims the letter is hers. v2 makes it Oren's. **Highest-risk line in this PR.** |
+| `worlds/cottage-of-the-breeze/world.json` | 239 | `"line": "Oh. You found my letter. I did say I'd come back. I only took the long way round. Here, I kept one back for you."` | **Nothing to change — the line stands word for word.** Oren wrote the letter, and it ends *"Tell the keeper I kept my word about the cakes"*; it is addressed to her in that last line, so "my letter" is hers to say and v2 agrees. |
 | `worlds/cottage-of-the-breeze/world.json` | 245–262 | the whole `the-seal-note-read` rule, including `{"set": "act-1-complete"}`, `{"complete-act": "act-1"}` and `{"say": "Far above, a window is a little brighter than it was."}` | v2's ending is the Blue Door and the kept room, not the seal note. Reading the seal note should not end the act. |
 | `worlds/cottage-of-the-breeze/world.json` | 198 | `"act-1-complete": "the note under the Cellar King's seal has been read"` | The description of the flag names the old ending trigger. |
 | `worlds/cottage-of-the-breeze/world.json` | 311, 335 | `{"flag": "act-1-complete", ...}` in `keeper-after-the-end` and `regular-after-the-end` | Those two lines are warmth after the end, not story. They survive v2 as written. **Listed only because they key off the flag above.** |
 | `docs/story-spine-notes.md` | 12, 27, 29 | "the Spell Keeper. She is the one who is glad you keep going down. The letter in the chest … is hers." / "its author is not yet named" / "**Truth two revealed:** the Keeper is the one who came back \| The Keeper herself, after you carry the letter back to her" | Working notes, not canon and not a pack item, but they now contradict the letter's own text. Worth a one-line correction when Rylee next edits that file. |
 | `STORY.md` | — | — | **Nothing to change.** It is empty and stays empty. Nothing in this PR proposes writing to it. |
-| `NOTES.md` | — | — | **Nothing to change.** No existing entry is contradicted by v2 that is not already contradicted by a decision; those decisions are already recorded at `NOTES.md:963` for the spine and belong in Rylee's own words. |
+| `NOTES.md` | — | — | **Nothing to change.** No existing entry is in conflict with v2 that is not already settled by a decision; those decisions are already recorded at `NOTES.md:963` for the spine and belong in Rylee's own words. |
 | Every item in `worlds/cottage-of-the-breeze/library/` | — | — | **Untouched.** All ten files are byte-identical. `git diff --name-only cc71db7 --` names only the two v2 markdown files. (This clone has no `origin/main` ref; `cc71db7` is main.) |
 | Every `voices/*.md` | — | — | **Untouched.** Including `worlds/cottage-of-the-breeze/acts/act-1/cottage/voices/hearth-cat.md`, whose cat persona v2 explicitly preserves ("Please preserve the cat's opinion of all this."). |
 
 ## Needs Rylee
 
-1. **The fire question — escalated to Claude as architecture, not settled here.**
+1. **The fire question — settled; nothing under `worlds/` changes.**
    `worlds/cottage-of-the-breeze/library/a-note-under-the-seal.md:16` says the
-   town "put a fire over the room." Rylee's decision says the hearth was banked
-   and "The Breeze later burned when the banked fire was left untended." Those
-   are different: intent versus accident. v2 quotes the note exactly, states the
-   accidental fire as decided, and **does not say which of the two the town
-   meant**. The draft contains the contradiction rather than resolving it. It
-   needs Claude's architecture ruling, and then either the note or the prose
-   changes — not both, and not here.
+   town "put a fire over the room, and a seal over the fire." Rylee's decision
+   says the hearth was banked and "The Breeze later burned when the banked fire
+   was left untended." These are not two accounts in conflict. The town
+   **deliberately banked** its hearth over the sealed passage in the winter, on
+   purpose — which is exactly what the note describes — and **The Breeze burned
+   four decades later, by accident**, when that same banked fire was left
+   untended in a building nobody used. v2 now says so in one paragraph, the note
+   stands word for word, and no shipped text is touched.
 2. **Whether the Blue Door is the town stair at `[1,1]`**, or a door of its own.
    v2 treats it as the way back up, which is what "the final section ends at the
    Blue Door and the kept room" implies, but the pack has no blue door: the

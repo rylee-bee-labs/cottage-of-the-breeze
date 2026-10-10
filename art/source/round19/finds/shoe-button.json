@@ -1,0 +1,22 @@
+{
+  "tool": "offload image",
+  "model": "image-01",
+  "prompt": "A single small round shoe button, four holes, dark brown horn, chipped and dull, lying flat. Hand-painted 2D digital illustration in the style of a stylized fantasy mobile-game item icon. A bold, uniform dark chocolate-brown outline of consistent medium thickness runs around the whole silhouette and every major inner shape. Cell-shaded painterly colour built from chunky mid-tone patches, simple blocky highlights and darker saturated shadow shapes, with one warm light from the upper left; visible dry-brush streaks, flat opaque fills. Warm palette of honey gold, deep amber, ochre, chestnut and russet leather, mossy green cloth and cream, with deep muted teal accents. Exaggerated chunky rounded shapes with simple, readable detail. The subject sits alone in the centre of the frame on one flat mid-teal background colour (hex 3F7E84), the background as plain and flat as a colour swatch.",
+  "width": 1024,
+  "height": 1024,
+  "seed": 23,
+  "n": 1,
+  "character_reference": false,
+  "trace_id": "0718425cb728a4fc76c9c8c0bac982fc",
+  "success_count": "1",
+  "failed_count": "0",
+  "created": "2026-10-09T15:59:41Z",
+  "files": [
+    {
+      "name": "shoe-button-1.jpg",
+      "bytes": 166192,
+      "sha256": "f27ac1f1f9bbb184f9cbccb913cfd091cc2966cb3b1c5844eb8df53232a8e3eb"
+    }
+  ],
+  "credit": "Generated with MiniMax image-01 via offload image. A draft: review it before it ships."
+}
