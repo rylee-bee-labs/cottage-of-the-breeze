@@ -1,8 +1,12 @@
+> Promoted to `docs/story/STORY.md` on 2026-10-09 by Claude's review under Rylee's delegation.
+
 # Cottage of the Breeze — story draft, v2
 
-**DRAFT. Not canon.** Written for Rylee to read and edit. Nothing here ships until
-she approves it, and nothing here is `STORY.md`. Rylee alone writes `STORY.md`, and
-it stays empty until she does.
+**PROMOTED. This is the draft Claude reviewed and approved; the story it tells is now
+canon at [`docs/story/STORY.md`](STORY.md).** This file stays here as the working draft
+and the record of how the story was decided — the reasoning, the decisions and the open
+questions live in `docs/story/DRAFT-v2-notes.md`, and none of that is canon. The
+repo's own `STORY.md` at the root is still Rylee's alone, and still empty.
 
 **This supersedes `docs/story/DRAFT.md` (PR #111).** Where the two disagree, this one
 wins, because Rylee has since decided the story in ways the first draft did not know

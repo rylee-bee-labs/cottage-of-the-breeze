@@ -1,9 +1,12 @@
 # AGENTS.md — Cottage of the Breeze
 
-A private game pack for the VEFR engine (`../vefr/`), and the studio's
+A private game pack for the VEFR engine (`../vefr/`), the studio's
 first game: a learning remake of *Castle of the Winds*'s systems. This repo
-owns the design kit and the pack content; it does not own engine code.
-Read `README.md`, then `.project/CURRENT.md` (where things stand).
+owns the design kit and pack content, not engine code.
+Read `README.md`, then `.project/CURRENT.md`. `STORY.md` is Rylee's alone:
+read it, never write it. Reference detail moved to
+[`docs/repo-map.md`](docs/repo-map.md) (each path, its check, handoff) and
+[`docs/commands.md`](docs/commands.md) (validate, refresh, publish).
 
 ## The rules that matter
 
@@ -29,7 +32,8 @@ Read `README.md`, then `.project/CURRENT.md` (where things stand).
   ship. Mechanics are. Nothing from the original's files goes in this repo.
 - **The engine stays neutral.** Game-specific names never go into
   `../vefr/`. New engine features go through VEFR's ruleset checklist
-  (`../vefr/docs/guides/rulesets.md`) and its ask-first rules.
+  (`../vefr/docs/guides/rulesets.md`, present in the primary VEFR checkout ~/code/Rylee-Bee/vefr; a bare worker worktree may have no ../vefr)
+  and its ask-first rules.
 - **The release is made in VEFR** (Rylee, NOTES 2026-09-26). Hand-made
   pictures and notes here are drafts and reference; the shipped game comes
   out of the studio (Folks room, studio modules, `ratatoskr weave`).
@@ -38,86 +42,26 @@ Read `README.md`, then `.project/CURRENT.md` (where things stand).
 - Art: originals and their prompts go in `art/source/`.
 - **Art we ship is art we made** (Rylee, 2026-10-02). We may distribute what we generate, and every piece is attributed (keep each `.credits.txt`). **Kenney is for prototyping only; never ship it.** **LimeZu** was bought to support the artist: use it only in a project Rylee names, with attribution. Neither is used in Cottage (the vendored Kenney sheets were removed 2026-10-02). If we need new sheets we generate them: Codex first, then Wan. Older "training: not cleared" or "not final art" notes in `art/` are stale for distribution (they are not rewritten; this rule wins).
 
-## Map
-
-| Path | What it is | Open it? |
-|---|---|---|
-| `BRIEF.md` | Stage 1 pitch (Rylee's words in ✍️ parts) | for design work |
-| `DESIGN.md` | CotW systems checklist → VEFR rulesets | for design/engine work |
-| `STORY.md` | canon — Rylee's words only | read, never write |
-| `NOTES.md` | decisions + playtest notes, newest first | yes, before deciding anything |
-| `.project/CURRENT.md` | stage + the one next step | yes, at session start |
-| `worlds/cottage-of-the-breeze/` | the VEFR pack (`world.json`, `acts/`, `voices/`, `library/`, `logbok.md`) | yes, for pack work |
-| `worlds/cottage-of-the-breeze/skins/parchment-and-wood/` | the game's interface pictures (19 files + `skin.json`), declared by `"skin"` in `world.json`; source and raw textures in `art/skins/` | for skin work |
-| `worlds/cottage-of-the-breeze/LICENSE` | CC0 terms for the Emberfield scaffold content | before reusing scaffold content |
-| `art/source/`, `art/mood/` | originals + their prompts; mood references | for art work |
-| `LICENSE.md` | all rights reserved, except the CC0 scaffold | before adding third-party content |
-| `data/` | local index DB (gitignored, written by a tool) | no |
-
-Much of the pack is still the Emberfield demo scaffold (CC0 placeholder),
-meant to be replaced by Rylee's own content. Don't polish it as if it were canon.
-
 ## Commands
 
-The pack's check is VEFR's validator, run from the VEFR checkout. The art
-tools in `art/tools/` have their own unit tests (run those when you touch
-them):
+The pack's check is VEFR's validator, run from a VEFR checkout; run `art/tests`
+when you touch `art/tools/`. Commands and what CI runs:
+[`docs/commands.md`](docs/commands.md).
 
-```sh
-uv run --offline --with pillow python -m unittest discover -s art/tests -t .
-```
+## Generated records are the Blueprint's
 
-CI (`.github/workflows/validate-pack.yml`) validates the pack on every PR against a **pinned** VEFR (`VEFR_REF`), which can lag current VEFR `main`. To validate locally against your checkout:
-
-```sh
-cd ../vefr
-VEFR_WORLD=cottage-of-the-breeze uv run norns validate --pack worlds/cottage-of-the-breeze
-```
-
-`vefr/worlds/cottage-of-the-breeze` is a local, gitignored symlink that
-exists only in the primary VEFR checkout (`~/code/Rylee-Bee/vefr`) and points
-at the **primary** cottage checkout. From a worktree, `../vefr` may be a VEFR
-worktree without that symlink, or the wrong tree; pass this tree's pack path:
-
-```sh
-PACK="$(git rev-parse --show-toplevel)/worlds/cottage-of-the-breeze"
-cd ~/code/Rylee-Bee/vefr && uv run norns validate --pack "$PACK"
-```
-
-## Creature records are generated (Blueprint)
-
-The `enemies` lists in the floor contracts (`floor-1` to `floor-6`) are
-**generated** from `worlds/cottage-of-the-breeze/blueprint.json`, with a
-record in `blueprint.lock.json`. Edit the Blueprint, never those lists by
-hand. After an edit, refresh and check from a VEFR checkout that has
-`vefr normalize`:
-
-```sh
-PACK="$(git rev-parse --show-toplevel)/worlds/cottage-of-the-breeze"
-cd ~/code/Rylee-Bee/vefr && uv run vefr normalize --pack "$PACK" --out "$PACK" && uv run vefr check --pack "$PACK"
-```
-
-A hand edit to a generated list makes `vefr check` (and CI) fail with the
-word "stale". To leave the Blueprint, delete the two files; the contracts
-already hold the same records. Guide: `vefr/docs/guides/blueprint.md`.
-
-## Publishing a playable build
-
-`bin/publish-build.sh` weaves the pack into one HTML file and posts it to the dev
-gallery (`https://gallery.hulganfamily.duckdns.org/cottage-of-the-breeze/`). It
-weaves with the VEFR checkout at `~/code/Rylee-Bee/vefr`, so pull that first. Run
-it after a merge, so the build's sha is a real commit.
+`blueprint.json` is the source, `blueprint.lock.json` records what `vefr
+normalize` wrote from it. Edit the Blueprint, never a generated record by hand.
+To leave the Blueprint, delete both files; their records sit in the
+pack. What is generated on this tree, and the refresh command:
+[`docs/repo-map.md`](docs/repo-map.md), [`docs/commands.md`](docs/commands.md).
 
 ## Boundaries
 
-- **VEFR** (`../vefr/`, separate repo): the engine consumes this pack
-  through the symlink above; the pack contract is what `norns validate`
-  checks. Engine changes this game needs are VEFR work under its own
-  AGENTS.md; record them as companion changes rather than editing `../vefr/`.
-- **Estate `media_files/`** (root repo): art drafts and deliveries live
-  there (`designs/vefr/art/cottage/`; studio casting call in
-  `characters/vefr-residents/`). Commit those from the estate root, not here.
-- Estate rules: `~/.agents/AGENTS.md`; nothing here restates them.
+- **VEFR** (`../vefr/`): engine changes this game needs are VEFR work — record
+  them as companion changes, never by editing `../vefr/`.
+- Estate art (`media_files/`) is committed from the estate root, not here.
+  Estate rules: `~/.agents/AGENTS.md`; nothing here restates them.
 
 ## Needs Rylee's approval here
 
@@ -128,13 +72,6 @@ it after a merge, so the build's sha is a real commit.
 
 ## Done means
 
-- The validator prints `ok: ... geometry, reachability, voices all pass`
-  for the tree you edited.
+- The validator prints `ok: ... geometry, reachability, voices all pass`.
 - Decisions Rylee made are recorded in `NOTES.md`, her words quoted.
 - `.project/CURRENT.md` names the stage and the one next step accurately.
-- Something alive to show: a build in the studio, a book, a map, or a note.
-
-## Handoff
-
-Session state goes in `.project/CURRENT.md` (stage + next step) and
-`NOTES.md` (decisions). There is no `.agent/` directory here.
