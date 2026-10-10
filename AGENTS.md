@@ -1,12 +1,12 @@
 # AGENTS.md — Cottage of the Breeze
 
-A private game pack for the VEFR engine (`../vefr/`), and the studio's
+A private game pack for the VEFR engine (`../vefr/`), the studio's
 first game: a learning remake of *Castle of the Winds*'s systems. This repo
-owns the design kit and the pack content; it does not own engine code.
+owns the design kit and pack content, not engine code.
 Read `README.md`, then `.project/CURRENT.md`. `STORY.md` is Rylee's alone:
 read it, never write it. Reference detail moved to
-[`docs/repo-map.md`](docs/repo-map.md) (each path, the command that checks it,
-handoff) and [`docs/commands.md`](docs/commands.md) (validate, refresh, publish).
+[`docs/repo-map.md`](docs/repo-map.md) (each path, its check, handoff) and
+[`docs/commands.md`](docs/commands.md) (validate, refresh, publish).
 
 ## The rules that matter
 
@@ -32,7 +32,7 @@ handoff) and [`docs/commands.md`](docs/commands.md) (validate, refresh, publish)
   ship. Mechanics are. Nothing from the original's files goes in this repo.
 - **The engine stays neutral.** Game-specific names never go into
   `../vefr/`. New engine features go through VEFR's ruleset checklist
-  (`../vefr/docs/guides/rulesets.md`; that path is UNKNOWN from this checkout)
+  (`../vefr/docs/guides/rulesets.md`, present in the primary VEFR checkout ~/code/Rylee-Bee/vefr; a bare worker worktree may have no ../vefr)
   and its ask-first rules.
 - **The release is made in VEFR** (Rylee, NOTES 2026-09-26). Hand-made
   pictures and notes here are drafts and reference; the shipped game comes
@@ -45,14 +45,14 @@ handoff) and [`docs/commands.md`](docs/commands.md) (validate, refresh, publish)
 ## Commands
 
 The pack's check is VEFR's validator, run from a VEFR checkout; run `art/tests`
-when you touch `art/tools/`. Exact commands and what CI runs:
+when you touch `art/tools/`. Commands and what CI runs:
 [`docs/commands.md`](docs/commands.md).
 
 ## Generated records are the Blueprint's
 
 `blueprint.json` is the source, `blueprint.lock.json` records what `vefr
 normalize` wrote from it. Edit the Blueprint, never a generated record by hand.
-To leave the Blueprint, delete both files; their records already sit in the
+To leave the Blueprint, delete both files; their records sit in the
 pack. What is generated on this tree, and the refresh command:
 [`docs/repo-map.md`](docs/repo-map.md), [`docs/commands.md`](docs/commands.md).
 

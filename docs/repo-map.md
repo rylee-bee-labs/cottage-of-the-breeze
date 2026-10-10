@@ -73,9 +73,9 @@ The `enemies` list in `worlds/cottage-of-the-breeze/acts/act-1/world.json` is
 hand-written `enemies` lists. Check with
 `grep -n '"enemies"' worlds/cottage-of-the-breeze/acts/act-1/world.json`.
 
-The engine's Blueprint guide is `vefr/docs/guides/blueprint.md`, a path inside
-the VEFR checkout. There is no VEFR checkout in this worktree, so its existence
-is **UNKNOWN** from here.
+The engine's Blueprint guide is `vefr/docs/guides/blueprint.md`. It exists in
+the primary VEFR checkout (`~/code/Rylee-Bee/vefr`); a bare worker worktree
+may have no VEFR checkout at all, and is the only place it is absent.
 
 ## Boundaries in full
 
@@ -89,8 +89,10 @@ is **UNKNOWN** from here.
   Those paths are not in this repo, so from this checkout they are **UNKNOWN**.
 - Estate rules: `~/.agents/AGENTS.md`; nothing here restates them. That file is
   outside this checkout: **UNKNOWN** from here.
-- The VEFR ruleset checklist `AGENTS.md` names is likewise a path in the VEFR
-  checkout, not in this repo: **UNKNOWN** from here.
+- The VEFR ruleset checklist `AGENTS.md` names — `vefr/docs/guides/rulesets.md`
+  — is likewise a path in the VEFR checkout, not in this repo: it exists in the
+  primary VEFR checkout (`~/code/Rylee-Bee/vefr`) and is absent only from a bare
+  worker worktree.
 
 ## Handoff
 

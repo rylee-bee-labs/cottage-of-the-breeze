@@ -10,6 +10,7 @@ touch Rylee's written text, and record companion engine changes in VEFR.
 The pack's check is VEFR's validator, run from the VEFR checkout:
 
 ```sh
+# from a worktree with no ../vefr, cd ~/code/Rylee-Bee/vefr instead
 cd ../vefr
 VEFR_WORLD=cottage-of-the-breeze uv run norns validate --pack worlds/cottage-of-the-breeze
 ```
@@ -66,8 +67,8 @@ cd ~/code/Rylee-Bee/vefr && uv run vefr normalize --pack "$PACK" --out "$PACK" &
 A hand edit to a generated record makes `vefr check` (and CI) fail with the word
 "stale". To leave the Blueprint, delete `blueprint.json` and
 `blueprint.lock.json`; the records they generated already sit in the pack. Guide:
-`vefr/docs/guides/blueprint.md` — a path inside the VEFR checkout, **UNKNOWN**
-from this worktree, which has no VEFR checkout.
+`vefr/docs/guides/blueprint.md` exists in the primary VEFR checkout
+(`~/code/Rylee-Bee/vefr`); it is absent only from a bare worker worktree.
 
 What the Blueprint owns on this tree is in
 [`docs/repo-map.md`](repo-map.md#blueprint-generated-records).
