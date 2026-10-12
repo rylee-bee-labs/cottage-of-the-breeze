@@ -775,5 +775,15 @@
       "siltworks",
       "emberhall"
     ]
+  },
+  "town_states": {
+    "region": "town",
+    "states": [
+      {
+        "id": "after-the-cellar",
+        "when": "act-1-complete",
+        "use": "town-after-the-cellar"
+      }
+    ]
   }
 }
