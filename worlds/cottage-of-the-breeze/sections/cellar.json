@@ -17,7 +17,7 @@
     18
   ],
   "tiles": {
-    "#": "dungeon-wall",
+    "#": "cellar-wall",
     ".": "cellar-flagstone",
     "u": "dungeon-stairs-up",
     "d": "dungeon-stairs-down"
