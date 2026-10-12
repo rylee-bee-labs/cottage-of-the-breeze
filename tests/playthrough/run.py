@@ -55,11 +55,9 @@ KEYS = {
 #     hero has not got.  No transition in this pack names a `requires`;
 #     the three locked cellar stairs went with the authored floors
 #     (cottage#110).
-#   `pickup` - fires only for an item lying on the floor underfoot.  No
-#     family the Section draws names a `drops`, and every book on the
-#     descent is a chest book, whose treasure goes straight to the bag.
-#     This is playtest finding B1 ("floor_items=0 bag=[]") restated as
-#     an assertion.
+#   `pickup` - fires for an item lying on the floor underfoot.  The
+#     families the Sections draw name `drops`, and the combat probe walks
+#     onto what they leave behind, so the cue is checked in closing_checks.
 #   `level`  - fires when `growAward` pays a level, which is paid in the
 #     monster's `xp`, and a generated monster is built without one.
 SOUND_CUES_NEEDED = (
@@ -69,7 +67,7 @@ SOUND_CUES_NEEDED = (
     "sticker",
     "end",
 )
-SOUND_CUES_WITHOUT_A_SUBJECT = ("locked", "pickup", "level")
+SOUND_CUES_WITHOUT_A_SUBJECT = ("locked", "level")
 
 # The engine's own fallback for a Section that names no `floors`
 # (`vefr.sections.floors`), so a pack that leaves it out is walked as
@@ -675,6 +673,18 @@ class Bot:
             break
         return reached
 
+    def tile_beside(self, region: str, who: str) -> tuple:
+        """An open tile next to the monster or warden `who`, so the walk stops short of it."""
+        self.ensure_region(region)
+        foe = next((e for e in self.state()["combat"]["enemies"] if e["id"] == who), None)
+        if foe is None:
+            raise RouteError(f"{who} is not on {region}")
+        x, y = foe["at"]
+        for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0)):
+            if not self._solid(region, x + dx, y + dy):
+                return (x + dx, y + dy)
+        raise RouteError(f"no open tile beside {who} at {foe['at']} in {region}")
+
     # ---- the route -------------------------------------------------
     def cues_without_a_subject(self) -> None:
         """The sound cues this pack cannot fire, and why, asserted not assumed.
@@ -683,22 +693,14 @@ class Bot:
         Keybearers; those floors are gone, so there is nothing to walk to
         and nothing to fight.  Rather than delete the coverage quietly,
         this asks the game's own tables whether a subject has come back -
-        so a pack that brings a locked door, or a monster that drops
-        something, turns this check red and says which cue now needs a
-        route.
+        so a pack that brings a locked door turns this check red and says
+        which cue now needs a route.
         """
         locked = [t for t in self.transitions() if t.get("requires")]
         self.check(
             "no door in the game is locked, so the 'locked' cue has no subject",
             not locked,
             f"locked transitions={locked or 'none'}",
-        )
-        carriers = self.family_drop_names()
-        self.check(
-            "no family the descent draws drops anything, so the 'pickup' cue "
-            "has no subject",
-            not carriers,
-            f"families naming drops={carriers or 'none'}",
         )
 
     def family_drop_names(self) -> list:
@@ -777,15 +779,22 @@ class Bot:
             f"region={s['combat']['region']} text={s['combat_text'][:90]!r}",
         )
 
-    def descend_every_floor(self) -> list:
-        """Walk down every floor of every Section, opening what is on the way.
+    def act_sections(self) -> list:
+        """The Sections the act runs through: up to the one whose last floor holds its ending."""
+        ending = self.ending_book()
+        sections = self.sections()
+        for k, section in enumerate(sections):
+            last = self.floor_name(section, self.section_floors(section))
+            if any(b["id"] == ending for b in self.books_in(last)):
+                return sections[: k + 1]
+        raise RouteError(f"the act ends on {ending!r}, which is on no Section's last floor")
+
+    def descend_every_floor(self, sections: list) -> list:
+        """Walk down every floor of the given Sections, opening what is on the way.
 
         Returns the names walked.  The footprint of the last floor of each
         Section is taken in `read_the_vault`, which is what walks to it.
         """
-        sections = self.sections()
-        if not sections:
-            raise RouteError("the pack bakes no descent Section")
         ending = self.ending_book()
         walked: list[str] = []
         for section in sections:
@@ -820,7 +829,7 @@ class Bot:
             "() => ((window.VEFR_DESCENT || {}).loadDoc() || {}).order || []"
         )
         self.check(
-            "every floor of all "
+            "every floor of the act's "
             f"{len(sections)} Section{'s' if len(sections) != 1 else ''} was walked: "
             + ", ".join(f"{s['id']}×{self.section_floors(s)}" for s in sections),
             bool(walked)
@@ -891,7 +900,14 @@ class Bot:
                 f"the act ends on {ending!r}, which is not on the last floor "
                 f"({region}) of the last Section"
             )
-        before = self.state()["combat"]["bag"]
+        self.talk_to_nearby(region, self.tile_beside(region, "cellar-king"), "cellar-king")
+        bag = self.state()["combat"]["bag"]
+        self.check(
+            "the Cellar King yields: his wax seal is in the bag",
+            "crown-seal" in bag,
+            f"bag={bag}",
+        )
+        before = bag
         self.navigate_to(region, book["at"][0], book["at"][1])
         self.footprints.append(
             dict(self.footprint(region, book["at"]), what="vault")
@@ -963,6 +979,22 @@ class Bot:
             "the route ends back in the town",
             self.state()["combat"]["region"] == "town",
             f"region={self.state()['combat']['region']}",
+        )
+
+    def check_the_town_after_the_cellar(self) -> None:
+        """Once act 1 is complete the town loads its propped-door state.
+
+        The page exposes the flags but not which town state it loaded, so
+        the state is read by its one line of poi text on the map.
+        """
+        text = "A door that is usually shut is propped open with a stone."
+        flags = self.page.evaluate("() => (window.VEFR_RULES_STATE || {}).flags || {}")
+        regions = self.page.evaluate("() => JSON.stringify(window.VEFR_REGIONS || {})")
+        shown = text in regions
+        self.check(
+            "the town after the cellar is loaded: act 1 is complete and the propped door is on the map",
+            flags.get("act-1-complete") is True and shown,
+            f"act-1-complete={flags.get('act-1-complete')} propped door shown={shown}",
         )
 
     def survives_a_reload(self) -> None:
@@ -1088,6 +1120,8 @@ class Bot:
             foes.sort(key=lambda e: abs(e["at"][0] - at_hero[0]) + abs(e["at"][1] - at_hero[1]))
             self.strike_until_dead(floor, foes[0]["id"])
             killed += 1
+            for item in {d["item"] for d in self.state()["combat"]["floor"]}:
+                self.pickup(floor, item)
             self.drink()
         heard = getattr(self, "cues", set())
         self.check(
@@ -1124,10 +1158,12 @@ class Bot:
         self.explore_home()
         self.cues_without_a_subject()
         self.step_into_the_descent(entry, first)
-        self.descend_every_floor()
-        self.read_the_vault(sections[-1])
+        act = self.act_sections()
+        self.descend_every_floor(act)
+        self.read_the_vault(act[-1])
         self.check_footprints()
         self.go_home()
+        self.check_the_town_after_the_cellar()
         self.survives_a_reload()
         self.start_over_asks_first()
         self.combat_probe(entry)
@@ -1144,6 +1180,14 @@ class Bot:
             f"required (no subject in this pack: "
             f"{', '.join(SOUND_CUES_WITHOUT_A_SUBJECT)})",
         )
+        carriers = self.family_drop_names()
+        if carriers:
+            self.check(
+                "the 'pickup' cue fired: the descent's families drop things "
+                f"({', '.join(carriers)})",
+                "pickup" in have,
+                f"heard {sorted(have)}",
+            )
         frames = getattr(self, "frames", set())
         dirs_walked = {d for (d, st, _f) in frames if st == "walk"}
         self.check(
