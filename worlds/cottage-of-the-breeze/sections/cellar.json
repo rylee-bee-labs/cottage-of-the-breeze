@@ -17,7 +17,7 @@
     18
   ],
   "tiles": {
-    "#": "dungeon-wall",
+    "#": "cellar-wall",
     ".": "cellar-flagstone",
     "u": "dungeon-stairs-up",
     "d": "dungeon-stairs-down"
@@ -47,14 +47,6 @@
       "weight": 4,
       "depth": [
         1,
-        9
-      ]
-    },
-    {
-      "family": "damp-shade-finds",
-      "weight": 1,
-      "depth": [
-        3,
         9
       ]
     },
@@ -92,5 +84,12 @@
       1.3
     ]
   },
-  "warden": "cellar-king"
+  "warden": {
+    "family": "cellar-king",
+    "id": "cellar-king",
+    "carries": "crown-seal",
+    "challenge": "rule",
+    "yields": true,
+    "fightable": false
+  }
 }

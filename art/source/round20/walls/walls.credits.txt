@@ -1,0 +1,7 @@
+art/source/round20/walls/walls_v1.jpg
+  Drawn by us, with Codex gpt-image-2 (offload image --model codex, the
+  ChatGPT login), 2026-10-12, as ONE bundled call: the four Section walls
+  in a 2x2 grid, styled from acts/act-1/tavern/tiles/tavern-planks.grid3x3.webp.
+  Prompt and file hashes are in walls.json. Each quarter cut, made to tile
+  with art/tools/seamless_tile.py and scaled to 96x96 into
+  worlds/cottage-of-the-breeze/tiles/{cellar,root,silt,ember}-wall.webp.

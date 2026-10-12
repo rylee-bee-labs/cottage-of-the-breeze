@@ -1,0 +1,10 @@
+{
+  "model": "codex (gpt-image-2)",
+  "prompt": "Four separate square wall textures in a 2 by 2 grid, each filling its own quarter of the image exactly, edge to edge, with a thin plain black line between the quarters. Straight top-down view of the top of a solid dungeon wall as seen in a top-down tile RPG: dense, darker and heavier than a floor so it clearly reads as solid, flat even lighting with no vignette, no lamps, no light spots, so each one repeats as a game wall tile. Same hand-painted storybook game art style and warm muted palette as the reference image, soft painted edges, no text, no objects.\nTop left: old damp red-brown brick, tightly packed, darker mortar, a few green damp stains.\nTop right: dark packed earth wall threaded with thick old tree roots.\nBottom left: dark wet slate-grey stone blocks with silt streaks.\nBottom right: soot-blackened fire-brick, a faint dull orange glow deep in the mortar lines.",
+  "aspect": null,
+  "ref": "ref-wall.png",
+  "files": [
+    "walls.png"
+  ],
+  "at": "2026-10-12T03:17:29-0500"
+}

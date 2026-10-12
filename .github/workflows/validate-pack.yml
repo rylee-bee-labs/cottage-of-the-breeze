@@ -34,7 +34,10 @@ env:
   # `found: map` book that names its tile with `at:` on a generated floor, which
   # is what the five books on this branch now do; on the old pin they read as
   # though they had nothing to fix. The CI run on this branch is the proof.
-  VEFR_REF: b5ed13dbe444d9eb0ee1e0cb1bf03300135dea3f
+  #
+  # Bumped 2026-10-12 to f20efda, merged vefr main, for the E8d warden
+  # challenges (vefr#404), the story_end stair (vefr#406) and town_states.
+  VEFR_REF: f20efdabd37651208868f1665e8f621482003f59
 
 jobs:
   validate:

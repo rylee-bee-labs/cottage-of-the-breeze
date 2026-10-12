@@ -134,9 +134,6 @@
         "hp": 36,
         "atk": 3,
         "xp": 80,
-        "drops": [
-          "crown-seal"
-        ],
         "sight": 0
       }
     },
@@ -342,6 +339,6 @@
     {"id": "cellar-gems", "name": "a handful of cellar gems",
      "sprite": "gems", "value": 120},
     {"id": "crown-seal", "name": "the Cellar King's wax seal",
-     "sprite": "seal-crown", "value": 150}
+     "sprite": "seal-crown", "keep": true}
   ]
 }

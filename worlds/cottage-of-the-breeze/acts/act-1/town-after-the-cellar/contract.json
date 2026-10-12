@@ -1,0 +1,82 @@
+{
+  "legend": {
+    ",": {
+      "base": [
+        "#212a20",
+        "#242d22"
+      ],
+      "tile": "grass"
+    },
+    ".": {
+      "base": [
+        "#332e26"
+      ],
+      "tile": "wood-floor"
+    },
+    "p": {
+      "base": [
+        "#332e26"
+      ],
+      "tile": "cobblestone-street"
+    },
+    "x": {
+      "base": [
+        "#332e26"
+      ],
+      "tile": "dungeon-rubble"
+    },
+    "#": {
+      "base": [
+        "#2a2e33"
+      ],
+      "solid": true,
+      "tile": "stone-wall"
+    },
+    "D": {
+      "base": [
+        "#332e26"
+      ],
+      "tile": "rug"
+    }
+  },
+  "pois": {
+    "4,5": "the cottage door",
+    "16,5": "the tavern door",
+    "11,11": "the temple door",
+    "5,8": "the old tavern, burned",
+    "11,12": "the temple"
+  },
+  "watch": {
+    "tower": [
+      5,
+      1
+    ],
+    "r_by_phase": {
+      "dusk": 3,
+      "dawn": 4
+    },
+    "overlay": "rgba(42, 46, 51, 0.30)"
+  },
+  "sanctuary_tiles": [
+    "D"
+  ],
+  "water_by_phase": {
+    "dusk": "low",
+    "dawn": "low"
+  },
+  "flood_tiles": [],
+  "hero_start": [
+    4,
+    3
+  ],
+  "tile": 32,
+  "bg": "#131311",
+  "hero_color": "#e8e5df",
+  "speaker_color": "#8b939c",
+  "speaker_head": "#d8d5df",
+  "poi_text": {
+    "4,5": "The cottage door.",
+    "16,5": "The tavern door, warm light behind it.",
+    "11,11": "A door that is usually shut is propped open with a stone."
+  }
+}
