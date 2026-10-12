@@ -5,7 +5,7 @@ under its word budget. Nothing here is a rule: every MUST/NEVER/DO NOT and every
 Rylee decision stays in `AGENTS.md`, verbatim. If this page and `AGENTS.md` ever
 disagree, `AGENTS.md` wins.
 
-Every row was checked against this tree on 2026-10-09; the command that checks it
+Every row was checked against this tree on 2026-10-12; the command that checks it
 is in the last column. A row with no command is a claim about the estate or the
 engine checkout, not about this repo — those are UNKNOWN from here.
 
@@ -15,9 +15,10 @@ engine checkout, not about this repo — those are UNKNOWN from here.
 |---|---|---|---|
 | `BRIEF.md` | Stage 1 pitch (Rylee's words in ✍️ parts) | for design work | `ls BRIEF.md` |
 | `DESIGN.md` | CotW systems checklist → VEFR rulesets | for design/engine work | `ls DESIGN.md` |
-| `STORY.md` | canon — Rylee's words only | read, never write | `ls STORY.md` |
+| `STORY.md` | Rylee's placeholder for canon (empty) | read, never write | `cat STORY.md` |
+| `docs/story/STORY.md` | the canon, promoted 2026-10-09 | read, never write | `head docs/story/STORY.md` |
 | `NOTES.md` | decisions + playtest notes, newest first | yes, before deciding anything | `ls NOTES.md` |
-| `DEMO.md` | the running-demo writeup | for demo/engine work | `ls DEMO.md` |
+| `DEMO.md` | the player-facing writeup of the current build | when the game changes | `ls DEMO.md` |
 | `docs/` | plans (`plans/`), playtest reports with logs and screenshots (`playtests/`), story drafts (`story/`), the language study (`language-architecture/`), backlog (`BACKLOG.md`) | when the work is in one of them | `find docs -type f` |
 | `.project/CURRENT.md` | stage + the one next step; a router, not a snapshot | yes, at session start | `cat .project/CURRENT.md` |
 | `worlds/cottage-of-the-breeze/` | the VEFR pack: `world.json`, `acts/`, `sections/`, `sprites/`, `assets/`, `voices/`, `library/`, `skins/`, `blueprint.json`, `blueprint.lock.json`, `logbok.md`, `map.md`, `ledger.md`, `EDITS.md`, `world-tree.md` | yes, for pack work | `ls worlds/cottage-of-the-breeze/` |
@@ -27,7 +28,7 @@ engine checkout, not about this repo — those are UNKNOWN from here.
 | `art/` | `source/` (originals + prompts, by round), `skins/` (raw UI textures + mock renders), `mood/` (**empty** — `.gitkeep` only), `briefs/` (per-batch art briefs), `tools/` + `tests/` (the skin pipeline and its unit tests), `STYLE.md` | for art work | `ls art/` |
 | `LICENSE.md` | all rights reserved, except the CC0 scaffold | before adding third-party content | `cat LICENSE.md` |
 | `bin/publish-build.sh` | weaves the pack into one HTML file and posts it to the dev gallery | after a merge | `head -30 bin/publish-build.sh` |
-| `tests/` | `assert_chest_drops.py` (runs on every PR), `test_pr_scope.py`, `playthrough/` (the headless bot that plays the pack) | when you touch drops or routes | `ls tests/` |
+| `tests/` | `assert_chest_drops.py` (runs on every PR), `playthrough/` (the headless bot that plays the pack) | when you touch drops, routes, maps or props | `ls tests/` |
 | `.github/workflows/` | `validate-pack.yml` (pinned VEFR validation + the chest-drop assertion), `secret-scan.yml` | read, don't edit | `ls .github/workflows/` |
 | `data/` | gitignored in `.gitignore`, **not in this tree**, and no tool in this repo writes it — who creates it is **UNKNOWN** | no | `ls data/` fails; `grep -rn 'data/' --include='*.py' --include='*.sh' .` finds nothing |
 
@@ -52,8 +53,11 @@ meant to be replaced by Rylee's own content. Don't polish it as if it were canon
 The hand-authored cellar (`floor-1`..`floor-6`, `king-room`) is **gone** as of
 2026-10-08 (cottage#118): there are no floor contracts left in the pack. The
 descent is generated from `sections/*.json` — cellar, rootworks, siltworks,
-emberhall, nine floors each. Check with `find worlds -name '*floor*'` (returns
-only two tile files) and `.project/CURRENT.md`.
+emberhall, nine floors each — and starts at the kitchen stair, `cottage [1,1]`
+(`world.json` → `descent.entry`). The regions left are `cottage`, `town`,
+`town-after-the-cellar` (loaded by `town_states` after `act-1-complete`) and
+`tavern`. Check with `ls worlds/cottage-of-the-breeze/acts/act-1/` and
+`.project/CURRENT.md`.
 
 ## Blueprint-generated records
 
@@ -69,7 +73,7 @@ grep -n 'cellar-gems\|crown-seal' worlds/cottage-of-the-breeze/world.json
 
 The `enemies` list in `worlds/cottage-of-the-breeze/acts/act-1/world.json` is
 `[]` — the descent's creatures come from the Blueprint families
-(`blueprint.json` → `families`, 32 entries) named by the Sections, not from
+(`blueprint.json` → `families`) named by the Sections, not from
 hand-written `enemies` lists. Check with
 `grep -n '"enemies"' worlds/cottage-of-the-breeze/acts/act-1/world.json`.
 

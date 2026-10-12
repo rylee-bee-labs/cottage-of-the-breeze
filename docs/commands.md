@@ -34,7 +34,7 @@ edited. That string is what CI's validator step expects.
 to `main`) against a **pinned** VEFR (`VEFR_REF`), which can lag current VEFR
 `main`. It runs two steps:
 
-1. `uvx --from "vefr @ git+https://github.com/Rylee-Bee/vefr@${VEFR_REF}" norns validate --pack worlds/cottage-of-the-breeze`
+1. `uvx --from "vefr @ git+https://github.com/rylee-bee-labs/vefr@${VEFR_REF}" norns validate --pack worlds/cottage-of-the-breeze`
 2. `python3 tests/assert_chest_drops.py` — a drop id the item catalog does not
    name is discarded silently by the engine, so this assertion is a second gate
    over the same pack.
@@ -92,9 +92,21 @@ checkable — that is a fact about the environment, not about the pack:
 
 - `uv` is not installed in every sandbox, so the art tests and the validator
   cannot be run there. A missing `uv` is not a failing test.
-- `gh` was unavailable to the worker that last played the descent, so the seven
-  engine limits in `docs/playtests/2026-10-09-descent.md` are still not filed as
-  issues.
 - The play bot's route and its report are `tests/playthrough/` (`README.md`
   there explains it); a claim about the game at play is that bot's or a player's,
   written down where it happened.
+
+## Play the game headless (the playthrough bot)
+
+From a VEFR checkout whose test venv has Playwright:
+
+```sh
+PACK="$(git rev-parse --show-toplevel)/worlds/cottage-of-the-breeze"
+BOT="$(git rev-parse --show-toplevel)/tests/playthrough/run.py"
+cd ~/code/Rylee-Bee/vefr
+uv run --group test python "$BOT" --pack "$PACK" --viewport desktop
+uv run --group test python "$BOT" --pack "$PACK" --viewport phone
+```
+
+Run it after any change to a map, a prop, a resident's place, a book or a rule.
+CI does not run it.

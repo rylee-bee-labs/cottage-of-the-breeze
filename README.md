@@ -1,7 +1,7 @@
 # Cottage of the Breeze 🌬️🏡
 
 The VEFR studio's first game: a cozy town-and-dungeon roguelike, rebuilt
-system by system inside the [VEFR](https://github.com/Rylee-Bee/vefr) studio.
+system by system inside the [VEFR](https://github.com/rylee-bee-labs/vefr) studio.
 It's a learning remake of *Castle of the Winds* (1989): the systems are
 rebuilt, and the name, story, art and words are our own.
 
@@ -13,7 +13,7 @@ engine, and every later game gets it for free.
 |---|---|
 | Know what this game is | [`BRIEF.md`](BRIEF.md) (stage 1: the pitch) |
 | See the systems to rebuild | [`DESIGN.md`](DESIGN.md) |
-| Read the canon | [`STORY.md`](STORY.md) (Rylee's words; none yet) |
+| Read the canon | [`docs/story/STORY.md`](docs/story/STORY.md) (canon since 2026-10-09; the root [`STORY.md`](STORY.md) is Rylee's placeholder) |
 | See decisions + playtest notes | [`NOTES.md`](NOTES.md) |
 | Know where things stand | [`.project/CURRENT.md`](.project/CURRENT.md) |
 | Rules for agents | [`AGENTS.md`](AGENTS.md) |
@@ -22,19 +22,25 @@ engine, and every later game gets it for free.
 
 The pack lives in `worlds/cottage-of-the-breeze/`. Rylee's VEFR checkout
 sees it through a local, gitignored symlink; a fresh clone has neither.
-Whether the Studio home shows it is UNKNOWN. Validate as CI does:
+Whether the Studio home shows it is UNKNOWN. Validate as CI does (the SHA is
+`VEFR_REF` in `.github/workflows/validate-pack.yml`):
 
 ```sh
-uvx --from "vefr @ git+https://github.com/Rylee-Bee/vefr@b5ed13dbe444d9eb0ee1e0cb1bf03300135dea3f" norns validate --pack worlds/cottage-of-the-breeze
+uvx --from "vefr @ git+https://github.com/rylee-bee-labs/vefr@a5d2f7bf736ae1d12bc0c34aaa3202dc6f3dc01d" norns validate --pack worlds/cottage-of-the-breeze
 ```
+
+Play it end to end, headless, on desktop and phone sizes:
+[`tests/playthrough/README.md`](tests/playthrough/README.md).
 
 ## Layout
 
 ```
 cottage-of-the-breeze/
-  BRIEF.md  DESIGN.md  STORY.md  NOTES.md      the new-game kit
+  BRIEF.md  DESIGN.md  NOTES.md  DEMO.md      the new-game kit
+  docs/story/STORY.md                          the canon
+  art/source/round*/                           generated art + prompts, by round
   art/mood/                                    empty (only .gitkeep)
-  art/source/round*/                           890 files: generated art + prompts
   worlds/cottage-of-the-breeze/                 the VEFR pack
+  tests/                                       chest-drop gate + the play bot
   .project/CURRENT.md                           where things stand
 ```
