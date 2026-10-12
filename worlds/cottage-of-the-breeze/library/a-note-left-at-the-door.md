@@ -1,7 +1,7 @@
 ---
 title: A Note Left at the Door
 found: map
-at: [5, 6]
+at: [6, 6]
 region: town
 kind: note
 ---
