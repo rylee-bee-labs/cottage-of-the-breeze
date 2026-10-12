@@ -18,11 +18,19 @@
         "#332e26"
       ],
       "tile": "rug"
+    },
+    "S": {
+      "base": [
+        "#131311"
+      ],
+      "tile": "dungeon-stairs-down"
     }
   },
   "pois": {
     "4,6": "the cottage door",
-    "4,3": "the hearth"
+    "4,3": "the hearth",
+    "1,1": "the stair down",
+    "2,1": "the kitchen corner, where you make tea"
   },
   "watch": {},
   "sanctuary_tiles": [],
@@ -39,5 +47,8 @@
   "bg": "#131311",
   "hero_color": "#e8e5df",
   "speaker_color": "#8b939c",
-  "speaker_head": "#d8d5df"
+  "speaker_head": "#d8d5df",
+  "poi_text": {
+    "1,1": "The stair goes down into the dark."
+  }
 }
