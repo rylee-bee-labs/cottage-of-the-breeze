@@ -240,6 +240,21 @@
     "thimble": {
       "name": "a thimble, dented",
       "sprite": "thimble"
+    },
+    "lantern-key": {
+      "name": "the pale moth's key",
+      "sprite": "key-lantern",
+      "keep": true
+    },
+    "bell-key": {
+      "name": "the old mushroom's key",
+      "sprite": "key-bell",
+      "keep": true
+    },
+    "helmet-key": {
+      "name": "the stag beetle's key",
+      "sprite": "key-helmet",
+      "keep": true
     }
   },
   "flags": {
@@ -527,6 +542,48 @@
         }
       ],
       "once": true
+    },
+    {
+      "id": "the-pale-moth-gives",
+      "when": {
+        "reads": {
+          "what": "the-pale-moth"
+        }
+      },
+      "then": [
+        {
+          "give": "lantern-key"
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "the-old-mushroom-gives",
+      "when": {
+        "reads": {
+          "what": "the-old-mushroom"
+        }
+      },
+      "then": [
+        {
+          "give": "bell-key"
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "the-stag-beetle-gives",
+      "when": {
+        "reads": {
+          "what": "the-stag-beetle"
+        }
+      },
+      "then": [
+        {
+          "give": "helmet-key"
+        }
+      ],
+      "once": true
     }
   ],
   "growth": {
@@ -578,8 +635,8 @@
       "name": "A crown in red wax",
       "kind": "riddle",
       "when": {
-        "picks-up": {
-          "what": "crown-seal"
+        "reads": {
+          "what": "forty-winters"
         }
       },
       "riddle": "A door on the deepest floor has been waiting for a very particular key."

@@ -785,7 +785,8 @@ class Bot:
         sections = self.sections()
         for k, section in enumerate(sections):
             last = self.floor_name(section, self.section_floors(section))
-            if any(b["id"] == ending for b in self.books_in(last)):
+            # by region alone: a book placed on a generated floor (place: near-up, a vault) has no fixed tile
+            if any(b.get("id") == ending and b.get("region") == last for b in self.library()):
                 return sections[: k + 1]
         raise RouteError(f"the act ends on {ending!r}, which is on no Section's last floor")
 
@@ -900,12 +901,16 @@ class Bot:
                 f"the act ends on {ending!r}, which is not on the last floor "
                 f"({region}) of the last Section"
             )
-        self.talk_to_nearby(region, self.tile_beside(region, "cellar-king"), "cellar-king")
+        # The King yields when his tally (forty-winters, by the up stair) is read, which the walk down
+        # already did; a yielded warden is no longer a foe, so he is looked for, never required.
+        foes = [e["id"] for e in self.state()["combat"]["enemies"]]
+        if "cellar-king" in foes:
+            self.navigate_to(region, *self.tile_beside(region, "cellar-king"))
         bag = self.state()["combat"]["bag"]
         self.check(
             "the Cellar King yields: his wax seal is in the bag",
             "crown-seal" in bag,
-            f"bag={bag}",
+            f"bag has crown-seal={'crown-seal' in bag}; foes on {region}={foes}",
         )
         before = bag
         self.navigate_to(region, book["at"][0], book["at"][1])
