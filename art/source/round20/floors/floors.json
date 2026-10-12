@@ -1,0 +1,11 @@
+{
+  "model": "codex (gpt-image-2)",
+  "prompt": "Four separate square floor textures in a 2 by 2 grid, each filling its own quarter of the image exactly, edge to edge, with a thin plain black line between the quarters. Straight top-down view, flat even lighting with no vignette and no single light spot, so each one can repeat as a game floor tile. Same hand-painted storybook game art style and warm muted palette as the reference image, soft painted edges on every stone, no text, no objects, no characters.\nTop left: an old cellar floor of worn grey-brown flagstones with thin dark mortar lines and a few damp darker patches.\nTop right: packed earth and flagstones with thin pale tree roots threading between the stones.\nBottom left: wet grey-blue stone slabs with a fine film of silt, faint puddle sheen in the cracks.\nBottom right: warm old fire-brick floor in herringbone, soot-darkened, with a faint orange warmth between the bricks.",
+  "aspect": null,
+  "ref": "ref-floor.png",
+  "files": [
+    "floors-1.png",
+    "floors-2.png"
+  ],
+  "at": "2026-10-12T03:03:48-0500"
+}

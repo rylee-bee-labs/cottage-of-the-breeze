@@ -199,7 +199,7 @@
     "crown-seal": {
       "name": "the Cellar King's wax seal",
       "sprite": "seal-crown",
-      "value": 150
+      "keep": true
     },
     "candle-stub": {
       "name": "a stub of tallow candle",
@@ -240,12 +240,28 @@
     "thimble": {
       "name": "a thimble, dented",
       "sprite": "thimble"
+    },
+    "lantern-key": {
+      "name": "the pale moth's key",
+      "sprite": "key-lantern",
+      "keep": true
+    },
+    "bell-key": {
+      "name": "the old mushroom's key",
+      "sprite": "key-bell",
+      "keep": true
+    },
+    "helmet-key": {
+      "name": "the stag beetle's key",
+      "sprite": "key-helmet",
+      "keep": true
     }
   },
   "flags": {
     "read-the-letter": "The hero has read the letter from the chest on the first cellar floor.",
     "keeper-came-back": "The Spell Keeper has told the hero the letter is hers.",
-    "act-1-complete": "the note under the Cellar King's seal has been read"
+    "act-1-complete": "the note under the Cellar King's seal has been read",
+    "warden:cellar-king:c0": "the Cellar King has given up his seal (Section 1, first pass)"
   },
   "rules": [
     {
@@ -506,6 +522,68 @@
           "is": true
         }
       ]
+    },
+    {
+      "id": "cellar-king-yields",
+      "when": {
+        "reads": {
+          "what": "forty-winters"
+        }
+      },
+      "then": [
+        {
+          "say": "Further in, something very large lifts its head from the warm stone. \"Forty winters I have sat on this. Somebody told me to, and I never heard them say stop. Here. You hold it a while.\""
+        },
+        {
+          "set": "warden:cellar-king:c0"
+        },
+        {
+          "say": "The great crowned rat sets the wax seal down, curls up again, and is asleep before the echo stops."
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "the-pale-moth-gives",
+      "when": {
+        "reads": {
+          "what": "the-pale-moth"
+        }
+      },
+      "then": [
+        {
+          "give": "lantern-key"
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "the-old-mushroom-gives",
+      "when": {
+        "reads": {
+          "what": "the-old-mushroom"
+        }
+      },
+      "then": [
+        {
+          "give": "bell-key"
+        }
+      ],
+      "once": true
+    },
+    {
+      "id": "the-stag-beetle-gives",
+      "when": {
+        "reads": {
+          "what": "the-stag-beetle"
+        }
+      },
+      "then": [
+        {
+          "give": "helmet-key"
+        }
+      ],
+      "once": true
     }
   ],
   "growth": {
@@ -557,8 +635,8 @@
       "name": "A crown in red wax",
       "kind": "riddle",
       "when": {
-        "picks-up": {
-          "what": "crown-seal"
+        "reads": {
+          "what": "forty-winters"
         }
       },
       "riddle": "A door on the deepest floor has been waiting for a very particular key."
@@ -738,6 +816,7 @@
   },
   "descent": {
     "run_seed": "breeze",
+    "story_end": "act-1-complete",
     "entry": {
       "region": "town",
       "at": [
@@ -750,6 +829,16 @@
       "rootworks",
       "siltworks",
       "emberhall"
+    ]
+  },
+  "town_states": {
+    "region": "town",
+    "states": [
+      {
+        "id": "after-the-cellar",
+        "when": "act-1-complete",
+        "use": "town-after-the-cellar"
+      }
     ]
   }
 }
