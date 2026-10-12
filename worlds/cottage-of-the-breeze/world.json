@@ -506,6 +506,30 @@
           "is": true
         }
       ]
+    },
+    {
+      "id": "cellar-king-yields",
+      "when": {
+        "comes-near": {
+          "who": "cellar-king",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": {
+            "who": "cellar-king",
+            "line": "Forty winters I have sat on this. Somebody told me to, and I never heard them say stop. Here. You hold it a while."
+          }
+        },
+        {
+          "set": "warden:cellar-king:c0"
+        },
+        {
+          "say": "The great rat sets the wax seal down by your feet, curls up on the warm stone, and is asleep before you straighten."
+        }
+      ],
+      "once": true
     }
   ],
   "growth": {
