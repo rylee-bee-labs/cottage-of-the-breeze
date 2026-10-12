@@ -1,5 +1,41 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-12 — the stair moves into the cottage kitchen (agent, held for Rylee's approval)
+
+**Held for Rylee's approval.** This changes preserved strings on purpose, under her decisions. Do not merge until she has read it.
+
+- **Rylee, 2026-10-12 (picker):** "Kitchen stair tonight". Canon (`docs/story/STORY.md`) says "there is a stair in the corner of the kitchen ... it is just there when you make tea". The engine has exactly one descent entry (`descent.entry`), so the stair moves from town `[1,1]` into the cottage. There is no town stair afterwards.
+- **Rylee, 2026-10-12 (picker):** "Change her line": the Spell Keeper must not claim she wrote the letter in the chest. Canon says it is Oren's.
+
+### What moved
+
+- `acts/act-1/cottage/map.md` and `contract.json`: `[1,1]` is the kitchen stair (legend `S`, the same tile the town used). Poi "the stair down" at `[1,1]`, and "the kitchen corner, where you make tea" at `[2,1]`. The stair's poi_text moved with it (see the note at the end).
+- `acts/act-1/town/map.md` and `contract.json`: `[1,1]` is grass. The `S` legend entry, the poi and the poi_text are gone.
+- `world.json` `descent.entry`: region `cottage`, at `[1,1]`. The town-to-descent transition is not written in the pack; the engine wires it at the entry, so nothing else needed removing.
+
+### The strings (before, then after, verbatim)
+
+1. Tutorial `say` (`tutorial-begin`):
+   - was: "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the town's top left corner."
+   - now: "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the corner of your kitchen."
+2. Album riddle of `the-stair-down`:
+   - was: "It stands in the town with one step down, and everyone walks past it."
+   - now: "It stands in the corner of your own kitchen, and you make tea beside it."
+3. The Spell Keeper's line in the rule that sets `keeper-came-back`:
+   - was: "Oh. You found my letter. I did say I'd come back. I only took the long way round. Here, I kept one back for you."
+   - now: "Oh. You found his letter. He did say he'd come back. Here, I kept one back for you."
+4. Flag `keeper-came-back` description (internal, not shown to players):
+   - was: "The Spell Keeper has told the hero the letter is hers."
+   - now: "The Spell Keeper has seen the letter, and kept a cake back."
+
+Claude's note: the replacement words are Claude's draft, for Rylee to approve or change.
+
+### Not verified
+
+The VEFR validator and the browser playthrough bot could not be run here, so geometry, reachability and the route are checked only by a stdlib script. `tests/playthrough/run.py` takes the descent entry from `descent.entry`, so its check now reads "cottage [1, 1] is one way down, and it goes to cellar-0-1" without an edit.
+
+Claude's note: the stair's poi_text "The stair goes down into the dark." moved to the cottage with the stair so the existing text is not lost. It was not in the brief. Rylee can strike it if she wants no text on that tile.
+
 ## 2026-10-09 — the first floor carries a heal; and the deferral above was guarding the wrong syntax (agent)
 
 This closes play-test finding **M2** ("Any healing anywhere in the descent",
