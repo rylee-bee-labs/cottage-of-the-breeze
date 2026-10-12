@@ -3,8 +3,9 @@
 A private game pack for the VEFR engine (`../vefr/`), the studio's
 first game: a learning remake of *Castle of the Winds*'s systems. This repo
 owns the design kit and pack content, not engine code.
-Read `README.md`, then `.project/CURRENT.md`. `STORY.md` is Rylee's alone:
-read it, never write it. Reference detail moved to
+Read `README.md`, then `.project/CURRENT.md`. Canon is `docs/story/STORY.md`
+(promoted 2026-10-09); it and the root `STORY.md` are Rylee's alone: read them,
+never write them. Reference detail moved to
 [`docs/repo-map.md`](docs/repo-map.md) (each path, its check, handoff) and
 [`docs/commands.md`](docs/commands.md) (validate, refresh, publish).
 
@@ -45,7 +46,8 @@ read it, never write it. Reference detail moved to
 ## Commands
 
 The pack's check is VEFR's validator, run from a VEFR checkout; run `art/tests`
-when you touch `art/tools/`. Commands and what CI runs:
+when you touch `art/tools/`, and the playthrough bot (`tests/playthrough/`) when
+you touch a map, a prop, a resident's place, a book or a rule. Commands and what CI runs:
 [`docs/commands.md`](docs/commands.md).
 
 ## Generated records are the Blueprint's
@@ -73,5 +75,7 @@ pack. What is generated on this tree, and the refresh command:
 ## Done means
 
 - The validator prints `ok: ... geometry, reachability, voices all pass`.
+- The playthrough bot passes on desktop and phone, or each red check is a named
+  open issue.
 - Decisions Rylee made are recorded in `NOTES.md`, her words quoted.
 - `.project/CURRENT.md` names the stage and the one next step accurately.

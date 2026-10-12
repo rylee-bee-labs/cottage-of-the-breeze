@@ -1,8 +1,57 @@
 # NOTES — decisions and playtest notes (newest first)
 
-## 2026-10-12 — the stair moves into the cottage kitchen (agent, held for Rylee's approval)
+## 2026-10-12 (night) — the bot walks the GBA town again; the docs say what the game is now (agent)
 
-**Held for Rylee's approval.** This changes preserved strings on purpose, under her decisions. Do not merge until she has read it.
+Rylee, 2026-10-12: "I'd like cottage in a beta state soon. Can we do a full docs update and refresh and get all
+issues and branches and everything pristine first?"
+
+- **The playthrough bot was red on `main` since cottage#146.** It stalled after 54 presses in the cottage
+  (`no progress for 50 presses (region cottage, hero [5, 2])`): its path-finding read only map rows, so it walked
+  onto the cat's tile (`player.people_block` makes it solid) and, in town, into prop footprints on VEFR's object
+  layer. It now blocks both, stops beside a resident to talk, and reads the after-the-cellar town by walking up to
+  the place `town_states` changes and pressing Interact (the old check looked for a line #146 had reworded).
+  **Result:** 38 of 39 checks at 1280×720 and at 390×844, on VEFR `72d366e`. The one red is the album (cottage#148).
+- **The album, measured:** 10 of 19 on that run. Six of the nine missing are chance drops from cellar rats, moths and
+  spiders (the bot kills three monsters); `a-cold-ember` and `a-music-box-spring` drop only from `damp-shade-finds`,
+  which no Section spawns; `the-tab` is a book a tavern resident gives, which the route never asks for.
+- **Docs refreshed:** `.project/CURRENT.md` (it still described the town stair, a warden nothing read and monsters
+  that paid no xp), `DEMO.md` (the kitchen stair, nine floors, the King who yields, phone controls, what is rough),
+  `README.md` (the org URL and the CI pin), `AGENTS.md` (where canon is; the bot is part of "done"),
+  `docs/repo-map.md`, `docs/commands.md` (how to run the bot). This file is back in date order: four entries had
+  been appended at the bottom.
+- **Correction:** `docs/plans/section-1-beta/GAP.md` calls the Keybearers' names agent drafts. Rylee picked them on
+  2026-10-04 (entry below): Ashwing, Brother Sporeling, Sir Hollowhorn.
+- **Removed `tests/test_pr_scope.py`.** It pinned the file list of cottage#96 (2026-10-04) and has failed on every
+  later tree (`docs/playtests/2026-10-09-descent.md` recorded it failing); no workflow ran it.
+- **The seven engine limits** in `docs/playtests/2026-10-09-descent.md` have since been met in VEFR as far as the
+  code shows: EL-1 (#405), EL-2 (#385), EL-3 (`vefr look --sizes/--at`), EL-4 (the descent's seed URL parameter),
+  EL-5 and EL-6 (#399), EL-7 (#418, #433; inferred, not measured).
+
+## 2026-10-12 — a bigger first village, in Game Boy Advance pixel art (draft for Rylee)
+
+- **Rylee:** "Please make the town bigger and fix the npc layout"; "Follow kinda normal starting act for a small rpg
+  structure. It's where they learn the world and the controls"; then the art: "B: GBA pixel art (Recommended)".
+- **The town** (`acts/act-1/town/`, and its after-the-cellar twin) is 34 x 26 tiles: home with a note on the step,
+  the Gardener at her vegetable plot, a signpost, the cobbled square with the well and the temple at its head (shut
+  until the cellar is done; propped open after), the Trader's stall, the Smith at his forge, the tavern, the burned old
+  tavern with its page, the Fisher at the end of his dock, and a roped-off north road. Everything that stands up is a
+  prop on VEFR's object layer; the pond and flowers lie on its ground layer.
+- **New words** (Claude, as canon reviewer): the signpost ("Up the lane: home. East: the square. South, past the
+  forge: what is left of the old tavern."), the well, the north road, and the temple door ("The temple door is
+  shut." / after the cellar: "The temple door stands propped open now."). Speakers' `near` now names their place.
+- **Moved:** the cottage door (town `[5,5]`), the tavern door (`[26,8]`), the wake point (the temple steps `[17,6]`),
+  the two town notes, and every resident. People now stand in the way (`player.people_block`).
+- **Interim:** monsters and items are the old paintings shrunk to pixel size (`*.px.webp`) until their pixel kits are
+  drawn; the cottage, tavern and cellar are still painted.
+- **Needs VEFR:** the object layer (vefr#420) and pixel art (vefr#427) before the pin can move; until then this is a
+  draft.
+- **Starting gold: 10** (Rylee, 2026-10-12, picker "10 starting gold (Recommended)"): enough for one cloudy potion,
+  so the first visit to the Trader teaches buying and the bag. Sol's review had found the zero-gold first visit taught
+  nothing.
+
+## 2026-10-12 — the stair moves into the cottage kitchen (agent; approved by Rylee)
+
+**Approved.** Rylee merged cottage#142 herself on 2026-10-12, which the PR named as her approval of the four changed strings below. (Until then this entry read "held for Rylee's approval".)
 
 - **Rylee, 2026-10-12 (picker):** "Kitchen stair tonight". Canon (`docs/story/STORY.md`) says "there is a stair in the corner of the kitchen ... it is just there when you make tea". The engine has exactly one descent entry (`descent.entry`), so the stair moves from town `[1,1]` into the cottage. There is no town stair afterwards.
 - **Rylee, 2026-10-12 (picker):** "Change her line": the Spell Keeper must not claim she wrote the letter in the chest. Canon says it is Oren's.
@@ -35,6 +84,7 @@ Claude's note: the replacement words are Claude's draft, for Rylee to approve or
 The VEFR validator and the browser playthrough bot could not be run here, so geometry, reachability and the route are checked only by a stdlib script. `tests/playthrough/run.py` takes the descent entry from `descent.entry`, so its check now reads "cottage [1, 1] is one way down, and it goes to cellar-0-1" without an edit.
 
 Claude's note: the stair's poi_text "The stair goes down into the dark." moved to the cottage with the stair so the existing text is not lost. It was not in the brief. Rylee can strike it if she wants no text on that tile.
+
 ## 2026-10-12 — the Cellar King yields; the town changes once (agent)
 
 Rylee's picker decision on the Cellar King, 2026-10-12: **"He yields"**: no
@@ -190,6 +240,40 @@ someone should decide whether `pickup` moves to `SOUND_CUES_NEEDED`.
 > the top ones, which is the shape you asked for. Nothing you have written
 > changed — the letter in the chest is word for word what it was.
 
+## 2026-10-09 — Album census: what the 25 old stickers do now
+
+The one-way-down change (`4bed847`) took the album from 25 stickers to 5, and nothing has been written down about what happened to the other 20. This is the census. Rylee's pick on 2026-10-09 was *Keep what still fits*: every old sticker the game can still award stays word for word, and only the ones whose trigger no longer exists are dropped. The album is now 19: those 6 kept, plus the 13 new finds the descent can earn (`57ceb3d`).
+
+| id | name | status | what awards it, or what removed it |
+|---|---|---|---|
+| first-steps | First steps | kept | `starts:{}` — unconditional |
+| entered-floor-1 | Down to the first floor | dropped | `4bed847` deleted the authored `floor-1`; the descent is town [1,1] -> cellar-0-1 |
+| entered-floor-2 | Down to the second floor | dropped | `4bed847`; there is no `floor-2` region, depths are `cellar-0-1..cellar-0-9` |
+| entered-floor-3 | Down to the third floor | dropped | `4bed847`, same |
+| entered-floor-4 | Down to the fourth floor | dropped | `4bed847`, same |
+| entered-floor-5 | Down to the fifth floor | dropped | `4bed847`, same |
+| entered-floor-6 | Down to the sixth floor | dropped | `4bed847`, same; the deepest floor is `cellar-0-9` |
+| met-flowerpot-toad | A flowerpot toad | could come back with | `4bed847`; `defeats floor-1-rat-2` was a per-floor instance id. The `flowerpot-toad` family still spawns (`sections/rootworks.json`) but no sticker can name a family |
+| met-wick-sprite | A wick sprite | could come back with | `4bed847`; same, `defeats floor-1-rat-3` |
+| met-crock-mimic | A crock mimic | could come back with | `4bed847`; `defeats floor-2-shade-1`. The `crock-mimic` family is declared but spawned by no Section |
+| met-cellar-spider | A cobweb-scarfed spider | could come back with | `4bed847`; `defeats floor-2-rat-1` |
+| met-cobweb-wraith | A cobweb wraith | could come back with | `4bed847`; `defeats floor-4-deep-3` |
+| met-cave-cricket | A cave cricket | could come back with | `4bed847`; `defeats floor-4-rust-1` |
+| met-root-tangle | A root tangle | could come back with | `4bed847`; `defeats floor-4-loud-2` |
+| met-barrel-mimic | A barrel mimic | could come back with | `4bed847`; `defeats floor-5-loud-1` |
+| keybearer-moth | Ashwing | could come back with | `4bed847` and `6360de4`; the family is declared and spawned by no Section |
+| keybearer-mushroom | Brother Sporeling | could come back with | `4bed847` and `6360de4`; spawned by no Section |
+| keybearer-beetle | Sir Hollowhorn | could come back with | `4bed847` and `6360de4`; spawned by no Section |
+| cellar-king | The Cellar King | could come back with | `4bed847`; the family is the cellar warden and still drops `crown-seal`, but a defeat sticker can name no family |
+| the-letter | A letter, folded small | kept | reads `a-letter-in-a-chest`, in a chest on `cellar-0-1`, the first descent floor |
+| the-seal | A crown in red wax | kept | picks up `crown-seal`, the `cellar-king` warden's drop on `cellar-0-9` |
+| the-warm-page | The warm page | kept | reads `a-note-under-the-seal`, in a chest on `cellar-0-9` |
+| quiet-room | A quiet room | dropped | `4bed847`; the `king-room` region and the sealed door that led there are gone |
+| cat-notices | The cat noticed you | kept | comes near `hearth-cat`, a standing speaker in the cottage |
+| about-book | The little cloth book | kept | reads `about-this-game`, on the cottage shelf |
+
+The rule behind all of this is short: a sticker can only be earned when its `when` names an id the pack declares. A `reads` or `picks-up` can name an item or a library page; a `comes-near` can name a speaker or a POI. A `defeats` can name neither of those — it names the mob's own runtime id, which on a generated floor is `m0`, `m1`, ... and `w` for a warden, never the Blueprint family the mob was spawned from. So the twelve rows marked *could come back with* need a VEFR feature first: a defeat that matches a Blueprint family rather than an instance id. That feature was deliberately not built for this change, so those stickers are reported here and left out of the album. Two of them are worth noting as the sharpest case: the Keybearers and the Cellar King do not go back in as they stand, because nothing in the engine can earn them at all today.
+
 ## 2026-10-08 (later still) — the five descent books are pinned to a place, not a tile (agent)
 
 VEFR `b5ed13d` (vefr#361) taught the descent to place books by **anchor**
@@ -328,6 +412,7 @@ sides of the fix above. **No player fought the Cellar King**: the
 read-back is the running game's own baked state read from a real
 browser, which proves the id resolves and the picture is there, not that
 someone walked nine floors and picked it up.
+
 ## 2026-10-08 (later still) — `.project/CURRENT.md` back to truth, and three things it had to stop saying (agent)
 
 This entry exists because the correction needed recording, not because anything
@@ -941,6 +1026,7 @@ Rylee answered the picker questions tonight. Her words, quoted exactly. `DESIGN.
 - **The soul (Rylee, 2026-10-08):** "No existing work is sacred except the soul of it". The soul, confirmed by her ("Yes, that's it"): curious, low-bandwidth exploring; the thrill of opening something and finding something fun; a cozy storybook world; no reflexes and nothing to memorize; 30 minutes that turns into four hours. Judge every change against it.
 - **Also tonight:** the soft-wood skin, built from her round-two picks, merged as cottage#107.
 - **Claude's note (agent):** nothing on this list is built by tonight's notes; every line above is a decision on disk only. The devices, builds and pull-deeper answers are recorded here and are not yet in the `DESIGN.md` checklist, which carries the systems answers only.
+
 ## 2026-10-08 (later) — the round-two skin, looked at: one pick did not survive being built (agent)
 
 The skin merged in cottage#107 had never been looked at assembled. It has now been, at a phone (390x844) and a desktop (1280x800) viewport, from the pack's own copy. **Ten of Rylee's eleven round-two picks are in and read correctly. The eleventh did not, and is now built a different way.**
@@ -971,6 +1057,10 @@ The skin merged in cottage#107 had never been looked at assembled. It has now be
 - **Her order of work (chat, 2026-10-04):** "Ship act 1, then plan 2 and 3"; refactor `web/packaged.html` first; fire is the first effect; "I'd like all of act 1 to be very high quality. With all systems and art and everything." (She also asked for a research task on RPG interface styles; the result is in the artifact she was sent.)
 - **Her interface direction (chat, 2026-10-04):** "anything running 'inside the game' to be in a themed ui for that game and only controls and such", with HUD icons currently floating over the page background; then, of a handheld-frame mock: "I don't want an actual frame around it. I want the ui to pretend it's ported from another system but be native hahaha! It should feel like a part of the vefr world. This feels like a square mechanical ui overlayed over a warm soft game." Recorded as `docs/plans/native-ui/PLAN.md`.
 - **Claude's note (agent):** the sound default (on where a pack opts in, with a visible switch) was my choice and is not yet ruled on by Rylee.
+
+## 2026-10-04 — the Keybearers have names (Rylee)
+
+Rylee picked the names: floor 3 **Ashwing** (the great pale moth), floor 4 **Brother Sporeling** (the old mushroom elder), floor 5 **Sir Hollowhorn** (the armoured stag beetle). Changed in `blueprint.json` and the album, then `vefr normalize`; `vefr check` passes. Their epithets and any lines are still open; the King's name is not chosen yet.
 
 ## 2026-10-03 (overnight) — release 1: the ladder, the King's room and an ending (agent drafts, Rylee decides)
 
@@ -1048,6 +1138,17 @@ Claude's note: this repo now also holds `art/tools/` and `art/tests/` (sprite an
 Rylee told the agent on 2026-10-01 that she worked through the 2026-09-29 agent draft (the Spell Keeper, her lines and seed bank, the two books, the three-rule `logbok.md`, the world description and creed) with an agent and that it is **approved**. It no longer waits on her. `STORY.md` is still hers to write; nothing was added to it. If a line changes again, record it here.
 
 Playtest note (agent, 2026-10-01, woven offline build, desktop): the title screen and the first room load with no console errors. The hero starts bottom right of the cottage room; one arrow press moves her one tile (she starts at tile 4,5; the "about four tiles" look came from the display scale of up to 3x plus held-key repeat, corrected 2026-10-01 after a foreman measured it), and the exit is a door below the bottom wall that needs the hero lined up with it and Interact (F) pressed. The Strike / Console / Hurl an insult buttons show with nothing to fight. Claude's note: both worth a look, neither is a decision.
+
+## 2026-10-01: the new art and residents are in the game
+
+- **Hero** is the new idle pose (round 9). **Residents:** the Spell Keeper wears the old-keeper picture, the Trader the trader, and five new people were added with the studio's own
+  `place_character` route on a copy of this pack: the Tavern Regular (tavern), the Cat (cottage, by the rug), the Fisher, the Gardener and the Dwarf Smith (town). `EDITS.md` records them.
+- **Ground:** the town's grass and cobbled street, the tavern's dark planks and the cellar floors are 3x3 grid pictures (one scene, so they do not repeat tile by tile). The cottage's
+  rug is ONE object (the geometric rug laid on the floor as a 3 x 2 grid), so its map block `DDD` sits at x 3 to 5 and y 2 to 3 (a grid picks its cell by position: x mod 3, y mod 2).
+  The cottage, tavern and town walls and houses use the round 2 stone and wood. The tavern's tables and bar are the round table and the bookshelf on the plank floor.
+- **Sprites are keyed by the speaker's id** (`hearth-cat`, `vendor`, `tavern-regular`, ...): the woven player draws a speaker with the sprite named like its id; a speaker's own `sprite` field is
+  not read (the loader drops it). So the cat's picture is `sprites/cat.png` under the key `hearth-cat`.
+- Two engine bugs found by doing this with the real route are fixed in vefr (#183: a write on a multi-room pack threw away the room list; #184: placement checks used the home room's map).
 
 ## 2026-09-29 — agent draft: the story layer (waiting on Rylee)
 
@@ -1193,75 +1294,3 @@ The reward end: The Trader keeps a stall on the road (Interact to trade -
 sell what you carried, buy a potion). Gold and the bag persist; the Bag has
 its own button and the B key. A cloudy potion can be drunk from the Bag to
 heal. No identifying or haggling yet.
-
-## 2026-10-01: the new art and residents are in the game
-
-- **Hero** is the new idle pose (round 9). **Residents:** the Spell Keeper wears the old-keeper picture, the Trader the trader, and five new people were added with the studio's own
-  `place_character` route on a copy of this pack: the Tavern Regular (tavern), the Cat (cottage, by the rug), the Fisher, the Gardener and the Dwarf Smith (town). `EDITS.md` records them.
-- **Ground:** the town's grass and cobbled street, the tavern's dark planks and the cellar floors are 3x3 grid pictures (one scene, so they do not repeat tile by tile). The cottage's
-  rug is ONE object (the geometric rug laid on the floor as a 3 x 2 grid), so its map block `DDD` sits at x 3 to 5 and y 2 to 3 (a grid picks its cell by position: x mod 3, y mod 2).
-  The cottage, tavern and town walls and houses use the round 2 stone and wood. The tavern's tables and bar are the round table and the bookshelf on the plank floor.
-- **Sprites are keyed by the speaker's id** (`hearth-cat`, `vendor`, `tavern-regular`, ...): the woven player draws a speaker with the sprite named like its id; a speaker's own `sprite` field is
-  not read (the loader drops it). So the cat's picture is `sprites/cat.png` under the key `hearth-cat`.
-- Two engine bugs found by doing this with the real route are fixed in vefr (#183: a write on a multi-room pack threw away the room list; #184: placement checks used the home room's map).
-
-
-## 2026-10-04 — the Keybearers have names (Rylee)
-
-Rylee picked the names: floor 3 **Ashwing** (the great pale moth), floor 4 **Brother Sporeling** (the old mushroom elder), floor 5 **Sir Hollowhorn** (the armoured stag beetle). Changed in `blueprint.json` and the album, then `vefr normalize`; `vefr check` passes. Their epithets and any lines are still open; the King's name is not chosen yet.
-
-## 2026-10-09 — Album census: what the 25 old stickers do now
-
-The one-way-down change (`4bed847`) took the album from 25 stickers to 5, and nothing has been written down about what happened to the other 20. This is the census. Rylee's pick on 2026-10-09 was *Keep what still fits*: every old sticker the game can still award stays word for word, and only the ones whose trigger no longer exists are dropped. The album is now 19: those 6 kept, plus the 13 new finds the descent can earn (`57ceb3d`).
-
-| id | name | status | what awards it, or what removed it |
-|---|---|---|---|
-| first-steps | First steps | kept | `starts:{}` — unconditional |
-| entered-floor-1 | Down to the first floor | dropped | `4bed847` deleted the authored `floor-1`; the descent is town [1,1] -> cellar-0-1 |
-| entered-floor-2 | Down to the second floor | dropped | `4bed847`; there is no `floor-2` region, depths are `cellar-0-1..cellar-0-9` |
-| entered-floor-3 | Down to the third floor | dropped | `4bed847`, same |
-| entered-floor-4 | Down to the fourth floor | dropped | `4bed847`, same |
-| entered-floor-5 | Down to the fifth floor | dropped | `4bed847`, same |
-| entered-floor-6 | Down to the sixth floor | dropped | `4bed847`, same; the deepest floor is `cellar-0-9` |
-| met-flowerpot-toad | A flowerpot toad | could come back with | `4bed847`; `defeats floor-1-rat-2` was a per-floor instance id. The `flowerpot-toad` family still spawns (`sections/rootworks.json`) but no sticker can name a family |
-| met-wick-sprite | A wick sprite | could come back with | `4bed847`; same, `defeats floor-1-rat-3` |
-| met-crock-mimic | A crock mimic | could come back with | `4bed847`; `defeats floor-2-shade-1`. The `crock-mimic` family is declared but spawned by no Section |
-| met-cellar-spider | A cobweb-scarfed spider | could come back with | `4bed847`; `defeats floor-2-rat-1` |
-| met-cobweb-wraith | A cobweb wraith | could come back with | `4bed847`; `defeats floor-4-deep-3` |
-| met-cave-cricket | A cave cricket | could come back with | `4bed847`; `defeats floor-4-rust-1` |
-| met-root-tangle | A root tangle | could come back with | `4bed847`; `defeats floor-4-loud-2` |
-| met-barrel-mimic | A barrel mimic | could come back with | `4bed847`; `defeats floor-5-loud-1` |
-| keybearer-moth | Ashwing | could come back with | `4bed847` and `6360de4`; the family is declared and spawned by no Section |
-| keybearer-mushroom | Brother Sporeling | could come back with | `4bed847` and `6360de4`; spawned by no Section |
-| keybearer-beetle | Sir Hollowhorn | could come back with | `4bed847` and `6360de4`; spawned by no Section |
-| cellar-king | The Cellar King | could come back with | `4bed847`; the family is the cellar warden and still drops `crown-seal`, but a defeat sticker can name no family |
-| the-letter | A letter, folded small | kept | reads `a-letter-in-a-chest`, in a chest on `cellar-0-1`, the first descent floor |
-| the-seal | A crown in red wax | kept | picks up `crown-seal`, the `cellar-king` warden's drop on `cellar-0-9` |
-| the-warm-page | The warm page | kept | reads `a-note-under-the-seal`, in a chest on `cellar-0-9` |
-| quiet-room | A quiet room | dropped | `4bed847`; the `king-room` region and the sealed door that led there are gone |
-| cat-notices | The cat noticed you | kept | comes near `hearth-cat`, a standing speaker in the cottage |
-| about-book | The little cloth book | kept | reads `about-this-game`, on the cottage shelf |
-
-The rule behind all of this is short: a sticker can only be earned when its `when` names an id the pack declares. A `reads` or `picks-up` can name an item or a library page; a `comes-near` can name a speaker or a POI. A `defeats` can name neither of those — it names the mob's own runtime id, which on a generated floor is `m0`, `m1`, ... and `w` for a warden, never the Blueprint family the mob was spawned from. So the twelve rows marked *could come back with* need a VEFR feature first: a defeat that matches a Blueprint family rather than an instance id. That feature was deliberately not built for this change, so those stickers are reported here and left out of the album. Two of them are worth noting as the sharpest case: the Keybearers and the Cellar King do not go back in as they stand, because nothing in the engine can earn them at all today.
-
-## 2026-10-12 — a bigger first village, in Game Boy Advance pixel art (draft for Rylee)
-
-- **Rylee:** "Please make the town bigger and fix the npc layout"; "Follow kinda normal starting act for a small rpg
-  structure. It's where they learn the world and the controls"; then the art: "B: GBA pixel art (Recommended)".
-- **The town** (`acts/act-1/town/`, and its after-the-cellar twin) is 34 x 26 tiles: home with a note on the step,
-  the Gardener at her vegetable plot, a signpost, the cobbled square with the well and the temple at its head (shut
-  until the cellar is done; propped open after), the Trader's stall, the Smith at his forge, the tavern, the burned old
-  tavern with its page, the Fisher at the end of his dock, and a roped-off north road. Everything that stands up is a
-  prop on VEFR's object layer; the pond and flowers lie on its ground layer.
-- **New words** (Claude, as canon reviewer): the signpost ("Up the lane: home. East: the square. South, past the
-  forge: what is left of the old tavern."), the well, the north road, and the temple door ("The temple door is
-  shut." / after the cellar: "The temple door stands propped open now."). Speakers' `near` now names their place.
-- **Moved:** the cottage door (town `[5,5]`), the tavern door (`[26,8]`), the wake point (the temple steps `[17,6]`),
-  the two town notes, and every resident. People now stand in the way (`player.people_block`).
-- **Interim:** monsters and items are the old paintings shrunk to pixel size (`*.px.webp`) until their pixel kits are
-  drawn; the cottage, tavern and cellar are still painted.
-- **Needs VEFR:** the object layer (vefr#420) and pixel art (vefr#427) before the pin can move; until then this is a
-  draft.
-- **Starting gold: 10** (Rylee, 2026-10-12, picker "10 starting gold (Recommended)"): enough for one cloudy potion,
-  so the first visit to the Trader teaches buying and the bag. Sol's review had found the zero-gold first visit taught
-  nothing.

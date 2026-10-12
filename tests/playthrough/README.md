@@ -23,6 +23,12 @@ act → back up to town, which must now load its after-the-cellar state → a
 reload → the menu's Start
 over → a fight on the way down.
 
+Walking it reads what the player reads as solid: map tiles, prop footprints
+(VEFR's object layer) and, when the pack sets `player.people_block`, the
+tiles residents stand on. To talk, the bot stops on an open tile beside a
+resident. The after-the-cellar town is checked by walking up to a place its
+`town_states` state rewrites and reading it with Interact.
+
 Nothing on that route is written down here. The entry tile comes from
 `VEFR_DESCENT_DEF.entry`, the floor names from each Section's `id`,
 `floors` and `pattern`, the stairs from the transitions the engine wires
