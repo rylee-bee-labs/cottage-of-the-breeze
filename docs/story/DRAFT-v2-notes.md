@@ -4,26 +4,40 @@ The companion to `docs/story/DRAFT-v2.md`. Nothing here is canon either; this is
 the reasoning that sits behind the draft, so that Claude can review the choices
 and Rylee can read them.
 
-**Read this first: what this pass had to work from.** The sandbox the first pass was
-written in could not reach `/var/home/agent/missions/…` at all and the clone had no
-`origin` remote, so `git show origin/docs/story-draft:docs/story/DRAFT.md` failed and
-**no prose of #111 reached the first pass at all.** That was the first pass's main
-failure and the coordinator named it.
+**Read this first: what the references in this file are.** The first pass could not
+read `docs/story/DRAFT.md` at all and quoted nothing from #111. The second pass quoted
+#111 from a transcript. Both limits were superseded on 2026-10-09 by a re-measuring pass
+that opened the file itself: every `draft:NN-NN` reference in the tables below was
+measured against `docs/story/DRAFT.md`, and the rows marked **not in #111** were checked
+against that file's full heading list, so they are v2's own material rather than
+passages #111 ever carried. The tables are therefore measured, not transcribed.
 
-**This second pass had the full text of #111**, quoted verbatim in the packet, and
-`docs/story/DRAFT.md` is still not on any branch in this clone. So the restoration below
-is against the packet's quotation, which the coordinator transcribed. Two things follow
-and both are worth stating plainly:
-
-- Everything quoted here from #111 is quoted from **the packet's transcript of it**,
-  not from a file I opened. The coordinator should diff it against the real file before
-  this is read as an exact restoration.
-- The Rylee decision files are still not readable from here. Every decision quoted in
-  this notes file and in the draft comes from the packet's verbatim "Decisions in
-  force", which the coordinator states it verified against the files. Where a claim was
-  checkable against the repo itself I checked it and cite it below.
+#111 itself is still not to be merged as-is: its branch is behind `main` and re-adds
+records `main` deleted. See [§ On PR #111's branch](#on-pr-111s-branch) below.
 
 ---
+
+## Where this stands
+
+- `docs/story/DRAFT-v2.md` and this file merged to `main` on 2026-10-09 as
+  Rylee-Bee/cottage-of-the-breeze#130. It was meant to be held as a draft PR for
+  Rylee; the landing tool armed auto-merge and the coordinator's session is not
+  permitted to disarm it, so it merged itself.
+- Claude reviewed the draft. The review's two rulings and four prose fixes merged
+  to `main` on 2026-10-10 as #134 (96bec9f).
+- **The canon has landed.** #138 (squash `37e08f7`, merged 2026-10-10) added
+  `docs/story/STORY.md` — the story itself, without the notes, the open
+  questions or the engine list — and marked `docs/story/DRAFT-v2.md` promoted.
+  So: the canon page is `docs/story/STORY.md`; the **root** `STORY.md`
+  ("Rylee's words only") is a different file, still untouched and still empty.
+  Nothing under `worlds/` changed to promote it, and no existing written item was
+  altered.
+- PR #111 is **closed** (2026-10-10T00:27:00Z), with a pointer to #130 and to
+  the canon PR #138.
+- Both questions are answered. The fire question was answered by Claude on
+  2026-10-09: the seal note's deliberate banking and Rylee's accidental burning
+  are not in conflict, the note stands word for word, and nothing under
+  `worlds/` changes. The draft review was answered and applied as #134.
 
 ## Contradictions
 
@@ -64,18 +78,16 @@ The four contradictions the packet named explicitly:
 | #111's final town speech scene | Cut. The ending is the Blue Door and the kept room, and the last line is somebody making room at the table. |
 | #111 makes Merrin the town's appointed jailer who failed | Rewritten. The ledger no longer says "Merrin of The Breeze will hold the room. He has a dog and a kettle and he can be relied on." He is a man who went down on purpose before the seal, and his fate is unresolved. |
 
-**Four further corrections this pass made, all of them the first pass's errors rather
+**Three further corrections this pass made, all of them the first pass's errors rather
 than #111's:**
 
 1. **Bramble was undefined and, in one line, wrong.** The first pass had him as an
    unnamed "he" and wrote *"If you brought someone down here, they are safe here."*
    Nobody brought anybody down. See [§ Bramble](#bramble).
-2. **#111's prose had not been carried across at all.** Now restored; see
-   [§ Passages carried across](#passages-carried-across).
-3. **The four-section shape had been lost.** v1 ran door → Down → banked hearth → kept
+2. **The four-section shape had been lost.** v1 ran door → Down → banked hearth → kept
    room, and the Long Well, the Banked Fire and the Blue Door had no identity of their
    own. All four are the spine again.
-4. **"No villain standing in the snow nineteen years later"** contradicted the forty-year
+3. **"No villain standing in the snow nineteen years later"** contradicted the forty-year
    setting. The line is now forty years. It is the only timeline number in the draft
    that was wrong.
 
@@ -110,58 +122,56 @@ of the four is the villain**, and none of the four is killed.
 
 ## Passages carried across
 
-**This section is the answer to the first pass's main failure.** It was empty then
-because no prose of #111 had reached it. It is filled now.
-
-#111's file is still not readable in this clone. Everything in the "from #111"
-column below is quoted from **the packet's verbatim transcript of #111**, not from
-the file. The coordinator should diff it against the real `docs/story/DRAFT.md`
-before treating this as an exact restoration.
-
 ### Carried across word for word
+
+References below were re-measured against `docs/story/DRAFT.md` on 2026-10-09. The whole table was
+re-measured in that pass, and rows marked "not in #111" were checked against that file's full heading
+list: they are v2's own material, not passages #111 ever carried.
 
 | Passage | #111 | In v2 now | Changed, and why |
 | --- | --- | --- | --- |
-| The premise, in one sentence | `draft:17-21` | `## The premise, in one sentence` | Unchanged. "You live in the cottage at the end of the road because nobody else wanted it, there is a stair in the corner of the kitchen, and you keep going down because somebody should." | **No.** Rylee has never touched this sentence. |
-| Why you go down, and it is a small reason | `draft:23-31` | same heading | Unchanged. | **No.** |
-| What you are carrying up is heat | `draft:33-35` | same | Unchanged. | **No.** This is the "The player brings the coal home" decision, in #111's words. |
-| The town, opening paragraph | `draft:39-41` | `## The town` | Unchanged. | **No.** |
-| The townspeople table, all seven rows | `draft:45-53` | `### Who is there, and what each of them wants` | All seven rows verbatim, including the Fisher and the Hearth Cat. | **No.** The table is preserved item by item, not summarised. |
-| What the town is losing, slowly | `draft:57-73` | same heading | First paragraph unchanged; the last two paragraphs extended with Rylee's forty-year winter account, marked as an addition. | **Extended, not replaced.** #111 had no winter; Rylee's decision is quoted in the draft. |
-| How it plays | `draft:57-61` | `**How it plays.**` in the town section | Unchanged. | **No.** |
-| The sections preamble | `draft:79-81` | `## The sections` | Unchanged. | **No.** |
-| S1 — the place | `draft:85-89` | `### Section 1 — The Cellar Under the Cottage` | Unchanged. | **No.** |
-| S1 — the mood | `draft:91-95` | same | Unchanged, including "It is the gentlest place in the game and the first one you are not afraid of." | **No.** |
-| S1 — the guardian, the Cellar King | `draft:97-101` | same | Unchanged, including that his name is Rylee's to choose. | **No.** |
-| S1 — the vault's seal note | `draft:103-106` | quoted in full in S1's vault | **Now quoted verbatim in the draft**, because it is an existing pack item and the draft should show the exact words it is preserving. | Quoting only. The note itself is untouched in `library/a-note-under-the-seal.md`. |
-| "But read it again at the bottom and it does" | `draft:108-111` | same, in S1 | Unchanged. | **No.** |
-| The letter, in the chest | `draft:113-115` | quoted in full in S1 | **Now quoted verbatim.** | Quoting only. Untouched in `library/a-letter-in-a-chest.md`. |
-| S2 — the place | `draft:121-127` | `### Section 2 — The Long Well` | Unchanged, in full. | **No.** |
-| S2 — the mood | `draft:129-133` | same | Unchanged. | **No.** |
-| S2 — the guardian, the Longneck | `draft:135-139` | same | Unchanged, in full, including "it has never once been in a hurry". | **No.** |
-| S2 — the vault, the bread oven and the ledger | `draft:141-144` | same | Unchanged as the description; **the ledger's last page is rewritten.** | The page carried no winter and named Merrin as the town's appointed holder of the room. Rylee's decision is a severe winter and nineteen people doing arithmetic, and Merrin is not a jailer. |
-| S3 — the place | `draft:151-157` | `### Section 3 — The Banked Fire` | Unchanged, in full. | **No.** |
-| S3 — the mood | `draft:159-163` | same | Unchanged, including "that is exactly when things start to hurt". | **No.** |
-| S3 — the guardian, Old Longsleep | `draft:165-169` | same | Unchanged, in full, including "It is a hearth that learned to breathe and was never told to stop." | **No.** |
-| S3 — the vault, the chest and the coal | `draft:171-174` | same | Unchanged; **Oren's net added to the chest's contents**, since #111 had the net as an item and nowhere put it. | One item moved into the room it belongs to. |
-| S4 — the place, the blue door and the coal opening it | `draft:179-181` | `### Section 4 — The Blue Door` | Unchanged, in full. | **No.** |
-| S4 — it is unburnt | `draft:183-185` | same | Unchanged, in full. | **No.** |
-| S4 — the mood | `draft:187-189` | same | Unchanged, in full. | **No.** |
-| S4 — the guardian, Bramble | `draft:191-196` | same | The first four sentences are **verbatim**. The two sentences that made him a bereaved watchdog ("has been in the doorway for four decades because a man he loved went through it and never came back") are rewritten, and the reason is below. | Rylee: "Merrin's eventual fate remains unresolved." |
-| S4 — the vault, the room itself | `draft:198-201` | same | Unchanged, in full. | **No.** |
-| S4 — what you read: nothing | `draft:203-206` | same | Unchanged, including "the note was in the cellar, written by somebody who came down before you". | **No.** |
-| S4 — the answer | `draft:208-211` | same | Unchanged, in full. | **No.** |
-| What each depth reveals, preamble | `draft:215-217` | `## What each depth reveals` | Unchanged. | **No.** |
-| The unsaid paragraph under the reveal ladder | `draft:219-221` | same | Unchanged, in full. | **No.** |
-| The final resolve, first paragraph | `draft:225-227` | `## The final resolve` | Unchanged: "You take the coal up. That is the whole mechanical resolve and it is deliberately small: one warm thing in your bag, and the stairs home are long." | **No.** |
-| The part-2 door | `draft:245-249` | `## The part-2 door` | Unchanged, in full, including "Bramble will look at it when you take him up." | **No.** |
-| The two devices, both | `draft:255-267` | `## The two devices, kept` | Unchanged in substance; the letter paragraph is anchored to Oren and to the Spell Keeper's cake instead of to her authorship. | **Rylee's decision 1** (the letter is Oren's). |
-| Words this implies: books and notes | `draft:271-291` | `### Books and notes found in the world` | All eight existing items and all six new items, verbatim, **with the existing eight explicitly marked as untouched and listed for reference only.** | Marked, not changed. |
-| Words this implies: stickers | `draft:305-311` | `### Stickers` | All six, verbatim. | **No.** |
-| Words this implies: items | `draft:313-319` | `### Items` | All five, verbatim. | **No.** |
-| What is waiting on the engine | `draft:323-331` | `## What is waiting on the engine` | Carried over and corrected against this repo; one line added for the part-2 stair. | Corrected, not rewritten. |
+| The premise, in one sentence | `draft:14-16` | `## The premise, in one sentence` | Unchanged. "You live in the cottage at the end of the road because nobody else wanted it, there is a stair in the corner of the kitchen, and you keep going down because somebody should." | **No.** Rylee has never touched this sentence. |
+| Why you go down, and it is a small reason | `draft:18-26` | same heading | Unchanged. | **No.** |
+| What you are carrying up is heat | `draft:27-29` | same | Unchanged. | **No.** This is the "The player brings the coal home" decision, in #111's words. |
+| The town, opening paragraph | `draft:33-35` | `## The town` | Unchanged. | **No.** |
+| The townspeople table, all seven rows | `draft:39-47` | `### Who is there, and what each of them wants` | All seven rows verbatim, including the Fisher and the Hearth Cat. | **No.** The table is preserved item by item, not summarised. |
+| What the town is losing, slowly | `draft:51-61` | same heading | First paragraph unchanged; the last two paragraphs extended with Rylee's forty-year winter account, marked as an addition. | **Extended, not replaced.** #111 had no winter; Rylee's decision is quoted in the draft. |
+| How it plays | **not in #111** — there is no such passage in `docs/story/DRAFT.md` | `**How it plays.**` in the town section | Written for v2: the town gets *less careful*, not friendly, and the first sign is a door held open. | **New.** There was no #111 ancestor to carry across. |
+| The sections preamble | `draft:65-67` | `## The sections` | Unchanged. | **No.** |
+| S1 — the place | `draft:71-75` | `### Section 1 — The Cellar Under the Cottage` | Unchanged. | **No.** |
+| S1 — the mood | `draft:77-80` | same | Unchanged, including "It is the gentlest place in the game and the first one you are not afraid of." | **No.** |
+| S1 — the guardian, the Cellar King | `draft:82-85` | same | Unchanged, including that his name is Rylee's to choose. | **No.** |
+| S1 — the vault's seal note | `draft:87-90` | quoted in full in S1's vault | **Now quoted verbatim in the draft**, because it is an existing pack item and the draft should show the exact words it is preserving. | Quoting only. The note itself is untouched in `library/a-note-under-the-seal.md`. |
+| "But read it again at the bottom and it does" | `draft:92-95` | same, in S1 | Unchanged. | **No.** |
+| The letter, in the chest | `draft:97-99` | quoted in full in S1 | **Now quoted verbatim.** | Quoting only. Untouched in `library/a-letter-in-a-chest.md`. |
+| S2 — the place | `draft:103-108` | `### Section 2 — The Long Well` | Unchanged, in full. | **No.** |
+| S2 — the mood | `draft:110-113` | same | Unchanged. | **No.** |
+| S2 — the guardian, the Longneck | `draft:115-120` | same | Unchanged, in full, including "it has never once been in a hurry". | **No.** |
+| S2 — the vault, the bread oven and the ledger | `draft:122-126` | same | Unchanged as the description; **the ledger's last page is rewritten.** | The page carried no winter and named Merrin as the town's appointed holder of the room. Rylee's decision is a severe winter and nineteen people doing arithmetic, and Merrin is not a jailer. |
+| S3 — the place | `draft:137-142` | `### Section 3 — The Banked Fire` | Unchanged, in full. | **No.** |
+| S3 — the mood | `draft:144-147` | same | Unchanged, including "that is exactly when things start to hurt". | **No.** |
+| S3 — the guardian, Old Longsleep | `draft:149-152` | same | Unchanged, in full, including "It is a hearth that learned to breathe and was never told to stop." | **No.** |
+| S3 — the vault, the chest and the coal | `draft:154-156` | same | Unchanged; **Oren's net added to the chest's contents**, since #111 had the net as an item and nowhere put it. | One item moved into the room it belongs to. |
+| S4 — the place, the blue door and the coal opening it | `draft:169-173` | `### Section 4 — The Blue Door` | Unchanged, in full. | **No.** |
+| S4 — it is unburnt | `draft:175-179` | same | Unchanged, in full. | **No.** |
+| S4 — the mood | `draft:181-183` | same | Unchanged, in full. | **No.** |
+| S4 — the guardian, Bramble | `draft:185-190` | same | The first four sentences are **verbatim**. The two sentences that made him a bereaved watchdog ("has been in the doorway for four decades because a man he loved went through it and never came back") are rewritten, and the reason is below. | Rylee: "Merrin's eventual fate remains unresolved." |
+| S4 — the vault, the room itself | `draft:192-194` | same | Unchanged, in full. | **No.** |
+| S4 — what you read: nothing | `draft:196-198` | same | Unchanged, including "the note was in the cellar, written by somebody who came down before you". | **No.** |
+| S4 — the answer | `draft:200-202` | same | Unchanged, in full. | **No.** |
+| What each depth reveals, preamble | `draft:206` | `## What each depth reveals` | Unchanged. | **No.** |
+| The unsaid paragraph under the reveal ladder | `draft:213-216` | same | Unchanged, in full. | **No.** |
+| The final resolve, first paragraph | `draft:220-221` | `## The final resolve` | Unchanged: "You take the coal up. That is the whole mechanical resolve and it is deliberately small: one warm thing in your bag, and the stairs home are long." | **No.** |
+| The part-2 door | `draft:239-249` | `## The part-2 door` | Unchanged, in full, including "Bramble will look at it when you take him up." | **No.** |
+| The two devices, kept | **not in #111** — #111 has no section by this name; it has the same two ideas, "Each answer arrives twice, in different clothes" and "residents are lines, not geometry", written differently | `## The two devices, kept` | Written for v2, from #111's two ideas. The letter paragraph is anchored to Oren and to the Spell Keeper's cake instead of to her authorship. | **Rylee's decision 1** (the letter is Oren's), and a new heading. |
+| Words this implies: books and notes | `draft:256-276` | `### Books and notes found in the world` | All eight existing items and all six new items, verbatim, **with the existing eight explicitly marked as untouched and listed for reference only.** | Marked, not changed. |
+| Words this implies: stickers | `draft:298-305` | `### Stickers` | All six, verbatim. | **No.** |
+| Words this implies: items | `draft:307-313` | `### Items` | All five, verbatim. | **No.** |
+| What is waiting on the engine | `draft:315-326` | `## What is waiting on the engine` | Carried over and corrected against this repo; one line added for the part-2 stair. | Corrected, not rewritten. |
 
 ### Carried across in substance, with the wording changed
+
+References below were re-measured against `docs/story/DRAFT.md` on 2026-10-09.
 
 | Passage | What changed and why |
 | --- | --- |
@@ -258,7 +268,7 @@ be true, with the exact wording at risk, so Rylee can rule on each one.**
 | `worlds/cottage-of-the-breeze/world.json` | 198 | `"act-1-complete": "the note under the Cellar King's seal has been read"` | The description of the flag names the old ending trigger. |
 | `worlds/cottage-of-the-breeze/world.json` | 311, 335 | `{"flag": "act-1-complete", ...}` in `keeper-after-the-end` and `regular-after-the-end` | Those two lines are warmth after the end, not story. They survive v2 as written. **Listed only because they key off the flag above.** |
 | `docs/story-spine-notes.md` | 12, 27, 29 | "the Spell Keeper. She is the one who is glad you keep going down. The letter in the chest … is hers." / "its author is not yet named" / "**Truth two revealed:** the Keeper is the one who came back \| The Keeper herself, after you carry the letter back to her" | Working notes, not canon and not a pack item, but they now contradict the letter's own text. Worth a one-line correction when Rylee next edits that file. |
-| `STORY.md` | — | — | **Nothing to change.** It is empty and stays empty. Nothing in this PR proposes writing to it. |
+| `STORY.md` (the root one, "Rylee's words only") | — | — | **Nothing to change.** It is empty and stays empty. Nothing in this PR proposes writing to it. The canon page is a different file, `docs/story/STORY.md`, added by #138. |
 | `NOTES.md` | — | — | **Nothing to change.** No existing entry is in conflict with v2 that is not already settled by a decision; those decisions are already recorded at `NOTES.md:963` for the spine and belong in Rylee's own words. |
 | Every item in `worlds/cottage-of-the-breeze/library/` | — | — | **Untouched.** All ten files are byte-identical. `git diff --name-only cc71db7 --` names only the two v2 markdown files. (This clone has no `origin/main` ref; `cc71db7` is main.) |
 | Every `voices/*.md` | — | — | **Untouched.** Including `worlds/cottage-of-the-breeze/acts/act-1/cottage/voices/hearth-cat.md`, whose cat persona v2 explicitly preserves ("Please preserve the cat's opinion of all this."). |
@@ -351,6 +361,8 @@ names the gap, not a workaround.
 The packet is right that it must not be built on: `docs/story-draft` is behind
 `main` and re-adds the `acts/act-1/floor-1`..`floor-6` and `king-room` records
 that cottage#110 deleted. Building v2 on it would resurrect them. This branch is
-based on `cc71db7` (main, as of this pass) and touches two files. The branch is
-also not present in this clone, which is why #111's prose was restored from the
-packet's transcript — see [§ Passages carried across](#passages-carried-across).
+based on `cc71db7` (main, as of this pass) and touches two files. The branch was
+not present in this clone either, so #111's prose was first restored from the
+packet's transcript; that limit no longer applies — the `draft:NN-NN` references
+below were re-measured against `docs/story/DRAFT.md` itself on 2026-10-09. See
+[§ Passages carried across](#passages-carried-across).
