@@ -244,7 +244,7 @@
   },
   "flags": {
     "read-the-letter": "The hero has read the letter from the chest on the first cellar floor.",
-    "keeper-came-back": "The Spell Keeper has told the hero the letter is hers.",
+    "keeper-came-back": "The Spell Keeper has seen the letter, and kept a cake back.",
     "act-1-complete": "the note under the Cellar King's seal has been read"
   },
   "rules": [
@@ -286,7 +286,7 @@
         {
           "say": {
             "who": "keeper",
-            "line": "Oh. You found my letter. I did say I'd come back. I only took the long way round. Here, I kept one back for you."
+            "line": "Oh. You found his letter. He did say he'd come back. Here, I kept one back for you."
           }
         }
       ],
@@ -319,7 +319,7 @@
       },
       "then": [
         {
-          "say": "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the town's top left corner."
+          "say": "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the corner of your kitchen."
         }
       ],
       "once": true
@@ -610,7 +610,7 @@
       "id": "the-stair-down",
       "name": "The stair down",
       "kind": "riddle",
-      "riddle": "It stands in the town with one step down, and everyone walks past it.",
+      "riddle": "It stands in the corner of your own kitchen, and you make tea beside it.",
       "when": {
         "comes-near": {
           "who": "the stair down",
