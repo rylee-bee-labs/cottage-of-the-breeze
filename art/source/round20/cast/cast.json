@@ -1,0 +1,11 @@
+{
+  "model": "codex (gpt-image-2)",
+  "prompt": "A character lineup sheet: six separate full-body characters in a 3 by 2 grid, each centred in its own cell with wide empty gaps between cells, nothing overlapping, no text, no labels, no borders. Exactly the same art style as the reference image: painted storybook game sprite, soft warm palette, gentle dark outline, chibi proportions (big head, small body), three-quarter view facing right, standing, feet visible, lit from the top left. Background everywhere is plain flat pure #00FF00 green, no shadows on the ground, no gradients.\nTop row, left to right: (1) the Spell Keeper: a small kind older woman in her seventies, silver hair in a bun, round spectacles, a moss-green shawl over a plum dress, holding a cake on a plate covered with a cloth. (2) the Trader: a cheerful round man in his forties, short brown beard, flat cap, leather apron with many pockets, a small sack over one shoulder. (3) the Tavern Regular: a quiet man in his fifties, greying hair, rumpled brown waistcoat, holding a pewter mug, slightly hunched.\nBottom row: (4) the Fisher: a weathered man in his thirties, dark stubble, oilskin hat and coat, rubber boots, holding a coiled fishing net. (5) Bramble: an old yellow mutt dog gone grey around the muzzle, sitting upright, kind eyes, a frayed red collar. (6) the Gardener: a young woman in her twenties, straw hat, green overalls with soil stains, holding a seedling in a pot.",
+  "aspect": null,
+  "ref": "ref-smith.png",
+  "files": [
+    "cast1-1.png",
+    "cast1-2.png"
+  ],
+  "at": "2026-10-11T21:55:52-0500"
+}
