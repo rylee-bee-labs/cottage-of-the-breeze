@@ -1262,3 +1262,6 @@ The rule behind all of this is short: a sticker can only be earned when its `whe
   drawn; the cottage, tavern and cellar are still painted.
 - **Needs VEFR:** the object layer (vefr#420) and pixel art (vefr#427) before the pin can move; until then this is a
   draft.
+- **Starting gold: 10** (Rylee, 2026-10-12, picker "10 starting gold (Recommended)"): enough for one cloudy potion,
+  so the first visit to the Trader teaches buying and the bag. Sol's review had found the zero-gold first visit taught
+  nothing.
