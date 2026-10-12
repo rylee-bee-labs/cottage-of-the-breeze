@@ -1,0 +1,6 @@
+art/source/round20/cast/*.jpg
+  Drawn by us, with Codex gpt-image-2 (offload image --model codex, the
+  ChatGPT login), 2026-10-12, as ONE bundled call per sheet: every subject
+  in one grid on flat #00FF00, the pack's own sprites/dwarf-smith.png as the style
+  reference. Prompt and file hashes are in cast.json. Cut to 128x128 with
+  art/tools/slice_bundle.py.

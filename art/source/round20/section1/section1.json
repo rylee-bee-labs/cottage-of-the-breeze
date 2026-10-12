@@ -1,0 +1,10 @@
+{
+  "model": "codex (gpt-image-2)",
+  "prompt": "An item icon sheet: nine separate objects in a 3 by 3 grid, each centred in its own cell with wide empty gaps between cells, nothing overlapping, no text, no labels, no borders. Exactly the same art style as the reference image: painted storybook game icon, soft warm palette, gentle dark outline, slight top-down three-quarter view, lit from the top left, each object filling about two thirds of its cell. Background everywhere is plain flat pure #00FF00 green, no ground shadows, no gradients.\nRow 1: (1) a small old wooden chest with iron corners, closed, sitting inside a broken ring of old red sealing wax on the floor. (2) a folded paper note with a crack of red wax on it. (3) a yellowed letter folded in three and tied with a piece of plain thread in a bow.\nRow 2: (4) a scrap of paper slid under a door, just the paper, one corner curled. (5) a round cake on a small plate half covered by a checked cloth. (6) a stone trapdoor in a flagstone floor, propped open, the first steps of a stair going down into darkness.\nRow 3: (7) a small iron key with a worn crown-shaped bow. (8) a brass oil lamp, lit, warm glow. (9) a wooden door slightly ajar with a small stone holding it open.",
+  "aspect": null,
+  "ref": "ref-gems.png",
+  "files": [
+    "items1.png"
+  ],
+  "at": "2026-10-11T21:53:39-0500"
+}
