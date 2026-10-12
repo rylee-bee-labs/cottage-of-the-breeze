@@ -120,6 +120,8 @@ class Bot:
         self._last_sig = None
         self._regions = None
         self._transitions = None
+        self._people_block = None
+        self._speakers = None
         self._maps_region = None
         self._families = None
         # What the descent saved about where the hero actually walked,
@@ -375,7 +377,58 @@ class Bot:
             )
         rows = r["map"]
         sym = rows[y][x]
-        return bool((r["legend"].get(sym) or {}).get("solid"))
+        if (r["legend"].get(sym) or {}).get("solid"):
+            return True
+        return (x, y) in self._prop_cells(region) or (x, y) in self._people_cells(region)
+
+    def _prop_cells(self, region: str) -> set:
+        """Every tile a prop's footprint blocks in `region`.
+
+        The same reading as the player's `readProps` (`455-the-props.js`):
+        a prop covers `size` tiles from `at`, and its `block` rows say
+        which of them are solid ('#'); a prop with no `block` is solid
+        all over. A map row cannot show this, so a BFS over the rows
+        alone walks the hero into the side of a house.
+        """
+        cells: set = set()
+        for p in (self.regions().get(region) or {}).get("props") or []:
+            if not isinstance(p, dict) or not isinstance(p.get("at"), list):
+                continue
+            w, h = (p.get("size") or [1, 1])[:2]
+            ax, ay = int(p["at"][0]), int(p["at"][1])
+            block = p.get("block") if isinstance(p.get("block"), list) else None
+            for dy in range(int(h)):
+                for dx in range(int(w)):
+                    row = (block[dy] if dy < len(block) else "") if block else None
+                    if row is None or row[dx:dx + 1] == "#":
+                        cells.add((ax + dx, ay + dy))
+        return cells
+
+    def _people_cells(self, region: str) -> set:
+        """The tiles residents stand on, when the pack makes people solid.
+
+        `player.people_block` turns a resident's tile into a wall the hero
+        faces instead of entering (`480-town-input-and-turns.js` `move`).
+        """
+        if self._people_block is None:
+            self._people_block = bool(self.page.evaluate(
+                "() => ((window.VEFR_WORLD || {}).player || {}).people_block === true"
+            ))
+        if not self._people_block:
+            return set()
+        if self._speakers is None:
+            self._speakers = self.page.evaluate("() => window.VEFR_SPEAKERS || {}") or {}
+        out = set()
+        for spec in (self._speakers.get(region) or {}).values():
+            at = (spec or {}).get("at")
+            if isinstance(at, list) and len(at) == 2:
+                out.add((int(at[0]), int(at[1])))
+        return out
+
+    def _open(self, region: str, x: int, y: int) -> bool:
+        """Inside the map and not solid: a tile the hero can stand on."""
+        rows = self.regions()[region]["map"]
+        return 0 <= y < len(rows) and 0 <= x < len(rows[0]) and not self._solid(region, x, y)
 
     def next_dir(self, region: str, cur, target):
         """BFS over the baked rows; living enemies are walked through."""
@@ -658,8 +711,27 @@ class Bot:
 
         Returns whether the button was reachable, so a caller can say
         which speaker it could not talk to.
+
+        A pack with `player.people_block` keeps the hero off a resident's
+        tile, so the walk stops on an open tile beside them instead: the
+        Talk reach is two tiles and every `comes-near` rule here reads one.
         """
-        self.navigate_to(region, at[0], at[1])
+        x, y = int(at[0]), int(at[1])
+        if (x, y) in self._people_cells(region):
+            self.ensure_region(region)
+            here = tuple(self.state()["combat"]["hero"]["at"])
+            beside = [
+                (x + dx, y + dy)
+                for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0))
+                if self._open(region, x + dx, y + dy)
+            ]
+            if not beside:
+                raise RouteError(f"no open tile beside {who} at {list(at)} in {region}")
+            if here in beside:
+                x, y = here
+            else:
+                x, y = beside[0]
+        self.navigate_to(region, x, y)
         reached = self._focus_button("#talk")
         if reached:
             self.press("Enter")
@@ -987,19 +1059,62 @@ class Bot:
         )
 
     def check_the_town_after_the_cellar(self) -> None:
-        """Once act 1 is complete the town loads its propped-door state.
+        """Once act 1 is complete the town loads its after-the-cellar state.
 
-        The page exposes the flags but not which town state it loaded, so
-        the state is read by its one line of poi text on the map.
+        Every state is in `VEFR_REGIONS` from page load, so finding its
+        text there proves nothing. Instead the pack's own `town_states`
+        name the state the flags now choose, the bot finds a place whose
+        `poi_text` that state changes, walks up to it and reads it with
+        Interact, the way a player does. Nothing about the door is
+        written here: change the state's words and this follows them.
         """
-        text = "A door that is usually shut is propped open with a stone."
-        flags = self.page.evaluate("() => (window.VEFR_RULES_STATE || {}).flags || {}")
-        regions = self.page.evaluate("() => JSON.stringify(window.VEFR_REGIONS || {})")
-        shown = text in regions
+        flags = self.page.evaluate("() => (window.VEFR_RULES_STATE || {}).flags || {}") or {}
+        blocks = self.page.evaluate("() => window.VEFR_TOWN_STATES || null")
+        blocks = blocks if isinstance(blocks, list) else [blocks] if blocks else []
+        regions = self.regions()
+        base, use = None, None
+        for block in blocks:
+            if not isinstance(block, dict) or not block.get("region"):
+                continue
+            for one in block.get("states") or []:
+                if flags.get((one or {}).get("when")) is True and one.get("use") in regions:
+                    base, use = block["region"], one["use"]
+        changed = {}
+        if use:
+            before = regions[base].get("poi_text") or {}
+            changed = {
+                k: v for k, v in sorted((regions[use].get("poi_text") or {}).items())
+                if before.get(k) != v
+            }
+        read = ""
+        if changed:
+            key, want = next(iter(changed.items()))
+            x, y = (int(n) for n in key.split(","))
+            self.ensure_region(base)
+            if self._open(base, x, y):
+                self.navigate_to(base, x, y)
+            else:
+                beside = [
+                    (x + dx, y + dy, (-dx, -dy))
+                    for dx, dy in ((0, 1), (0, -1), (1, 0), (-1, 0))
+                    if self._open(base, x + dx, y + dy)
+                ]
+                if not beside:
+                    raise RouteError(f"no open tile beside {base} {key} to read it from")
+                bx, by, face = beside[0]
+                self.navigate_to(base, bx, by)
+                self.press_dir(face)   # a bump turns the hero to face it
+            self.interact()
+            read = self.page.evaluate(
+                "() => { const b = document.getElementById('npc-box');"
+                " return b && !b.hidden ? document.getElementById('npc-line').textContent : ''; }"
+            ) or ""
+            self.handle_overlay(self.state())
         self.check(
-            "the town after the cellar is loaded: act 1 is complete and the propped door is on the map",
-            flags.get("act-1-complete") is True and shown,
-            f"act-1-complete={flags.get('act-1-complete')} propped door shown={shown}",
+            "the town after the cellar is loaded: act 1 is complete and a place it changes reads its new words",
+            flags.get("act-1-complete") is True and bool(changed) and read == next(iter(changed.values()), None),
+            f"act-1-complete={flags.get('act-1-complete')} state={use!r} "
+            f"changed={sorted(changed)} read={read[:70]!r}",
         )
 
     def survives_a_reload(self) -> None:
