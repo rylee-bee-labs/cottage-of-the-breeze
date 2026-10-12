@@ -311,6 +311,16 @@
         ]
       }
     },
+    "deep-shade-finds": {
+      "extends": "deep-shade",
+      "defaults": {
+        "drops": [
+          "cloudy-potion",
+          "cold-ember",
+          "music-box-spring"
+        ]
+      }
+    },
     "damp-shade-finds": {
       "extends": "damp-shade",
       "defaults": {

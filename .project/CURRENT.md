@@ -61,12 +61,12 @@ Say **UNKNOWN** rather than guessing any of these.
 
 - **No build is claimed here.** `bin/publish-build.sh` and the gallery CLI need
   Rylee's host, so this file asserts no build and no gallery URL.
-- **Some album stickers are not on a fixed route** (cottage#148). Of the nine
-  the 2026-10-12 run missed, six are chance drops from cellar rats, moths and
-  spiders (the bot makes only three kills). `a-cold-ember` and
-  `a-music-box-spring` drop only from `damp-shade-finds`, which no Section
-  spawns. `the-tab` is a book a tavern resident gives (`found: resident`),
-  and the route never asks for it.
+- **Album stickers** (cottage#148, settled 2026-10-12). Six are chance drops
+  from cellar rats, moths and spiders: a player gets them by playing, and the
+  bot lists them without requiring them. `a-cold-ember` and
+  `a-music-box-spring` now drop from the siltworks' deep shade (Section 3),
+  Rylee's pick, so Section 1's album has 17 to find. The bot asks the tavern
+  keeper for the tab and reads it.
 - **The three Keybearers** (Ashwing, Brother Sporeling, Sir Hollowhorn; Rylee
   named them 2026-10-04, `NOTES.md`) are in canon and in `blueprint.json`,
   but no Section places them. Whether they belong in Section 1 is Rylee's

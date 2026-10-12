@@ -1,5 +1,21 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-12 (late) — the album's stickers: where the shade ones live, and what the bot requires (agent)
+
+Rylee, 2026-10-12, on cottage#148: "Can you please fix and close all open issues on both repos?", then on the
+decision card "Where should the two shade stickers go?": **"Later Section shade"**.
+
+- **`a-cold-ember` and `a-music-box-spring`** dropped only from `damp-shade-finds`, and no Section spawns a damp shade
+  (canon took the shades out of the cellar), so nobody could earn them. The siltworks (Section 3) now draws
+  `deep-shade-finds`: the deep shade with its cloudy potion, plus the ember and the spring. Canon holds, both stickers
+  stay in the game, and Section 1's album has 17 to find. The cold ember's riddle ("The shades keep one…") is still
+  true. No written words changed. `damp-shade-finds` stays in the Blueprint, unused, for a later shade.
+- **The playthrough bot** now asks each resident who hands over a book for it and reads it (the tavern keeper's tab,
+  `found: resident`), and its album check requires only the stickers a fixed route can be sure of. A sticker whose
+  item only a descent family drops is a chance drop or sits in a later Section; it is listed in the check's detail,
+  not required. **Result:** 40 of 40 checks at 1280×720 and at 390×844, on VEFR `72d366e`; album 11 of 19 found,
+  nothing required missing.
+
 ## 2026-10-12 (night) — the bot walks the GBA town again; the docs say what the game is now (agent)
 
 Rylee, 2026-10-12: "I'd like cottage in a beta state soon. Can we do a full docs update and refresh and get all
