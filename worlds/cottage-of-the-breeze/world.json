@@ -399,7 +399,7 @@
         {
           "say": {
             "who": "dwarf-smith",
-            "line": "There's heat in the iron again. Warm your hands at the forge - no charge for that."
+            "line": "Banked it at three, same as always. Don't ask. There's a stool by it, if you're cold."
           }
         }
       ],
@@ -423,7 +423,7 @@
         {
           "say": {
             "who": "fisher",
-            "line": "Water's a shade warmer at the bend. Could be the weather. Likely is."
+            "line": "Oren went down that stair once. He didn't come up. You did. Mind how you go."
           }
         }
       ],
@@ -447,7 +447,7 @@
         {
           "say": {
             "who": "gardener",
-            "line": "The soil's warm again. I set a seed in it this morning. It might take."
+            "line": "Here, take a seedling. No, really. Nobody else will."
           }
         }
       ],
