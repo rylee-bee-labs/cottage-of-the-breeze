@@ -1,5 +1,37 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-12 — the Cellar King yields; the town changes once (agent)
+
+Rylee's picker decision on the Cellar King, 2026-10-12: **"He yields"**: no
+fight; come close, he speaks, gives you the wax seal and goes to sleep. The
+scope stays **"Section 1, story complete"** (Rylee, 2026-10-11). Canon in
+`docs/story/STORY.md`: the King "is not clever and it is not cruel. It is
+doing a job someone gave it a long time ago and it is tired"; the town after
+the cellar is "less careful", and its first sign is "a door held open that
+did not used to be held open".
+
+What changed:
+
+- `VEFR_REF` moved to `f20efda`, merged vefr main, for the E8d warden
+  challenges (vefr#404), the story_end stair (vefr#406) and `town_states`.
+- `sections/cellar.json`: the warden is a `rule` block that carries
+  `crown-seal`, yields and is not fightable. `damp-shade-finds` is gone:
+  canon has rats, moths and a spider in the cellar, and no shade.
+- `world.json`: rule `cellar-king-yields` (the King's line, the narration,
+  and `warden:cellar-king:c0`), and `town_states` loads
+  `town-after-the-cellar` once `act-1-complete` is set.
+- `acts/act-1/town-after-the-cellar/`: a copy of the act-1 town with one
+  change, the temple door at (11,11) propped open with a poi. That is the
+  only door with no existing walk-on text; the cottage and tavern doors
+  already have theirs, and no door sits on the road.
+- The playthrough bot ends the act on the seal note on `cellar-0-9`, meets
+  the King first, and checks the town after the cellar is loaded.
+
+Not verified: the playthrough bot has not been run, because there is no VEFR
+checkout or browser in this environment. `norns validate` has not been run
+against `f20efda` either. `blueprint.json`'s `cellar-king` still lists
+`crown-seal` under `drops`; that is left for `vefr normalize` on the host.
+
 ## 2026-10-09 — the first floor carries a heal; and the deferral above was guarding the wrong syntax (agent)
 
 This closes play-test finding **M2** ("Any healing anywhere in the descent",
