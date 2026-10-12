@@ -32,12 +32,6 @@
       "solid": true,
       "tile": "stone-wall"
     },
-    "S": {
-      "base": [
-        "#131311"
-      ],
-      "tile": "dungeon-stairs-down"
-    },
     "D": {
       "base": [
         "#332e26"
@@ -47,7 +41,6 @@
   },
   "pois": {
     "4,5": "the cottage door",
-    "1,1": "the stair down",
     "16,5": "the tavern door",
     "11,11": "the temple door",
     "5,8": "the old tavern, burned",
@@ -82,7 +75,6 @@
   "speaker_color": "#8b939c",
   "speaker_head": "#d8d5df",
   "poi_text": {
-    "1,1": "The stair goes down into the dark.",
     "4,5": "The cottage door.",
     "16,5": "The tavern door, warm light behind it.",
     "11,11": "A door that is usually shut is propped open with a stone."
