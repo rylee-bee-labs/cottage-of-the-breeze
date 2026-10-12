@@ -4,7 +4,7 @@
   "floors": 9,
   "size": {"w": [58, 72], "h": [42, 50]},
   "rooms": [10, 15],
-  "tiles": {"#": "dungeon-wall", ".": "silt-flagstone", "u": "dungeon-stairs-up",
+  "tiles": {"#": "silt-wall", ".": "silt-flagstone", "u": "dungeon-stairs-up",
             "d": "dungeon-stairs-down"},
   "fog": {"radius": 6},
   "families": [
