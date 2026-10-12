@@ -93,8 +93,13 @@ section_files = sorted(sections.glob("*.json")) if sections.is_dir() else []
 for path in section_files:
     section = json.loads(path.read_text(encoding="utf-8"))
     named = [f.get("family") for f in section.get("families") or [] if f.get("family")]
-    if section.get("warden"):
-        named.append(section["warden"])
+    warden = section.get("warden")
+    if isinstance(warden, dict):
+        named.append(warden.get("family"))
+        if warden.get("carries"):
+            check(f"sections/{path.name} warden", warden["carries"])
+    elif warden:
+        named.append(warden)
     for family in named:
         if family not in families:
             bad.append(f"sections/{path.name}: names family {family!r}, not in the Blueprint")
