@@ -9,7 +9,7 @@
   "fog": {"radius": 6},
   "families": [
     {"family": "cave-cricket", "weight": 4, "depth": [1, 9]},
-    {"family": "deep-shade", "weight": 3, "depth": [1, 9]},
+    {"family": "deep-shade-finds", "weight": 3, "depth": [1, 9]},
     {"family": "cobweb-wraith", "weight": 3, "depth": [1, 9]},
     {"family": "mire-toad", "weight": 2, "depth": [1, 9]},
     {"family": "rootwatcher", "weight": 2, "depth": [1, 9]},

@@ -53,8 +53,10 @@ route can be found and read; the Cellar King yields his seal into the bag;
 the vault's note ends the act — end card once, focus on Keep exploring,
 gone after Interact, gone after a reload; the vault chest drops its
 treasure into the bag; the town after the cellar is loaded; Start over
-asks first and Cancel clears nothing; every album sticker the pack defines
-is found; a descent monster can still be fought; the sound cues fire; the
+asks first and Cancel clears nothing; each resident who hands over a book
+gives it and it can be read; every album sticker the route can be sure of is
+found (a sticker whose item only a descent family drops is a chance drop, or
+sits in a later Section: it is listed, not required); a descent monster can still be fought; the sound cues fire; the
 hero's walk frames show in all four directions; no console errors, no
 failed requests, no sideways scroll.
 
