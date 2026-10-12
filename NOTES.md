@@ -1243,3 +1243,25 @@ The one-way-down change (`4bed847`) took the album from 25 stickers to 5, and no
 | about-book | The little cloth book | kept | reads `about-this-game`, on the cottage shelf |
 
 The rule behind all of this is short: a sticker can only be earned when its `when` names an id the pack declares. A `reads` or `picks-up` can name an item or a library page; a `comes-near` can name a speaker or a POI. A `defeats` can name neither of those — it names the mob's own runtime id, which on a generated floor is `m0`, `m1`, ... and `w` for a warden, never the Blueprint family the mob was spawned from. So the twelve rows marked *could come back with* need a VEFR feature first: a defeat that matches a Blueprint family rather than an instance id. That feature was deliberately not built for this change, so those stickers are reported here and left out of the album. Two of them are worth noting as the sharpest case: the Keybearers and the Cellar King do not go back in as they stand, because nothing in the engine can earn them at all today.
+
+## 2026-10-12 — a bigger first village, in Game Boy Advance pixel art (draft for Rylee)
+
+- **Rylee:** "Please make the town bigger and fix the npc layout"; "Follow kinda normal starting act for a small rpg
+  structure. It's where they learn the world and the controls"; then the art: "B: GBA pixel art (Recommended)".
+- **The town** (`acts/act-1/town/`, and its after-the-cellar twin) is 34 x 26 tiles: home with a note on the step,
+  the Gardener at her vegetable plot, a signpost, the cobbled square with the well and the temple at its head (shut
+  until the cellar is done; propped open after), the Trader's stall, the Smith at his forge, the tavern, the burned old
+  tavern with its page, the Fisher at the end of his dock, and a roped-off north road. Everything that stands up is a
+  prop on VEFR's object layer; the pond and flowers lie on its ground layer.
+- **New words** (Claude, as canon reviewer): the signpost ("Up the lane: home. East: the square. South, past the
+  forge: what is left of the old tavern."), the well, the north road, and the temple door ("The temple door is
+  shut." / after the cellar: "The temple door stands propped open now."). Speakers' `near` now names their place.
+- **Moved:** the cottage door (town `[5,5]`), the tavern door (`[26,8]`), the wake point (the temple steps `[17,6]`),
+  the two town notes, and every resident. People now stand in the way (`player.people_block`).
+- **Interim:** monsters and items are the old paintings shrunk to pixel size (`*.px.webp`) until their pixel kits are
+  drawn; the cottage, tavern and cellar are still painted.
+- **Needs VEFR:** the object layer (vefr#420) and pixel art (vefr#427) before the pin can move; until then this is a
+  draft.
+- **Starting gold: 10** (Rylee, 2026-10-12, picker "10 starting gold (Recommended)"): enough for one cloudy potion,
+  so the first visit to the Trader teaches buying and the bag. Sol's review had found the zero-gold first visit taught
+  nothing.

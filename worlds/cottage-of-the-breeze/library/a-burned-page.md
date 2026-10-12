@@ -1,7 +1,7 @@
 ---
 title: A Burned Page
 found: map
-at: [5, 8]
+at: [8, 16]
 region: town
 kind: note
 ---

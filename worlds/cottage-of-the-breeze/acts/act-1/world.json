@@ -34,10 +34,10 @@
       "region": "town",
       "shop": "true",
       "at": [
-        8,
-        7
+        14,
+        13
       ],
-      "near": "the road",
+      "near": "the stall",
       "voice_file": "voices/vendor.md",
       "seeds": {
         "dusk": "Bring anything up worth selling?",
@@ -75,10 +75,10 @@
     "fisher": {
       "name": "The Fisher",
       "at": [
-        17,
-        10
+        24,
+        18
       ],
-      "near": "the road",
+      "near": "the end of the dock",
       "voice_file": "voices/fisher.md",
       "seeds": {
         "dusk": "Nothing biting, but the quiet's worth the wait.",
@@ -89,10 +89,10 @@
     "gardener": {
       "name": "The Gardener",
       "at": [
-        3,
-        10
+        9,
+        5
       ],
-      "near": "the road",
+      "near": "the vegetable plot",
       "voice_file": "voices/gardener.md",
       "seeds": {
         "dusk": "Everything grows if you stop watching it so hard.",
@@ -103,10 +103,10 @@
     "dwarf-smith": {
       "name": "The Dwarf Smith",
       "at": [
-        10,
-        6
+        9,
+        13
       ],
-      "near": "the road",
+      "near": "the forge",
       "voice_file": "voices/dwarf-smith.md",
       "seeds": {
         "dusk": "Hammer's cooling. So should you be - sit.",
@@ -121,7 +121,7 @@
     {
       "from": "town",
       "at": [
-        4,
+        5,
         5
       ],
       "to": "cottage",
@@ -138,15 +138,15 @@
       ],
       "to": "town",
       "to_at": [
-        4,
+        5,
         6
       ]
     },
     {
       "from": "town",
       "at": [
-        16,
-        5
+        26,
+        8
       ],
       "to": "tavern",
       "to_at": [
@@ -162,8 +162,8 @@
       ],
       "to": "town",
       "to_at": [
-        16,
-        6
+        26,
+        9
       ]
     }
   ]

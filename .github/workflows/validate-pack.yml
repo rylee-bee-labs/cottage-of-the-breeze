@@ -37,7 +37,11 @@ env:
   #
   # Bumped 2026-10-12 to f20efda, merged vefr main, for the E8d warden
   # challenges (vefr#404), the story_end stair (vefr#406) and town_states.
-  VEFR_REF: f20efdabd37651208868f1665e8f621482003f59
+  #
+  # Bumped 2026-10-12 to a5d2f7b, vefr main with the object layer (vefr#420:
+  # props, footprints, depth, people_block) and crisp pixel art (vefr#427:
+  # display.pixel_art). The GBA town on this branch needs both.
+  VEFR_REF: a5d2f7bf736ae1d12bc0c34aaa3202dc6f3dc01d
 
 jobs:
   validate:

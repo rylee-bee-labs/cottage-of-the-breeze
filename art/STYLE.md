@@ -3,6 +3,28 @@
 Decisions are Rylee's; this file records them. The visual versions live on the
 style board and the asset board (private artifacts); this is the durable copy.
 
+## Decided (Rylee, 2026-10-12): Game Boy Advance pixel art
+
+This replaces the painted look below for the whole game, kit by kit.
+
+- **The look:** "B: GBA pixel art (Recommended)", picked after a side-by-side style test at phone size. True pixel
+  art in the storybook palette (*The Minish Cap*, *Mother 3*): crisp pixels, 1-pixel warm-brown outlines, front-on
+  buildings, never isometric. "No art is sacred. Not even main npc."
+- **The scale:** a tile is **32 x 32 art pixels**; people are **48 px tall** in 64 x 64 frames; objects are drawn at
+  their own size. The pack says `"display": {"pixel_art": {"native_tile": 32}}` and VEFR draws whole-number scales
+  with no smoothing. Every picture is locked to one 64-colour palette. Files are lossless WebP ("we will be putting
+  it down at webp for maximum compatibility").
+- **Motion:** every character breathes and talks; the hero also walks, picks up, swings and flinches. Lamps, windows,
+  the forge and the pond move by recolouring.
+- **How a kit is made:** VEFR's art bible (`vefr/docs/design/storybook/ART-BIBLE.md`) and `making-art.md`, "Pixel
+  art, the Game Boy Advance way". The pixel tools are landing in VEFR (vefr#426).
+
+- **The hero's look:** the new pixel hero (brown hair, green hooded cloak, a satchel, a walking stick) replaces
+  the red-braided archer of the 2026-10-01 decision below. Rylee, 2026-10-12, asked whether to keep it: "New art
+  please I like the direction".
+
+## Before 2026-10-12 (the painted look, being replaced)
+
 ## Decided (Rylee, 2026-10-01)
 
 - **We make all the art ourselves** and credit ourselves: "Rylee and Claude".

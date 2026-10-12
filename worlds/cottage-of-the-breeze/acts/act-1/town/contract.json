@@ -2,61 +2,47 @@
   "legend": {
     ",": {
       "base": [
-        "#212a20",
-        "#242d22"
+        "#5b7a2e"
       ],
       "tile": "grass"
     },
-    ".": {
+    ":": {
       "base": [
-        "#332e26"
+        "#8a5a2b"
       ],
-      "tile": "wood-floor"
+      "tile": "lane"
     },
-    "p": {
+    "o": {
       "base": [
-        "#332e26"
+        "#7d7466"
       ],
-      "tile": "cobblestone-street"
-    },
-    "x": {
-      "base": [
-        "#332e26"
-      ],
-      "tile": "dungeon-rubble"
-    },
-    "#": {
-      "base": [
-        "#2a2e33"
-      ],
-      "solid": true,
-      "tile": "stone-wall"
+      "tile": "cobbles"
     },
     "D": {
       "base": [
-        "#332e26"
+        "#7d7466"
       ],
-      "tile": "rug"
+      "tile": "cobbles"
+    },
+    "T": {
+      "base": [
+        "#2f4a1e"
+      ],
+      "solid": true,
+      "tile": "forest"
     }
   },
   "pois": {
-    "4,5": "the cottage door",
-    "16,5": "the tavern door",
-    "11,11": "the temple door",
-    "5,8": "the old tavern, burned",
-    "11,12": "the temple"
+    "5,5": "the cottage door",
+    "26,8": "the tavern door",
+    "17,5": "the temple door",
+    "17,6": "the temple steps",
+    "7,7": "the signpost",
+    "16,9": "the well",
+    "5,15": "the old tavern, burned",
+    "29,2": "the north road"
   },
-  "watch": {
-    "tower": [
-      5,
-      1
-    ],
-    "r_by_phase": {
-      "dusk": 3,
-      "dawn": 4
-    },
-    "overlay": "rgba(42, 46, 51, 0.30)"
-  },
+  "watch": {},
   "sanctuary_tiles": [
     "D"
   ],
@@ -66,8 +52,8 @@
   },
   "flood_tiles": [],
   "hero_start": [
-    4,
-    3
+    5,
+    6
   ],
   "tile": 32,
   "bg": "#131311",
@@ -75,7 +61,743 @@
   "speaker_color": "#8b939c",
   "speaker_head": "#d8d5df",
   "poi_text": {
-    "4,5": "The cottage door.",
-    "16,5": "The tavern door, warm light behind it."
-  }
+    "5,5": "The cottage door.",
+    "26,8": "The tavern door, warm light behind it.",
+    "7,7": "Up the lane: home. East: the square. South, past the forge: what is left of the old tavern.",
+    "16,9": "The town well. The rope is new; the stones are very old.",
+    "29,2": "The north road, closed with a rope. Someone has hung a lantern on it, so you can see the way back.",
+    "17,5": "The temple door is shut."
+  },
+  "props": [
+    {
+      "pic": "temple",
+      "at": [
+        15,
+        3
+      ],
+      "size": [
+        5,
+        3
+      ]
+    },
+    {
+      "pic": "cottage-house",
+      "at": [
+        4,
+        3
+      ],
+      "size": [
+        3,
+        3
+      ],
+      "block": [
+        "###",
+        "###",
+        "#.#"
+      ]
+    },
+    {
+      "pic": "chimney-smoke",
+      "at": [
+        6,
+        5
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "frames": 4,
+      "fps": 4
+    },
+    {
+      "pic": "vegetable-garden",
+      "at": [
+        8,
+        3
+      ],
+      "size": [
+        3,
+        2
+      ]
+    },
+    {
+      "pic": "signpost",
+      "at": [
+        7,
+        7
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "well",
+      "at": [
+        16,
+        9
+      ],
+      "size": [
+        2,
+        2
+      ]
+    },
+    {
+      "pic": "market-stall",
+      "at": [
+        13,
+        11
+      ],
+      "size": [
+        3,
+        2
+      ]
+    },
+    {
+      "pic": "lamp-post",
+      "at": [
+        12,
+        6
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "frames": 2,
+      "fps": 3
+    },
+    {
+      "pic": "lamp-post",
+      "at": [
+        22,
+        6
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "frames": 2,
+      "fps": 3
+    },
+    {
+      "pic": "bench",
+      "at": [
+        19,
+        12
+      ],
+      "size": [
+        2,
+        1
+      ]
+    },
+    {
+      "pic": "forge",
+      "at": [
+        7,
+        11
+      ],
+      "size": [
+        4,
+        2
+      ],
+      "frames": 4,
+      "fps": 6
+    },
+    {
+      "pic": "anvil",
+      "at": [
+        10,
+        13
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tavern",
+      "at": [
+        24,
+        6
+      ],
+      "size": [
+        5,
+        3
+      ],
+      "block": [
+        "#####",
+        "#####",
+        "##.##"
+      ],
+      "frames": 2,
+      "fps": 2
+    },
+    {
+      "pic": "barrels",
+      "at": [
+        28,
+        9
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "crates",
+      "at": [
+        23,
+        8
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "burned-tavern",
+      "at": [
+        4,
+        15
+      ],
+      "size": [
+        4,
+        3
+      ]
+    },
+    {
+      "pic": "pond",
+      "at": [
+        22,
+        16
+      ],
+      "size": [
+        7,
+        5
+      ],
+      "block": [
+        "##.####",
+        "##.####",
+        "##.####",
+        "#######",
+        "#######"
+      ],
+      "frames": 3,
+      "fps": 2,
+      "layer": "ground"
+    },
+    {
+      "pic": "roped-road",
+      "at": [
+        29,
+        2
+      ],
+      "size": [
+        2,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        9,
+        15
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        14,
+        17
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        17,
+        19
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        27,
+        3
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        24,
+        3
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        3,
+        11
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        2,
+        17
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        29,
+        20
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        12,
+        20
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        6,
+        20
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        19,
+        16
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        26,
+        13
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        30,
+        14
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        8,
+        22
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        17,
+        22
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "tree",
+      "at": [
+        25,
+        22
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        3,
+        7
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        8,
+        6
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        12,
+        4
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        20,
+        4
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        22,
+        4
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        28,
+        10
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        13,
+        15
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        3,
+        14
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        16,
+        15
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        29,
+        15
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        10,
+        21
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        23,
+        21
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bush",
+      "at": [
+        5,
+        19
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        6,
+        10
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        9,
+        10
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        3,
+        9
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        14,
+        4
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        21,
+        3
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        26,
+        10
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        19,
+        15
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        8,
+        19
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        15,
+        21
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        27,
+        21
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        5,
+        12
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "flowers",
+      "at": [
+        24,
+        13
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    }
+  ]
 }
