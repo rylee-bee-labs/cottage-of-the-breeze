@@ -199,7 +199,7 @@
     "crown-seal": {
       "name": "the Cellar King's wax seal",
       "sprite": "seal-crown",
-      "value": 150
+      "keep": true
     },
     "candle-stub": {
       "name": "a stub of tallow candle",
@@ -245,7 +245,8 @@
   "flags": {
     "read-the-letter": "The hero has read the letter from the chest on the first cellar floor.",
     "keeper-came-back": "The Spell Keeper has told the hero the letter is hers.",
-    "act-1-complete": "the note under the Cellar King's seal has been read"
+    "act-1-complete": "the note under the Cellar King's seal has been read",
+    "warden:cellar-king:c0": "the Cellar King has given up his seal (Section 1, first pass)"
   },
   "rules": [
     {
@@ -510,23 +511,19 @@
     {
       "id": "cellar-king-yields",
       "when": {
-        "comes-near": {
-          "who": "cellar-king",
-          "distance": 1
+        "reads": {
+          "what": "forty-winters"
         }
       },
       "then": [
         {
-          "say": {
-            "who": "cellar-king",
-            "line": "Forty winters I have sat on this. Somebody told me to, and I never heard them say stop. Here. You hold it a while."
-          }
+          "say": "Further in, something very large lifts its head from the warm stone. \"Forty winters I have sat on this. Somebody told me to, and I never heard them say stop. Here. You hold it a while.\""
         },
         {
           "set": "warden:cellar-king:c0"
         },
         {
-          "say": "The great rat sets the wax seal down by your feet, curls up on the warm stone, and is asleep before you straighten."
+          "say": "The great crowned rat sets the wax seal down, curls up again, and is asleep before the echo stops."
         }
       ],
       "once": true
@@ -762,6 +759,7 @@
   },
   "descent": {
     "run_seed": "breeze",
+    "story_end": "act-1-complete",
     "entry": {
       "region": "town",
       "at": [
