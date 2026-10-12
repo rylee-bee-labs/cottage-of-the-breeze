@@ -386,6 +386,126 @@
           "is": true
         }
       ]
+    },
+    {
+      "id": "dwarf-smith-after-the-end",
+      "when": {
+        "comes-near": {
+          "who": "dwarf-smith",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": {
+            "who": "dwarf-smith",
+            "line": "Banked it at three, same as always. Don't ask. There's a stool by it, if you're cold."
+          }
+        }
+      ],
+      "once": true,
+      "if": [
+        {
+          "flag": "act-1-complete",
+          "is": true
+        }
+      ]
+    },
+    {
+      "id": "fisher-after-the-end",
+      "when": {
+        "comes-near": {
+          "who": "fisher",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": {
+            "who": "fisher",
+            "line": "Oren went down that stair once. He didn't come up. You did. Mind how you go."
+          }
+        }
+      ],
+      "once": true,
+      "if": [
+        {
+          "flag": "act-1-complete",
+          "is": true
+        }
+      ]
+    },
+    {
+      "id": "gardener-after-the-end",
+      "when": {
+        "comes-near": {
+          "who": "gardener",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": {
+            "who": "gardener",
+            "line": "Here, take a seedling. No, really. Nobody else will."
+          }
+        }
+      ],
+      "once": true,
+      "if": [
+        {
+          "flag": "act-1-complete",
+          "is": true
+        }
+      ]
+    },
+    {
+      "id": "trader-after-the-end",
+      "when": {
+        "comes-near": {
+          "who": "vendor",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": {
+            "who": "vendor",
+            "line": "Folk are stopping to talk at the stall again. I still don't ask where a thing came from."
+          }
+        }
+      ],
+      "once": true,
+      "if": [
+        {
+          "flag": "act-1-complete",
+          "is": true
+        }
+      ]
+    },
+    {
+      "id": "hearth-cat-after-the-end",
+      "when": {
+        "comes-near": {
+          "who": "hearth-cat",
+          "distance": 1
+        }
+      },
+      "then": [
+        {
+          "say": {
+            "who": "hearth-cat",
+            "line": "Mrrp. (The cat moves one paw toward the hearth and leaves its eyes shut.)"
+          }
+        }
+      ],
+      "once": true,
+      "if": [
+        {
+          "flag": "act-1-complete",
+          "is": true
+        }
+      ]
     }
   ],
   "growth": {
