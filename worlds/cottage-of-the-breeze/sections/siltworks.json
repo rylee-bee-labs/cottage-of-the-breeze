@@ -21,5 +21,12 @@
   "curve": {"hp": [1.1, 1.6], "atk": [1.1, 1.45]},
   "loot": {"tier": 3},
   "pois": ["the silted well-head", "a drowned lamp", "the leaning marker"],
-  "warden": "silt-warden"
+  "warden": "silt-warden",
+  "decor": [
+    {"pic": "cobweb", "on": "wall", "every": 14},
+    {"pic": "wall-torch", "on": "wall", "every": 22},
+    {"pic": "puddle", "on": "floor", "every": 28},
+    {"pic": "floor-grate", "on": "floor", "every": 120},
+    {"pic": "floor-crack", "on": "floor", "every": 100}
+  ]
 }

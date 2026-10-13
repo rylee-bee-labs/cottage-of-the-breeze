@@ -18,6 +18,8 @@ that changes once.
 - **The descent** is four Sections, nine floors each: `cellar`, `rootworks`,
   `siltworks`, `emberhall` (`sections/*.json`). The pattern ends each one in a
   warden floor, and the landing on floor 5 records a way back.
+  Each Section scatters its own decals (cobwebs, torches, puddles, cracks)
+  over its floors through `decor` (vefr#442).
 - **The Cellar King yields** (cottage#143). The cellar's warden is a `rule`
   challenge, not a fight. He gives `crown-seal` and sleeps.
 - **The vault on `cellar-0-9`** holds the seal note. Reading it fires

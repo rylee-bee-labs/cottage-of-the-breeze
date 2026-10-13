@@ -21,5 +21,12 @@
   "curve": {"hp": [1.05, 1.45], "atk": [1.05, 1.35]},
   "loot": {"tier": 2},
   "pois": ["the root-choked stair", "a bed of cold earth", "the drowned garden-bed"],
-  "warden": "root-warden"
+  "warden": "root-warden",
+  "decor": [
+    {"pic": "cobweb", "on": "wall", "every": 12},
+    {"pic": "wall-torch", "on": "wall", "every": 22},
+    {"pic": "floor-roots", "on": "floor", "every": 35},
+    {"pic": "floor-crack", "on": "floor", "every": 70},
+    {"pic": "puddle", "on": "floor", "every": 120}
+  ]
 }

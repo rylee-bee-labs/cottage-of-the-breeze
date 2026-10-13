@@ -41,7 +41,10 @@ env:
   # Bumped 2026-10-12 to a5d2f7b, vefr main with the object layer (vefr#420:
   # props, footprints, depth, people_block) and crisp pixel art (vefr#427:
   # display.pixel_art). The GBA town on this branch needs both.
-  VEFR_REF: a5d2f7bf736ae1d12bc0c34aaa3202dc6f3dc01d
+  #
+  # Bumped 2026-10-13 to e29521e, merged vefr main with a Section's decor
+  # (vefr#442), which the Sections on this branch need.
+  VEFR_REF: e29521eb7320fa3274b4a8226e8d36efd7115726
 
 jobs:
   validate:
