@@ -48,10 +48,9 @@ env:
   # Bumped 2026-10-13 to 694a875, merged vefr main where a mirrored side
   # faces left on screen and a phone drag never moves the page (vefr#444).
   #
-  # Pinned 2026-10-13 to 796a0ba, the head of vefr#445 (the storybook
-  # phone layout), whose checker knows display.look. Re-pinned to merged vefr
-  # main before this merges.
-  VEFR_REF: 796a0bad8b52d73f921168ce56d523885f510d04
+  # Bumped 2026-10-13 to cbc8850, merged vefr main with the storybook phone
+  # layout (vefr#445), whose checker knows display.look.
+  VEFR_REF: cbc88507ffdfc4d62b9f9196534bcf4cf8cff9f6
 
 jobs:
   validate:
