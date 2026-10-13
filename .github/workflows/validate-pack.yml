@@ -51,9 +51,9 @@ env:
   # Bumped 2026-10-13 to cbc8850, merged vefr main with the storybook phone
   # layout (vefr#445), whose checker knows display.look.
   #
-  # Pinned 2026-10-13 to 7c381a0, the head of the vefr PR that adds
-  # display.desk_tile. Re-pinned to merged vefr main before this merges.
-  VEFR_REF: 7c381a0122b0ec772b1cc299a70cdd3885de62b1
+  # Bumped 2026-10-13 to 84e61d1, merged vefr main with a desk's follow
+  # camera and display.desk_tile (vefr#446).
+  VEFR_REF: 84e61d16aa8946ec2e37bdee22ca222d4f3ec3c9
 
 jobs:
   validate:
