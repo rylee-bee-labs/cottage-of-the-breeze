@@ -1,0 +1,32 @@
+{"palette":"palette.json","tile":32,"sheets":[
+ {"image":"clean/cottage-props.png","grid":"4x2","props":[
+   {"name":"hearth","size":[64,64]},{"name":"rug-oval","size":[96,64]},{"name":"kitchen-table","size":[64,48]},{"name":"kitchen-stair","size":[32,32]},
+   {"name":"doormat","size":[32,24]},{"name":"bed","size":[32,52]},{"name":"shelf","size":[64,56]},{"name":"drawers","size":[32,40]}]},
+ {"image":"sheets/cottage-tiles.png","grid":"2x2","ground":["floor-planks","floor-planks-worn","cottage-wall","flagstones"]},
+ {"image":"clean/tavern-props.png","grid":"4x2","props":[
+   {"name":"bar","size":[128,64]},{"name":"tavern-table","size":[64,48]},{"name":"bench-table","size":[64,40]},{"name":"barrel-rack","size":[32,48]},
+   {"name":"barrel","size":[24,30]},{"name":"tavern-door","size":[32,32]},{"name":"fireplace","size":[96,80]},null]},
+ {"image":"sheets/tavern-tiles.png","grid":"2x2","ground":["tavern-planks","tavern-planks-stained","tavern-wall","hearthstone"]},
+ {"image":"sheets/cellar-tiles-a.png","grid":"2x2","ground":["cellar-flagstone","cellar-wall","root-flagstone","root-wall"]},
+ {"image":"sheets/cellar-tiles-b.png","grid":"2x2","ground":["silt-flagstone","silt-wall","ember-flagstone","ember-wall"]},
+ {"image":"clean/cellar-props.png","grid":"4x3","props":[
+   {"name":"way-door","size":[32,32]},{"name":"way-door-open","size":[32,32]},{"name":"way-stairs-up","size":[32,32]},{"name":"way-stairs-down","size":[32,32]},
+   {"name":"cobweb","size":[32,32]},{"name":"puddle","size":[32,24]},{"name":"floor-crack","size":[32,28]},{"name":"floor-roots","size":[32,28]},
+   {"name":"wall-torch","size":[16,32]},{"name":"fallen-stones","size":[32,28]},{"name":"floor-grate","size":[32,32]},{"name":"sheeted-crates","size":[32,32]}]},
+ {"image":"clean/cellar-creatures-a.png","grid":"4x1","props":[
+   {"name":"rat","height":28},{"name":"dust-moth","height":26},{"name":"cellar-spider","height":24},{"name":"cave-cricket","height":28}]},
+ {"image":"clean/cellar-creatures-b.png","grid":"4x2","props":[
+   {"name":"rustle","height":36},{"name":"cobweb-wraith","height":40},{"name":"barrel-mimic","height":38},{"name":"crock-mimic","height":34},
+   {"name":"toad","height":30},{"name":"shade","height":40},{"name":"wick-sprite","height":32},{"name":"root-tangle","height":40}]},
+ {"image":"clean/cellar-bosses.png","grid":"4x1","props":[
+   {"name":"keybearer-moth","height":64},{"name":"keybearer-beetle","height":68},{"name":"keybearer-mushroom","height":68},{"name":"cellar-king","height":80}]},
+ {"image":"clean/items-a.png","grid":"4x3","props":[
+   {"name":"key-bell","height":24},{"name":"key-helmet","height":24},{"name":"key-lantern","height":24},{"name":"seal-crown","height":24},
+   {"name":"potion","height":24},{"name":"ring","height":20},{"name":"gems","height":22},null,
+   {"name":"pot-lid-helm","height":22},{"name":"quilted-coat","height":24},{"name":"patched-apron","height":24},{"name":"mended-boots","height":22}]},
+ {"image":"clean/items-b.png","grid":"4x3","props":[
+   {"name":"candle-stub","height":24},null,{"name":"copper-ladle","height":24},{"name":"jam-jar-lid","height":20},
+   {"name":"bird-feather","height":24},{"name":"moth-wing","height":20},null,{"name":"rat-tooth","height":22},
+   {"name":"shoe-button","height":20},{"name":"spider-silk","height":22},{"name":"thimble","height":22},{"name":"thread-bell","height":24}]},
+ {"image":"sheets/temple-door-open.png","grid":"1x1","props":[{"name":"temple-open","size":[160,170]}]}
+]}

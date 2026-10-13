@@ -10,7 +10,7 @@
   "start": {
     "region": "cottage",
     "at": [
-      4,
+      5,
       5
     ]
   },
@@ -61,8 +61,8 @@
     "hearth-cat": {
       "name": "The Cat",
       "at": [
-        6,
-        2
+        7,
+        4
       ],
       "near": "the rug",
       "voice_file": "voices/hearth-cat.md",
@@ -126,15 +126,15 @@
       ],
       "to": "cottage",
       "to_at": [
-        4,
+        5,
         5
       ]
     },
     {
       "from": "cottage",
       "at": [
-        4,
-        6
+        5,
+        7
       ],
       "to": "town",
       "to_at": [

@@ -1,7 +1,7 @@
 ---
 title: About This Game
 found: map
-at: [7, 1]
+at: [7, 2]
 region: cottage
 kind: note
 ---

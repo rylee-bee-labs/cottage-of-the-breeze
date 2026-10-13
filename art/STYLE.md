@@ -18,6 +18,10 @@ This replaces the painted look below for the whole game, kit by kit.
   the forge and the pond move by recolouring.
 - **How a kit is made:** VEFR's art bible (`vefr/docs/design/storybook/ART-BIBLE.md`) and `making-art.md`, "Pixel
   art, the Game Boy Advance way". The pixel tools are landing in VEFR (vefr#426).
+- **Where the rest was drawn (2026-10-12):** the interiors, the cellar, the creatures and the items were made in
+  OpenDesign, project "Cottage GBA art set", whose brief every run reads (copied to
+  `source/round23-gba/prompts/DESIGN.md`). Rylee checked the first batch before the rest was made. The record is
+  `source/round23-gba/RECORD.md`.
 
 - **The hero's look:** the new pixel hero (brown hair, green hooded cloak, a satchel, a walking stick) replaces
   the red-braided archer of the 2026-10-01 decision below. Rylee, 2026-10-12, asked whether to keep it: "New art

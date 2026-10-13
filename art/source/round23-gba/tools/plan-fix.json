@@ -1,0 +1,2 @@
+{"palette":"palette.json","tile":32,"sheets":[{"image":"clean/items-fix.png","grid":"4x1","props":[
+ {"name":"hearth-poker","height":24},{"name":"music-box-spring","height":20},{"name":"cold-ember","height":22},{"name":"moths","height":30}]}]}
