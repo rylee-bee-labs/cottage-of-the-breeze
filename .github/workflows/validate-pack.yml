@@ -50,7 +50,10 @@ env:
   #
   # Bumped 2026-10-13 to cbc8850, merged vefr main with the storybook phone
   # layout (vefr#445), whose checker knows display.look.
-  VEFR_REF: cbc88507ffdfc4d62b9f9196534bcf4cf8cff9f6
+  #
+  # Bumped 2026-10-13 to 84e61d1, merged vefr main with a desk's follow
+  # camera and display.desk_tile (vefr#446).
+  VEFR_REF: 84e61d16aa8946ec2e37bdee22ca222d4f3ec3c9
 
 jobs:
   validate:
