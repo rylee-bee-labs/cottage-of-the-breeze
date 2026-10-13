@@ -1,0 +1,36 @@
+{
+ "image": "keybearer-moth-sheet.webp",
+ "frame": [
+  82,
+  67
+ ],
+ "fps": 8,
+ "directions": {
+  "down": {
+   "idle": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+   ],
+   "walk": [
+    2,
+    3
+   ],
+   "attack": [
+    4,
+    4,
+    4
+   ],
+   "hurt": [
+    5,
+    5,
+    5
+   ]
+  }
+ }
+}

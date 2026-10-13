@@ -2,33 +2,33 @@
   "legend": {
     ".": {
       "base": [
-        "#332e26"
+        "#6b4224"
       ],
-      "tile": "wood-floor"
+      "tile": "floor-planks"
     },
     "#": {
       "base": [
-        "#2a2e33"
+        "#5a3a22"
       ],
       "solid": true,
-      "tile": "stone-wall"
+      "tile": "cottage-wall"
     },
-    "D": {
+    "F": {
       "base": [
-        "#332e26"
+        "#6f6a60"
       ],
-      "tile": "rug"
+      "tile": "flagstones"
     },
     "S": {
       "base": [
         "#131311"
       ],
-      "tile": "dungeon-stairs-down"
+      "tile": "floor-planks"
     }
   },
   "pois": {
-    "4,6": "the cottage door",
-    "4,3": "the hearth",
+    "5,7": "the cottage door",
+    "4,2": "the hearth",
     "1,1": "the stair down",
     "2,1": "the kitchen corner, where you make tea"
   },
@@ -40,7 +40,7 @@
   },
   "flood_tiles": [],
   "hero_start": [
-    4,
+    5,
     5
   ],
   "tile": 32,
@@ -50,5 +50,93 @@
   "speaker_head": "#d8d5df",
   "poi_text": {
     "1,1": "The stair goes down into the dark."
-  }
+  },
+  "props": [
+    {
+      "pic": "hearth",
+      "at": [
+        4,
+        1
+      ],
+      "size": [
+        2,
+        1
+      ]
+    },
+    {
+      "pic": "shelf",
+      "at": [
+        7,
+        1
+      ],
+      "size": [
+        2,
+        1
+      ]
+    },
+    {
+      "pic": "drawers",
+      "at": [
+        9,
+        1
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bed",
+      "at": [
+        9,
+        2
+      ],
+      "size": [
+        1,
+        2
+      ]
+    },
+    {
+      "pic": "kitchen-table",
+      "at": [
+        2,
+        3
+      ],
+      "size": [
+        2,
+        1
+      ]
+    },
+    {
+      "pic": "rug-oval",
+      "at": [
+        4,
+        3
+      ],
+      "size": [
+        3,
+        2
+      ],
+      "block": [
+        "...",
+        "..."
+      ],
+      "layer": "ground"
+    },
+    {
+      "pic": "doormat",
+      "at": [
+        5,
+        6
+      ],
+      "size": [
+        1,
+        1
+      ],
+      "block": [
+        "."
+      ],
+      "layer": "ground"
+    }
+  ]
 }

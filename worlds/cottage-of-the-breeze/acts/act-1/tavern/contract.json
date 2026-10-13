@@ -2,30 +2,22 @@
   "legend": {
     ".": {
       "base": [
-        "#332e26"
+        "#4a2c18"
       ],
       "tile": "tavern-planks"
     },
     "#": {
       "base": [
-        "#2a2e33"
+        "#3a2a1c"
       ],
       "solid": true,
-      "tile": "stone-wall"
+      "tile": "tavern-wall"
     },
-    "T": {
+    "H": {
       "base": [
-        "#332e26"
+        "#6f6a60"
       ],
-      "solid": true,
-      "tile": "table"
-    },
-    "B": {
-      "base": [
-        "#332e26"
-      ],
-      "solid": true,
-      "tile": "bar-counter"
+      "tile": "hearthstone"
     }
   },
   "pois": {
@@ -47,5 +39,73 @@
   "bg": "#131311",
   "hero_color": "#e8e5df",
   "speaker_color": "#8b939c",
-  "speaker_head": "#d8d5df"
+  "speaker_head": "#d8d5df",
+  "props": [
+    {
+      "pic": "barrel-rack",
+      "at": [
+        1,
+        1
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "barrel",
+      "at": [
+        1,
+        2
+      ],
+      "size": [
+        1,
+        1
+      ]
+    },
+    {
+      "pic": "bar",
+      "at": [
+        3,
+        2
+      ],
+      "size": [
+        4,
+        1
+      ]
+    },
+    {
+      "pic": "fireplace",
+      "at": [
+        8,
+        1
+      ],
+      "size": [
+        3,
+        1
+      ]
+    },
+    {
+      "pic": "tavern-table",
+      "at": [
+        2,
+        5
+      ],
+      "size": [
+        2,
+        1
+      ]
+    },
+    {
+      "pic": "bench-table",
+      "at": [
+        9,
+        5
+      ],
+      "size": [
+        2,
+        1
+      ]
+    }
+  ]
 }
