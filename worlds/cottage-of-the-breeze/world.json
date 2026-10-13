@@ -844,6 +844,7 @@
   },
   "display": {
     "phone_tile": 52,
+    "look": "plain",
     "pixel_art": {
       "native_tile": 32
     }
