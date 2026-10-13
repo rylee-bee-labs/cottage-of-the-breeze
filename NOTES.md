@@ -1,5 +1,24 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-13 — the storybook layout, after Rylee played it on a phone and at a desk (agent)
+
+Rylee played the builds of 2026-10-13 and asked for these; each shipped on her "merge and publish please".
+
+- **Portrait UI** (vefr#445, cottage#154): "It's too big and bulky and there's not enough game." The phone layout
+  follows `vefr/docs/design/storybook/DESIGN.md`. `world.json` `display.look: "plain"` starts on the dark look;
+  the parchment skin is one tap away in Display.
+- **Round 2** (in vefr#445): "do away with the light parchment background and go more towards a smaller interface";
+  "only two buttons" (the smart button and Bag); "a little less... bounce" in the walk.
+- **The desk** (vefr#446, cottage#155): "I can't see my character at all and I can't make the notes disappear."
+  `display.desk_tile: 48` gives a computer the follow camera, and messages are one line that fades after 3 s.
+- **The gallery** (studio#73): every single-file build has a "Download to share" link, saved as
+  `cottage-of-the-breeze-<date>-<sha>.html`, which plays offline.
+- **Result:** the playthrough bot passed 40 of 40 at 1280×720 and 390×844 on `main` (164fc81, vefr 84e61d1), with
+  no console errors.
+- **Not done, waiting on Rylee:** her real-phone check that a drag no longer scrolls the page; short rooms still
+  leave dark bands above and below; the tutorial's "arrow keys or W A S D" line is preserved text and only she can
+  reword it for touch.
+
 ## 2026-10-13 — the cellar's decals dress the generated floors (agent)
 
 Rylee, 2026-10-13, asked whether to file and build engine support for the cellar decorations: **"Please!"**
