@@ -1,0 +1,6 @@
+{"palette":"palette.json","tile":32,"sheets":[
+ {"image":"clean/cellar-props.png","grid":"4x3","props":[
+   null,null,null,null,
+   {"name":"cobweb","size":[32,32]},{"name":"puddle","size":[32,24]},{"name":"floor-crack","size":[32,28]},{"name":"floor-roots","size":[32,28]},
+   {"name":"wall-torch","size":[16,32]},{"name":"fallen-stones","size":[32,28]},{"name":"floor-grate","size":[32,32]},{"name":"sheeted-crates","size":[32,32]}]}
+]}

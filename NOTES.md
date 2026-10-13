@@ -1,5 +1,18 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-13 — the cellar's decals dress the generated floors (agent)
+
+Rylee, 2026-10-13, asked whether to file and build engine support for the cellar decorations: **"Please!"**
+
+- **Engine:** vefr#442 gives a Section `decor`: a `props/` picture, `on` a `floor` tile or a `wall` face, about
+  one for `every` tiles. It is drawn on its own stream, never blocks, sits under everything else, and is left out of
+  a floor's identity, so saved floors are kept.
+- **Art:** the eight decals on round 23's `cellar-props` sheet (cottage#151) are cut into `props/`. Nothing new was
+  drawn. Six are scattered: cobwebs and wall torches on walls; puddles, cracks and grates on floors; pale roots in the
+  rootworks. Each Section leans its own way (more puddles in the siltworks, more torches in the emberhall).
+  `fallen-stones` and `sheeted-crates` look like obstacles, so they are not scattered.
+- **Result:** the playthrough bot passed 40 of 40 at 1280×720 and 390×844 against the vefr#442 branch.
+
 ## 2026-10-12 (late) — the album's stickers: where the shade ones live, and what the bot requires (agent)
 
 Rylee, 2026-10-12, on cottage#148: "Can you please fix and close all open issues on both repos?", then on the
