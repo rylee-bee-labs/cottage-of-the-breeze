@@ -44,7 +44,10 @@ env:
   #
   # Bumped 2026-10-13 to e29521e, merged vefr main with a Section's decor
   # (vefr#442), which the Sections on this branch need.
-  VEFR_REF: e29521eb7320fa3274b4a8226e8d36efd7115726
+  #
+  # Bumped 2026-10-13 to 694a875, merged vefr main where a mirrored side
+  # faces left on screen and a phone drag never moves the page (vefr#444).
+  VEFR_REF: 694a875cda56441cf7235c569ed70eae61fbe26b
 
 jobs:
   validate:
