@@ -1,7 +1,7 @@
 # CURRENT — Cottage of the Breeze
 
-This file is a **router, not a snapshot**. Refreshed 2026-10-12 against `main`
-at `2decb5e` and VEFR `main` at `72d366e`.
+This file is a **router, not a snapshot**. Refreshed 2026-10-13 against `main`
+at `164fc81` and VEFR `main` at `84e61d1`.
 
 Cottage of the Breeze is a VEFR game/world pack. Game content and canon live
 here; reusable engine capability lives in VEFR.
@@ -31,16 +31,20 @@ that changes once.
   layer. Residents stand in the way (`player.people_block`), and the hero
   starts with 10 gold. The cottage, the tavern and the cellar are still
   painted, and monsters and items are interim shrunk paintings (`*.px.webp`).
-  The rest of the art set is cottage#147.
+  The rest of the art set landed in cottage#151.
+- **The interface is VEFR's storybook layout** (vefr#445, #446): the dark look
+  first (`display.look`), the camera following her on a phone (`phone_tile`
+  52) and at a desk (`desk_tile` 48), two buttons on a phone, and one message
+  line that fades.
 
 ## The one next step
 
 **Rylee plays the Section 1 beta on desktop and phone.**
 
-The bot plays it end to end. On 2026-10-12 `tests/playthrough/run.py` passed
-38 of 39 checks at 1280×720 and 390×844. The one red is the album: 10 of 19
-stickers on that run (cottage#148). A person has not played this build since
-the GBA town landed.
+The bot plays it end to end. On 2026-10-13 `tests/playthrough/run.py` passed
+40 of 40 checks at 1280×720 and 390×844, with no console errors. Rylee played
+the town on a phone and at a desk on 2026-10-13 and shaped the interface
+(`NOTES.md`); a full Section 1 run by a person is still to come.
 
 ## Where to look
 
