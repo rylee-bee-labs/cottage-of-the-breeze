@@ -336,7 +336,7 @@
       },
       "then": [
         {
-          "say": "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the corner of your kitchen."
+          "say": "Walk with the arrow keys or W A S D. F does whatever the big button says. The stair is in the top left corner of your kitchen, where you make tea."
         }
       ],
       "once": true

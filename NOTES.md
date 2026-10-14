@@ -1,5 +1,15 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-14 — the first hint names the corner and the key on the button (agent; approved by Rylee)
+
+AI explorers (VEFR's Agent Player Lab, 16 runs) swept all four corners of the kitchen in 6 runs. The 150-decision run never found the stair. They also kept testing E against the F shown on every big button. The stair is at `[1,1]` of the cottage, the top left, beside "the kitchen corner, where you make tea" at `[2,1]`.
+
+Tutorial `say` (`tutorial-begin`):
+- was: "Walk with the arrow keys or W A S D. E does whatever the big button says. The stair is in the corner of your kitchen."
+- now: "Walk with the arrow keys or W A S D. F does whatever the big button says. The stair is in the top left corner of your kitchen, where you make tea."
+
+Both E and F still do Interact in VEFR. Which name to show everywhere is vefr#467. The explorers' other findings are vefr#461–#466.
+
 ## 2026-10-13 — the storybook layout, after Rylee played it on a phone and at a desk (agent)
 
 Rylee played the builds of 2026-10-13 and asked for these; each shipped on her "merge and publish please".
