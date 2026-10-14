@@ -1,0 +1,123 @@
+{
+  "name": "cottage-of-the-breeze master GBA palette",
+  "notes": "One palette for the shipped GBA art set: the exact colours of the pictures that were cut with the palette lock, then the blue ramp of 2026-10-14 around the dusk teal accent. Base colours are plain \"#RRGGBB\"; ramp colours carry a name. Built by art/tools/make_palette.py -- do not hand-edit.",
+  "colors": [
+    "#152D19",
+    "#160705",
+    "#167664",
+    "#181C13",
+    "#1A120C",
+    "#224E2C",
+    "#254020",
+    "#25613A",
+    "#282E1E",
+    "#2E1C13",
+    "#300908",
+    "#30885D",
+    "#36120C",
+    "#3E452A",
+    "#3F2618",
+    "#3F542C",
+    "#421C10",
+    "#423223",
+    "#4B5E2E",
+    "#4B9B5B",
+    "#4F6C26",
+    "#591D0F",
+    "#5B3825",
+    "#5C2613",
+    "#5C4230",
+    "#5D2E17",
+    "#5E4F35",
+    "#606921",
+    "#67664B",
+    "#677920",
+    "#687A35",
+    "#712814",
+    "#723518",
+    "#77523A",
+    "#794423",
+    "#79872E",
+    "#803316",
+    "#847935",
+    "#86664F",
+    "#8C9A2B",
+    "#8D8927",
+    "#8E6038",
+    "#8F7864",
+    "#92421A",
+    "#944A1D",
+    "#945428",
+    "#963518",
+    "#96908A",
+    "#A3886C",
+    "#A4632F",
+    "#A49446",
+    "#A5774D",
+    "#A6A630",
+    "#AB4D1F",
+    "#B8B0A8",
+    "#BE8E5D",
+    "#BEA261",
+    "#C95021",
+    "#C96425",
+    "#C9B159",
+    "#CF7931",
+    "#D6CEC4",
+    "#E08E3C",
+    "#E1A358",
+    "#EBB56B",
+    "#ECC67C",
+    "#F6DF9F",
+    {
+      "hex": "#0D1A26",
+      "name": "deep water in shadow",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#15293C",
+      "name": "night water",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#1D3A55",
+      "name": "deep blue",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#274C6B",
+      "name": "blue, before the teal",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#2F6079",
+      "name": "blue-teal",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#3F7E84",
+      "name": "dusk teal, the accent",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#4A97A0",
+      "name": "pond surface at dusk",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#5FB0B8",
+      "name": "lit window, glow mid",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#86CBD1",
+      "name": "potion glow",
+      "group": "blue-ramp"
+    },
+    {
+      "hex": "#C4E8EA",
+      "name": "glow core, moonlight",
+      "group": "blue-ramp"
+    }
+  ]
+}

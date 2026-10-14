@@ -129,6 +129,7 @@ The rule that keeps this honest: **the engine never learns a game's look, and a 
 | The engine side (what the player can show) | `../vefr/design/pack-art-proposal.md` |
 | Briefs (what each picture is, its size, its references) | `art/briefs/` |
 | Sprite tools (cut out and size, then check) | `art/tools/process_sprites.py`, `art/tools/check_sprites.py` |
+| The one master palette (the art's colours, the blue ramp, and how it was made) | `art/palette.json`, `art/palette.RECORD.md`, built by `art/tools/make_palette.py` |
 
 ## Gotcha: a drawn checkerboard
 
