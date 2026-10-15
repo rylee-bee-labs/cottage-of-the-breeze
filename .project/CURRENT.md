@@ -1,17 +1,15 @@
 # CURRENT — Cottage of the Breeze
 
-This file is a **router, not a snapshot**. Refreshed 2026-10-13 against `main`
-at `164fc81` and VEFR `main` at `84e61d1`.
+This file is a **router, not a snapshot**. Gameplay evidence below is from 2026-10-13 against Cottage `164fc81` and VEFR `84e61d1`; the **release-direction update** is from owner decisions on 2026-10-14. Do not treat these historical SHAs as current runtime pins.
 
 Cottage of the Breeze is a VEFR game/world pack. Game content and canon live
 here; reusable engine capability lives in VEFR.
 
 ## Stage
 
-**Section 1 beta.** The release target is **"Section 1, story complete"**
-(Rylee, 2026-10-11): the cottage, the town, the cellar's nine floors, the
-Cellar King who yields his seal, the vault note that ends Act 1, and the town
-that changes once.
+**Section 1 beta, with Gate 0 ACTIVE.** The owner revised the **1.0 release target on 2026-10-14** to a polished **complete four-Section / 36-floor story adventure**. The earlier 2026-10-11 **"Section 1, story complete"** target is now the **first quality gate**, not the public 1.0 finish line. No additional Section or gameplay system is declared finished by this decision.
+
+**Active, owner-approved delivery plan:** [`docs/plans/release-1-0/ROADMAP.md`](../docs/plans/release-1-0/ROADMAP.md). **Confirmed game decisions:** [Cottage #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168). **Engine dependency:** [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489). **One rule:** polish beats expansion; protect existing canon and park non-essential features.
 
 - **The way down is in the cottage kitchen**, `cottage [1,1]` (`world.json` →
   `descent.entry`; cottage#142). The town has no stair.
@@ -39,7 +37,7 @@ that changes once.
 
 ## The one next step
 
-**Rylee plays the Section 1 beta on desktop and phone.**
+**Gate 0: complete and document the Section 1 beta human playthrough on desktop and a real phone**, with monsters enabled, then fix the witnessed blockers. Work starts at [Cottage #161](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/161); review [#157](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/157), [#165](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/165), and [#166](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/166). Do not call Gate 0 verified until the evidence exists.
 
 The bot plays it end to end. On 2026-10-13 `tests/playthrough/run.py` passed
 40 of 40 checks at 1280×720 and 390×844, with no console errors. Rylee played
@@ -50,6 +48,8 @@ the town on a phone and at a desk on 2026-10-13 and shaped the interface
 
 | Question | Source |
 | --- | --- |
+| active 1.0 delivery roadmap | `docs/plans/release-1-0/ROADMAP.md` (five quality gates; active Gate 0) |
+| owner-confirmed 1.0 scope | Cottage GitHub issue #168; VEFR engine issue #489 |
 | canon | `docs/story/STORY.md`, promoted 2026-10-09. The root `STORY.md` is an empty placeholder that is Rylee's to fill or retire; agents never write either |
 | dated decisions and what was tried | `NOTES.md`, newest first |
 | how the game is played and checked | `tests/playthrough/` (`README.md`, and `negative_control.py`, which proves the bot can fail) |
@@ -58,7 +58,7 @@ the town on a phone and at a desk on 2026-10-13 and shaped the interface
 | art and its provenance | `art/STYLE.md`, `art/source/`, `art/skins/`, and the dated entries in `NOTES.md` |
 | open work | GitHub Issues. Issues closed as not planned on 2026-10-07 are in `docs/BACKLOG.md` |
 | engine capability | `rylee-bee-labs/vefr`. Nothing in this repo edits it |
-| older plans | `docs/plans/` (`release-1`, `acts-2-3`, `native-ui`) and `docs/GAME-PLAN.md`, all history now |
+| older plans | `docs/plans/` (`release-1`, `acts-2-3`, `native-ui`) and `docs/GAME-PLAN.md`, **historical / superseded for 1.0 scope** |
 | game identity and scope | `BRIEF.md` + `DESIGN.md` |
 
 ## Not established
