@@ -94,6 +94,67 @@ STATE_JS = """() => {
   };
 }"""
 
+# Who is painted on top of the note dialog, asked of the page itself.
+# Cottage#165: on a phone the note dialog's yellow READ ON button came up
+# reading 'RE●D ON' - something was drawn over its label.  A picture of
+# that cannot be graded from a screenshot ("is that blob meant to be
+# there?"), so this hit-tests the dialog the way the player does: the
+# topmost element at the centre of each of the dialog's own buttons has
+# to belong to the dialog, and the on-screen Interact button must not be
+# the topmost thing at its own centre while a dialog is up.  Returns null
+# when no note dialog is open.
+READER_LAYER_JS = """() => {
+  const reader = document.getElementById('reader');
+  if (!reader || reader.hidden) return null;
+  const vis = (e) => {
+    if (!e || e.hidden) return false;
+    const r = e.getBoundingClientRect();
+    return r.width > 0 && r.height > 0 && getComputedStyle(e).visibility !== 'hidden';
+  };
+  const name = (e) => {
+    if (!e) return 'nothing';
+    const id = e.id ? '#' + e.id : '';
+    const cls = (e.classList && e.classList.length) ? '.' + [...e.classList].join('.') : '';
+    return String(e.tagName || '?').toLowerCase() + id + cls;
+  };
+  const topmost = (e) => {
+    const r = e.getBoundingClientRect();
+    const x = Math.round(r.left + r.width / 2), y = Math.round(r.top + r.height / 2);
+    return { at: [x, y], over: document.elementFromPoint(x, y) };
+  };
+  // Every control the dialog puts up, and what is on top of its middle.
+  const controls = reader.querySelectorAll('button, [role="button"], a[href]');
+  const over_dialog = [];
+  for (const b of controls) {
+    if (!vis(b)) continue;
+    const t = topmost(b);
+    if (!(t.over && (b.contains(t.over) || reader.contains(t.over)))) {
+      over_dialog.push({ control: name(b), label: (b.textContent || '').trim().slice(0, 24),
+                         at: t.at, painted_over_by: name(t.over) });
+    }
+  }
+  // The on-screen Interact button, sampled only while the page has no
+  // transient surface of its own: a fading toast or a message line is
+  // not the blob in cottage#165 and must not decide the check.  Behind
+  // the dialog or behind its scrim is correct; on top is the defect.
+  const interact = document.getElementById('interact');
+  const transient = ['toasts', 'messages', 'combat-live']
+    .map((id) => document.getElementById(id))
+    .filter((e) => vis(e) && ((e.children && e.children.length) || (e.textContent || '').trim()));
+  let ghost = null;
+  if (vis(interact) && !transient.length) {
+    const t = topmost(interact);
+    const acts = (t.over && t.over.closest) ? t.over.closest('.acts') : null;
+    if (t.over && (interact.contains(t.over) || acts)) {
+      ghost = { control: name(interact), label: (interact.textContent || '').trim().slice(0, 24),
+                at: t.at, painted_over_by: name(t.over) };
+    }
+  }
+  return { dialog_controls: controls.length,
+           over_dialog, interact_on_screen: vis(interact),
+           interact_paints_above: ghost, transient: transient.map(name) };
+}"""
+
 
 class RouteError(RuntimeError):
     """The pack or engine would not let the bot take the route."""
@@ -129,6 +190,9 @@ class Bot:
         # records the moment the Section it hashed stops matching, so
         # they cannot be read back at the end of the run.
         self.footprints: list[dict] = []
+        # What was painted on top of the note dialog each time one was
+        # open (cottage#165); read by `note_reader_layering`.
+        self.reader_layers: list[dict] = []
 
     # ---- reporting -------------------------------------------------
     def check(self, name: str, ok: bool, detail: str = "") -> None:
@@ -666,6 +730,7 @@ class Bot:
         for _ in range(400):
             s = self.state()
             if s["reader"]:
+                self.note_reader_layering()
                 self.interact()  # next page, then the close
                 continue
             if book["id"] in self.found_books():
@@ -1082,6 +1147,7 @@ class Bot:
             if s["act_end"]:
                 break
             if s["reader"]:
+                self.note_reader_layering()
                 self.interact()
                 continue
             self.wait(40)
@@ -1241,6 +1307,21 @@ class Bot:
             s["scroll_w"] <= s["inner_w"],
             f"scrollWidth={s['scroll_w']} innerWidth={s['inner_w']}",
         )
+
+    # ---- overlay layering -------------------------------------------
+    def note_reader_layering(self) -> None:
+        """Hit-test the note dialog's own controls while it is open.
+
+        Cottage#165 filed from the 2026-10-14 phone UAT: the yellow READ
+        ON button in the note dialog read 'RE●D ON' - something was drawn
+        over its label, and triage guessed the on-screen control or the
+        Interact ghost button layering above the dialog.  This samples the
+        page every time a note dialog is seen, so the bot judges the
+        layering with the DOM rather than with a picture of it.
+        """
+        got = self.page.evaluate(READER_LAYER_JS)
+        if got:
+            self.reader_layers.append(got)
 
     # ---- the monsters ----------------------------------------------
     def set_monsters(self, quiet: bool) -> None:
@@ -1402,6 +1483,30 @@ class Bot:
                 f"{len(have)} of {album.get('total')} found; missing {sorted(need - have)}; "
                 f"chance drops not found {sorted(chance - have)}",
             )
+        # Cottage#165: the note dialog's READ ON button came up 'RE●D ON'
+        # on a phone, so something was painted over its label.  Both
+        # checks below need a note dialog to have been open during the
+        # run, or they would pass without ever having looked; the first
+        # one fails on an empty sample rather than passing vacuously.
+        layers = getattr(self, "reader_layers", [])
+        painted_over = [p for s in layers for p in s["over_dialog"]]
+        self.check(
+            "nothing is painted over the note dialog's own buttons",
+            bool(layers) and not painted_over,
+            f"{len(layers)} note dialog(s) open, "
+            f"{sum(s['dialog_controls'] for s in layers)} button(s) hit-tested; "
+            + (f"painted over: {painted_over[:3]}"
+               if painted_over else "no button was painted over"),
+        )
+        ghosts = [s["interact_paints_above"] for s in layers if s["interact_paints_above"]]
+        sampled = sum(1 for s in layers if s["interact_on_screen"] and not s["transient"])
+        self.check(
+            "the on-screen Interact button is behind the note dialog, not over it",
+            not ghosts,
+            f"Interact was on screen with a quiet page in {sampled} of "
+            f"{len(layers)} dialog(s); "
+            + (f"it was on top: {ghosts[0]}" if ghosts else "never on top"),
+        )
         self.check(
             "zero console.error / pageerror events",
             not self.console_errors,

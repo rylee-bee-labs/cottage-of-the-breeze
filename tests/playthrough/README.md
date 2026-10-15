@@ -60,6 +60,19 @@ sits in a later Section: it is listed, not required); a descent monster can stil
 hero's walk frames show in all four directions; no console errors, no
 failed requests, no sideways scroll.
 
+**Overlay layering** (cottage#165). Every time a note dialog is open the
+bot hit-tests it: the topmost element at the centre of each of the
+dialog's own controls has to belong to the dialog, and the on-screen
+Interact button must not be the topmost thing at its own centre while a
+dialog is up. That is the 'RE●D ON' defect the 2026-10-14 phone UAT
+recorded — a blob painted over the note dialog's yellow READ ON button.
+It is asked of the DOM rather than of a screenshot, because a screenshot
+cannot say whether a blob belongs there. The first check needs a dialog to
+have been open during the run and goes red on an empty sample rather than
+passing vacuously; the Interact rule is sampled only while the page has no
+toast or message line of its own showing. The fix for the defect itself is
+in the engine's stylesheet, not in this pack (`NOTES.md`, 2026-10-15).
+
 Two of the nine sound cues have **no subject in this pack** and are
 asserted as such rather than quietly dropped: `locked` (no transition
 names a `requires` since the authored floors went), `level` (a generated
