@@ -1,5 +1,16 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-14 — Cottage 1.0 is a full, polished adventure; the Winds move on (Rylee's owner decisions)
+
+Rylee chose a **four-Section / 36-floor story with a real ending** for 1.0, while endless mode can follow later. A 25+ hour exploration/content experience is a design target to validate with playtests, **not an automated test result or a mandate to pad**. Mechanical loot and spell synergies, classless progression, tactical turns, heavily procedural floors with protected story anchors, recoverable defeat, evolving town and browser-first phone/desktop support were confirmed through the owner interview. The main story remains coherent and responsive to discoveries and kindness; existing approved canon remains unchanged.
+
+**The Winds:** Breeze, Gust, Gale, Squall and Tempest are differently patterned dungeon-generating influences, plus rare whimsical Zephyr possibilities. The player chooses one unlocked dominant Wind, with occasional temporary passing Winds on floors; they are **not numeric difficulty tiers**. This is author-approved game direction, not a claim of implemented mechanics.
+
+Rylee's final expedition-persistence direction: **"Keep and it moves on."** Earned gear, spells, levels and discoveries persist; temporary Wind blessings and run-specific modifiers do not outlive their expedition. Save/resume does not end a run. Rylee's scope direction, verbatim: **"Let’s not expand too much more. I want it to be polished but don’t want to over do it"**. Later instruction: **"Can you wire it in to not be a draft thst we will just ignore? Let’s do it"**.
+
+The active release roadmap is `docs/plans/release-1-0/ROADMAP.md` (five evidence gates, Gate 0 active). GitHub: Cottage #168 (owner choices), VEFR #489 (generic engine dependency), and release roadmap PR #169. The old one-Section release plan is a historical intermediate target, not the new 1.0 finish line. This entry **does not approve changes to `docs/story/STORY.md` or any existing player-facing words.**
+
+
 ## 2026-10-14 — the first hint names the corner and the key on the button (agent; approved by Rylee)
 
 AI explorers (VEFR's Agent Player Lab, 16 runs) swept all four corners of the kitchen in 6 runs. The 150-decision run never found the stair. They also kept testing E against the F shown on every big button. The stair is at `[1,1]` of the cottage, the top left, beside "the kitchen corner, where you make tea" at `[2,1]`.
