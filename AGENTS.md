@@ -15,6 +15,17 @@ never write them. Reference detail moved to
 
 This does **not** waive the existing protection for specific story/canon text, names, existing library words, art approval, license/publication or other explicit owner gates. New author-written content remains subject to those boundaries. **The 1.0 finish line is active:** [release roadmap](docs/plans/release-1-0/ROADMAP.md) and [release epic #170](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/170). Favor the smallest polished implementation over growing scope.
 
+### Approval carries across collaborators and handoffs
+
+**Rylee's further clarification (2026-10-14):** "If we submit to Claude it’s still us collaborating ok? I’m jsut saying when we do stuff I still have to approve it like 3 more times and that’s silly".
+
+ChatGPT, Claude, delegated coding agents, GitHub issues/PRs and Project Home are **continuations of one owner-directed collaboration**, not separate authorities that can demand a fresh sign-off on the same settled design choice. The original owner-approved decision and its scope **travel with the handoff**. A relay or mission should link the source decision and say **OWNER-APPROVED DIRECTION / IMPLEMENTATION AUTHORIZED WITHIN SCOPE**, not "unapproved draft" or "please approve again".
+
+- Execute ordinary investigation, implementation, refactoring needed for the task, tests, docs and PR preparation within the approved scope without an additional human design approval. Technical reviewers validate **correctness and evidence**, not re-approve the concept.
+- Follow existing repository review/merge and deployment permissions; do not invent extra owner approval checkpoints. Direction approval is not blanket authorization to bypass branch rules, ignore failed CI, publish the private game, alter protected canon, expose secrets, or take a newly consequential action without an existing grant.
+- **Ask again only at a real boundary:** material scope change, contradiction between approved decisions, owner-protected canon/text/licensing, public release, irreversible/security-sensitive change, or an action not already delegated. Explain the changed boundary and ask for the **minimum single decision** needed. Group related choices, do not serially seek three confirmations.
+- In a handoff, preserve: **decision/source**, **approved intent**, **scope/exclusions**, **autonomous work allowed**, **acceptance tests**, and **only unresolved owner gate (if any)**. Track statuses as Direction approved, Implementing, Verified, Released, not successive "awaiting approval" states for the same choice.
+
 ## The rules that matter
 
 - **Rylee writes the stories.** Canon (`STORY.md`, the pack's `logbok.md`,
