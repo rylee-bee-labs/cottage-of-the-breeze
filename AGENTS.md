@@ -9,6 +9,12 @@ never write them. Reference detail moved to
 [`docs/repo-map.md`](docs/repo-map.md) (each path, its check, handoff) and
 [`docs/commands.md`](docs/commands.md) (validate, refresh, publish).
 
+## Owner-confirmed direction is not a draft
+
+**Rylee's instruction (2026-10-14):** "If you and I work on something together in a chat and refine it it’s not a draft ok? It’s direction". A design or product decision refined with ChatGPT and explicitly selected/accepted by Rylee is **approved owner direction**. Treat it as the implementation brief, not as an unapproved idea for another review cycle. Do not re-ask settled questions, downgrade the decision to "proposed", or park it without a new owner decision. Track code, testing and release readiness separately: **agreed direction ≠ implemented ≠ verified ≠ shipped**.
+
+This does **not** waive the existing protection for specific story/canon text, names, existing library words, art approval, license/publication or other explicit owner gates. New author-written content remains subject to those boundaries. **The 1.0 finish line is active:** [release roadmap](docs/plans/release-1-0/ROADMAP.md) and [release epic #170](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/170). Favor the smallest polished implementation over growing scope.
+
 ## The rules that matter
 
 - **Rylee writes the stories.** Canon (`STORY.md`, the pack's `logbok.md`,
