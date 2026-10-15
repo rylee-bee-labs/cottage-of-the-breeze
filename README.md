@@ -15,6 +15,7 @@ engine, and every later game gets it for free.
 | See the systems to rebuild | [`DESIGN.md`](DESIGN.md) |
 | Read the canon | [`docs/story/STORY.md`](docs/story/STORY.md) (canon since 2026-10-09; the root [`STORY.md`](STORY.md) is Rylee's placeholder) |
 | See decisions + playtest notes | [`NOTES.md`](NOTES.md) |
+| **Build and ship Cottage 1.0** | **[Active five-gate release roadmap](docs/plans/release-1-0/ROADMAP.md)** · [GitHub decisions #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168) · [VEFR dependencies #489](https://github.com/rylee-bee-labs/vefr/issues/489) |
 | Know where things stand | [`.project/CURRENT.md`](.project/CURRENT.md) |
 | Rules for agents | [`AGENTS.md`](AGENTS.md) |
 
