@@ -96,13 +96,17 @@ STATE_JS = """() => {
 
 # Who is painted on top of the note dialog, asked of the page itself.
 # Cottage#165: on a phone the note dialog's yellow READ ON button came up
-# reading 'RE●D ON' - something was drawn over its label.  A picture of
-# that cannot be graded from a screenshot ("is that blob meant to be
-# there?"), so this hit-tests the dialog the way the player does: the
-# topmost element at the centre of each of the dialog's own buttons has
-# to belong to the dialog, and the on-screen Interact button must not be
-# the topmost thing at its own centre while a dialog is up.  Returns null
-# when no note dialog is open.
+# reading 'RE●D ON'.  Triage guessed something was drawn over its label,
+# but a real browser showed the real cause was the reader card's
+# max-height clipping the control below the fold in a long note - it was
+# off the visible area, not painted over.  Fixed in vefr#509 (merged
+# 2026-10-15).  What is asked here now is regression: a picture of that
+# cannot be graded from a screenshot ("is that blob meant to be there?"),
+# so this hit-tests the dialog the way the player does - the topmost
+# element at the centre of each of the dialog's own buttons has to belong
+# to the dialog, and the on-screen Interact button must not be the topmost
+# thing at its own centre while a dialog is up.  Returns null when no
+# note dialog is open.
 READER_LAYER_JS = """() => {
   const reader = document.getElementById('reader');
   if (!reader || reader.hidden) return null;
@@ -1313,9 +1317,12 @@ class Bot:
         """Hit-test the note dialog's own controls while it is open.
 
         Cottage#165 filed from the 2026-10-14 phone UAT: the yellow READ
-        ON button in the note dialog read 'RE●D ON' - something was drawn
-        over its label, and triage guessed the on-screen control or the
-        Interact ghost button layering above the dialog.  This samples the
+        ON button in the note dialog read 'RE●D ON'.  A real browser found
+        this was the reader card's max-height clipping the control below
+        the fold in a long note, not the on-screen control or the Interact
+        ghost button layering above the dialog as triage guessed; vefr#509
+        merged that fix on 2026-10-15.  These checks are the regression
+        net for it, so they stay exactly as written.  This samples the
         page every time a note dialog is seen, so the bot judges the
         layering with the DOM rather than with a picture of it.
         """

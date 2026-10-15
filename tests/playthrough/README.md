@@ -64,14 +64,22 @@ failed requests, no sideways scroll.
 bot hit-tests it: the topmost element at the centre of each of the
 dialog's own controls has to belong to the dialog, and the on-screen
 Interact button must not be the topmost thing at its own centre while a
-dialog is up. That is the 'RE●D ON' defect the 2026-10-14 phone UAT
-recorded — a blob painted over the note dialog's yellow READ ON button.
-It is asked of the DOM rather than of a screenshot, because a screenshot
-cannot say whether a blob belongs there. The first check needs a dialog to
-have been open during the run and goes red on an empty sample rather than
-passing vacuously; the Interact rule is sampled only while the page has no
-toast or message line of its own showing. The fix for the defect itself is
-in the engine's stylesheet, not in this pack (`NOTES.md`, 2026-10-15).
+dialog is up. It is asked of the DOM rather than of a screenshot, because a
+screenshot cannot say whether a blob belongs there. The first check needs a
+dialog to have been open during the run and goes red on an empty sample
+rather than passing vacuously; the Interact rule is sampled only while the
+page has no toast or message line of its own showing.
+
+The 'RE●D ON' defect the 2026-10-14 phone UAT recorded was **not** a
+stacking problem, as the first triage assumed. A real browser found that
+the reader card's `max-height` pushed the READ ON control *below the fold*
+in a long note, so it was off the visible area rather than painted over.
+That was fixed in the engine's stylesheet (`vefr` `web/player/parts/
+020-style.css`) and merged as **vefr#509 on 2026-10-15** — engine work, so
+it lands as a companion change and never as an edit to `../vefr/`. What
+this probe is now for is regression: the dialog's controls have to stay
+reachable and un-painted-over. The assertions are unchanged and are not to
+be weakened to make a run go green (`NOTES.md`, 2026-10-15).
 
 Two of the nine sound cues have **no subject in this pack** and are
 asserted as such rather than quietly dropped: `locked` (no transition
