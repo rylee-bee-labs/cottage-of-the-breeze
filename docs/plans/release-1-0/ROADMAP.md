@@ -1,9 +1,9 @@
 # Cottage of the Breeze 1.0: finish-line roadmap
 
-**Proposed for owner review:** 2026-10-14  
+**Adopted as the active 1.0 delivery roadmap by the owner:** 2026-10-14  
 **Owner decisions:** [Cottage #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168)  
 **VEFR engine dependency:** [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489)  
-**Planning rule:** This is a delivery plan, not a declaration that features are built or that draft story/art is approved. The [canonical story](../../story/STORY.md) remains authoritative. This roadmap does not change story canon, assets, gameplay code or the current shipped beta.
+**Planning rule:** This is the active delivery plan, not a declaration that features are built or that draft story/art is approved. The [canonical story](../../story/STORY.md) remains authoritative. This roadmap does not change story canon, assets, gameplay code or the current shipped beta.
 
 ## The promise to the player
 
@@ -27,6 +27,18 @@ A complete browser-first, four-Section (36-floor) turn-based story dungeon crawl
 - Full human Section 1 playthrough and a physical-device mobile pass are still open: [#161](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/161), [#157](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/157).
 - Existing release blockers and owner choices include [#159](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/159) (story draft/approval), [#162](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/162) (art/status/provenance), [#165](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/165) (phone note overlay), [#166](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/166) (desktop ending framing) and [#158](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/158) (touch tutorial text).
 - Do not equate VEFR architecture proposals or previously merged primitives with Cottage integration. Audit actual runtime behavior before marking new work complete.
+
+## Live gate board
+
+| Gate | State (2026-10-14) | Work anchor | Next evidence |
+| --- | --- | --- | --- |
+| 0 · Section 1 trust | **ACTIVE** | [Cottage #161](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/161) | Human desktop + actual phone and fully populated combat run |
+| 1 · RPG/build loop | **QUEUED** | [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489) | Runtime capability matrix, one tested Cellar build loop |
+| 2 · Four-Section ending | **QUEUED** | [Cottage #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168) | Seeded 36-floor end-to-end route and reviewed narrative |
+| 3 · Minimal Winds | **QUEUED** | [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489) | One modifier per Wind, one passing Wind, persistence tests |
+| 4 · Public release | **QUEUED** | [Cottage #162](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/162) | Signed-off release evidence + reproducible build |
+
+**Update policy:** Change a gate to VERIFIED only with linked test/build/manual evidence. Report blocked work honestly; no arbitrary percentages or completion dates. The GitHub issue queue is the executable work list. Reference the new owner-approved finish-line roadmap, not old Act 1-only release plans.
 
 ## One critical path, five quality gates
 
