@@ -3,6 +3,8 @@
 **Adopted as the active 1.0 delivery roadmap by the owner:** 2026-10-14  
 **Owner decisions:** [Cottage #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168)  
 **VEFR engine dependency:** [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489)  
+**Authority rule:** Decisions Rylee and ChatGPT refined together and Rylee accepted are **approved direction**, not drafts or suggestions needing another approval cycle. The [Cottage agent policy](../../../AGENTS.md#owner-confirmed-direction-is-not-a-draft) requires executing this direction; do not confuse it with code being built, tested or shipped. Explicit approval is still required for protected canon/story text and publication.
+
 **Planning rule:** This is the active delivery plan, not a declaration that features are built or that draft story/art is approved. The [canonical story](../../story/STORY.md) remains authoritative. This roadmap does not change story canon, assets, gameplay code or the current shipped beta.
 
 ## The promise to the player
