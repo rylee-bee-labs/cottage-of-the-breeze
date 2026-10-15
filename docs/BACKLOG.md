@@ -35,15 +35,7 @@ All story text and names written during Release 1 are agent drafts, and `NOTES.m
 
 Next step, when this is picked up: Rylee goes through the `NOTES.md` list line by line and marks each keep, rewrite or bin.
 
-### #87 — Acts 2 and 3: left for later by Rylee's decision (tracking)
-
-- Issue: https://github.com/Rylee-Bee/cottage-of-the-breeze/issues/87
-- Opened: 2026-10-04 · Labels: none
-- Status on 2026-10-07: closed as not planned on 2026-10-07 — tracked here
-
-This is a tracking issue, and it is explicitly not a gap and not an engine limit. Rylee chose to ship a complete, polished Act 1 first; Acts 2 and 3 remain part of the game and have simply been deferred by her decision. The plan lives at `docs/plans/acts-2-3/PLAN.md`. It needs act advance, which is VEFR ADR 0006 (#217), and status effects with fire as the first one. It also needs Rylee's answers on where Act 2 begins and what its theme is. Nothing is to be done until she says go, so this stays a placeholder rather than work.
-
-Next step, when this is picked up: Wait for Rylee to say go and to answer where Act 2 begins and what its theme is.
+Acts 2-3 deliberately deferred (owner decision 2026-10-15); reopen on go.
 
 ### #86 — Epic: the in-world interface (Cottage side): soft-wood skin art, Ledger type, opt-in
 
