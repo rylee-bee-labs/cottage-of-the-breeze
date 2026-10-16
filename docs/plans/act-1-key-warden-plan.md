@@ -191,8 +191,8 @@ absent from the engine.
 
 - **Every new word.** The Key Warden's name, anything he says, anything a new
   note says. Draft, held for Rylee, per `AGENTS.md` and the decision's own gate.
-- **The §5 choice** — whether the seal note keeps ending Act 1 or its ending
-  moves to Act 3.
+- **The new ending note's words.** §5 is decided (Re-cut, 2026-10-16): Act 1 ends on a new
+  Key Warden note, so its text is a draft held for the canon review.
 - **The Cellar King's Act 3 home.** Section 3's wardens already exist
   (`root-warden`, `silt-warden`, `ember-warden`); placing a `cellar-king`
   Section is an owner-level placement call, and it cannot ship before E1.
