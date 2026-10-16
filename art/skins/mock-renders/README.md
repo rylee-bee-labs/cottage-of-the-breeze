@@ -34,5 +34,6 @@ uv run --offline --with pillow art/tools/mock_skin.py \
 ```
 
 (The skin folder was the pack's copy while the parchment theme shipped; since
-cottage#160 it is the studio copy in `art/skins/`, which is the same manifest
-and the same pictures.)
+cottage#160 only the studio copy in `art/skins/` remains. Its pictures are the
+same, but its `skin.json` is not the one that shipped: the pack's fonts, backdrop
+and credit line were set by hand (see `art/skins/README.md`).)
