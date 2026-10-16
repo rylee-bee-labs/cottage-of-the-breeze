@@ -1,5 +1,6 @@
 ---
 title: A Candle and a Note
+status: draft
 found: map
 place: near-up
 region: cellar-0-5

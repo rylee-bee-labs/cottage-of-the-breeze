@@ -1,5 +1,6 @@
 ---
 title: About This Game
+status: draft
 found: map
 at: [7, 2]
 region: cottage
