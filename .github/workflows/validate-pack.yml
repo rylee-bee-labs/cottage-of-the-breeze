@@ -53,7 +53,9 @@ env:
   #
   # Bumped 2026-10-13 to 84e61d1, merged vefr main with a desk's follow
   # camera and display.desk_tile (vefr#446).
-  VEFR_REF: c0bdc8bf0c12d9e46b42b82f0d5d6a7fc43afe32
+  # Bumped 2026-10-16 to d69fcba, merged vefr main (display.ending_tile, vefr#520,
+  # is available; this pack does not set it, see cottage#166).
+  VEFR_REF: d69fcba276797259d97e1ad6669f375f6ee807b5
 
 jobs:
   validate:
