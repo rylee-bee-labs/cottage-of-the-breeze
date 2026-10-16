@@ -14,6 +14,24 @@
 
 **Verified on the Bazzite host** (2026-10-16, vefr c0bdc8bf, the pin CI uses): `norns validate --pack worlds/cottage-of-the-breeze` prints `ok: ... geometry, reachability, voices all pass` with the new front-matter key, and `vefr check --release` lists each marked book as a draft (e.g. `book 'the-pale-moth' - The Pale Moth is a draft`). The negative controls (an unmarked book, a new unlisted book, a written `approved`) were run by the worker in a throwaway copy; no script in the repo replays them. CI does not run the new assertion yet: `.github/workflows/` is read-only for agents.
 
+## 2026-10-16 — cottage#160: the parchment theme is removed, not kept as an option (Rylee's decision; agent)
+
+**Rylee's answer, in the 2026-10-16 rolling interview with Sol.** Offered Sol's three explicit recommendations about whether the parchment look stays a player's choice, she said: **"Use your recommendations."** That settles the question cottage#160 left open — *keep parchment as a player's option, or drop the skin from the pack entirely?* — in favour of **removing it entirely**. Do not ask her again.
+
+**Why the question existed.** Since cottage#154 the game has started on the dark look (`display.look: "plain"`), and the parchment skin has still been one tap away in Display. On 2026-10-13 she had asked to "do away with the light parchment background". That ask settled the *default*; it was never consent to delete the option, so the choice was held open for her and is now answered.
+
+**What ships.** The pack no longer declares a skin at all:
+
+- `"skin": "skins/parchment-and-wood"` is gone from `worlds/cottage-of-the-breeze/world.json` (that single line was what put the parchment look in the Display menu).
+- `worlds/cottage-of-the-breeze/skins/parchment-and-wood/` — 20 `.webp` + `skin.json` — is removed from the pack.
+- `display.look: "plain"` is **unchanged**: the dark look is the game, as it already was.
+- `art/tests/test_skin_contract.py`, which read the pack's copy of that skin, is removed with it.
+
+**What did not change, deliberately.** The dark presentation stays. The high-contrast and appearance overrides stay as they are: they are VEFR's own (`web/player/parts/020-style.css`, this pack's `prefers-contrast` / forced-colours handling), and nothing here touches `../vefr/`, so a player who needs a high-contrast presentation still gets one. And `art/skins/parchment-and-wood/` — the sources, the round-18 picks, the screenshots of the skin in play — **stays in the repository** as the studio record. It is Rylee's and Claude's credited work with its provenance; deleting art nobody asked to delete is not what "remove the theme from the pack" means. The theme is gone from the game; the pictures and their story are not gone from the repo.
+
+**Credits unchanged.** No picture was edited, recoloured or re-credited by this change; the removal deletes files from the pack and adds words to this entry.
+
+
 ## 2026-10-15 — cottage#165: READ ON was not painted over at all, it was clipped off the card (agent)
 
 **The report.** The 2026-10-14 phone UAT (main 9fa0d51, vefr 84e61d1, 390×844) found the note dialog's yellow READ ON button reading 'RE●D ON' on 'A Note Under the Seal', page 1 of 3. Triage guessed an on-screen control or the Interact ghost button layering above the dialog. **That guess was wrong.** A real browser found the actual cause, and this entry is corrected to it.

@@ -1,6 +1,6 @@
 # Skins: a game's interface as pictures
 
-A skin is a folder of small pictures and one file, `skin.json`, that says which picture is which part of the interface. This one, `parchment-and-wood/`, is Cottage of the Breeze's look: aged parchment and carved dark wood with brass studs. The plan for how the VEFR player uses a skin is `design/ui-skin.md` in the VEFR repository, and the player does load one: `web/player/parts/540-the-skin.js` paints every part a pack's manifest names, and `look-*.png` below are that player running with this skin on it.
+A skin is a folder of small pictures and one file, `skin.json`, that says which picture is which part of the interface. This one, `parchment-and-wood/`, was Cottage of the Breeze's look: aged parchment and carved dark wood with brass studs. **It no longer ships.** On 2026-10-16 Rylee decided to remove the parchment theme entirely (cottage#160); the pack declares no `"skin"` and plays on the dark `display.look: "plain"`. This folder and everything under it are kept as the studio record — the sources, the picks and the screenshots of what it looked like in play — and nothing here is credited art that the game serves. The plan for how the VEFR player uses a skin is `design/ui-skin.md` in the VEFR repository, and the player does load one: `web/player/parts/540-the-skin.js` paints every part a pack's manifest names, and `look-*.png` below are that player running with this skin on it.
 
 ## What is in a skin
 
@@ -15,7 +15,7 @@ uv run --offline --with pillow art/tools/check_ui.py art/skins/parchment-and-woo
 
 Sources: round 18 picks (`art/source/round18/ui-soft/PICKS.md`); eight pieces cut straight from the picked sheets, three (`tab-selected`, `banner`, `slot`) made *from* a picked sheet by a tool in `art/tools/` and kept beside their untouched cuts as `-v3` pictures, five carry-overs from round 10. Provenance and the `derived` marker: `art/source/round18/ui-soft/skin-source/PROVENANCE.md` / `.tsv`.
 
-The build writes the *parts*; it does not write `skin.json`'s fonts, backdrop or credit line, and it does not copy the result into the pack. Those three the pack needs are set by hand (the backdrop is `backdrop-alt-1.webp`), and the pictures are copied into `worlds/cottage-of-the-breeze/skins/parchment-and-wood/` — so this folder's own `skin.json` is the studio copy and is **not** the one that ships. The pack's is the one to read.
+The build writes the *parts*; it does not write `skin.json`'s fonts, backdrop or credit line, and it does not copy the result into the pack. Those three the pack needed were set by hand (the backdrop was `backdrop-alt-1.webp`), and the pictures used to be copied into `worlds/cottage-of-the-breeze/skins/parchment-and-wood/` — so this folder's own `skin.json` was the studio copy and never the one that shipped. **Since cottage#160 there is no pack copy**: `worlds/cottage-of-the-breeze/skins/` is gone, so this folder's `skin.json` is the only manifest left and it describes art the game does not serve.
 
 `build_skin.py` turns the raw drawings into a perfectly symmetric nine-slice (it takes one good corner and edge and mirrors them, because a generated border is close to even but never exact). `check_ui.py` refuses a bad skin with a plain sentence: a missing file, a slice that does not fit, button states that are not the same size or not visibly different, ink that is too faint on the panel (4.5 to 1 for body text, 3 to 1 for the dim ink), or a cursor hotspot outside the picture. Running the build twice gives identical files.
 
@@ -25,7 +25,7 @@ Every WebP is written with `lossless=True`. That is not Pillow's default for Web
 
 There are two kinds of picture of this skin in this repository, and they are kept apart on purpose.
 
-**Play evidence** — `parchment-and-wood/look-*.png` are screenshots of the woven player, taken by running it:
+**Play evidence** — `parchment-and-wood/look-*.png` are screenshots of the woven player, taken by running it while the pack still carried this skin (the commands below are kept as they were run; a weave of the pack today has no skin in it, so re-running them now photographs the dark look, not this one):
 
 ```sh
 cd ~/code/Rylee-Bee/vefr
