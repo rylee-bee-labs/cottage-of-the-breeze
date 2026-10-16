@@ -1,5 +1,6 @@
 ---
 title: A Burned Page
+status: draft
 found: map
 at: [8, 16]
 region: town

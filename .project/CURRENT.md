@@ -79,7 +79,11 @@ Say **UNKNOWN** rather than guessing any of these.
   call; placing a sleeping, non-fight guardian off the warden floor needs
   engine work (`docs/plans/section-1-beta/GAP.md` slice 6).
 - **Every player-facing name and line is a draft** until Rylee approves it
-  (`DEMO.md` says so to players).
+  (`DEMO.md` says so to players). The pack's books carry `status: draft` so the
+  release check lists them (cottage#159,
+  [`docs/plans/release-1-0/DRAFT-TEXT.md`](../docs/plans/release-1-0/DRAFT-TEXT.md));
+  voice prompts, whispers, `world.json` lines and Section labels are the same
+  unapproved words in formats with no place to put the mark yet.
 - **Licence and audience.** `LICENSE.md` is all rights reserved; who the
   release is for and where the file lives are Rylee's to decide.
 

@@ -1,5 +1,6 @@
 ---
 title: Writing a Book
+status: draft
 kind: book
 ---
 Every book in a world is a plain text file in the pack's `library/`

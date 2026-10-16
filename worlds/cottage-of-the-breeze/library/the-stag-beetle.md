@@ -1,5 +1,6 @@
 ---
 title: The Stag Beetle
+status: draft
 found: map
 place: near-up
 region: cellar-0-8

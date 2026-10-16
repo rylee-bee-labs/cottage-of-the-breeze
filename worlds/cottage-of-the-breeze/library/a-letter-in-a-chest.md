@@ -1,5 +1,6 @@
 ---
 title: A Letter, Folded Small
+status: draft
 found: map
 place: anywhere
 region: cellar-0-1

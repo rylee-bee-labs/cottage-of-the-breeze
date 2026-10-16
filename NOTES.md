@@ -1,5 +1,19 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-16 — cottage#159: the pack marks its unapproved text as drafts (Rylee's decision; agent work)
+
+**Rylee's decision, verbatim.** Asked whether the pack should mark its unapproved text as drafts or soften `DEMO.md` instead, and shown the recommendation to mark the drafts so the release check guards the release, Rylee answered: **"Use your recommendations."** That is design approval of the status direction. It is **not** story-text approval, a release authorization, or a merge/deploy grant. Nothing was promoted and no existing line was reworded.
+
+**The conflict it settles.** `DEMO.md` told players every name and line of story is a draft Rylee has not signed off on, while `vefr check --release` reported *"no drafts — every word in this pack is approved"*, because no pack file carried `status: draft`. Both were true statements about different things, and the release check was the one guarding nothing.
+
+**What landed.** Every one of the 14 books and notes in `worlds/cottage-of-the-breeze/library/` now carries `status: draft` in its front matter beside `title` — one added metadata line per file, prose byte-for-byte unchanged. That is the format the engine already parses for a text record's own metadata, so it is where a draft status is a fact the release check can read rather than a claim in a document.
+
+**The inventory is [`docs/plans/release-1-0/DRAFT-TEXT.md`](docs/plans/release-1-0/DRAFT-TEXT.md).** It names all 35 text-bearing files in the pack: the 14 marked books, and the resident voice prompts, the whispers in `ledger.md`, the `world.json` and `contract.json` player-facing strings, the Blueprint's 33 mob names and the Sections' labels, which are equally unapproved but sit in formats with no front matter to carry a mark. Marking those needs an engine decision (a VEFR issue), not an agent inventing a third status model. `worlds/cottage-of-the-breeze/logbok.md` is Rylee's and was not touched.
+
+**The check is [`tests/assert_draft_text.py`](tests/assert_draft_text.py)** (`python3 tests/assert_draft_text.py`, stdlib only, no VEFR checkout). It fails if a book loses `status: draft`, if any file carries a status other than `draft`, or if a text-bearing pack file joins the pack without being inventoried. An unmarked book, a new unlisted book and a written `approved` each turn it red.
+
+**Verified on the Bazzite host** (2026-10-16, vefr c0bdc8bf, the pin CI uses): `norns validate --pack worlds/cottage-of-the-breeze` prints `ok: ... geometry, reachability, voices all pass` with the new front-matter key, and `vefr check --release` lists each marked book as a draft (e.g. `book 'the-pale-moth' - The Pale Moth is a draft`). The negative controls (an unmarked book, a new unlisted book, a written `approved`) were run by the worker in a throwaway copy; no script in the repo replays them. CI does not run the new assertion yet: `.github/workflows/` is read-only for agents.
+
 ## 2026-10-15 — cottage#165: READ ON was not painted over at all, it was clipped off the card (agent)
 
 **The report.** The 2026-10-14 phone UAT (main 9fa0d51, vefr 84e61d1, 390×844) found the note dialog's yellow READ ON button reading 'RE●D ON' on 'A Note Under the Seal', page 1 of 3. Triage guessed an on-screen control or the Interact ghost button layering above the dialog. **That guess was wrong.** A real browser found the actual cause, and this entry is corrected to it.

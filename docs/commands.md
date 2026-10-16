@@ -45,6 +45,22 @@ Run step 2 locally whenever you touch a drop; it needs no VEFR checkout:
 python3 tests/assert_chest_drops.py
 ```
 
+## Assert the pack's unapproved text is marked
+
+`DEMO.md` tells players every name and line is a draft; cottage#159 made the
+pack say the same, so `vefr check --release`'s draft list is the approval
+queue. Stdlib-only, no VEFR checkout needed:
+
+```sh
+python3 tests/assert_draft_text.py
+```
+
+It fails if a book in `library/` loses `status: draft`, if anything writes a
+status other than `draft` (only Rylee may approve text), or if a text-bearing
+pack file exists that the inventory
+[`docs/plans/release-1-0/DRAFT-TEXT.md`](plans/release-1-0/DRAFT-TEXT.md) does
+not name. CI does not run it yet; `.github/workflows/` is read-only for agents.
+
 ## The art tools' own tests
 
 The tools in `art/tools/` have unit tests in `art/tests/`. Run them when you
