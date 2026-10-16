@@ -1158,6 +1158,7 @@ class Bot:
         else:
             raise RouteError(f"reading {book.get('id')} never showed the end card")
         self.wait(120)  # let openActEnd's focus settle
+        self.shot("end-card")  # the ending room under the card (cottage#166: display.ending_tile)
         s = self.state()
         complete = s["act_complete"] or {}
         focused = self.page.evaluate(
