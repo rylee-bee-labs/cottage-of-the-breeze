@@ -24,10 +24,29 @@ got=$(echo "$new" | grep -c . || true)
 tokens=$(grep -i 'tokens used' -A1 "$LOG" | tail -1 || true)
 echo "$NAME: asked $N, got $got, tokens $tokens"
 [ "$got" -eq "$N" ] || echo "WARNING: expected $N images, saved $got. Check $LOG." >&2
+# The credits line names each reference from the repo root, so it stays
+# readable (and distributable) off the machine that drew the picture. A
+# reference that is not in the repo - a session scratch image under /tmp, say -
+# is not kept, so the line says "session scratch; not retained" instead of a
+# path only that machine could resolve.
+ROOT=$(cd "$(dirname "$0")/../.." && pwd)
+CREDITS=""
+for ref in "$@"; do
+  case $ref in
+    "$ROOT"/*) rel=${ref#"$ROOT"/} ;;
+    /*) rel="" ;;
+    *) rel=$ref ;;
+  esac
+  if [ -n "$rel" ] && [ -e "$ROOT/$rel" ]; then
+    CREDITS="${CREDITS:+$CREDITS }$rel"
+  else
+    CREDITS="${CREDITS:+$CREDITS }session scratch; not retained"
+  fi
+done
 i=1
 for f in $new; do
   cp "$f" "$OUT/${NAME}_v$i.png"
   printf '%s_v%s.png · Rylee and Claude · tool: %s · references: %s · prompt: %s · %s · status: draft (not approved)\n' \
-    "$NAME" "$i" "$TOOL" "${*:-none}" "$BRIEF" "$(date +%F)" > "$OUT/${NAME}_v$i.credits.txt"
+    "$NAME" "$i" "$TOOL" "${CREDITS:-none}" "$BRIEF" "$(date +%F)" > "$OUT/${NAME}_v$i.credits.txt"
   i=$((i+1))
 done
