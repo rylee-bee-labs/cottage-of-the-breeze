@@ -45,3 +45,7 @@ cottage-of-the-breeze/
   tests/                                       chest-drop gate + the play bot
   .project/CURRENT.md                           where things stand
 ```
+
+## Play-Nice contract pin
+
+[Play-Nice adoption](.project/contracts/adoption.yaml) pins the shared behavioral rules to a reviewed commit. [Contract-freshness CI](.github/workflows/contract-freshness.yml) checks its currency on PRs, pushes and weekly. A pinned manifest is not proof of a passing `playnice check`, playable game, human acceptance or deployed version. [Shared floor](https://github.com/rylee-bee-labs/play-nice-contracts/blob/main/contracts/everyone/FLOOR.md); local canon and release gates remain authoritative.
