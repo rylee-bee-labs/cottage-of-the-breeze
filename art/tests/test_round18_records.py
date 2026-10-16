@@ -43,9 +43,11 @@ CREDITS = tuple(sorted(ROUND_DIR.rglob("*.credits.txt")))
 # references field.
 REFERENCES = re.compile(r"references: ([^·]*)")
 
-# Only references written from the repo root can be checked: an older credit
-# line may point at a scratch path from the machine that drew the picture
-# (/tmp/...), which is history and not a dangling reference.
+# Only references written from the repo root can be checked: a credit line
+# drawn from a session scratch folder marks it "session scratch; not retained"
+# rather than naming the path, so there is nothing here to resolve. The
+# separate `test_credits_clean` keeps absolute machine paths out of every
+# credits file under art/source/.
 REPO_REF = re.compile(r"^(?:art|worlds)/")
 
 
