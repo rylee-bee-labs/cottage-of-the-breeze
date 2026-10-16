@@ -1,5 +1,6 @@
 ---
 title: The Burnt Tavern's Tab
+status: draft
 found: resident
 speaker: keeper
 region: tavern

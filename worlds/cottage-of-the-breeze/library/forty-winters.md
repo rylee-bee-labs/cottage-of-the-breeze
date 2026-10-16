@@ -1,5 +1,6 @@
 ---
 title: Forty Winters
+status: draft
 found: map
 place: near-up
 region: cellar-0-9

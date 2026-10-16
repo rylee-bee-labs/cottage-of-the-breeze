@@ -1,5 +1,6 @@
 ---
 title: The Old Mushroom
+status: draft
 found: map
 place: near-up
 region: cellar-0-7

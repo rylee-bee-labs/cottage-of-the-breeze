@@ -1,5 +1,6 @@
 ---
 title: A Note Left at the Door
+status: draft
 found: map
 at: [6, 6]
 region: town

@@ -1,5 +1,6 @@
 ---
 title: The Pale Moth
+status: draft
 found: map
 place: near-up
 region: cellar-0-5
