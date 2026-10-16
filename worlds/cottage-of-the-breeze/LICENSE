@@ -36,11 +36,13 @@ writing is CC0. The CC0 fragments, each byte-identical to `cab23dd`, are:
 | `world-tree.md` | the `## The World Tree` heading |
 
 Everything else in this pack — story, residents and their lines,
-`logbok.md`, the books in `library/`, lore, contract templates, maps, and
-every picture under `assets/`, `sprites/`, `props/`, `tiles/` and `skins/` —
-is © 2026 Rylee Hulgan, all rights reserved. One file,
-`library/writing-a-book.md`, is engine how-to text of unestablished licence
-and is recorded as unknown.
+`logbok.md`, the books in `library/` (except the one file below), lore,
+contract templates, maps, and every picture under `assets/`, `sprites/`,
+`props/`, `tiles/` and `skins/` — is © 2026 Rylee Hulgan, all rights reserved.
+
+One file is excepted from both statements: `library/writing-a-book.md` is
+engine how-to text whose origin is not established. Its licence is recorded
+as unknown, neither CC0 nor reserved here, until its source is settled.
 
 File-by-file evidence: `docs/research/2026-10-16-license-provenance.md`.
 
