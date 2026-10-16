@@ -96,3 +96,7 @@ pack. What is generated on this tree, and the refresh command:
   open issue.
 - Decisions Rylee made are recorded in `NOTES.md`, her words quoted.
 - `.project/CURRENT.md` names the stage and the one next step accurately.
+
+## Play-Nice pin and verification
+
+The [adoption manifest](.project/contracts/adoption.yaml) pins the common behavioral floor and applicable contracts. Read the [shared floor](https://github.com/rylee-bee-labs/play-nice-contracts/blob/main/contracts/everyone/FLOOR.md) and applicable packs before consequential changes. [Freshness CI](.github/workflows/contract-freshness.yml) checks the pin, **not** source test, human acceptance or deployment. `playnice check .` requires a verified Play-Nice checkout and supplies separate evidence for any eventual badge; do not claim its result without running it. Repo-local permissions, game canon, security and release gates remain in force.
