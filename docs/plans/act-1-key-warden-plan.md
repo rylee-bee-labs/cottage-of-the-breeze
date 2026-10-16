@@ -127,8 +127,8 @@ two honest homes and both cost something:
   nobody has played yet.
 
 (b) is the shape the decision describes more faithfully. (a) is the smaller
-step and needs no new words. **This plan does not pick between them**: the
-answer decides whose words end Act 1, which is Rylee's alone. Everything in §4
+step and needs no new words. **Rylee chose (b) Re-cut, 2026-10-16** (recorded on #173): Act 1 ends on a new Key Warden note, the King's
+two notes move to Act 3, and the new note goes through the canon review before it ships. Everything in §4
 except the last bullet is safe to build under either.
 
 ## 6. Saves
