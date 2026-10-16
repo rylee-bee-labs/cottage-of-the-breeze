@@ -25,6 +25,12 @@ Rylee's final expedition-persistence direction: **"Keep and it moves on."** Earn
 The active release roadmap is `docs/plans/release-1-0/ROADMAP.md` (five evidence gates, Gate 0 active). GitHub: Cottage #168 (owner choices), VEFR #489 (generic engine dependency), and release roadmap PR #169. The old one-Section release plan is a historical intermediate target, not the new 1.0 finish line. This entry **does not approve changes to `docs/story/STORY.md` or any existing player-facing words.**
 
 
+## 2026-10-16 — the tutorial's walking line names the joystick (approved by Rylee, cottage#158)
+
+Rylee chose option a, one universal line, so no engine change is needed. Tutorial `say` (`tutorial-begin`), first sentence only:
+- was: "Walk with the arrow keys or W A S D."
+- now: "Walk with the arrow keys, W A S D, or the joystick."
+
 ## 2026-10-14 — the first hint names the corner and the key on the button (agent; approved by Rylee)
 
 AI explorers (VEFR's Agent Player Lab, 16 runs) swept all four corners of the kitchen in 6 runs. The 150-decision run never found the stair. They also kept testing E against the F shown on every big button. The stair is at `[1,1]` of the cottage, the top left, beside "the kitchen corner, where you make tea" at `[2,1]`.

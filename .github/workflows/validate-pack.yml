@@ -84,3 +84,8 @@ jobs:
       # Stdlib-only and a second over the library; no VEFR checkout needed.
       - name: Assert every chest drop resolves to a real item
         run: python3 tests/assert_chest_drops.py
+
+      # The tutorial's walking line is preserved text with Rylee's wording
+      # (cottage#158); this keeps it naming the joystick for phone players.
+      - name: Assert the tutorial walking line
+        run: python3 tests/assert_tutorial_line.py
