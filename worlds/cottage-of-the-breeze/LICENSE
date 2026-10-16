@@ -11,3 +11,40 @@ domain under [Creative Commons CC0 1.0 Universal](https://creativecommons.org/pu
 You can copy, modify, distribute, and use it for any purpose. Where
 practical, attribution to "vefr sample-world (Emberfield), by Rylee
 Hulgan" is appreciated but not required.
+
+## What this grant covers in this pack
+
+Added 2026-10-16 (cottage-of-the-breeze#175). The grant above is the
+Emberfield one, carried over with the scaffold and unchanged. It describes
+the sample world; this file was copied into this pack at `cab23dd` and
+renamed to `worlds/cottage-of-the-breeze/`.
+
+Only Emberfield scaffold text still present in this pack is CC0. Every path
+the grant names — `world.json`, `map.md`, `voices/`, `lore/`, contracts,
+"any prose or JSON" — now also holds Cottage's own writing, and none of that
+writing is CC0. The CC0 fragments, each byte-identical to `cab23dd`, are:
+
+| File | The CC0 fragment |
+| --- | --- |
+| `LICENSE` | this file's own CC0 grant (the notice itself) |
+| `world.json` | `phases.*`, `surface`, `voices.keeper.strike`, `bonds.*.card`, `bonds.*.prompt`, `bond_draw`, `forge_texture` |
+| `acts/act-1/world.json` | `id`, `regions`, `speakers.keeper.voice_file`, empty `enemies` / `bosses` |
+| `acts/act-1/town/contract.json` | `tile`, `bg`, `hero_color`, `speaker_color`, `speaker_head`, `sanctuary_tiles`, `water_by_phase` |
+| `ledger.md` | the four-line header |
+| `voices/keeper.fragments.md` | lines 2–5 of the preamble |
+| `voices/keeper.md`, `acts/act-1/town/voices/keeper.md` | `- No modern words. Never explain. Show only.` |
+| `world-tree.md` | the `## The World Tree` heading |
+
+Everything else in this pack — story, residents and their lines,
+`logbok.md`, the books in `library/` (except the one file below), lore,
+contract templates, maps, and every picture under `assets/`, `sprites/`,
+`props/`, `tiles/` and `skins/` — is © 2026 Rylee Hulgan, all rights reserved.
+
+One file is excepted from both statements: `library/writing-a-book.md` is
+engine how-to text whose origin is not established. Its licence is recorded
+as unknown, neither CC0 nor reserved here, until its source is settled.
+
+File-by-file evidence: `docs/research/2026-10-16-license-provenance.md`.
+
+This section withdraws nothing. The CC0 dedication above stands for the
+scaffold text; it only says which text that is.
