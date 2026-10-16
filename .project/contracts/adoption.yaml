@@ -1,0 +1,33 @@
+schema: play-nice/adoption-v1
+project: cottage-of-the-breeze
+source:
+  repository: rylee-bee-labs/play-nice-contracts
+  revision: 6669c019412ab8d1d0d9e72b88087dc87c37d145
+freshness:
+  policy: require-current
+  ref: main
+  update: review
+always:
+  - truth-and-evidence
+  - ask-for-help
+  - human-reliability
+  - recovery-and-history
+  - status-and-state
+  - ownership-and-portability
+  - testing-and-evidence
+triggers:
+  agent:
+    - agent-behavior
+    - bounded-work
+    - handoff-and-continuity
+    - contract-proof
+  engineering:
+    - testing-and-evidence
+    - git-and-worktrees
+    - search-before-building
+  human-facing:
+    - accessibility
+    - attention-and-quiet
+    - plain-language
+notes: >-
+  The release plan, VEFR engine pin, gameplay canon and physical-phone acceptance remain governed by this game; this adoption alone does not authorize a new release.
