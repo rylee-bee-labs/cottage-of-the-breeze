@@ -29,6 +29,10 @@ Regenerate the mocks:
 
 ```sh
 uv run --offline --with pillow art/tools/mock_skin.py \
-    ../../worlds/cottage-of-the-breeze/skins/parchment-and-wood \
+    ../parchment-and-wood \
     mock-look-phone.png --size phone
 ```
+
+(The skin folder was the pack's copy while the parchment theme shipped; since
+cottage#160 it is the studio copy in `art/skins/`, which is the same manifest
+and the same pictures.)
