@@ -13,9 +13,9 @@ Under the terms of:
 
 Full text: <https://creativecommons.org/licenses/by-sa/4.0/>
 
-**Exception:** `worlds/cottage-of-the-breeze/library/writing-a-book.md` is the vefr engine's own "Writing a Book"
-how-to (engine-origin text, not Cottage creative work). Like vefr's documentation it is under the **Mozilla
-Public License 2.0**, not CC BY-SA. The listed Emberfield fragments stay CC0.
+**Exception:** `worlds/cottage-of-the-breeze/library/writing-a-book.md` comes from the vefr engine's sample
+world (`vefr/worlds/sample-world/library/writing-a-book.md`), which vefr dedicates to the public domain, so it
+stays **CC0 1.0**, like the listed Emberfield fragments.
 
 
 The code and tooling are under the Mozilla Public License 2.0 (see `LICENSE`). Names and logos are not
