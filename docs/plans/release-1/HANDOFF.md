@@ -3,7 +3,7 @@
 > Release 1 is a complete, polished Act 1. Acts 2 and 3 were left for later by Rylee's decision and remain part of the game. Current state lives in `.project/CURRENT.md`; this file is the record of the night.
 
 ## Morning report (written 2026-10-04 ~01:00; the game was done and published by then)
-- **Play it:** https://gallery.hulganfamily.duckdns.org/cottage-of-the-breeze/builds/2026-10-04-26c21ee/ (build `26c21ee`, VEFR `77d8f68`-era main). Walk, E/F to interact, B for the bag, Menu for the Album and the Sound switch.
+- **Play it:** the studio gallery's build 2026-10-04-26c21ee (home network only) (build `26c21ee`, VEFR `77d8f68`-era main). Walk, E/F to interact, B for the bag, Menu for the Album and the Sound switch.
 - **What it is now:** a complete act 1. Cottage, town, tavern, six floors; three sleeping Keybearers (moth, mushroom elder, beetle) each carry a key to the next stair; the Cellar King carries the crown seal; the sealed door opens a room with gems, a note and a way home; reading the note ends the act with an end card. Eight unique cast monsters, seven pieces of gear (Codex art), a 25-sticker album, nine soft synthesized sounds, a hero who walks in four directions, tutorial lines and an About book.
 - **VEFR gained (all merged, tests first):** `complete-act` (#252), lock reachability in `vefr check` (#253), the album (#254), up-stairs label fix (#255), docs (#256), sound (#257), walk sheets (#258).
 - **Checks run:** VEFR full suite 1682 passed; Cottage art tests 121 pass; `vefr check` and `norns validate` ok; a keyboard-only bot plays cottage to ending and home on desktop (1280) and phone (390), 34 checks, 0 console errors; axe-core 0 violations on the play screen, seven menu panels and the end card.

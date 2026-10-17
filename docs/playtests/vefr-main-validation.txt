@@ -12,7 +12,7 @@ Output (stdout and stderr, verbatim and untrimmed; the first ok line is
 built when this capture was taken, so the one-time dependency resolution lines
 of a first run do not appear):
 
-ok: /var/home/agent/worktrees/offload/cottage-of-the-breeze-vefr-main-validation-20261008-195452-1561/worlds/cottage-of-the-breeze - geometry, reachability, voices all pass
-ok: /var/home/agent/worktrees/offload/cottage-of-the-breeze-vefr-main-validation-20261008-195452-1561/worlds/cottage-of-the-breeze - geometry, reachability, voices all pass
+ok: <worker-clone>/cottage-of-the-breeze-vefr-main-validation-20261008-195452-1561/worlds/cottage-of-the-breeze - geometry, reachability, voices all pass
+ok: <worker-clone>/cottage-of-the-breeze-vefr-main-validation-20261008-195452-1561/worlds/cottage-of-the-breeze - geometry, reachability, voices all pass
 
 Exit status: 0
