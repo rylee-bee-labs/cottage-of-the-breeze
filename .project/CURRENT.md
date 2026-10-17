@@ -84,7 +84,7 @@ Say **UNKNOWN** rather than guessing any of these.
   [`docs/plans/release-1-0/DRAFT-TEXT.md`](../docs/plans/release-1-0/DRAFT-TEXT.md));
   voice prompts, whispers, `world.json` lines and Section labels are the same
   unapproved words in formats with no place to put the mark yet.
-- **Licence and audience.** `LICENSE.md` is all rights reserved; who the
+- **Licence and audience.** `LICENSE` is MPL-2.0 for code; creative content is CC BY-SA 4.0 (`LICENSE-CONTENT.md`), chosen by Rylee 2026-10-17; who the
   release is for and where the file lives are Rylee's to decide.
 
 ## Resume

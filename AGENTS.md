@@ -85,7 +85,7 @@ pack. What is generated on this tree, and the refresh command:
 ## Needs Rylee's approval here
 
 - Anything that becomes canon: story, names, characters, found books, endings.
-- Choosing a license or making the repo/game public (see `LICENSE.md`).
+- Changing the license (MPL-2.0 code + CC BY-SA 4.0 content, chosen 2026-10-17: see `LICENSE`, `LICENSE-CONTENT.md`) or the repo's visibility.
 - Adding third-party content that is not CC0 or otherwise cleared.
 - General gates (deploys, force-push, mass deletion): see the constitution.
 

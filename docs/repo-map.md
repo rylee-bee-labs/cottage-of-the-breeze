@@ -26,7 +26,7 @@ engine checkout, not about this repo — those are UNKNOWN from here.
 | `worlds/cottage-of-the-breeze/skins/` | **gone 2026-10-16** (cottage#160: Rylee removed the parchment theme; the pack no longer declares `"skin"` and ships the dark `display.look` only). The interface pictures themselves are still in `art/skins/parchment-and-wood/` as the studio record | read the decision in `NOTES.md` | `ls worlds/cottage-of-the-breeze/skins/` fails |
 | `worlds/cottage-of-the-breeze/LICENSE` | CC0 terms for the Emberfield scaffold content | before reusing scaffold content | `cat worlds/cottage-of-the-breeze/LICENSE` |
 | `art/` | `source/` (originals + prompts, by round), `skins/` (raw UI textures + mock renders), `mood/` (**empty** — `.gitkeep` only), `briefs/` (per-batch art briefs), `tools/` + `tests/` (the skin pipeline and its unit tests), `STYLE.md` | for art work | `ls art/` |
-| `LICENSE.md` | all rights reserved, except the CC0 scaffold | before adding third-party content | `cat LICENSE.md` |
+| `LICENSE`, `LICENSE-CONTENT.md`, `TRADEMARKS.md` | MPL-2.0 code; CC BY-SA 4.0 story and art; names not licensed (CC0 scaffold fragments excepted) | before adding third-party content | `cat LICENSE-CONTENT.md` |
 | `bin/publish-build.sh` | weaves the pack into one HTML file and posts it to the dev gallery | after a merge | `head -30 bin/publish-build.sh` |
 | `tests/` | `assert_chest_drops.py` (runs on every PR), `playthrough/` (the headless bot that plays the pack) | when you touch drops, routes, maps or props | `ls tests/` |
 | `.github/workflows/` | `validate-pack.yml` (pinned VEFR validation + the chest-drop assertion), `secret-scan.yml` | read, don't edit | `ls .github/workflows/` |
