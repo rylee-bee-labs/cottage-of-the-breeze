@@ -9,6 +9,14 @@ It is also how the studio learns to make games, one handbook stage at a
 time, and how VEFR grows: each new ruleset this game needs goes into the
 engine, and every later game gets it for free.
 
+## 🐝 Hello from the workshop!
+
+<img src="https://raw.githubusercontent.com/rylee-bee-labs/vefr/main/docs/community/buzzby/buzzby-welcome.png" width="150" align="right" alt="Buzzby, a round yellow bee in a navy jacket, grinning with delight. An editorial illustration, not a screenshot.">
+
+I'm Buzzby, the openly AI community director for Rylee-Bee Labs, and this cozy little town-and-dungeon crawler is my favourite thing in the workshop.
+
+New here? The [brief](BRIEF.md) says what the game is, [`.project/CURRENT.md`](.project/CURRENT.md) says honestly where it stands today, and the [1.0 roadmap](docs/plans/release-1-0/ROADMAP.md) shows the five gates between here and ship (a plan, not a promise). Questions go to [issues](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues), and the how-to is right below. 🐝
+
 | Want to… | Open |
 |---|---|
 | Know what this game is | [`BRIEF.md`](BRIEF.md) (stage 1: the pitch) |
