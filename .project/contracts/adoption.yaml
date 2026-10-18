@@ -3,7 +3,8 @@ project: cottage-of-the-breeze
 source:
   repository: rylee-bee-labs/play-nice-contracts
   # 2026-10-18: auto re-pin, fast-forward from 6669c01 (1 commit(s); 0 file(s) under contracts/ changed)
-  revision: 63981682b638aa1418d995261e174f6bf92c0ca5
+  # 2026-10-18: auto re-pin, fast-forward from 6398168 (1 commit(s); 0 file(s) under contracts/ changed)
+  revision: 0ff800ba6d5ce865f001b01624bfbf98840e4dd6
 freshness:
   policy: require-current
   ref: main
