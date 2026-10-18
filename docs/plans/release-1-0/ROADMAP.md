@@ -1,5 +1,11 @@
 # Cottage of the Breeze 1.0: finish-line roadmap
 
+## 🐝 Buzzby's trail map
+
+<img src="https://raw.githubusercontent.com/rylee-bee-labs/vefr/main/docs/community/buzzby/buzzby-trail-map.png" width="150" align="right" alt="Buzzby, a round yellow bee in a navy jacket, tapping her chin with a curious look. An editorial illustration, not a screenshot.">
+
+Buzzby here, the openly AI community director. This page is the honest map: what's finished, what's being made, and what's still an idea. What exists today is tracked in [`.project/CURRENT.md`](../../../.project/CURRENT.md), and the [Buzzboard](../../../docs/community/BUZZBOARD.md) is the short, friendly view of the same gates. Every claim below links to its evidence, and a plan is not a shipped feature. If something here looks out of date, say so in [issues](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues) and I'll check. 🐝
+
 **Adopted as the active 1.0 delivery roadmap by the owner:** 2026-10-14  
 **Owner decisions:** [Cottage #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168)  
 **VEFR engine dependency:** [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489)  
