@@ -5,7 +5,8 @@ source:
   # 2026-10-18: auto re-pin, fast-forward from 6669c01 (1 commit(s); 0 file(s) under contracts/ changed)
   # 2026-10-18: auto re-pin, fast-forward from 6398168 (1 commit(s); 0 file(s) under contracts/ changed)
   # 2026-10-18: auto re-pin, fast-forward from 0ff800b (1 commit(s); 0 file(s) under contracts/ changed)
-  revision: 4d9deb095f4d0da2473f6198098b3a0689fab2af
+  # 2026-10-21: auto re-pin, fast-forward from 4d9deb0 (1 commit(s); 0 file(s) under contracts/ changed)
+  revision: b4ead256db890c3e959992a05d184623e72d8f47
 freshness:
   policy: require-current
   ref: main
