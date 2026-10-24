@@ -155,7 +155,8 @@ else:
             sprite = items[carries].get("sprite")
             if not sprite or sprite not in sprites:
                 bad.append(f"sections/cellar.json: {carries!r} has no sprite in player.sprites")
-            elif not (pack / "sprites" / f"{sprite}.png").is_file():
+            # world.json:59 maps gems to sprites/gems.webp, the engine-loaded path.
+            elif not (pack / "sprites" / f"{sprite}.webp").is_file():
                 bad.append(f"sections/cellar.json: {carries!r} sprite {sprite!r} has no file")
 
 print(f"rules checked: {len(rules)}")
