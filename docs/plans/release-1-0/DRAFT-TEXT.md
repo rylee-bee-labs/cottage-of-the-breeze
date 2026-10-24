@@ -21,7 +21,8 @@ here may be flipped to `approved` without Rylee signing off on that exact text
 
 Every book and note in `worlds/cottage-of-the-breeze/library/` now carries
 `status: draft` in its front matter, next to `title`. Fourteen files, the whole
-of the library:
+of the library (it held thirteen before the Key Warden's challenge added one),
+and the two notes parked in `act-3/` carry the same mark:
 
 | Path | Player finds it as |
 | --- | --- |
@@ -38,12 +39,19 @@ of the library:
 | `worlds/cottage-of-the-breeze/library/the-burnt-taverns-tab.md` | resident book, keeper |
 | `worlds/cottage-of-the-breeze/library/the-old-mushroom.md` | note, cellar floor 7 |
 | `worlds/cottage-of-the-breeze/library/the-pale-moth.md` | note, cellar floor 5 |
+| `worlds/cottage-of-the-breeze/library/the-rule-the-warden-keeps.md` | note, cellar floor 8; the Key Warden's rule |
 | `worlds/cottage-of-the-breeze/library/the-stag-beetle.md` | note, cellar floor 8 |
 | `worlds/cottage-of-the-breeze/library/writing-a-book.md` | book, no `found` (a shelf book) |
 
 New draft text in `a-note-for-the-next-one-down.md` was supplied verbatim by
 Rylee in cottage#173 on 2026-10-24. The sticker `next-one-down` and its name
 in `world.json` are new draft words introduced for this ending.
+
+`the-rule-the-warden-keeps.md` and the new line `world.json` speaks when it
+is read are new draft words introduced with the Key Warden's challenge (the
+challenge the owner put before the ending note on 2026-10-24). The rule the
+warden keeps — "You do not take what is kept." — is the owner's recorded
+design intent for that challenge; the words around it are an agent's.
 
 The library is where the engine reads a text record's own metadata, so this is
 where `status: draft` is a fact the release check can read rather than a
@@ -106,6 +114,6 @@ a VEFR checkout, which a bare worker worktree does not have.
 ## What a real release check still needs
 
 Confirm on a host with the engine that `vefr check --release` lists these
-fourteen drafts, and that promoting one book to an approved status is what
+sixteen drafts, and that promoting one book to an approved status is what
 makes it leave that list. Until that run exists, this inventory and the test
 are the evidence; the engine's own report is the host's to produce.

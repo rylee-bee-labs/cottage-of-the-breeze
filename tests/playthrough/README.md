@@ -17,9 +17,11 @@ Run from a VEFR checkout whose venv has Playwright (`--viewport phone` = 390x844
 
 cottage (the cat, the little cloth book) → town (its two notes) → the tile
 `world.json` → `descent.entry` names → **every floor of the Section the act
-ends in**, opening every book the pack puts on the way → the Cellar King on
-the last floor, who yields his seal → the vault there, whose note ends the
-act → back up to town, which must now load its after-the-cellar state → a
+ends in**, opening every book the pack puts on the way → the Key Warden on
+the last floor, whose challenge comes first: keeping the rule it keeps sets
+its flag, and that flag is what puts the gems it carries in the bag → the
+vault there, whose note ends the act → back up to town, which must now load
+its after-the-cellar state → a
 reload → the menu's Start
 over → a fight on the way down.
 
@@ -49,10 +51,11 @@ still proved. `--monsters` walks the whole descent with them in place.
 the entry tile has exactly one way down and it is the descent; every floor
 of the act's Section is walked, and each one's far end is inside the
 explored map the descent itself saved; every book the pack places on the
-route can be found and read; the Cellar King yields his seal into the bag;
-the vault's note ends the act — end card once, focus on Keep exploring,
-gone after Interact, gone after a reload; the vault chest drops its
-treasure into the bag; the town after the cellar is loaded; Start over
+route can be found and read; the Key Warden's challenge sets its flag on the
+warden's floor and the gems it carries are in the bag before the ending note
+is read; the vault's note ends the act — end card once, focus on Keep
+exploring, gone after Interact, gone after a reload; the vault chest drops
+its treasure into the bag; the town after the cellar is loaded; Start over
 asks first and Cancel clears nothing; each resident who hands over a book
 gives it and it can be read; every album sticker the route can be sure of is
 found (a sticker whose item only a descent family drops is a chance drop, or

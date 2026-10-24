@@ -316,6 +316,12 @@
           "what": "a-note-for-the-next-one-down"
         }
       },
+      "if": [
+        {
+          "flag": "warden:key-warden:c0",
+          "is": true
+        }
+      ],
       "once": true,
       "then": [
         {
@@ -525,13 +531,16 @@
       ]
     },
     {
-      "id": "key-warden-yields",
+      "id": "key-warden-challenge",
       "when": {
         "reads": {
-          "what": "a-note-for-the-next-one-down"
+          "what": "the-rule-the-warden-keeps"
         }
       },
       "then": [
+        {
+          "say": "You do not take what is kept."
+        },
         {
           "set": "warden:key-warden:c0"
         },

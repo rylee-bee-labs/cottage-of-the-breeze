@@ -13,14 +13,17 @@ here; reusable engine capability lives in VEFR.
 
 - **The way down is in the cottage kitchen**, `cottage [1,1]` (`world.json` →
   `descent.entry`; cottage#142). The town has no stair.
-- **The descent** is four Sections, nine floors each: `cellar`, `rootworks`,
-  `siltworks`, `emberhall` (`sections/*.json`). The pattern ends each one in a
+- **The descent** is four Sections: `cellar` is eight floors, the other
+  three nine each: `rootworks`, `siltworks`, `emberhall`
+  (`sections/*.json`). The pattern ends each one in a
   warden floor, and the landing on floor 5 records a way back.
   Each Section scatters its own decals (cobwebs, torches, puddles, cracks)
   over its floors through `decor` (vefr#442).
-- **The Cellar King yields** (cottage#143). The cellar's warden is a `rule`
-  challenge, not a fight. He gives `crown-seal` and sleeps.
-- **The vault on `cellar-0-9`** holds the seal note. Reading it fires
+- **The Key Warden yields** (cottage#173). The cellar's warden is a `rule`
+  challenge, not a fight. The challenge comes first: the hero keeps the
+  rule the warden keeps, which sets `warden:key-warden:c0`, and that flag
+  is what awards the `cellar-gems` the warden carries.
+- **The vault on `cellar-0-8`** holds the ending note. Reading it fires
   `complete-act` and sets `act-1-complete`, which is also the descent's
   `story_end`, so the stair past the cellar opens only after it.
 - **The town changes once:** `town_states` loads `town-after-the-cellar` (the
