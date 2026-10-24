@@ -1,7 +1,6 @@
 ---
 title: Forty Winters
 status: draft
-place: near-up
 region: act-3-unplaced
 kind: note
 ---

@@ -1,7 +1,6 @@
 ---
 title: A Note for the Next One Down
 status: draft
-place: near-up
 region: cellar-0-8
 chest: yes
 drops: cellar-gems

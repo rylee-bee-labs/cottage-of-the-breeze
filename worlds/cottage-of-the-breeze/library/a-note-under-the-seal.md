@@ -1,7 +1,6 @@
 ---
 title: A Note Under the Seal
 status: draft
-place: near-up
 region: act-3-unplaced
 chest: yes
 drops: cellar-gems
