@@ -195,7 +195,7 @@
     "cellar-gems": {
       "name": "a handful of cellar gems",
       "sprite": "gems",
-      "keep": true
+      "value": 120
     },
     "crown-seal": {
       "name": "the Cellar King's wax seal",
