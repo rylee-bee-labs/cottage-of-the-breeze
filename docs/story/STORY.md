@@ -102,17 +102,16 @@ put a shelf here once. You are not far below the kitchen you had tea in. It is t
 gentlest place in the game and the first one you are not afraid of. Danger is barely
 a word down here. Rats, moths, a spider in a good corner.
 
-**The guardian.** The **Cellar King** — a very large crowned rat who has been holding
-a stair shut with a seal for forty years. It is not clever and
-it is not cruel. It is doing a job someone gave it a long time ago and it is tired.
+**The guardian.** The **Key Warden** guards Section 1. It keeps the rule: “You do not
+take what is kept.” Its note ends Act 1. The Cellar King and his two notes belong to
+Act 3; the notes are preserved and parked until that Act has a location.
 
-**The vault.** A ring of old red wax, a small chest, and a note folded on top of the
-gems. The note is already written and already in the pack, at
-`worlds/cottage-of-the-breeze/library/a-note-under-the-seal.md`. Its text is
-unchanged, and it is not restated here; read it there.
+**The chest.** A chest near the Key Warden holds the note that ends Act 1,
+`worlds/cottage-of-the-breeze/library/a-note-for-the-next-one-down.md`. It is draft
+text supplied by Rylee for this Re-cut.
 
-Reading that note is what completes the first act; the `the-seal-note-read` rule in
-`world.json` is the game's record of it, and that rule is unchanged too.
+Reading that note completes the first act; the `the-seal-note-read` rule in
+`world.json` uses the existing narrator line.
 
 Also down here, already in the pack: the letter in the chest, tied with thread, signed
 with a name you don't know. It lives at
@@ -136,23 +135,8 @@ one is asleep. Each one is holding something small and important. **This is the 
 of the whole descent: not a gauntlet, a household. Nobody down here wants anything
 from you.**
 
-**But read the seal note again at the bottom and it does.** In here it sounds like
-someone who knows. At the end it will read like someone who has been down this whole
-time, saying the only true thing they can, in the dark. That is the cellar's whole
-job: it states the thesis in a dead voice, before you know a single name.
-
-**The note and the fire.** The note says the town *put* a fire over the room and a
-seal over the fire. Read that again and it says something plain: that is the banking,
-in the bank's own words. The town deliberately banked its hearth over the sealed
-passage to the travellers' room, in the winter, on purpose, to keep people warm
-through a severe one.
-
-**The Breeze burned later, by accident. Nobody set it.** No arson, no villain
-standing in the snow, no second meeting. That fire is the same
-banked fire, left a little too long untended in a building nobody was using, in a
-town that had stopped talking about why. **Deliberate banking, accidental burning** —
-two events some winters apart, not one contradiction. The note stands word for word,
-and it is simply true.
+The Key Warden's note carries the Section 1 ending. The Cellar King and his two
+notes belong to Act 3 and no longer end Act 1.
 
 ### Section 2 — The Long Well
 
@@ -467,11 +451,13 @@ uses one, it uses the text that is already there and never a new version of it.
 
 | File | What it is |
 | --- | --- |
-| `worlds/cottage-of-the-breeze/library/a-note-under-the-seal.md` | the cellar vault note; it is the seal note, and it is true as it stands |
+| `worlds/cottage-of-the-breeze/library/a-note-for-the-next-one-down.md` | the draft note ending Act 1 |
+| `worlds/cottage-of-the-breeze/library/a-note-under-the-seal.md` | preserved and parked for Act 3 |
+| `worlds/cottage-of-the-breeze/library/forty-winters.md` | preserved and parked for Act 3 |
 | `worlds/cottage-of-the-breeze/library/a-letter-in-a-chest.md` | the letter in the cellar chest; Oren's letter to the keeper |
 | `worlds/cottage-of-the-breeze/voices/keeper.md` | the Spell Keeper's voice, including the line about the letter — unchanged, and true: the letter's last line is a message to her |
 | `worlds/cottage-of-the-breeze/acts/act-1/cottage/voices/hearth-cat.md` | the Hearth Cat's voice |
-| `worlds/cottage-of-the-breeze/world.json` | the `the-seal-note-read` rule, the game's record of reading the seal note |
+| `worlds/cottage-of-the-breeze/world.json` | the `the-seal-note-read` rule, the game's record of reading the Act 1 ending note |
 
-Every other book, note, sticker and resident line already in the pack is likewise
-preserved. Changing any of them needs Rylee, by name.
+Every other existing book, note, sticker and resident line already in the pack is
+likewise preserved. Changing any of them needs Rylee, by name.

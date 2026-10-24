@@ -1,7 +1,7 @@
 {
   "section": 1,
   "id": "cellar",
-  "floors": 9,
+  "floors": 8,
   "size": {
     "w": [
       64,
@@ -31,7 +31,7 @@
       "weight": 5,
       "depth": [
         1,
-        9
+        8
       ]
     },
     {
@@ -39,7 +39,7 @@
       "weight": 1,
       "depth": [
         1,
-        9
+        8
       ]
     },
     {
@@ -47,7 +47,7 @@
       "weight": 4,
       "depth": [
         1,
-        9
+        8
       ]
     },
     {
@@ -55,7 +55,7 @@
       "weight": 1,
       "depth": [
         4,
-        9
+        8
       ]
     }
   ],
@@ -67,7 +67,6 @@
     "landing",
     "n",
     "special",
-    "n",
     "warden"
   ],
   "specials": [
@@ -85,9 +84,9 @@
     ]
   },
   "warden": {
-    "family": "cellar-king",
-    "id": "cellar-king",
-    "carries": "crown-seal",
+    "family": "key-warden",
+    "id": "key-warden",
+    "carries": "cellar-gems",
     "challenge": "rule",
     "yields": true,
     "fightable": false

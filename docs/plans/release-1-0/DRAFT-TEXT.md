@@ -30,15 +30,20 @@ of the library:
 | `worlds/cottage-of-the-breeze/library/a-coin-face-down.md` | note, cellar floor 3 |
 | `worlds/cottage-of-the-breeze/library/a-letter-in-a-chest.md` | chest note, cellar floor 1 |
 | `worlds/cottage-of-the-breeze/library/a-note-left-at-the-door.md` | note, town map |
-| `worlds/cottage-of-the-breeze/library/a-note-under-the-seal.md` | vault note, cellar floor 9 |
+| `worlds/cottage-of-the-breeze/library/a-note-for-the-next-one-down.md` | chest note, cellar floor 8; Act 1 ending |
+| `worlds/cottage-of-the-breeze/library/a-note-under-the-seal.md` | parked for Act 3; `region: act-3-unplaced` |
 | `worlds/cottage-of-the-breeze/library/a-scrap-in-the-dust.md` | note, cellar floor 1 |
 | `worlds/cottage-of-the-breeze/library/about-this-game.md` | book, cottage shelf |
-| `worlds/cottage-of-the-breeze/library/forty-winters.md` | note, cellar floor 9 |
+| `worlds/cottage-of-the-breeze/library/forty-winters.md` | parked for Act 3; `region: act-3-unplaced` |
 | `worlds/cottage-of-the-breeze/library/the-burnt-taverns-tab.md` | resident book, keeper |
 | `worlds/cottage-of-the-breeze/library/the-old-mushroom.md` | note, cellar floor 7 |
 | `worlds/cottage-of-the-breeze/library/the-pale-moth.md` | note, cellar floor 5 |
 | `worlds/cottage-of-the-breeze/library/the-stag-beetle.md` | note, cellar floor 8 |
 | `worlds/cottage-of-the-breeze/library/writing-a-book.md` | book, no `found` (a shelf book) |
+
+New draft text in `a-note-for-the-next-one-down.md` was supplied verbatim by
+Rylee in cottage#173 on 2026-10-24. The sticker `next-one-down` and its name
+in `world.json` are new draft words introduced for this ending.
 
 The library is where the engine reads a text record's own metadata, so this is
 where `status: draft` is a fact the release check can read rather than a
