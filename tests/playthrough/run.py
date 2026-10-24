@@ -1114,16 +1114,16 @@ class Bot:
                 f"the act ends on {ending!r}, which is not on the last floor "
                 f"({region}) of the last Section"
             )
-        # The King yields when his tally (forty-winters, by the up stair) is read, which the walk down
-        # already did; a yielded warden is no longer a foe, so he is looked for, never required.
+        # The Key Warden yields when the ending note is read; a yielded warden
+        # is no longer a foe, so it is looked for, never required.
         foes = [e["id"] for e in self.state()["combat"]["enemies"]]
-        if "cellar-king" in foes:
-            self.navigate_to(region, *self.tile_beside(region, "cellar-king"))
+        if "key-warden" in foes:
+            self.navigate_to(region, *self.tile_beside(region, "key-warden"))
         bag = self.state()["combat"]["bag"]
         self.check(
-            "the Cellar King yields: his wax seal is in the bag",
-            "crown-seal" in bag,
-            f"bag has crown-seal={'crown-seal' in bag}; foes on {region}={foes}",
+            "the Key Warden yields: cellar gems are in the bag",
+            "cellar-gems" in bag,
+            f"bag has cellar-gems={'cellar-gems' in bag}; foes on {region}={foes}",
         )
         before = bag
         self.navigate_to(region, book["at"][0], book["at"][1])

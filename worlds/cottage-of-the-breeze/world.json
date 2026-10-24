@@ -261,8 +261,8 @@
   "flags": {
     "read-the-letter": "The hero has read the letter from the chest on the first cellar floor.",
     "keeper-came-back": "The Spell Keeper has seen the letter, and kept a cake back.",
-    "act-1-complete": "the note under the Cellar King's seal has been read",
-    "warden:cellar-king:c0": "the Cellar King has given up his seal (Section 1, first pass)"
+    "act-1-complete": "the Key Warden's note ending Act 1 has been read",
+    "warden:key-warden:c0": "the Key Warden has given what it gives (Section 1, first pass)"
   },
   "rules": [
     {
@@ -313,7 +313,7 @@
       "id": "the-seal-note-read",
       "when": {
         "reads": {
-          "what": "a-note-under-the-seal"
+          "what": "a-note-for-the-next-one-down"
         }
       },
       "once": true,
@@ -525,21 +525,18 @@
       ]
     },
     {
-      "id": "cellar-king-yields",
+      "id": "key-warden-yields",
       "when": {
         "reads": {
-          "what": "forty-winters"
+          "what": "a-note-for-the-next-one-down"
         }
       },
       "then": [
         {
-          "say": "Further in, something very large lifts its head from the warm stone. \"Forty winters I have sat on this. Somebody told me to, and I never heard them say stop. Here. You hold it a while.\""
+          "set": "warden:key-warden:c0"
         },
         {
-          "set": "warden:cellar-king:c0"
-        },
-        {
-          "say": "The great crowned rat sets the wax seal down, curls up again, and is asleep before the echo stops."
+          "say": "It gives you what it gives."
         }
       ],
       "once": true
@@ -631,26 +628,15 @@
       "riddle": "Someone kept a promise about cakes."
     },
     {
-      "id": "the-seal",
-      "name": "A crown in red wax",
+      "id": "next-one-down",
+      "name": "A note for the next one down",
       "kind": "riddle",
       "when": {
         "reads": {
-          "what": "forty-winters"
+          "what": "a-note-for-the-next-one-down"
         }
       },
-      "riddle": "A door on the deepest floor has been waiting for a very particular key."
-    },
-    {
-      "id": "the-warm-page",
-      "name": "The warm page",
-      "kind": "riddle",
-      "when": {
-        "reads": {
-          "what": "a-note-under-the-seal"
-        }
-      },
-      "riddle": "The last note is still a little warm."
+      "riddle": "You are further down than I got."
     },
     {
       "id": "cat-notices",
