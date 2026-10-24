@@ -137,6 +137,17 @@
         "sight": 0
       }
     },
+    "key-warden": {
+      "extends": "cellar-rat",
+      "defaults": {
+        "name": "the Key Warden",
+        "sprite": "cellar-king",
+        "hp": 36,
+        "atk": 0,
+        "xp": 0,
+        "sight": 0
+      }
+    },
     "flowerpot-toad": {
       "extends": "cellar-rat",
       "defaults": {
@@ -347,7 +358,7 @@
   "regions": {},
   "things": [
     {"id": "cellar-gems", "name": "a handful of cellar gems",
-     "sprite": "gems", "value": 120},
+     "sprite": "gems", "keep": true},
     {"id": "crown-seal", "name": "the Cellar King's wax seal",
      "sprite": "seal-crown", "keep": true}
   ]

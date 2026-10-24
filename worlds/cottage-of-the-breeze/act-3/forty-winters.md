@@ -1,9 +1,7 @@
 ---
 title: Forty Winters
 status: draft
-found: map
-place: near-up
-region: cellar-0-9
+region: act-3-unplaced
 kind: note
 ---
 Tally marks, scratched into the stone at the foot of the stair.

@@ -768,6 +768,28 @@ class Bot:
                 return str(what)
         raise RouteError("no rule in the pack completes the act")
 
+    def challenge_book(self) -> str:
+        """Which book answers the warden's challenge - the pack says, not a guess.
+
+        The challenge is the rule that sets a warden's flag
+        (`warden:<id>:c0`): keeping the rule the warden keeps is what sets
+        it, and the flag is what awards what the warden carries.  The
+        book that rule reads is the challenge, and the descent walk reads
+        it on the way down, before the ending.
+        """
+        for rule in self.page.evaluate("() => window.VEFR_RULES || []") or []:
+            sets = [
+                t.get("set")
+                for t in (rule.get("then") or [])
+                if isinstance(t, dict)
+            ]
+            if not any(str(s).startswith("warden:") for s in sets if s):
+                continue
+            what = ((rule.get("when") or {}).get("reads") or {}).get("what")
+            if what:
+                return str(what)
+        raise RouteError("no rule in the pack answers a warden challenge")
+
     def talk_to_nearby(self, region: str, at, who: str) -> bool:
         """Stand where a speaker is and press the Talk control.
 
@@ -1019,7 +1041,10 @@ class Bot:
                 for book in self.books_in(region):
                     # The book that ends the act is left for
                     # `read_the_vault`: reading it here would put the end
-                    # card up nine floors early and close it again.
+                    # card up eight floors early and close it again.
+                    # Everything else on the floor is read on the way, the
+                    # Key Warden's rule among it: that read is the
+                    # challenge, and it has to happen before the ending.
                     if book["id"] != ending:
                         self.open_book(region, book)
                 walked.append(region)
@@ -1103,8 +1128,14 @@ class Bot:
         Act 1's ending is the note the vault holds.  The note lived in
         `king-room`, which went with the authored floors, and was
         re-homed to the Section's `warden` floor - the chest a hero walks
-        nine floors down to reach.  The end card is the same card; only
+        eight floors down to reach.  The end card is the same card; only
         the door to it moved.
+
+        The order is the owner's (2026-10-24): the Key Warden's challenge
+        comes first - the hero reaches the warden on the last floor and
+        keeps the rule it keeps, which sets the warden's flag, and that
+        flag is what awards the gems the warden carries.  Only then is
+        the ending note read, and that read fires `complete-act`.
         """
         region = self.floor_name(last, self.section_floors(last))
         ending = self.ending_book()
@@ -1114,16 +1145,35 @@ class Bot:
                 f"the act ends on {ending!r}, which is not on the last floor "
                 f"({region}) of the last Section"
             )
-        # The King yields when his tally (forty-winters, by the up stair) is read, which the walk down
-        # already did; a yielded warden is no longer a foe, so he is looked for, never required.
+        # The challenge comes before the note: the hero reaches the Key
+        # Warden on the last floor and keeps the rule it keeps, which sets
+        # `warden:key-warden:c0` and awards the gems the warden carries.
+        # A yielded warden is no longer a foe, so it is looked for, never
+        # required.
         foes = [e["id"] for e in self.state()["combat"]["enemies"]]
-        if "cellar-king" in foes:
-            self.navigate_to(region, *self.tile_beside(region, "cellar-king"))
+        if "key-warden" in foes:
+            self.navigate_to(region, *self.tile_beside(region, "key-warden"))
+        challenge = self.challenge_book()
+        self.check(
+            f"the Key Warden's challenge is on the warden's floor ({region})",
+            any(b["id"] == challenge for b in self.books_in(region)),
+            f"the challenge is {challenge!r}, which is not on {region}",
+        )
+        flags = self.page.evaluate(
+            "() => (window.VEFR_RULES_STATE || {}).flags || {}"
+        ) or {}
+        self.check(
+            f"the Key Warden is challenged on {region} before the ending note "
+            "is read: its flag is set",
+            flags.get("warden:key-warden:c0") is True,
+            f"flags set={sorted(k for k, v in flags.items() if v is True)} "
+            f"foes on {region}={foes}",
+        )
         bag = self.state()["combat"]["bag"]
         self.check(
-            "the Cellar King yields: his wax seal is in the bag",
-            "crown-seal" in bag,
-            f"bag has crown-seal={'crown-seal' in bag}; foes on {region}={foes}",
+            "the Key Warden yields: cellar gems are in the bag",
+            "cellar-gems" in bag,
+            f"bag has cellar-gems={'cellar-gems' in bag}; foes on {region}={foes}",
         )
         before = bag
         self.navigate_to(region, book["at"][0], book["at"][1])

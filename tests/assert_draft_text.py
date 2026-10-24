@@ -9,10 +9,11 @@ decision (2026-10-16, cottage#159) was to mark the drafts rather than soften
 This is the repo-local half of that gate, in the shape of
 `assert_chest_drops.py`: stdlib only, no VEFR checkout, safe to run in CI.
 
-  1. Every book in the pack's `library/` carries `status: draft` in its front
-     matter. A missing status means a new book would ship unmarked; a status
-     other than `draft` means something wrote `approved`, which no agent may
-     do (AGENTS.md: Rylee writes the stories).
+  1. Every book in the pack's `library/` and every note parked in `act-3/`
+     carries `status: draft` in its front matter. A missing status means a
+     new book would ship unmarked; a status other than `draft` means
+     something wrote `approved`, which no agent may do (AGENTS.md: Rylee
+     writes the stories).
   2. `docs/plans/release-1-0/DRAFT-TEXT.md` names every text-bearing pack
      file, and names nothing that is not there. A book, a voice, a contract or
      a Section that joins the pack without being inventoried would otherwise
@@ -58,7 +59,14 @@ def front_matter(path):
 
 
 # 1. Every book is a marked draft, and nothing else wrote a status.
-books = sorted((pack / "library").glob("*.md")) if (pack / "library").is_dir() else []
+#    The library is what the engine loads; `act-3/` holds the notes
+#    parked for a later act.  Both carry the mark, so a parked note
+#    cannot be mistaken for approved text either.
+books = []
+for folder in ("library", "act-3"):
+    directory = pack / folder
+    if directory.is_dir():
+        books.extend(sorted(directory.glob("*.md")))
 marked = 0
 for book in books:
     fields = front_matter(book)
@@ -81,7 +89,7 @@ pack_files = {
     pack / "map.md",
     pack / "EDITS.md",
 }
-for pattern in ("library/*.md", "acts/*/world.json", "acts/*/*/contract.json",
+for pattern in ("library/*.md", "act-3/*.md", "acts/*/world.json", "acts/*/*/contract.json",
                 "acts/*/*/voices/*.md", "sections/*.json"):
     pack_files.update(pack.glob(pattern))
 

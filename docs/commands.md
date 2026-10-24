@@ -61,6 +61,22 @@ pack file exists that the inventory
 [`docs/plans/release-1-0/DRAFT-TEXT.md`](plans/release-1-0/DRAFT-TEXT.md) does
 not name. CI does not run it yet; `.github/workflows/` is read-only for agents.
 
+## Assert the Key Warden's challenge comes before the ending note
+
+The Act 1 Re-cut hung the warden's yield on the very note that ends the act;
+the owner's order (2026-10-24) is the challenge first, then the note. This
+checks that order in the pack's data. Stdlib-only, no VEFR checkout needed:
+
+```sh
+python3 tests/assert_warden_challenge.py
+```
+
+It fails if the challenge is the ending note, if the rule that ends the act
+does not ask for the warden's flag, if the challenge is read off the warden's
+floor, or if the gems the warden carries are not a real item with a real
+sprite. The playthrough bot plays the order for real; this is the half of it
+that runs without a browser.
+
 ## The art tools' own tests
 
 The tools in `art/tools/` have unit tests in `art/tests/`. Run them when you

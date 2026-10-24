@@ -2,7 +2,7 @@
 
 A stair is waiting in the corner of your kitchen, and you can't help going down it. Why?
 
-That is the question this little game asks. It has a quiet town, a tavern that is cozy but wary of you, a shopkeeper who is glad you keep going, nine cellar floors, and at the bottom a tired old Cellar King who would rather give you what he holds than fight you for it. It is one file. Open it in a browser and you're playing: no install, no account, no key.
+That is the question this little game asks. It has a quiet town, a tavern that is cozy but wary of you, a shopkeeper who is glad you keep going, eight cellar floors, and at the bottom a Key Warden that asks you for the rule it keeps, and would rather give you what it gives than fight you for it. It is one file. Open it in a browser and you're playing: no install, no account, no key.
 
 ## How to move
 
@@ -21,7 +21,7 @@ On a phone, a floating joystick walks you and one big button does whatever it sa
 
 You start in the cottage with ten gold. The stair down is right there, in the corner of your own kitchen, but the town is worth a walk first: step onto the doorway in the bottom wall and press F to go outside. Say hello to everyone you pass; people stand where they live and work, so walk around them. The Trader buys what you find and sells a few useful things, so visit before you go down.
 
-Down there it's dark and you only see a little way. Every monster you beat gives experience, and enough of it makes you stronger. On the ninth floor the Cellar King, a very large crowned rat, is waiting. Come close and he gives you his wax seal. Behind him is a little vault; read what is in it, and the way home is right there. The town will have changed a little when you get back.
+Down there it's dark and you only see a little way. Every monster you beat gives experience, and enough of it makes you stronger. On the eighth floor the Key Warden is waiting. The rule it keeps is scratched into the stone by the stair: read it, keep it, and it gives you what it gives. Behind it is a little vault; read what is in it, and the way home is right there. The town will have changed a little when you get back.
 
 Things you can collect: gear for five slots (hand, body, head, feet, charm), potions, books and notes, and an album of stickers that fills as you meet things. Nothing is ever lost or missable for good.
 

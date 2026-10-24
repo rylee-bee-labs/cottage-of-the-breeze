@@ -24,23 +24,24 @@ approved, **words are not**.
 
 ## 1. What the playable Act 1 is today
 
-All verified against this tree on 2026-10-16; the commands are in §9.
+All verified against this tree on 2026-10-24, after the Act 1 Re-cut
+(cottage#173); the commands are in §9.
 
 | Thing | Where | Fact |
 |---|---|---|
-| Act 1's descent | `world.json:817-833` (`descent`) | `run_seed: "breeze"`, entry `cottage [1,1]`, `story_end: "act-1-complete"`, four Sections: `cellar`, `rootworks`, `siltworks`, `emberhall` |
-| Act 1's own regions | `acts/act-1/world.json` | `town`, `cottage`, `tavern`, `town-after-the-cellar`; `town_states` swaps in the last on `act-1-complete` (`world.json:834-843`) |
-| Section 1's shape | `sections/cellar.json:3-71` | `floors: 9`; `pattern` is 9 entries and its last is `warden` |
-| The warden | `sections/cellar.json:87-94` | an object, not a family name: `family: cellar-king`, `id: cellar-king`, `carries: crown-seal`, `challenge: rule`, `yields: true`, `fightable: false` |
-| The Cellar King beat | `world.json:528-546` | rule `cellar-king-yields` fires on `reads forty-winters`, sets `warden:cellar-king:c0` (`world.json:265`) |
-| How Act 1 ends | `world.json:313-331` | reading `a-note-under-the-seal` sets `act-1-complete`, fires `complete-act: act-1`, shows one narrator line |
-| The ending room | `library/a-note-under-the-seal.md`, `library/forty-winters.md` | both `region: cellar-0-9`, `place: near-up`; the note is a chest that drops `cellar-gems` |
+| Act 1's descent | `world.json:812-828` (`descent`) | `run_seed: "breeze"`, entry `cottage [1,1]`, `story_end: "act-1-complete"`, four Sections: `cellar`, `rootworks`, `siltworks`, `emberhall` |
+| Act 1's own regions | `acts/act-1/world.json` | `town`, `cottage`, `tavern`, `town-after-the-cellar`; `town_states` swaps in the last on `act-1-complete` (`world.json:829-838`) |
+| Section 1's shape | `sections/cellar.json:3-71` | `floors: 8`; `pattern` is 8 entries and its last is `warden` |
+| The warden | `sections/cellar.json:86-92` | an object, not a family name: `family: key-warden`, `id: key-warden`, `carries: cellar-gems`, `challenge: rule`, `yields: true`, `fightable: false` |
+| The Key Warden beat | `world.json:534-551` | rule `key-warden-challenge` fires on `reads the-rule-the-warden-keeps` (the rule scratched by the stair on `cellar-0-8`), sets `warden:key-warden:c0` (`world.json:265`); that flag is what awards the `cellar-gems` the warden carries |
+| How Act 1 ends | `world.json:313-337` | reading `a-note-for-the-next-one-down` sets `act-1-complete`, fires `complete-act: act-1`, shows one narrator line; the rule asks for `warden:key-warden:c0`, so the vault opens only on the challenge |
+| The ending room | `act-3/a-note-under-the-seal.md`, `act-3/forty-winters.md` | the Cellar King's notes, parked for Act 3: both `region: act-3-unplaced`, out of the loaded `library/` |
 | Keys already in the pack | `world.json:245-259`, rules `:548-586` | `lantern-key`, `bell-key`, `helmet-key`, each given by reading one of three Keybearer notes |
 | Whether the Keybearers are placed | `grep keybearer sections/ acts/` | **no hit.** The families exist in `blueprint.json:96-128` and the notes place them narratively, but no Section spawns them. Nothing gates on the three keys either (`grep requires` finds nothing) |
 
-So today's Act 1 is a nine-floor generated Section whose last floor holds the
-Cellar King, his seal note, and the note that ends the act. That is the whole
-structure the decision replaces — and it is worth saying plainly that **almost
+Before the Re-cut, Act 1 was a nine-floor generated Section whose last floor
+held the Cellar King, his seal note, and the note that ended the act. That is
+the whole structure the decision replaces — and it is worth saying plainly that **almost
 all of it is recoverable**: no authored floor contracts exist (cottage#118
 deleted `floor-1..floor-6` and `king-room`), the descent is generated from
 `sections/*.json`, and the only floor-bound hand content is nine library notes'

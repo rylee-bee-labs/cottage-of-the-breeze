@@ -141,7 +141,7 @@ list: they are v2's own material, not passages #111 ever carried.
 | S1 — the place | `draft:71-75` | `### Section 1 — The Cellar Under the Cottage` | Unchanged. | **No.** |
 | S1 — the mood | `draft:77-80` | same | Unchanged, including "It is the gentlest place in the game and the first one you are not afraid of." | **No.** |
 | S1 — the guardian, the Cellar King | `draft:82-85` | same | Unchanged, including that his name is Rylee's to choose. | **No.** |
-| S1 — the vault's seal note | `draft:87-90` | quoted in full in S1's vault | **Now quoted verbatim in the draft**, because it is an existing pack item and the draft should show the exact words it is preserving. | Quoting only. The note itself is untouched in `library/a-note-under-the-seal.md`. |
+| S1 — the vault's seal note | `draft:87-90` | quoted in full in S1's vault | **Now quoted verbatim in the draft**, because it is an existing pack item and the draft should show the exact words it is preserving. | Quoting only. The note itself is untouched in `act-3/a-note-under-the-seal.md`. |
 | "But read it again at the bottom and it does" | `draft:92-95` | same, in S1 | Unchanged. | **No.** |
 | The letter, in the chest | `draft:97-99` | quoted in full in S1 | **Now quoted verbatim.** | Quoting only. Untouched in `library/a-letter-in-a-chest.md`. |
 | S2 — the place | `draft:103-108` | `### Section 2 — The Long Well` | Unchanged, in full. | **No.** |
@@ -276,7 +276,7 @@ be true, with the exact wording at risk, so Rylee can rule on each one.**
 ## Needs Rylee
 
 1. **The fire question — settled; nothing under `worlds/` changes.**
-   `worlds/cottage-of-the-breeze/library/a-note-under-the-seal.md:16` says the
+   `worlds/cottage-of-the-breeze/act-3/a-note-under-the-seal.md:16` says the
    town "put a fire over the room, and a seal over the fire." Rylee's decision
    says the hearth was banked and "The Breeze later burned when the banked fire
    was left untended." These are not two accounts in conflict. The town
