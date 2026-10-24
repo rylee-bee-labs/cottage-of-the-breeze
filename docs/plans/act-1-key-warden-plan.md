@@ -34,7 +34,7 @@ All verified against this tree on 2026-10-16; the commands are in §9.
 | The warden | `sections/cellar.json:87-94` | an object, not a family name: `family: cellar-king`, `id: cellar-king`, `carries: crown-seal`, `challenge: rule`, `yields: true`, `fightable: false` |
 | The Cellar King beat | `world.json:528-546` | rule `cellar-king-yields` fires on `reads forty-winters`, sets `warden:cellar-king:c0` (`world.json:265`) |
 | How Act 1 ends | `world.json:313-331` | reading `a-note-under-the-seal` sets `act-1-complete`, fires `complete-act: act-1`, shows one narrator line |
-| The ending room | `library/a-note-under-the-seal.md`, `library/forty-winters.md` | both `region: cellar-0-9`, `place: near-up`; the note is a chest that drops `cellar-gems` |
+| The ending room | `act-3/a-note-under-the-seal.md`, `act-3/forty-winters.md` | both `region: cellar-0-9`, `place: near-up`; the note is a chest that drops `cellar-gems` |
 | Keys already in the pack | `world.json:245-259`, rules `:548-586` | `lantern-key`, `bell-key`, `helmet-key`, each given by reading one of three Keybearer notes |
 | Whether the Keybearers are placed | `grep keybearer sections/ acts/` | **no hit.** The families exist in `blueprint.json:96-128` and the notes place them narratively, but no Section spawns them. Nothing gates on the three keys either (`grep requires` finds nothing) |
 

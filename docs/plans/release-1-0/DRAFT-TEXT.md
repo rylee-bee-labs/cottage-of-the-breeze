@@ -31,10 +31,10 @@ of the library:
 | `worlds/cottage-of-the-breeze/library/a-letter-in-a-chest.md` | chest note, cellar floor 1 |
 | `worlds/cottage-of-the-breeze/library/a-note-left-at-the-door.md` | note, town map |
 | `worlds/cottage-of-the-breeze/library/a-note-for-the-next-one-down.md` | chest note, cellar floor 8; Act 1 ending |
-| `worlds/cottage-of-the-breeze/library/a-note-under-the-seal.md` | parked for Act 3; `region: act-3-unplaced` |
+| `worlds/cottage-of-the-breeze/act-3/a-note-under-the-seal.md` | parked for Act 3; `region: act-3-unplaced` |
 | `worlds/cottage-of-the-breeze/library/a-scrap-in-the-dust.md` | note, cellar floor 1 |
 | `worlds/cottage-of-the-breeze/library/about-this-game.md` | book, cottage shelf |
-| `worlds/cottage-of-the-breeze/library/forty-winters.md` | parked for Act 3; `region: act-3-unplaced` |
+| `worlds/cottage-of-the-breeze/act-3/forty-winters.md` | parked for Act 3; `region: act-3-unplaced` |
 | `worlds/cottage-of-the-breeze/library/the-burnt-taverns-tab.md` | resident book, keeper |
 | `worlds/cottage-of-the-breeze/library/the-old-mushroom.md` | note, cellar floor 7 |
 | `worlds/cottage-of-the-breeze/library/the-pale-moth.md` | note, cellar floor 5 |

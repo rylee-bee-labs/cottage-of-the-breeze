@@ -133,7 +133,7 @@ gems. The note says:
 > Nothing down here was ever as unkind as the sealing. Take what you found. Take it up.
 > Kindness is lighter than it looks, and it knows the way home.
 
-That note is already written and already in the pack (`library/a-note-under-the-seal.md`)
+That note is already written and already in the pack (`act-3/a-note-under-the-seal.md`)
 and **it does not change.** It is quoted here exactly.
 
 Also down here, already in the pack: the letter in the chest, tied with thread, signed

@@ -81,7 +81,7 @@ pack_files = {
     pack / "map.md",
     pack / "EDITS.md",
 }
-for pattern in ("library/*.md", "acts/*/world.json", "acts/*/*/contract.json",
+for pattern in ("library/*.md", "act-3/*.md", "acts/*/world.json", "acts/*/*/contract.json",
                 "acts/*/*/voices/*.md", "sections/*.json"):
     pack_files.update(pack.glob(pattern))
 

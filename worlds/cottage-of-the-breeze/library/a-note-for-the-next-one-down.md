@@ -4,6 +4,8 @@ status: draft
 region: cellar-0-8
 chest: yes
 drops: cellar-gems
+found: map
+place: near-up
 kind: note
 ---
 Under the lid of the open chest, folded small, there is a note.
