@@ -10,7 +10,7 @@ permissions:
   contents: read
 jobs:
   contract-freshness:
-    uses: rylee-bee-labs/ci-harness/.github/workflows/reusable-contract-freshness.yml@dd3786719f03855fe527b6f64b152d30af4c02d4
+    uses: rylee-bee-labs/ci-harness/.github/workflows/reusable-contract-freshness.yml@1ef597fa5c01af33353af4335e161c3e383f4013
     with:
       manifest-path: ".project/contracts/adoption.yaml"
       runs-on: ${{ vars.CI_RUNNER_LIGHT || vars.CI_RUNNER || 'ubuntu-latest' }}
