@@ -55,7 +55,13 @@ env:
   # camera and display.desk_tile (vefr#446).
   # Bumped 2026-10-16 to d69fcba, merged vefr main (display.ending_tile, vefr#520,
   # is available; this pack does not set it, see cottage#166).
-  VEFR_REF: d69fcba276797259d97e1ad6669f375f6ee807b5
+  # Bumped 2026-10-27 to 1a03f53, merged vefr main, for the controls Rylee asked
+  # to see on the real build (cottage#161): the floating joystick back for
+  # phones a stale D-pad value had pinned (vefr#573), the glow and corner marks
+  # on what the action button will use (vefr#527), and the desktop dock naming
+  # the resident (vefr#561). Measured before the bump: `norns validate` against
+  # this engine prints `ok: ... geometry, reachability, voices all pass`.
+  VEFR_REF: 1a03f5375bf0380b35ad85324e495a90c9d9997e
 
 jobs:
   validate:
