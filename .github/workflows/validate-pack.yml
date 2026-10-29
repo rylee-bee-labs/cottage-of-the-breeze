@@ -61,13 +61,13 @@ env:
   # on what the action button will use (vefr#527), and the desktop dock naming
   # the resident (vefr#561). Measured before the bump: `norns validate` against
   # this engine prints `ok: ... geometry, reachability, voices all pass`.
-  # Pinned 2026-10-29 to a8fa3a0, the head of vefr#586 (the RPG core, ADR 0021,
-  # Gate 1), which this pack's cellar now uses: `fight`, `traits`, `curve`, a
-  # family's `guard`/`drop_chance`/`gold`, a shop's `stock`, labelled verbs and
-  # the descent's `resume`/`fall`. Not a merged main yet: re-pin to vefr#586's
-  # merge commit before this merges. Measured: `norns validate` against it
-  # prints `ok: ... geometry, reachability, voices all pass`.
-  VEFR_REF: a8fa3a0232cd49d03af2e13019bf0c68b306ae31
+  # Bumped 2026-10-29 to 275a6ff, merged vefr main: vefr#586, the RPG core
+  # (ADR 0021, Gate 1), which this pack's cellar now uses: `fight`, `traits`,
+  # `curve`, a family's `guard`/`drop_chance`/`gold`, a shop's `stock`,
+  # labelled verbs and the descent's `resume`/`fall`. Measured before the bump:
+  # `norns validate` against this engine prints `ok: ... geometry,
+  # reachability, voices all pass`.
+  VEFR_REF: 275a6ff3471e56a585d7b2bf96a20a333fa3ec48
 
 jobs:
   validate:

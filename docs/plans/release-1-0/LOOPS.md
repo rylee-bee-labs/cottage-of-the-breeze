@@ -518,9 +518,9 @@ the playthrough bot (`--monsters`) on desktop and phone.
 
 ## Gate 1 status (2026-10-29)
 
-**Implemented and bot-verified, in review; not merged, not human-played.** The
-engine half is [VEFR #586](https://github.com/rylee-bee-labs/vefr/pull/586)
-(ADR 0021): E1 (deepest landing), E2 (rest heals), E3 (turns), E4 (curve), E5
+**Implemented and bot-verified; not human-played.** The engine half is
+[VEFR #586](https://github.com/rylee-bee-labs/vefr/pull/586) (ADR 0021, merged
+2026-10-29 as `275a6ff`): E1 (deepest landing), E2 (rest heals), E3 (turns), E4 (curve), E5
 (drop chance and gold), E6 (stock and markup), E7 (guard), E8 (traits with
 effects, and `roll.per_rarity` so rarity decides how many), E11 (mana and
 charges, harm and ward), E12 (fall home with the satchel), E17 (seeded misses
@@ -528,7 +528,7 @@ and crits), E18 (traits from carried bags; bag sizes through `carry`), E19
 (curses with an upside), E20 (verb labels and Cast), and a `pouch` for
 keepsakes. It also fixed a bug in loops 7 and 12 themselves: a floor walked
 onto again after a trip home stopped remembering its map, kills and drops. The
-cellar uses all of it on branch `claude/gate-1-cellar`. Still to come: E9,
+cellar uses all of it (cottage#220). Still to come: E9,
 E10, E13, E14 (Gate 2) and E15, E16 (Gate 3); satchel upgrades to buy and a
 wand to find wait on their art (`items-carry`, `items-reading`).
 

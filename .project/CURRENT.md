@@ -38,17 +38,19 @@ here; reusable engine capability lives in VEFR.
   52) and at a desk (`desk_tile` 48), two buttons on a phone, and one message
   line that fades.
 
-## Gate 1 (the RPG core), in review
+## Gate 1 (the RPG core), built; not yet played by a person
 
-Implemented and bot-verified, not merged: the engine half is
-[VEFR #586](https://github.com/rylee-bee-labs/vefr/pull/586) (ADR 0021), and the
-cellar uses it on branch `claude/gate-1-cellar` (rolled blows, guard, a read
-`curve`, drops and gold, a stocked Trader, traits and curses, mana and three
-spells, the deepest-landing stair, falls that wake at home). On 2026-10-29 the
-playthrough bot passed 44/44 with monsters at 1280×720 and 390×844, with two
-falls each. Every new word is a draft in
-[`WORDS-BATCH-1.md`](../docs/plans/release-1-0/WORDS-BATCH-1.md). Gate 0's human
-run below is still the gate that decides "ready".
+The engine half is
+[VEFR #586](https://github.com/rylee-bee-labs/vefr/pull/586) (ADR 0021, merged
+2026-10-29 as `275a6ff`, which `validate-pack.yml` pins), and the cellar uses it
+from cottage#220 (rolled blows, guard, a read `curve`, drops and gold, a stocked
+Trader, traits and curses, mana and three spells, the deepest-landing stair,
+falls that wake at home). On 2026-10-29 the playthrough bot passed 44/44 with
+monsters at 1280×720 and 390×844, with two falls each. Rylee approved every new
+word as written
+([`WORDS-BATCH-1.md`](../docs/plans/release-1-0/WORDS-BATCH-1.md), 2026-10-29).
+Balance is a first guess; Gate 0's human run below is still the gate that
+decides "ready".
 
 ## The one next step
 

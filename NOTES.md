@@ -5,7 +5,7 @@
 **Rylee, verbatim:** **"I approve the words. Please merge [and] deploy when you can"**.
 
 - **Words.** Every word in [`docs/plans/release-1-0/WORDS-BATCH-1.md`](docs/plans/release-1-0/WORDS-BATCH-1.md) is approved as written: the ten trait words, the three spell names, the school words "ember" and "hearth", and the fight-row labels "Strike" and "Cast". None was edited or binned. `DRAFT-TEXT.md` no longer lists them as unapproved.
-- **Merge order, as planned:** cottage#219 (loops and the art manifest) merged as `4f2ec6c`; then VEFR #586 (the engine half); then this branch, once `validate-pack.yml`'s `VEFR_REF` is pinned to #586's merge commit.
+- **Merge order, as planned:** cottage#219 (loops and the art manifest) merged as `4f2ec6c`; then VEFR #586 (the engine half) merged as `275a6ff`; then this branch (cottage#220), with `validate-pack.yml`'s `VEFR_REF` pinned to #586's merge commit, `275a6ff`. That commit's engine code is the code the bot played on (it differs from `a8fa3a0` by two doc lines), and the pack validates against it.
 - **Deploy** means `bin/publish-build.sh` after the merge, which needs Rylee's machine (its ssh key and the `gallery` CLI). Whether a build was published is recorded where it happened, not asserted here (`.project/CURRENT.md`, "Not established").
 
 ## 2026-10-29 (night) — Gate 1: the RPG core in the cellar (Rylee's go; agent work)
