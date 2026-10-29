@@ -113,7 +113,8 @@
       "barrel-mimic": 0.95,
       "root-tangle": 0.9
     },
-    "people_block": true
+    "people_block": true,
+    "mana": 4
   },
   "items": {
     "cloudy-potion": {
@@ -130,6 +131,30 @@
       "slot": "charm",
       "mods": {
         "atk": 1
+      },
+      "roll": {
+        "rarity": {
+          "common": 60,
+          "fine": 25,
+          "rare": 10,
+          "heroic": 4,
+          "mythic": 1
+        },
+        "traits": [
+          "deep",
+          "lucky",
+          "warming",
+          "eager",
+          "thorned",
+          "reckless"
+        ],
+        "per_rarity": {
+          "common": 0,
+          "fine": 1,
+          "rare": 2,
+          "heroic": 2,
+          "mythic": 3
+        }
       }
     },
     "hearth-poker": {
@@ -139,25 +164,92 @@
       "mods": {
         "atk": 1
       },
-      "value": 25
+      "value": 25,
+      "roll": {
+        "rarity": {
+          "common": 60,
+          "fine": 25,
+          "rare": 10,
+          "heroic": 4,
+          "mythic": 1
+        },
+        "traits": [
+          "keen",
+          "lucky",
+          "eager",
+          "warming",
+          "reckless"
+        ],
+        "per_rarity": {
+          "common": 0,
+          "fine": 1,
+          "rare": 2,
+          "heroic": 2,
+          "mythic": 3
+        }
+      }
     },
     "patched-apron": {
       "name": "a patched apron",
       "sprite": "patched-apron",
       "slot": "body",
       "mods": {
-        "hp": 2
+        "hp": 1,
+        "guard": 1
       },
-      "value": 30
+      "value": 30,
+      "roll": {
+        "rarity": {
+          "common": 60,
+          "fine": 25,
+          "rare": 10,
+          "heroic": 4,
+          "mythic": 1
+        },
+        "traits": [
+          "sturdy",
+          "hale",
+          "thorned",
+          "brittle"
+        ],
+        "per_rarity": {
+          "common": 0,
+          "fine": 1,
+          "rare": 2,
+          "heroic": 2,
+          "mythic": 3
+        }
+      }
     },
     "pot-lid-helm": {
       "name": "a cooking-pot helm",
       "sprite": "pot-lid-helm",
       "slot": "head",
       "mods": {
-        "hp": 1
+        "guard": 1
       },
-      "value": 20
+      "value": 20,
+      "roll": {
+        "rarity": {
+          "common": 60,
+          "fine": 25,
+          "rare": 10,
+          "heroic": 4,
+          "mythic": 1
+        },
+        "traits": [
+          "sturdy",
+          "deep",
+          "hale"
+        ],
+        "per_rarity": {
+          "common": 0,
+          "fine": 1,
+          "rare": 2,
+          "heroic": 2,
+          "mythic": 3
+        }
+      }
     },
     "mended-boots": {
       "name": "a pair of mended boots",
@@ -166,7 +258,28 @@
       "mods": {
         "hp": 1
       },
-      "value": 20
+      "value": 20,
+      "roll": {
+        "rarity": {
+          "common": 60,
+          "fine": 25,
+          "rare": 10,
+          "heroic": 4,
+          "mythic": 1
+        },
+        "traits": [
+          "hale",
+          "lucky",
+          "sturdy"
+        ],
+        "per_rarity": {
+          "common": 0,
+          "fine": 1,
+          "rare": 2,
+          "heroic": 2,
+          "mythic": 3
+        }
+      }
     },
     "copper-ladle": {
       "name": "a copper ladle",
@@ -174,6 +287,30 @@
       "slot": "hand",
       "mods": {
         "atk": 2
+      },
+      "value": 18,
+      "roll": {
+        "rarity": {
+          "common": 60,
+          "fine": 25,
+          "rare": 10,
+          "heroic": 4,
+          "mythic": 1
+        },
+        "traits": [
+          "keen",
+          "lucky",
+          "eager",
+          "warming",
+          "reckless"
+        ],
+        "per_rarity": {
+          "common": 0,
+          "fine": 1,
+          "rare": 2,
+          "heroic": 2,
+          "mythic": 3
+        }
       }
     },
     "quilted-coat": {
@@ -181,7 +318,31 @@
       "sprite": "quilted-coat",
       "slot": "body",
       "mods": {
-        "hp": 3
+        "hp": 2,
+        "guard": 1
+      },
+      "value": 35,
+      "roll": {
+        "rarity": {
+          "common": 60,
+          "fine": 25,
+          "rare": 10,
+          "heroic": 4,
+          "mythic": 1
+        },
+        "traits": [
+          "sturdy",
+          "hale",
+          "thorned",
+          "brittle"
+        ],
+        "per_rarity": {
+          "common": 0,
+          "fine": 1,
+          "rare": 2,
+          "heroic": 2,
+          "mythic": 3
+        }
       }
     },
     "thread-bell": {
@@ -190,6 +351,31 @@
       "slot": "charm",
       "mods": {
         "hp": 2
+      },
+      "value": 15,
+      "roll": {
+        "rarity": {
+          "common": 60,
+          "fine": 25,
+          "rare": 10,
+          "heroic": 4,
+          "mythic": 1
+        },
+        "traits": [
+          "deep",
+          "lucky",
+          "warming",
+          "eager",
+          "thorned",
+          "reckless"
+        ],
+        "per_rarity": {
+          "common": 0,
+          "fine": 1,
+          "rare": 2,
+          "heroic": 2,
+          "mythic": 3
+        }
       }
     },
     "cellar-gems": {
@@ -204,43 +390,63 @@
     },
     "candle-stub": {
       "name": "a stub of tallow candle",
-      "sprite": "candle-stub"
+      "sprite": "candle-stub",
+      "value": 1,
+      "pouch": true
     },
     "shoe-button": {
       "name": "a shoe button",
-      "sprite": "shoe-button"
+      "sprite": "shoe-button",
+      "value": 1,
+      "pouch": true
     },
     "rat-tooth": {
       "name": "a small yellow tooth",
-      "sprite": "rat-tooth"
+      "sprite": "rat-tooth",
+      "value": 1,
+      "pouch": true
     },
     "jam-jar-lid": {
       "name": "a jar lid, rusted shut",
-      "sprite": "jam-jar-lid"
+      "sprite": "jam-jar-lid",
+      "value": 1,
+      "pouch": true
     },
     "moth-wing": {
       "name": "a grey moth wing",
-      "sprite": "moth-wing"
+      "sprite": "moth-wing",
+      "value": 1,
+      "pouch": true
     },
     "bird-feather": {
       "name": "a single down feather",
-      "sprite": "bird-feather"
+      "sprite": "bird-feather",
+      "value": 2,
+      "pouch": true
     },
     "cold-ember": {
       "name": "a cold grey ember",
-      "sprite": "cold-ember"
+      "sprite": "cold-ember",
+      "value": 3,
+      "pouch": true
     },
     "music-box-spring": {
       "name": "a music-box spring",
-      "sprite": "music-box-spring"
+      "sprite": "music-box-spring",
+      "value": 3,
+      "pouch": true
     },
     "spider-silk": {
       "name": "a ball of spider silk",
-      "sprite": "spider-silk"
+      "sprite": "spider-silk",
+      "value": 2,
+      "pouch": true
     },
     "thimble": {
       "name": "a thimble, dented",
-      "sprite": "thimble"
+      "sprite": "thimble",
+      "value": 2,
+      "pouch": true
     },
     "lantern-key": {
       "name": "the pale moth's key",
@@ -824,7 +1030,9 @@
       "rootworks",
       "siltworks",
       "emberhall"
-    ]
+    ],
+    "resume": "deepest-landing",
+    "fall": "home"
   },
   "town_states": {
     "region": "town",
@@ -843,5 +1051,90 @@
     "pixel_art": {
       "native_tile": 32
     }
+  },
+  "fight": {
+    "miss": 8,
+    "crit": 8,
+    "crit_times": 2,
+    "turns": true
+  },
+  "traits": {
+    "keen": {
+      "atk": 1
+    },
+    "sturdy": {
+      "guard": 1
+    },
+    "hale": {
+      "hp": 2
+    },
+    "deep": {
+      "mana": 2
+    },
+    "lucky": {
+      "crit": 6
+    },
+    "warming": {
+      "kill_heal": 1
+    },
+    "eager": {
+      "opener": 2
+    },
+    "thorned": {
+      "thorns": 1
+    },
+    "reckless": {
+      "atk": 3,
+      "sting": 1,
+      "curse": true
+    },
+    "brittle": {
+      "atk": 2,
+      "hp": -2,
+      "curse": true
+    }
+  },
+  "bag": {
+    "size": 10
+  },
+  "time": {
+    "rest": true,
+    "rest_heals": true
+  },
+  "spells": {
+    "schools": [
+      "ember",
+      "hearth"
+    ],
+    "spells": [
+      {
+        "id": "ember-flick",
+        "name": "a flick of ember",
+        "school": "ember",
+        "level": 2,
+        "mana": 2,
+        "harm": 3,
+        "range": 5
+      },
+      {
+        "id": "hearth-ward",
+        "name": "a hearth ward",
+        "school": "hearth",
+        "level": 3,
+        "mana": 2,
+        "ward": {
+          "guard": 2,
+          "turns": 3
+        }
+      },
+      {
+        "id": "warm-hands",
+        "name": "warm hands",
+        "school": "hearth",
+        "level": 4,
+        "mana": 3,
+        "heal": 4
+      }
+    ]
   }
 }

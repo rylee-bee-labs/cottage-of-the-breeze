@@ -73,12 +73,12 @@ guess; until then they are drafts by `DEMO.md`, not by metadata.
 | `worlds/cottage-of-the-breeze/acts/act-1/town/voices/gardener.md` | resident voice prompt |
 | `worlds/cottage-of-the-breeze/acts/act-1/town/voices/keeper.md` | resident voice prompt |
 | `worlds/cottage-of-the-breeze/ledger.md` | the whispers a player hears with Q |
-| `worlds/cottage-of-the-breeze/world.json` | `title`, `description`, `creed`, the dusk/dawn phase lines, the bond cards and prompts, each voice's `strike`, every rule's `say`, every item `name` |
+| `worlds/cottage-of-the-breeze/world.json` | `title`, `description`, `creed`, the dusk/dawn phase lines, the bond cards and prompts, each voice's `strike`, every rule's `say`, every item `name`; since 2026-10-29 also the trait words, spell names and school words of [`WORDS-BATCH-1.md`](WORDS-BATCH-1.md) |
 | `worlds/cottage-of-the-breeze/acts/act-1/cottage/contract.json` | place names, `poi_text`, `legend` |
 | `worlds/cottage-of-the-breeze/acts/act-1/tavern/contract.json` | place names, `legend` |
 | `worlds/cottage-of-the-breeze/acts/act-1/town/contract.json` | place names, `poi_text`, `legend` |
 | `worlds/cottage-of-the-breeze/acts/act-1/town-after-the-cellar/contract.json` | place names, `poi_text`, `legend` |
-| `worlds/cottage-of-the-breeze/acts/act-1/world.json` | region and act labels |
+| `worlds/cottage-of-the-breeze/acts/act-1/world.json` | region and act labels; the fight-row labels "Strike" and "Cast" ([`WORDS-BATCH-1.md`](WORDS-BATCH-1.md)) |
 | `worlds/cottage-of-the-breeze/blueprint.json` | every family's mob `name` (33 families) and the two thing names |
 | `worlds/cottage-of-the-breeze/sections/cellar.json` | Section name and place-of-interest labels |
 | `worlds/cottage-of-the-breeze/sections/emberhall.json` | Section name and place-of-interest labels |

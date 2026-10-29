@@ -1,5 +1,23 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-29 (night) — Gate 1: the RPG core in the cellar (Rylee's go; agent work)
+
+**Rylee's go, verbatim.** Asked "Want me to start the Gate 1 PR now?", she answered: **"Please"**. The rules themselves are her sixteen answers of the same day (the entry below); the engine work is one VEFR PR, as she chose ("One big PR per gate").
+
+**What the engine gained (VEFR, ADR 0021, one PR).** Every key is opt-in: rolled blows and a turn for every drink or cast (`fight`); guard on the hero, gear and monsters; a Section's `curve` read at play; a family's `drop_chance` and `gold`; a shop's `stock` and `markup`; a `traits` table (stats, four bounded reactions, curses), rarity that decides how many traits a find bears (`roll.per_rarity`); mana, harmful and warding spells, things that cast on charges; labelled verbs and a Cast button; the town stair to the deepest landing, a fall that wakes at home with the bag left as one satchel, a rest at home that heals, and keepsakes in a pouch. On the way it fixed four engine bugs, one of them in exactly this loop: a floor walked onto again after a trip home stopped remembering its map, kills and drops until a reload.
+
+**What the cellar now does (this pack).**
+
+- `world.json`: `fight` (8% misses, 8% critical hits, drinking and casting cost a turn); `player.mana` 4; ten trait words (two of them curses, each with an upside); `bag.size` 10; `time` with Rest that heals at home; `descent.resume: "deepest-landing"` and `fall: "home"`; three spells learned at levels 2, 3 and 4 (a harm, a ward, a heal); every wearable rolls a rarity (common, fine, rare, heroic, mythic) with 0 to 3 traits by rarity; body and head gear give Guard; the ten keepsakes go in the pouch and are worth a coin or three.
+- `acts/act-1/world.json`: the fight row is **Strike** and, once a harmful spell is known, **Cast**; the Spell Keeper identifies; the Trader sells six things at half again their value.
+- `blueprint.json`: cellar rats and moths drop something about half the time and pay a coin or two; fat rats can drop a ladle or boots; spiders wear Guard 1 and can drop the quilted coat or the bell. Lock refreshed with `vefr normalize`.
+- **No existing word changed.** Every new word (traits, spells, schools, "Cast") is listed in [`docs/plans/release-1-0/WORDS-BATCH-1.md`](docs/plans/release-1-0/WORDS-BATCH-1.md) for Rylee to keep, edit or bin; the rarity words were already decided (DESIGN.md, 2026-10-08).
+- **The bot** now closes the fall card as a player would and walks back down from wherever the hero woke; `report.json` counts `falls`.
+
+**Measured (2026-10-29, this branch + the VEFR branch).** The playthrough bot with `--monsters`: **44/44 at 1280×720, with 2 falls**, each one a wake at home, a walk back down through the town stair and a floor that remembered its map. The pack validates `ok: ... geometry, reachability, voices all pass` against the VEFR branch, and the four `tests/assert_*.py`, the art audit and the art tests pass. Not measured: a human playing it; balance is a first guess for Gate 0's human run to correct.
+
+**What it needs before it can merge.** The VEFR PR merged, and `.github/workflows/validate-pack.yml`'s `VEFR_REF` re-pinned to that merge commit (this branch pins the VEFR branch head so CI can run at all).
+
 ## 2026-10-29 (later) — sixteen answers: hits, magic, bags, curses, Sections 2–4 (Rylee's decisions)
 
 **Rylee's ask, verbatim.** "Could you maybe ask me 10-20 questions in groups of 4 to nail down the rest?" Four rounds of four followed. Her answers, verbatim (an option she picked is quoted by its label):
