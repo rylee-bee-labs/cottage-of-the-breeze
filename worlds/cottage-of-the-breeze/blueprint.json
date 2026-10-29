@@ -279,7 +279,7 @@
       "extends": "hollow-shade",
       "defaults": {
         "name": "the Ember Warden",
-        "sprite": "hollow-shade",
+        "sprite": "shade",
         "hp": 32,
         "atk": 4,
         "xp": 70,
