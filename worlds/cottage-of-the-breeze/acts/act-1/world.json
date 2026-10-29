@@ -27,7 +27,8 @@
       "seeds": {
         "dusk": "Back up already? Sit a while - the kettle's still warm.",
         "dawn": "Off down again. I'll keep a cake back for you."
-      }
+      },
+      "identify": "true"
     },
     "vendor": {
       "name": "The Trader",
@@ -42,7 +43,16 @@
       "seeds": {
         "dusk": "Bring anything up worth selling?",
         "dawn": "Early. The road's quiet, so am I."
-      }
+      },
+      "stock": [
+        "cloudy-potion",
+        "brass-ring",
+        "hearth-poker",
+        "patched-apron",
+        "pot-lid-helm",
+        "mended-boots"
+      ],
+      "markup": 150
     },
     "tavern-regular": {
       "name": "The Tavern Regular",
@@ -165,6 +175,16 @@
         26,
         9
       ]
+    }
+  ],
+  "verbs": [
+    {
+      "verb": "attack",
+      "label": "Strike"
+    },
+    {
+      "verb": "cast",
+      "label": "Cast"
     }
   ]
 }

@@ -87,6 +87,7 @@ STATE_JS = """() => {
     trade: vis('trade'),
     menu: vis('menu'),
     act_end: vis('act-end'),
+    fall: vis('fall'),
     act_complete: window.VEFR_ACT_COMPLETE || null,
     combat_text: (document.getElementById('combat-live') || {}).textContent || '',
     scroll_w: document.documentElement.scrollWidth,
@@ -182,6 +183,7 @@ class Bot:
         self.request_failures: list[str] = []
         self._start = time.time()
         self._stuck = 0
+        self.falls = 0
         self._last_sig = None
         self._regions = None
         self._transitions = None
@@ -206,6 +208,7 @@ class Bot:
         return {
             "viewport": viewport,
             "steps": self.steps,
+            "falls": self.falls,
             "checks": self.checks,
             "console_errors": self.console_errors,
             "ok": all(c["ok"] for c in self.checks),
@@ -305,7 +308,7 @@ class Bot:
             tuple(c.get("bag", [])),
             tuple(sorted((tuple(d["at"]), d["item"]) for d in c.get("floor", []))),
             s["reader"], s["npc"], s["trade"], s["menu"], s["act_end"],
-            s["combat_text"],
+            s.get("fall"), s["combat_text"],
         )
         if sig == self._last_sig:
             self._stuck += 1
@@ -321,7 +324,16 @@ class Bot:
     # ---- overlays --------------------------------------------------
     # A walk that meets a book, a speech box, a shop or the menu handles
     # it with keys and carries on.  The end card is never dismissed here.
+    # A fall is a card too ("You fell. ..."): any key closes it, and the
+    # walk carries on from wherever the hero woke - the floor's own stair,
+    # or home when the descent sends a fallen hero home (`fall: "home"`),
+    # from where `navigate_to` routes back down. Every fall is counted, so
+    # the report can say how many the route took.
     def handle_overlay(self, s: dict) -> bool:
+        if s.get("fall"):
+            self.falls += 1
+            self.press("Enter")
+            return True
         if s["reader"] or s["npc"]:
             self.interact()
             return True

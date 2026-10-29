@@ -38,6 +38,20 @@ here; reusable engine capability lives in VEFR.
   52) and at a desk (`desk_tile` 48), two buttons on a phone, and one message
   line that fades.
 
+## Gate 1 (the RPG core), built; not yet played by a person
+
+The engine half is
+[VEFR #586](https://github.com/rylee-bee-labs/vefr/pull/586) (ADR 0021, merged
+2026-10-29 as `275a6ff`, which `validate-pack.yml` pins), and the cellar uses it
+from cottage#220 (rolled blows, guard, a read `curve`, drops and gold, a stocked
+Trader, traits and curses, mana and three spells, the deepest-landing stair,
+falls that wake at home). On 2026-10-29 the playthrough bot passed 44/44 with
+monsters at 1280×720 and 390×844, with two falls each. Rylee approved every new
+word as written
+([`WORDS-BATCH-1.md`](../docs/plans/release-1-0/WORDS-BATCH-1.md), 2026-10-29).
+Balance is a first guess; Gate 0's human run below is still the gate that
+decides "ready".
+
 ## The one next step
 
 **Gate 0: complete and document the Section 1 beta human playthrough on desktop and a real phone**, with monsters enabled, then fix the witnessed blockers. Work starts at [Cottage #161](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/161); review [#157](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/157), [#165](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/165), and [#166](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/166). Do not call Gate 0 verified until the evidence exists.

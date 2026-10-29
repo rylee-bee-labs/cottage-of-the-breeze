@@ -516,6 +516,22 @@ game-neutral with its own tests and a small example in VEFR's docs. The Cottage 
 that uses it pins the merged VEFR commit in `validate-pack.yml` and proves it with
 the playthrough bot (`--monsters`) on desktop and phone.
 
+## Gate 1 status (2026-10-29)
+
+**Implemented and bot-verified; not human-played.** The engine half is
+[VEFR #586](https://github.com/rylee-bee-labs/vefr/pull/586) (ADR 0021, merged
+2026-10-29 as `275a6ff`): E1 (deepest landing), E2 (rest heals), E3 (turns), E4 (curve), E5
+(drop chance and gold), E6 (stock and markup), E7 (guard), E8 (traits with
+effects, and `roll.per_rarity` so rarity decides how many), E11 (mana and
+charges, harm and ward), E12 (fall home with the satchel), E17 (seeded misses
+and crits), E18 (traits from carried bags; bag sizes through `carry`), E19
+(curses with an upside), E20 (verb labels and Cast), and a `pouch` for
+keepsakes. It also fixed a bug in loops 7 and 12 themselves: a floor walked
+onto again after a trip home stopped remembering its map, kills and drops. The
+cellar uses all of it (cottage#220). Still to come: E9,
+E10, E13, E14 (Gate 2) and E15, E16 (Gate 3); satchel upgrades to buy and a
+wand to find wait on their art (`items-carry`, `items-reading`).
+
 ## Pack work that needs no engine change
 
 Safe to do now, each validated with `norns validate` and the playthrough bot:
@@ -537,7 +553,9 @@ Safe to do now, each validated with `norns validate` and the playthrough bot:
 No design question blocks the build: Rylee's answers above settle the open ones.
 What remains is the ordinary approval of **words** (answer 14): Claude drafts each
 batch (spell names, trait names, item names, warden answers, resident lines),
-clearly marked draft, and Rylee keeps, edits or bins it in one sitting. Section 4's
+clearly marked draft, and Rylee keeps, edits or bins it in one sitting. Batch 1
+(the Gate 1 traits, spells, schools and fight row) was approved as written on
+2026-10-29. Section 4's
 own creatures and warden are drawn once its place is drafted in words; until then
 the art requests cover Sections 2 and 3 and the Blue Door itself.
 

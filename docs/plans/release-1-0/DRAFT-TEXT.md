@@ -85,6 +85,12 @@ guess; until then they are drafts by `DEMO.md`, not by metadata.
 | `worlds/cottage-of-the-breeze/sections/rootworks.json` | Section name and place-of-interest labels |
 | `worlds/cottage-of-the-breeze/sections/siltworks.json` | Section name and place-of-interest labels |
 
+**Approved, not drafts:** the ten trait words, the three spell names, the
+school words "ember" and "hearth" (all in `world.json`) and the fight-row labels
+"Strike" and "Cast" (`acts/act-1/world.json`). Rylee approved
+[`WORDS-BATCH-1.md`](WORDS-BATCH-1.md) as written on 2026-10-29 ("I approve the
+words").
+
 Two paths are deliberately **not** marked and must not be:
 
 - `worlds/cottage-of-the-breeze/logbok.md` — Rylee's own words; agents read it

@@ -46,6 +46,13 @@ harness may plant its own"), so **nothing on disk changes**. The run puts
 the families back at the end and fights, so the walk-and-fight loop is
 still proved. `--monsters` walks the whole descent with them in place.
 
+**Falls.** With monsters in place the hero can fall. The fall card ("You
+fell. ...") is closed with a key, as a player closes it, and the walk carries
+on from where the hero woke: the floor's own stair, or home when the pack's
+descent says `fall: "home"`, from where the bot walks back down through the
+town stair (which starts at the deepest landing when the pack says
+`resume: "deepest-landing"`). `report.json` counts them as `falls`.
+
 ## Checked
 
 the entry tile has exactly one way down and it is the descent; every floor
