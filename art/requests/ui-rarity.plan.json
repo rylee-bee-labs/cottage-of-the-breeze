@@ -1,0 +1,35 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/ui-rarity.png",
+   "grid": "4x2",
+   "props": [
+    {
+     "name": "rarity-common",
+     "size": [24, 24]
+    },
+    {
+     "name": "rarity-fine",
+     "size": [24, 24]
+    },
+    {
+     "name": "rarity-rare",
+     "size": [24, 24]
+    },
+    {
+     "name": "rarity-heroic",
+     "size": [24, 24]
+    },
+    {
+     "name": "rarity-mythic",
+     "size": [24, 24]
+    },
+    null,
+    null,
+    null
+   ]
+  }
+ ]
+}

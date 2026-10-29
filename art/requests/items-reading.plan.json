@@ -1,0 +1,35 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/items-reading.png",
+   "grid": "4x2",
+   "props": [
+    {
+     "name": "identify-scroll",
+     "size": [20, 24]
+    },
+    {
+     "name": "spellbook",
+     "size": [24, 24]
+    },
+    {
+     "name": "tea-flask",
+     "size": [18, 24]
+    },
+    {
+     "name": "wand-1",
+     "size": [20, 24]
+    },
+    {
+     "name": "spell-charm",
+     "size": [20, 22]
+    },
+    null,
+    null,
+    null
+   ]
+  }
+ ]
+}

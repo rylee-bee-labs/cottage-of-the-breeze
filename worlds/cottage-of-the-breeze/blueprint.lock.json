@@ -1,7 +1,7 @@
 {
   "blueprint": 2,
   "normalizer": 1,
-  "source_sha256": "65c8cdcd158319bf6d5cd10bf21f0e49398fc9870ba8efe9eee332db52a189cf",
+  "source_sha256": "5f472ee1625e68858509e66b5903c47e931ac57f54899b63875181f70c94f23f",
   "outputs": [
     {
       "file": "world.json",

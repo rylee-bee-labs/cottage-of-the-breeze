@@ -1,0 +1,28 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/town-services.png",
+   "grid": "4x1",
+   "props": [
+    {
+     "name": "windrose",
+     "size": [64, 64]
+    },
+    {
+     "name": "keepsake-shelf",
+     "size": [64, 48]
+    },
+    {
+     "name": "reading-desk",
+     "size": [64, 48]
+    },
+    {
+     "name": "mending-rack",
+     "size": [64, 48]
+    }
+   ]
+  }
+ ]
+}

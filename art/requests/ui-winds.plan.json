@@ -1,0 +1,38 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/ui-winds.png",
+   "grid": "4x2",
+   "props": [
+    {
+     "name": "wind-breeze",
+     "size": [24, 24]
+    },
+    {
+     "name": "wind-gust",
+     "size": [24, 24]
+    },
+    {
+     "name": "wind-gale",
+     "size": [24, 24]
+    },
+    {
+     "name": "wind-squall",
+     "size": [24, 24]
+    },
+    {
+     "name": "wind-tempest",
+     "size": [24, 24]
+    },
+    {
+     "name": "wind-zephyr",
+     "size": [24, 24]
+    },
+    null,
+    null
+   ]
+  }
+ ]
+}

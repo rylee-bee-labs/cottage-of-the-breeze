@@ -52,6 +52,8 @@ the town on a phone and at a desk on 2026-10-13 and shaped the interface
 | Question | Source |
 | --- | --- |
 | active 1.0 delivery roadmap | `docs/plans/release-1-0/ROADMAP.md` (five quality gates; active Gate 0) |
+| the fifteen player loops, what the engine does today, and the engine companion list | `docs/plans/release-1-0/LOOPS.md` (2026-10-29; analysis and plan, nothing built by it) |
+| what art the game uses and what to draw next | `python3 art/tools/art_manifest.py audit`, `art/manifest/` (slots, template), `art/requests/` (generated image-agent briefs) |
 | owner-confirmed 1.0 scope | Cottage GitHub issue #168; VEFR engine issue #489 |
 | canon | `docs/story/STORY.md`, promoted 2026-10-09. The root `STORY.md` is an empty placeholder that is Rylee's to fill or retire; agents never write either |
 | dated decisions and what was tried | `NOTES.md`, newest first |

@@ -1,5 +1,47 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-29 (later) — sixteen answers: hits, magic, bags, curses, Sections 2–4 (Rylee's decisions)
+
+**Rylee's ask, verbatim.** "Could you maybe ask me 10-20 questions in groups of 4 to nail down the rest?" Four rounds of four followed. Her answers, verbatim (an option she picked is quoted by its label):
+
+1. Sections 2–4 to canon's places? **"You decide. Best game 💗"**
+2. Section 4's nine floors? **"There were competing ideas. At one point I wanted randomly generated floors"**; asked which side of the Blue Door: **"What do you think for flow?"**
+3. The wardens of 2–4? **"Each its own way (Recommended)"**
+4. The Keybearers? **"Asleep in Section 1 (Recommended)"**
+5. Hits? **"Classic: misses and crits"**
+6. Paying for spells? **"Can we do spells and books with a mana cost for learned books and charges for spells?"**
+7. Falling? **"Satchel contents (Recommended)"**
+8. Going back down? **"Deepest landing only"**
+9. Traits? **"Mostly stats, some tricks (Recommended)"**
+10. Curses? **"Take it off at any time and any cursed items have a deliberate upside to deliberate"**
+11. Bag size? **"Bags in town upgrade by 5s. In dungeons bags can drop rarely with more slots or slots + enchantments?"**
+12. Identify? **"The Spell Keeper (Recommended)"**
+13. The fight row? **"Strike, Cast if known (Recommended)"**
+14. New words? **"I draft, you approve batches (Recommended)"**
+15. VEFR work? **"One big PR per gate"**
+
+**Calls she handed back, made by Claude.** (1) Sections 2–4 are rebuilt as canon's Long Well, Banked Fire and Blue Door; the roots and silt ideas fold in where they fit. (2) Section 4 is generated floors **past** the Blue Door: Section 3 ends as the coal opens the door, Section 4 is the sealed-over way beyond, and the unburnt room is its hand-made last floor, so no canon moves and the reveal stays last. (11) The bag starts at 10 slots, then 15, 20, 25 in town.
+
+**What changed.** `docs/plans/release-1-0/LOOPS.md` records the table and folds each answer into its loop; the engine list gains E17 (seeded misses and crits), E18 (bags as gear), E19 (curses as trade-offs) and E20 (verb labels and a Cast button), and E1 becomes the deepest landing. `DESIGN.md` gains a "Decided (Rylee, 2026-10-29)" block. `art/manifest/slots.json` gains eight slots (a third town bag, two rare bags, the coal, a wand, a spell charm, the Blue Door and its dog bowl, the last two drawn as canon describes them) and an `items-carry` batch: 54 wanted pictures in eleven requests.
+
+**Not done, on purpose.** The fight row is not set in the pack yet: a pack `verbs` list labels a button with its own word, so `"attack"` would read "Attack" instead of "Strike", and there is no Cast button to add. Both wait on E20 in the Gate 1 VEFR PR. Nothing here is built; no canon or existing words changed.
+
+## 2026-10-29 — the fifteen loops, the art manifest, and the Ember Warden's missing picture (agent)
+
+**Rylee's ask, verbatim.** "Can you help me turn this into a robust finished game with logical scope please? … help me with the underlying game systems and a way to make better art insertion points with maybe a templatr to give to an image generation agent on exactly the map item ui and mob assets to create … I'd like 10-15 really satiating gameplay loops. Some of which exist already. Gather what is there and what needs refinement and what needs to be outright rethought please". This is an ask, not a new design decision: everything below works inside #168's approved direction.
+
+**What landed.**
+
+- **[`docs/plans/release-1-0/LOOPS.md`](docs/plans/release-1-0/LOOPS.md):** fifteen player loops, each judged from the player's chair with code evidence, sorted Keep / Refine / Rethink / Build; the "one card" of core rules a player needs; the engine companion list E1–E16 for VEFR #489; pack-only work; and the one canon question below. Analysis and plan only: nothing in it is built by it.
+- **The art manifest** ([`art/manifest/README.md`](art/manifest/README.md)): `art/tools/art_manifest.py audit` lists every picture the pack reads (117 slots today) and fails on one it names but lacks; `slots.json` holds 46 wanted pictures tied to loops; `brief --all` fills `TEMPLATE.md` into ten ready-to-hand image-agent requests in `art/requests/` (cell-by-cell table, style contract, references, prompt, saving, the `process_kit.py` cut plan, a checklist). Tests: `art/tests/test_art_manifest.py` (18, with a negative control), and the suite's 285 pass.
+- **Fixed:** the Ember Warden (Section 4's boss, `blueprint.json`) named sprite `hollow-shade`, which no `player.sprites` entry answered, so the engine drew its plain placeholder figure (`448-asset-loaders.js`: "A character with no sprite keeps the drawn figure"). It now wears `shade`, as its parent family does: interim until it has its own picture. `blueprint.lock.json` refreshed with `vefr normalize`; `vefr check` and `norns validate` pass. No words changed.
+
+**What was measured (2026-10-29, Cottage `288bfe8` + VEFR `db3df92`).** The playthrough bot with `--monsters` passed 44 of 44 at 1280 × 720 through all eight cellar floors. By eye: the hero stood at 2 of 14 health on floor 3; the bag ended full of keepsakes with no `value`; walls and floors read as one cobbled texture; the warden floor looks like any other.
+
+**What the engine does today (code audit, VEFR `db3df92`).** Rarity and traits are name text only (`180-gold.js`); a generated kill always drops exactly one item, chosen evenly; gold only comes from trades; the shop sells every priced item, unlimited, at the price it pays; healing, item use and casting take no turn; spells only heal; rest does not heal; the Section keys `curve`, `loot`, `pois`, `elites`, `groups` and the `specials` are validated but unwired (`shapes.py` `wired=False`); a new trip always starts at floor 1, because nothing reads the landings; `sprite_scale` is ignored while `display.pixel_art` is set. Details and file references are in LOOPS.md.
+
+**Open for Rylee (one question, canon).** Canon's Sections 2–4 are the Long Well, the Banked Fire and the Blue Door; the pack's rootworks, siltworks and emberhall predate the canon. LOOPS.md recommends rebuilding 2–4 to canon's places, and asks what Section 4's nine floors are, since canon describes the Blue Door as one door and the room behind it. The art requests for the Long Well and the Banked Fire are drafted; Section 4's creatures and warden wait on her answer.
+
 ## 2026-10-16 — cottage#159: the pack marks its unapproved text as drafts (Rylee's decision; agent work)
 
 **Rylee's decision, verbatim.** Asked whether the pack should mark its unapproved text as drafts or soften `DEMO.md` instead, and shown the recommendation to mark the drafts so the release check guards the release, Rylee answered: **"Use your recommendations."** That is design approval of the status direction. It is **not** story-text approval, a release authorization, or a merge/deploy grant. Nothing was promoted and no existing line was reworded.

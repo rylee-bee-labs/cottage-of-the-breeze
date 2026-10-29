@@ -1,0 +1,64 @@
+{
+ "stills": {
+  "image": "sheets/creatures-deep.png",
+  "grid": "4x2",
+  "cells": ["mob-well-crab", "mob-well-eel", "mob-fire-mite", "mob-ash-hound", "mob-cinder-moth", null, null, null]
+ },
+ "strips": {
+  "mob-well-crab": {
+   "image": "sheets/motion/mob-well-crab.png",
+   "frames": 6,
+   "height": 26,
+   "anims": {
+    "idle": [0, 0, 0, 0, 1, 1, 1, 1],
+    "walk": [2, 3],
+    "attack": [4, 4, 4],
+    "hurt": [5, 5, 5]
+   }
+  },
+  "mob-well-eel": {
+   "image": "sheets/motion/mob-well-eel.png",
+   "frames": 6,
+   "height": 28,
+   "anims": {
+    "idle": [0, 0, 0, 0, 1, 1, 1, 1],
+    "walk": [2, 3],
+    "attack": [4, 4, 4],
+    "hurt": [5, 5, 5]
+   }
+  },
+  "mob-fire-mite": {
+   "image": "sheets/motion/mob-fire-mite.png",
+   "frames": 6,
+   "height": 26,
+   "anims": {
+    "idle": [0, 0, 0, 0, 1, 1, 1, 1],
+    "walk": [2, 3],
+    "attack": [4, 4, 4],
+    "hurt": [5, 5, 5]
+   }
+  },
+  "mob-ash-hound": {
+   "image": "sheets/motion/mob-ash-hound.png",
+   "frames": 6,
+   "height": 30,
+   "anims": {
+    "idle": [0, 0, 0, 0, 1, 1, 1, 1],
+    "walk": [2, 3],
+    "attack": [4, 4, 4],
+    "hurt": [5, 5, 5]
+   }
+  },
+  "mob-cinder-moth": {
+   "image": "sheets/motion/mob-cinder-moth.png",
+   "frames": 6,
+   "height": 28,
+   "anims": {
+    "idle": [0, 0, 0, 0, 1, 1, 1, 1],
+    "walk": [2, 3],
+    "attack": [4, 4, 4],
+    "hurt": [5, 5, 5]
+   }
+  }
+ }
+}

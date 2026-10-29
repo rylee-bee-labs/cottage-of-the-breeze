@@ -1,0 +1,51 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/items-gear-1.png",
+   "grid": "4x3",
+   "props": [
+    {
+     "name": "gear-hand-1",
+     "size": [24, 24]
+    },
+    {
+     "name": "gear-hand-2",
+     "size": [24, 24]
+    },
+    {
+     "name": "gear-body-1",
+     "size": [24, 24]
+    },
+    {
+     "name": "gear-head-1",
+     "size": [24, 22]
+    },
+    {
+     "name": "gear-feet-1",
+     "size": [24, 22]
+    },
+    {
+     "name": "gear-charm-1",
+     "size": [20, 24]
+    },
+    {
+     "name": "gear-charm-2",
+     "size": [20, 24]
+    },
+    {
+     "name": "coin-pile",
+     "size": [20, 16]
+    },
+    {
+     "name": "loot-pouch",
+     "size": [20, 20]
+    },
+    null,
+    null,
+    null
+   ]
+  }
+ ]
+}
