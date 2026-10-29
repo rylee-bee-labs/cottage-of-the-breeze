@@ -86,6 +86,19 @@ touch them:
 uv run --offline --with pillow python -m unittest discover -s art/tests -t .
 ```
 
+## Audit the pack's art and write image-agent briefs
+
+Stdlib only, no VEFR checkout. `audit` fails when the pack names a picture it
+does not have (the engine would draw a placeholder and validate clean). After
+editing `art/manifest/slots.json`, regenerate the briefs; the art tests fail
+when `art/requests/` is stale.
+
+```sh
+python3 art/tools/art_manifest.py audit
+python3 art/tools/art_manifest.py wanted --loop 3
+python3 art/tools/art_manifest.py brief --all
+```
+
 ## Refresh the Blueprint
 
 After editing `worlds/cottage-of-the-breeze/blueprint.json`, refresh and check

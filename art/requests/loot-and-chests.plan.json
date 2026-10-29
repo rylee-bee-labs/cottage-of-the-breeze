@@ -1,0 +1,28 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/loot-and-chests.png",
+   "grid": "4x1",
+   "props": [
+    {
+     "name": "chest-closed",
+     "size": [32, 32]
+    },
+    {
+     "name": "chest-open",
+     "size": [32, 32]
+    },
+    {
+     "name": "dropped-satchel",
+     "size": [32, 32]
+    },
+    {
+     "name": "warden-dais",
+     "size": [64, 32]
+    }
+   ]
+  }
+ ]
+}

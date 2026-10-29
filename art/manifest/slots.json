@@ -1,0 +1,444 @@
+{
+ "_doc": "The art slots the game is still missing, and status notes on art it already ships. Read by art/tools/art_manifest.py. `wanted` slots are requests, not approvals: ids are asset ids, never player-facing names (names are Rylee's). `loop` is the loop number in docs/plans/release-1-0/LOOPS.md. `native` is [w, h] in game pixels at the 32 px tile. Edit here, then run `python3 art/tools/art_manifest.py brief --all` to regenerate art/requests/. `round` is the art/source folder this round of sheets is saved in; bump it when a new round starts.",
+ "round": "art/source/round24-gba",
+ "status": {
+  "sprite:shade": {
+   "status": "interim",
+   "note": "five shade families and the Ember Warden (the last Section's boss) all wear it"
+  },
+  "sprite:barrel-mimic": {
+   "status": "interim",
+   "note": "the Silt Warden wears the barrel mimic; a warden wants its own picture (slot boss-warden-well or boss-warden-fire, once Sections 2-4 follow canon)"
+  },
+  "sprite:root-tangle": {
+   "status": "interim",
+   "note": "the Root Warden wears the root tangle; a warden wants its own picture (slot boss-warden-well, once Section 2 follows canon)"
+  },
+  "tile:cellar-wall": {
+   "status": "redo",
+   "note": "walls and floors read as one cobbled texture on generated floors (cottage#166, seen again 2026-10-29 at 1280x720)"
+  }
+ },
+ "wanted": [
+  {
+   "id": "chest-closed",
+   "kind": "prop",
+   "loop": 3,
+   "native": [32, 32],
+   "subject": "a small closed wooden treasure chest with brass corners and a round brass lock",
+   "why": "the open-and-find moment needs a thing you can see across the room and want to open"
+  },
+  {
+   "id": "chest-open",
+   "kind": "prop",
+   "loop": 3,
+   "native": [32, 32],
+   "subject": "the same small wooden chest, lid thrown open, a warm amber glow rising from inside",
+   "why": "the open-and-find moment needs a thing you can see across the room and want to open"
+  },
+  {
+   "id": "coin-pile",
+   "kind": "item",
+   "loop": 8,
+   "native": [20, 16],
+   "subject": "a small heap of round gold coins",
+   "why": "gold on the floor is the plainest reward and has no picture"
+  },
+  {
+   "id": "loot-pouch",
+   "kind": "item",
+   "loop": 3,
+   "native": [20, 20],
+   "subject": "a small drawstring cloth pouch, bulging, tied with teal string",
+   "why": "a monster that drops several things drops one pouch, so the floor stays readable"
+  },
+  {
+   "id": "gear-hand-1",
+   "kind": "item",
+   "loop": 4,
+   "native": [24, 24],
+   "subject": "a sturdy walking staff with a brass cap",
+   "why": "a second hand item style, so a found weapon can feel different from a ladle"
+  },
+  {
+   "id": "gear-hand-2",
+   "kind": "item",
+   "loop": 4,
+   "native": [24, 24],
+   "subject": "a short bronze garden sickle with a wrapped handle",
+   "why": "a second hand item style, so a found weapon can feel different from a ladle"
+  },
+  {
+   "id": "gear-body-1",
+   "kind": "item",
+   "loop": 4,
+   "native": [24, 24],
+   "subject": "a moss-green knitted jumper laid flat",
+   "why": "more body gear silhouettes for rolled loot"
+  },
+  {
+   "id": "gear-head-1",
+   "kind": "item",
+   "loop": 4,
+   "native": [24, 22],
+   "subject": "a soft felt hat with a feather",
+   "why": "more head gear silhouettes for rolled loot"
+  },
+  {
+   "id": "gear-feet-1",
+   "kind": "item",
+   "loop": 4,
+   "native": [24, 22],
+   "subject": "a pair of fur-lined snow boots",
+   "why": "more feet gear silhouettes for rolled loot"
+  },
+  {
+   "id": "gear-charm-1",
+   "kind": "item",
+   "loop": 4,
+   "native": [20, 24],
+   "subject": "a pendant: a polished teal stone on a leather cord",
+   "why": "more charms, the slot that carries the strangest traits"
+  },
+  {
+   "id": "gear-charm-2",
+   "kind": "item",
+   "loop": 4,
+   "native": [20, 24],
+   "subject": "a tiny brass compass charm on a chain",
+   "why": "more charms, the slot that carries the strangest traits"
+  },
+  {
+   "id": "satchel-2",
+   "kind": "item",
+   "loop": 7,
+   "native": [24, 24],
+   "subject": "a bigger patched canvas satchel with two pockets",
+   "why": "the first bag upgrade (decided 2026-10-08: slots plus bag upgrades)"
+  },
+  {
+   "id": "satchel-3",
+   "kind": "item",
+   "loop": 7,
+   "native": [24, 24],
+   "subject": "a sturdy leather explorer's pack with brass buckles and a bedroll",
+   "why": "the second bag upgrade"
+  },
+  {
+   "id": "way-home-charm",
+   "kind": "item",
+   "loop": 7,
+   "native": [20, 24],
+   "subject": "a small brass wind-whistle on a loop of teal ribbon",
+   "why": "a way home from any floor that is not a staircase (playtest M4)"
+  },
+  {
+   "id": "identify-scroll",
+   "kind": "item",
+   "loop": 5,
+   "native": [20, 24],
+   "subject": "a rolled parchment scroll tied with a teal ribbon",
+   "why": "reading what a found thing really is, in the field, not only in town"
+  },
+  {
+   "id": "spellbook",
+   "kind": "item",
+   "loop": 6,
+   "native": [24, 24],
+   "subject": "a small thick spellbook bound in teal cloth with a brass clasp",
+   "why": "a found spellbook is how a spell is learned in the dungeon"
+  },
+  {
+   "id": "tea-flask",
+   "kind": "item",
+   "loop": 9,
+   "native": [18, 24],
+   "subject": "a small dented tin flask with a cork, steam curling from the top",
+   "why": "a second, cheaper heal so the potion is not the only answer to low health"
+  },
+  {
+   "id": "dropped-satchel",
+   "kind": "prop",
+   "loop": 12,
+   "native": [32, 32],
+   "subject": "a fallen satchel spilling a few things onto the stone floor, a small sparkle above it",
+   "why": "after a fall, the things you dropped wait where you fell, and you can see them"
+  },
+  {
+   "id": "vault-door",
+   "kind": "way",
+   "loop": 11,
+   "native": [32, 32],
+   "subject": "a small arched stone door with a round keyhole, seen front-on",
+   "why": "a locked side room a Keybearer's key opens"
+  },
+  {
+   "id": "secret-crack",
+   "kind": "way",
+   "loop": 11,
+   "native": [32, 32],
+   "subject": "a stone wall section with a hairline crack shaped like a doorway and a faint draught of dust",
+   "why": "a secret you notice by looking, never by pressing every wall"
+  },
+  {
+   "id": "warden-dais",
+   "kind": "prop",
+   "loop": 10,
+   "native": [64, 32],
+   "subject": "a low worn stone dais with two unlit iron braziers at its ends",
+   "why": "a warden floor should look like a place something important waits"
+  },
+  {
+   "id": "windrose",
+   "kind": "prop",
+   "loop": 15,
+   "native": [64, 64],
+   "subject": "a round wooden compass rose hung on a wall, five carved points and a small brass needle",
+   "why": "the Windrose, where the player picks the Wind for an expedition (cottage#168)"
+  },
+  {
+   "id": "keepsake-shelf",
+   "kind": "prop",
+   "loop": 14,
+   "native": [64, 48],
+   "subject": "a wooden shelf with three small empty stands, waiting for keepsakes",
+   "why": "the cottage shows what each Section's warden gave you"
+  },
+  {
+   "id": "reading-desk",
+   "kind": "prop",
+   "loop": 5,
+   "native": [64, 48],
+   "subject": "a small slanted reading desk with a lamp and a magnifying glass",
+   "why": "where the town identifies things (decided 2026-10-08: rest, trade, identify)"
+  },
+  {
+   "id": "mending-rack",
+   "kind": "prop",
+   "loop": 14,
+   "native": [64, 48],
+   "subject": "a wooden rack with a few tools and a half-mended coat hanging on it",
+   "why": "the smith's service grows as the town does"
+  },
+  {
+   "id": "boss-warden-well",
+   "kind": "boss",
+   "loop": 10,
+   "native": [72, 72],
+   "subject": "a huge slow snail with a shell of layered river mud and pebbles, kind heavy-lidded eyes",
+   "why": "the Long Well (Section 2 in canon) needs its own guardian; today's Section 2 warden borrows the root tangle's picture"
+  },
+  {
+   "id": "boss-warden-fire",
+   "kind": "boss",
+   "loop": 10,
+   "native": [80, 72],
+   "subject": "a tall figure made of banked coals and soft ash, a warm glow in its chest, cupped hands",
+   "why": "the Banked Fire (Section 3 in canon) needs its own guardian; today's wardens borrow the barrel mimic and the shade"
+  },
+  {
+   "id": "mob-well-crab",
+   "kind": "mob",
+   "loop": 2,
+   "native": [32, 26],
+   "subject": "a small mud-coloured crab carrying a pebble on its back like a shield",
+   "why": "the Long Well (Section 2 in canon: wet, listening, enormous) has no creature of its own"
+  },
+  {
+   "id": "mob-well-eel",
+   "kind": "mob",
+   "loop": 2,
+   "native": [34, 28],
+   "subject": "a round little mud eel poking up out of a puddle, whiskered",
+   "why": "the Long Well (Section 2 in canon: wet, listening, enormous) has no creature of its own"
+  },
+  {
+   "id": "mob-fire-mite",
+   "kind": "mob",
+   "loop": 2,
+   "native": [26, 26],
+   "subject": "a tiny round spark-beetle with a glowing orange back",
+   "why": "the Banked Fire (Section 3 in canon: soot, chimneys, the first warm place) has no creature of its own"
+  },
+  {
+   "id": "mob-ash-hound",
+   "kind": "mob",
+   "loop": 2,
+   "native": [36, 30],
+   "subject": "a small soft grey dog made of ash, with ember-orange eyes and a fluffy tail",
+   "why": "the Banked Fire (Section 3 in canon: soot, chimneys, the first warm place) has no creature of its own"
+  },
+  {
+   "id": "mob-cinder-moth",
+   "kind": "mob",
+   "loop": 2,
+   "native": [32, 28],
+   "subject": "a moth with wings like glowing cinders, round and fuzzy",
+   "why": "the Banked Fire (Section 3 in canon: soot, chimneys, the first warm place) has no creature of its own"
+  },
+  {
+   "id": "well-wall",
+   "kind": "tile",
+   "loop": 1,
+   "native": [96, 96],
+   "subject": "dark wet cut-stone cistern blocks, big and stacked, clearly darker and larger than the floor",
+   "why": "every Section's wall must read as a wall at a glance; the Long Well's is wet cistern stone"
+  },
+  {
+   "id": "cellar-wall-2",
+   "kind": "tile",
+   "loop": 1,
+   "native": [96, 96],
+   "subject": "a dark brick cellar wall of long narrow bricks in rows, much darker than the cobbled floor",
+   "why": "every Section's wall must read as a wall at a glance, not as more floor (cottage#166)"
+  },
+  {
+   "id": "vault-floor",
+   "kind": "tile",
+   "loop": 10,
+   "native": [96, 96],
+   "subject": "smooth fitted pale flagstones with a thin brass inlay line, clean and calm",
+   "why": "the vault and warden rooms should feel different underfoot (cottage#166)"
+  },
+  {
+   "id": "rarity-common",
+   "kind": "ui",
+   "loop": 3,
+   "native": [24, 24],
+   "subject": "a plain thin square frame",
+   "why": "rarity shows as a glow, a word and a frame shape, never colour alone (DESIGN.md)"
+  },
+  {
+   "id": "rarity-fine",
+   "kind": "ui",
+   "loop": 3,
+   "native": [24, 24],
+   "subject": "a square frame with small notched corners",
+   "why": "rarity shows as a glow, a word and a frame shape, never colour alone (DESIGN.md)"
+  },
+  {
+   "id": "rarity-rare",
+   "kind": "ui",
+   "loop": 3,
+   "native": [24, 24],
+   "subject": "a frame with rounded leaf-shaped corners",
+   "why": "rarity shows as a glow, a word and a frame shape, never colour alone (DESIGN.md)"
+  },
+  {
+   "id": "rarity-heroic",
+   "kind": "ui",
+   "loop": 3,
+   "native": [24, 24],
+   "subject": "a double frame with a small star at the top",
+   "why": "rarity shows as a glow, a word and a frame shape, never colour alone (DESIGN.md)"
+  },
+  {
+   "id": "rarity-mythic",
+   "kind": "ui",
+   "loop": 3,
+   "native": [24, 24],
+   "subject": "an ornate frame of curling vines with a star at each corner",
+   "why": "rarity shows as a glow, a word and a frame shape, never colour alone (DESIGN.md)"
+  },
+  {
+   "id": "wind-breeze",
+   "kind": "ui",
+   "loop": 15,
+   "native": [24, 24],
+   "subject": "one soft curling wind line with a leaf",
+   "why": "each Wind on the Windrose needs a shape a player can tell apart without reading"
+  },
+  {
+   "id": "wind-gust",
+   "kind": "ui",
+   "loop": 15,
+   "native": [24, 24],
+   "subject": "two quick parallel wind lines with a flicked tail",
+   "why": "each Wind on the Windrose needs a shape a player can tell apart without reading"
+  },
+  {
+   "id": "wind-gale",
+   "kind": "ui",
+   "loop": 15,
+   "native": [24, 24],
+   "subject": "three strong wind lines bending a small tree",
+   "why": "each Wind on the Windrose needs a shape a player can tell apart without reading"
+  },
+  {
+   "id": "wind-squall",
+   "kind": "ui",
+   "loop": 15,
+   "native": [24, 24],
+   "subject": "a small dark cloud with slanting rain and one wind line",
+   "why": "each Wind on the Windrose needs a shape a player can tell apart without reading"
+  },
+  {
+   "id": "wind-tempest",
+   "kind": "ui",
+   "loop": 15,
+   "native": [24, 24],
+   "subject": "a spiral of wind around a tiny lightning flash",
+   "why": "each Wind on the Windrose needs a shape a player can tell apart without reading"
+  },
+  {
+   "id": "wind-zephyr",
+   "kind": "ui",
+   "loop": 15,
+   "native": [24, 24],
+   "subject": "a playful wind ribbon with a small sparkle and a flower petal",
+   "why": "the rare whimsical Wind needs its own mark"
+  }
+ ],
+ "batches": [
+  {
+   "id": "loot-and-chests",
+   "title": "chests and the things on the floor",
+   "slots": ["chest-closed", "chest-open", "dropped-satchel", "warden-dais"]
+  },
+  {
+   "id": "items-gear-1",
+   "title": "rolled-loot gear silhouettes",
+   "slots": ["gear-hand-1", "gear-hand-2", "gear-body-1", "gear-head-1", "gear-feet-1", "gear-charm-1", "gear-charm-2", "coin-pile", "loot-pouch", "satchel-2", "satchel-3", "way-home-charm"]
+  },
+  {
+   "id": "items-reading",
+   "title": "scrolls, books and a flask",
+   "slots": ["identify-scroll", "spellbook", "tea-flask"]
+  },
+  {
+   "id": "town-services",
+   "title": "props for the growing town and the cottage",
+   "slots": ["windrose", "keepsake-shelf", "reading-desk", "mending-rack"]
+  },
+  {
+   "id": "ways-secret",
+   "title": "a vault door and a secret wall",
+   "slots": ["vault-door", "secret-crack"]
+  },
+  {
+   "id": "wardens-well-fire",
+   "title": "the guardians of the Long Well and the Banked Fire",
+   "slots": ["boss-warden-well", "boss-warden-fire"]
+  },
+  {
+   "id": "creatures-deep",
+   "title": "creatures of the Long Well and the Banked Fire",
+   "slots": ["mob-well-crab", "mob-well-eel", "mob-fire-mite", "mob-ash-hound", "mob-cinder-moth"]
+  },
+  {
+   "id": "tiles-walls",
+   "title": "walls that read as walls, and the vault floor",
+   "slots": ["cellar-wall-2", "well-wall", "vault-floor"]
+  },
+  {
+   "id": "ui-rarity",
+   "title": "rarity frames",
+   "slots": ["rarity-common", "rarity-fine", "rarity-rare", "rarity-heroic", "rarity-mythic"]
+  },
+  {
+   "id": "ui-winds",
+   "title": "the six Wind marks",
+   "slots": ["wind-breeze", "wind-gust", "wind-gale", "wind-squall", "wind-tempest", "wind-zephyr"]
+  }
+ ]
+}

@@ -1,0 +1,24 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/items-reading.png",
+   "grid": "3x1",
+   "props": [
+    {
+     "name": "identify-scroll",
+     "size": [20, 24]
+    },
+    {
+     "name": "spellbook",
+     "size": [24, 24]
+    },
+    {
+     "name": "tea-flask",
+     "size": [18, 24]
+    }
+   ]
+  }
+ ]
+}

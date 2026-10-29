@@ -1,0 +1,11 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/tiles-walls.png",
+   "grid": "2x2",
+   "ground": ["cellar-wall-2", "well-wall", "vault-floor", null]
+  }
+ ]
+}

@@ -1,5 +1,21 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-29 — the fifteen loops, the art manifest, and the Ember Warden's missing picture (agent)
+
+**Rylee's ask, verbatim.** "Can you help me turn this into a robust finished game with logical scope please? … help me with the underlying game systems and a way to make better art insertion points with maybe a templatr to give to an image generation agent on exactly the map item ui and mob assets to create … I'd like 10-15 really satiating gameplay loops. Some of which exist already. Gather what is there and what needs refinement and what needs to be outright rethought please". This is an ask, not a new design decision: everything below works inside #168's approved direction.
+
+**What landed.**
+
+- **[`docs/plans/release-1-0/LOOPS.md`](docs/plans/release-1-0/LOOPS.md):** fifteen player loops, each judged from the player's chair with code evidence, sorted Keep / Refine / Rethink / Build; the "one card" of core rules a player needs; the engine companion list E1–E16 for VEFR #489; pack-only work; and the one canon question below. Analysis and plan only: nothing in it is built by it.
+- **The art manifest** ([`art/manifest/README.md`](art/manifest/README.md)): `art/tools/art_manifest.py audit` lists every picture the pack reads (117 slots today) and fails on one it names but lacks; `slots.json` holds 46 wanted pictures tied to loops; `brief --all` fills `TEMPLATE.md` into ten ready-to-hand image-agent requests in `art/requests/` (cell-by-cell table, style contract, references, prompt, saving, the `process_kit.py` cut plan, a checklist). Tests: `art/tests/test_art_manifest.py` (18, with a negative control), and the suite's 285 pass.
+- **Fixed:** the Ember Warden (Section 4's boss, `blueprint.json`) named sprite `hollow-shade`, which no `player.sprites` entry answered, so the engine drew its plain placeholder figure (`448-asset-loaders.js`: "A character with no sprite keeps the drawn figure"). It now wears `shade`, as its parent family does: interim until it has its own picture. `blueprint.lock.json` refreshed with `vefr normalize`; `vefr check` and `norns validate` pass. No words changed.
+
+**What was measured (2026-10-29, Cottage `288bfe8` + VEFR `db3df92`).** The playthrough bot with `--monsters` passed 44 of 44 at 1280 × 720 through all eight cellar floors. By eye: the hero stood at 2 of 14 health on floor 3; the bag ended full of keepsakes with no `value`; walls and floors read as one cobbled texture; the warden floor looks like any other.
+
+**What the engine does today (code audit, VEFR `db3df92`).** Rarity and traits are name text only (`180-gold.js`); a generated kill always drops exactly one item, chosen evenly; gold only comes from trades; the shop sells every priced item, unlimited, at the price it pays; healing, item use and casting take no turn; spells only heal; rest does not heal; the Section keys `curve`, `loot`, `pois`, `elites`, `groups` and the `specials` are validated but unwired (`shapes.py` `wired=False`); a new trip always starts at floor 1, because nothing reads the landings; `sprite_scale` is ignored while `display.pixel_art` is set. Details and file references are in LOOPS.md.
+
+**Open for Rylee (one question, canon).** Canon's Sections 2–4 are the Long Well, the Banked Fire and the Blue Door; the pack's rootworks, siltworks and emberhall predate the canon. LOOPS.md recommends rebuilding 2–4 to canon's places, and asks what Section 4's nine floors are, since canon describes the Blue Door as one door and the room behind it. The art requests for the Long Well and the Banked Fire are drafted; Section 4's creatures and warden wait on her answer.
+
 ## 2026-10-16 — cottage#159: the pack marks its unapproved text as drafts (Rylee's decision; agent work)
 
 **Rylee's decision, verbatim.** Asked whether the pack should mark its unapproved text as drafts or soften `DEMO.md` instead, and shown the recommendation to mark the drafts so the release check guards the release, Rylee answered: **"Use your recommendations."** That is design approval of the status direction. It is **not** story-text approval, a release authorization, or a merge/deploy grant. Nothing was promoted and no existing line was reworded.
