@@ -553,7 +553,9 @@ Safe to do now, each validated with `norns validate` and the playthrough bot:
 No design question blocks the build: Rylee's answers above settle the open ones.
 What remains is the ordinary approval of **words** (answer 14): Claude drafts each
 batch (spell names, trait names, item names, warden answers, resident lines),
-clearly marked draft, and Rylee keeps, edits or bins it in one sitting. Section 4's
+clearly marked draft, and Rylee keeps, edits or bins it in one sitting. Batch 1
+(the Gate 1 traits, spells, schools and fight row) was approved as written on
+2026-10-29. Section 4's
 own creatures and warden are drawn once its place is drafted in words; until then
 the art requests cover Sections 2 and 3 and the Blue Door itself.
 

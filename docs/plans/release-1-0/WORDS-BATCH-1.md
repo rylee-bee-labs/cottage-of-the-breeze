@@ -1,13 +1,10 @@
 # Words, batch 1: the cellar's RPG core
 
-**Status: draft, every word on this page.** Rylee's rule (2026-10-29, answer
-14): "I draft, you approve batches". Claude drafted these for the Gate 1 cellar
-build; Rylee keeps, edits or bins each one in one sitting. Until then they ship
-only in the draft build, and `DEMO.md` already tells players every word is a
-draft. Nothing here changes an existing word.
-
-Mark each line **keep**, **edit: …** or **bin**. A bin with no replacement
-removes the thing (a trait or a spell) rather than leaving a hole.
+**Status: approved by Rylee, 2026-10-29, as written.** Her words: **"I approve
+the words."** Her rule (answer 14) is "I draft, you approve batches": Claude
+drafted this batch for the Gate 1 cellar build, and Rylee approved all of it in
+one sitting, with no line edited or binned. Nothing here changes an existing
+word.
 
 ## Trait words (found on gear, read by the Spell Keeper)
 

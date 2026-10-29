@@ -1,5 +1,13 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-29 (late) — Rylee approves words batch 1; merge and deploy go
+
+**Rylee, verbatim:** **"I approve the words. Please merge [and] deploy when you can"**.
+
+- **Words.** Every word in [`docs/plans/release-1-0/WORDS-BATCH-1.md`](docs/plans/release-1-0/WORDS-BATCH-1.md) is approved as written: the ten trait words, the three spell names, the school words "ember" and "hearth", and the fight-row labels "Strike" and "Cast". None was edited or binned. `DRAFT-TEXT.md` no longer lists them as unapproved.
+- **Merge order, as planned:** cottage#219 (loops and the art manifest) merged as `4f2ec6c`; then VEFR #586 (the engine half); then this branch, once `validate-pack.yml`'s `VEFR_REF` is pinned to #586's merge commit.
+- **Deploy** means `bin/publish-build.sh` after the merge, which needs Rylee's machine (its ssh key and the `gallery` CLI). Whether a build was published is recorded where it happened, not asserted here (`.project/CURRENT.md`, "Not established").
+
 ## 2026-10-29 (night) — Gate 1: the RPG core in the cellar (Rylee's go; agent work)
 
 **Rylee's go, verbatim.** Asked "Want me to start the Gate 1 PR now?", she answered: **"Please"**. The rules themselves are her sixteen answers of the same day (the entry below); the engine work is one VEFR PR, as she chose ("One big PR per gate").
