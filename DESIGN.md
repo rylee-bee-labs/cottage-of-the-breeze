@@ -72,6 +72,33 @@ learn → go deeper.
 - **Models:** none while playing. Every rule and number is fixed; every
   line is Rylee's or drafted in the studio and approved, then baked in.
 
+## Decided (Rylee, 2026-10-29)
+
+Sixteen questions in four rounds; her picks in her words, and the full table in
+[`docs/plans/release-1-0/LOOPS.md`](docs/plans/release-1-0/LOOPS.md#rylees-answers-2026-10-29).
+Decided, not built yet.
+
+- **Hits:** "Classic: misses and crits", rolled from the run's seed. Guard stays
+  as armour.
+- **Magic:** "spells and books with a mana cost for learned books and charges for
+  spells": mana for spells learned from books, charges for spell things found.
+- **Falling:** "Satchel contents" wait where you fell; levels, spells, books and
+  worn gear are kept.
+- **Going back down:** "Deepest landing only".
+- **Traits:** "Mostly stats, some tricks".
+- **Curses:** "Take it off at any time and any cursed items have a deliberate
+  upside to deliberate": removable any time, every curse a trade-off.
+- **Carrying:** "Bags in town upgrade by 5s. In dungeons bags can drop rarely with
+  more slots or slots + enchantments". Base 10 slots (Claude's call).
+- **Identify:** "The Spell Keeper".
+- **Fight row:** "Strike, Cast if known".
+- **Wardens:** "Each its own way". **Keybearers:** "Asleep in Section 1".
+- **Sections 2–4:** "You decide. Best game 💗": rebuilt as canon's Long Well,
+  Banked Fire and Blue Door; Section 4 is generated floors past the Blue Door to
+  the unburnt room (Claude's calls, made at her request).
+- **New words:** "I draft, you approve batches". **Engine work:** "One big PR per
+  gate".
+
 ## Order
 1. **Library**: books and notes found in the world, kept, fed to the book export.
 2. **Delve**: floors, items, weight, spells, turns (what the VEFR ruleset

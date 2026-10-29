@@ -1,0 +1,41 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/items-carry.png",
+   "grid": "4x2",
+   "props": [
+    {
+     "name": "satchel-2",
+     "size": [24, 24]
+    },
+    {
+     "name": "satchel-3",
+     "size": [24, 24]
+    },
+    {
+     "name": "satchel-4",
+     "size": [24, 24]
+    },
+    {
+     "name": "bag-rare-1",
+     "size": [22, 24]
+    },
+    {
+     "name": "bag-rare-2",
+     "size": [22, 24]
+    },
+    {
+     "name": "way-home-charm",
+     "size": [20, 24]
+    },
+    {
+     "name": "warm-coal",
+     "size": [18, 18]
+    },
+    null
+   ]
+  }
+ ]
+}

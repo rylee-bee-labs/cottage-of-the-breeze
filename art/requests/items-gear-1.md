@@ -9,10 +9,10 @@ nothing you draw is approved until she says so.
 
 ## Why the game needs these
 
-a second hand item style, so a found weapon can feel different from a ladle; more body gear silhouettes for rolled loot; more head gear silhouettes for rolled loot; more feet gear silhouettes for rolled loot; more charms, the slot that carries the strangest traits; gold on the floor is the plainest reward and has no picture; a monster that drops several things drops one pouch, so the floor stays readable; the first bag upgrade (decided 2026-10-08: slots plus bag upgrades); the second bag upgrade; a way home from any floor that is not a staircase (playtest M4) (serves loop 3, loop 4, loop 7, loop 8 in
+a second hand item style, so a found weapon can feel different from a ladle; more body gear silhouettes for rolled loot; more head gear silhouettes for rolled loot; more feet gear silhouettes for rolled loot; more charms, the slot that carries the strangest traits; gold on the floor is the plainest reward and has no picture; a monster that drops several things drops one pouch, so the floor stays readable (serves loop 3, loop 4, loop 8 in
 [`docs/plans/release-1-0/LOOPS.md`](../../docs/plans/release-1-0/LOOPS.md)).
 
-## What to draw: 12 × item
+## What to draw: 9 × item
 
 - **Sheet:** 1536 x 1536, a 4 x 3 grid (12 cells at most).
 - **In the game it is:** fits inside 24 x 24 px (a 32 px tile with room around it). Draw big, chunky, readable shapes: the
@@ -30,9 +30,6 @@ a second hand item style, so a found weapon can feel different from a ladle; mor
 | 7 | 2, 3 | `gear-charm-2` | a tiny brass compass charm on a chain | 20 x 24 px |
 | 8 | 2, 4 | `coin-pile` | a small heap of round gold coins | 20 x 16 px |
 | 9 | 3, 1 | `loot-pouch` | a small drawstring cloth pouch, bulging, tied with teal string | 20 x 20 px |
-| 10 | 3, 2 | `satchel-2` | a bigger patched canvas satchel with two pockets | 24 x 24 px |
-| 11 | 3, 3 | `satchel-3` | a sturdy leather explorer's pack with brass buckles and a bedroll | 24 x 24 px |
-| 12 | 3, 4 | `way-home-charm` | a small brass wind-whistle on a loop of teal ribbon | 20 x 24 px |
 
 ## The style contract (paste this into every call)
 
@@ -49,7 +46,7 @@ saving: a "cuter" redraw that came back more realistic is redrawn.
 ## Step A: the prompt
 
 ```text
-Create a 1536 x 1536 pixel-art sheet of item icons. Reference 1 defines the exact GBA pixel rendering; match it. Pure #00FF00 background. Exact 4-column by 3-row grid with wide green gutters; one isolated, centred, fully visible chunky item icon, all icons at one consistent scale; nothing touching another subject or the image edge. Order left-to-right, top row to bottom row: a sturdy walking staff with a brass cap; a short bronze garden sickle with a wrapped handle; a moss-green knitted jumper laid flat; a soft felt hat with a feather; a pair of fur-lined snow boots; a pendant: a polished teal stone on a leather cord; a tiny brass compass charm on a chain; a small heap of round gold coins; a small drawstring cloth pouch, bulging, tied with teal string; a bigger patched canvas satchel with two pockets; a sturdy leather explorer's pack with brass buckles and a bedroll; a small brass wind-whistle on a loop of teal ribbon. True Game Boy Advance era pixel art in a warm storybook palette (like The Minish Cap and Mother 3). Crisp hard-edged square pixels, every pixel visible, no anti-aliasing, no blur, no gradients. 1-pixel dark warm-brown outline (never pure black). Limited warm palette: umber, rust, amber, cream, soft moss green, with dusk teal #3F7E84 as the accent. Light from the top left. No ground shadows. Classic top-down RPG view, never isometric. Creatures are cute storybook mobs, not naturalistic animals. No text, letters, numbers, labels or frames anywhere. Nothing from Castle of the Winds.
+Create a 1536 x 1536 pixel-art sheet of item icons. Reference 1 defines the exact GBA pixel rendering; match it. Pure #00FF00 background. Exact 4-column by 3-row grid with wide green gutters; one isolated, centred, fully visible chunky item icon, all icons at one consistent scale; nothing touching another subject or the image edge. Order left-to-right, top row to bottom row: a sturdy walking staff with a brass cap; a short bronze garden sickle with a wrapped handle; a moss-green knitted jumper laid flat; a soft felt hat with a feather; a pair of fur-lined snow boots; a pendant: a polished teal stone on a leather cord; a tiny brass compass charm on a chain; a small heap of round gold coins; a small drawstring cloth pouch, bulging, tied with teal string. Leave any remaining cells empty green. True Game Boy Advance era pixel art in a warm storybook palette (like The Minish Cap and Mother 3). Crisp hard-edged square pixels, every pixel visible, no anti-aliasing, no blur, no gradients. 1-pixel dark warm-brown outline (never pure black). Limited warm palette: umber, rust, amber, cream, soft moss green, with dusk teal #3F7E84 as the accent. Light from the top left. No ground shadows. Classic top-down RPG view, never isometric. Creatures are cute storybook mobs, not naturalistic animals. No text, letters, numbers, labels or frames anywhere. Nothing from Castle of the Winds.
 ```
 
 ## Saving
@@ -109,18 +106,9 @@ The cut plan, also written as `art/requests/items-gear-1.plan.json`:
      "name": "loot-pouch",
      "size": [20, 20]
     },
-    {
-     "name": "satchel-2",
-     "size": [24, 24]
-    },
-    {
-     "name": "satchel-3",
-     "size": [24, 24]
-    },
-    {
-     "name": "way-home-charm",
-     "size": [20, 24]
-    }
+    null,
+    null,
+    null
    ]
   }
  ]
@@ -142,9 +130,6 @@ Where each picture lands in the pack:
 - `gear-charm-2` → `sprites/gear-charm-2.webp`
 - `coin-pile` → `sprites/coin-pile.webp`
 - `loot-pouch` → `sprites/loot-pouch.webp`
-- `satchel-2` → `sprites/satchel-2.webp`
-- `satchel-3` → `sprites/satchel-3.webp`
-- `way-home-charm` → `sprites/way-home-charm.webp`
 
 How the game finds it:
 
@@ -157,9 +142,6 @@ How the game finds it:
 - `gear-charm-2`: add `"gear-charm-2": "sprites/gear-charm-2.webp"` to `player.sprites` and set the item's `sprite`
 - `coin-pile`: add `"coin-pile": "sprites/coin-pile.webp"` to `player.sprites` and set the item's `sprite`
 - `loot-pouch`: add `"loot-pouch": "sprites/loot-pouch.webp"` to `player.sprites` and set the item's `sprite`
-- `satchel-2`: add `"satchel-2": "sprites/satchel-2.webp"` to `player.sprites` and set the item's `sprite`
-- `satchel-3`: add `"satchel-3": "sprites/satchel-3.webp"` to `player.sprites` and set the item's `sprite`
-- `way-home-charm`: add `"way-home-charm": "sprites/way-home-charm.webp"` to `player.sprites` and set the item's `sprite`
 
 ## Done means
 

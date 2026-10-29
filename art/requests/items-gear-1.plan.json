@@ -42,18 +42,9 @@
      "name": "loot-pouch",
      "size": [20, 20]
     },
-    {
-     "name": "satchel-2",
-     "size": [24, 24]
-    },
-    {
-     "name": "satchel-3",
-     "size": [24, 24]
-    },
-    {
-     "name": "way-home-charm",
-     "size": [20, 24]
-    }
+    null,
+    null,
+    null
    ]
   }
  ]

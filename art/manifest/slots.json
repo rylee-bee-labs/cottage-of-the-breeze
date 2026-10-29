@@ -114,7 +114,7 @@
    "loop": 7,
    "native": [24, 24],
    "subject": "a bigger patched canvas satchel with two pockets",
-   "why": "the first bag upgrade (decided 2026-10-08: slots plus bag upgrades)"
+   "why": "the first town bag upgrade: 10 slots to 15 (Rylee 2026-10-29: bags in town upgrade by 5s)"
   },
   {
    "id": "satchel-3",
@@ -122,7 +122,7 @@
    "loop": 7,
    "native": [24, 24],
    "subject": "a sturdy leather explorer's pack with brass buckles and a bedroll",
-   "why": "the second bag upgrade"
+   "why": "the second town bag upgrade: 15 slots to 20"
   },
   {
    "id": "way-home-charm",
@@ -387,23 +387,92 @@
    "native": [24, 24],
    "subject": "a playful wind ribbon with a small sparkle and a flower petal",
    "why": "the rare whimsical Wind needs its own mark"
+  },
+  {
+   "id": "satchel-4",
+   "kind": "item",
+   "loop": 7,
+   "native": [24, 24],
+   "subject": "a big travelling rucksack with a frame, a tin cup and a rolled blanket tied on",
+   "why": "the third town bag upgrade: 20 slots to 25"
+  },
+  {
+   "id": "bag-rare-1",
+   "kind": "item",
+   "loop": 7,
+   "native": [22, 24],
+   "subject": "a small woven reed creel with a teal ribbon, faintly glowing at the seams",
+   "why": "a rare bag found below, with more slots and sometimes an enchantment (Rylee 2026-10-29)"
+  },
+  {
+   "id": "bag-rare-2",
+   "kind": "item",
+   "loop": 7,
+   "native": [22, 24],
+   "subject": "a soft pouch of pale moth-silk that shimmers, tied with a brass bead",
+   "why": "a rare bag found below, with more slots and sometimes an enchantment (Rylee 2026-10-29)"
+  },
+  {
+   "id": "warm-coal",
+   "kind": "item",
+   "loop": 10,
+   "native": [18, 18],
+   "subject": "a single small coal glowing warm orange from inside, held in a scrap of cloth",
+   "why": "canon: the coal from the Banked Fire opens the Blue Door, and it is what you carry home"
+  },
+  {
+   "id": "wand-1",
+   "kind": "item",
+   "loop": 6,
+   "native": [20, 24],
+   "subject": "a short birch wand with a teal glass bead at the tip",
+   "why": "a found spell thing with charges (Rylee 2026-10-29: charges for spells found, mana for spells learned)"
+  },
+  {
+   "id": "spell-charm",
+   "kind": "item",
+   "loop": 6,
+   "native": [20, 22],
+   "subject": "a little brass disc charm engraved with a swirl, warm to look at",
+   "why": "a found spell thing with charges"
+  },
+  {
+   "id": "blue-door",
+   "kind": "way",
+   "loop": 10,
+   "native": [32, 32],
+   "subject": "an ordinary wooden cottage door, painted blue long ago and faded, set in a fire-brick wall",
+   "why": "canon: the Blue Door at the warm end of the Banked Fire, which the coal opens"
+  },
+  {
+   "id": "dog-bowl",
+   "kind": "prop",
+   "loop": 10,
+   "native": [16, 12],
+   "subject": "a small round tin dog bowl full of old rainwater and a dry leaf",
+   "why": "canon: beside the Blue Door, a dog bowl that has been full of weather for forty years"
   }
  ],
  "batches": [
   {
    "id": "loot-and-chests",
-   "title": "chests and the things on the floor",
-   "slots": ["chest-closed", "chest-open", "dropped-satchel", "warden-dais"]
+   "title": "chests, things on the floor, and the dog bowl by the Blue Door",
+   "slots": ["chest-closed", "chest-open", "dropped-satchel", "warden-dais", "dog-bowl"]
   },
   {
    "id": "items-gear-1",
    "title": "rolled-loot gear silhouettes",
-   "slots": ["gear-hand-1", "gear-hand-2", "gear-body-1", "gear-head-1", "gear-feet-1", "gear-charm-1", "gear-charm-2", "coin-pile", "loot-pouch", "satchel-2", "satchel-3", "way-home-charm"]
+   "slots": ["gear-hand-1", "gear-hand-2", "gear-body-1", "gear-head-1", "gear-feet-1", "gear-charm-1", "gear-charm-2", "coin-pile", "loot-pouch"]
+  },
+  {
+   "id": "items-carry",
+   "title": "bags and the things you carry home",
+   "slots": ["satchel-2", "satchel-3", "satchel-4", "bag-rare-1", "bag-rare-2", "way-home-charm", "warm-coal"]
   },
   {
    "id": "items-reading",
-   "title": "scrolls, books and a flask",
-   "slots": ["identify-scroll", "spellbook", "tea-flask"]
+   "title": "scrolls, books, wands, charms and a flask",
+   "slots": ["identify-scroll", "spellbook", "tea-flask", "wand-1", "spell-charm"]
   },
   {
    "id": "town-services",
@@ -412,8 +481,8 @@
   },
   {
    "id": "ways-secret",
-   "title": "a vault door and a secret wall",
-   "slots": ["vault-door", "secret-crack"]
+   "title": "a vault door, a secret wall and the Blue Door",
+   "slots": ["vault-door", "secret-crack", "blue-door"]
   },
   {
    "id": "wardens-well-fire",

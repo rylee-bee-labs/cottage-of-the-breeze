@@ -6,7 +6,8 @@ whether it is good, and the smallest change that makes it satisfying. It sorts
 each loop into **Keep**, **Refine**, **Rethink** or **Build**, and says who does
 the work: this pack, the VEFR engine, Rylee's words, or new art.
 
-**Status: analysis and plan (Claude, 2026-10-29).** It sits under
+**Status: analysis and plan (Claude, 2026-10-29), with Rylee's sixteen answers of
+the same day recorded below as owner decisions.** It sits under
 [Cottage #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168),
 which is owner-approved direction, and the [five-gate roadmap](ROADMAP.md). It
 adds no new feature to that direction: every loop below is one #168 already
@@ -60,18 +61,44 @@ that costs anything; on the warden floor nothing says *this is the warden floor*
    are agent labels from before canon was promoted. Canon's Sections are the
    **Long Well** (wet, listening, enormous), the **Banked Fire** (soot, chimneys,
    the first warm place) and the **Blue Door**. The creatures, tiles and wardens of
-   2 to 4 should be rebuilt to canon's places. **One decision is Rylee's** (below).
+   2 to 4 are rebuilt to canon's places (**decided**, answers 1 and 2 below).
 
 **The one card a player needs** (the "easy core systems"; everything else is
-discovered, never memorised):
+discovered, never memorised; revised with Rylee's answers below):
 
 > Walk into things: a monster to strike it, a chest to open it, a person to talk.
-> You have **Health**, **Attack** and **Guard**. Gear goes in five slots; how rare a
-> thing is shows as a frame, a word and a glow, and what it really does shows once
-> it is identified. You know a few **spells**, each with a few charges that come
-> back when you rest. Your **satchel** has slots and can grow. If you fall, you wake
-> at home and your satchel waits where you fell. Before you go down, pick a
+> You have **Health**, **Attack**, **Guard** and **Mana**. Swings can miss or land
+> hard. Gear goes in five slots; how rare a thing is shows as a frame, a word and a
+> glow, and what it really does shows once the Spell Keeper reads it. Spells you
+> learn from books cost **mana**; spell things you find carry **charges**. Rest at
+> home and both come back. Your **bag** has slots, grows by five in town, and a rare
+> bag can turn up below. If you fall, you wake at home and your bag's contents wait
+> where you fell. Go back down from your deepest landing. Before you go, pick a
 > **Wind** at the Windrose.
+
+## Rylee's answers (2026-10-29)
+
+Sixteen questions, asked in four rounds after the first draft of this page (the two
+about Section 4 share row 2). Her picks, as she gave them; where she handed a call back, the call made is marked
+**Claude's call**. These are owner decisions: build to them, do not re-ask.
+
+| # | Question | Answer |
+|---|---|---|
+| 1 | Sections 2–4 follow canon's places? | "You decide. Best game 💗". **Claude's call:** rebuild 2–4 as canon's Long Well, Banked Fire and Blue Door; fold the roots and silt ideas in where they fit (roots where the cellar gives way, silt in the Long Well's water) |
+| 2 | What are Section 4's nine floors? | "There were competing ideas. At one point I wanted randomly generated floors". Then, asked where they go: "What do you think for flow?" **Claude's call:** generated floors **past** the Blue Door. Section 3 ends as the coal opens the door; Section 4 is the sealed-over way beyond it; the unburnt room is its hand-made last floor. No canon moves |
+| 3 | How do the wardens of 2–4 meet you? | "Each its own way": some yield, some fight |
+| 4 | Where do the Keybearers live? | "Asleep in Section 1": on special cellar floors, never a fight |
+| 5 | How do hits work? | "Classic: misses and crits" (rolled from the run's seed, so a reload never re-rolls). Guard stays as armour |
+| 6 | How is a spell paid for? | "Can we do spells and books with a mana cost for learned books and charges for spells?": **mana** for spells learned from books; **charges** for spell things found (wands, charms) |
+| 7 | When you fall, what waits? | "Satchel contents": levels, spells, books and worn gear are kept |
+| 8 | How do you get back down? | "Deepest landing only" |
+| 9 | What are traits? | "Mostly stats, some tricks" |
+| 10 | Curses? | "Take it off at any time and any cursed items have a deliberate upside to deliberate": removable any time; every curse is a trade-off with a real upside |
+| 11 | Bag size? | "Bags in town upgrade by 5s. In dungeons bags can drop rarely with more slots or slots + enchantments?" **Claude's call** on the base: 10 slots, then 15, 20, 25 bought in town; rare dungeon bags are gear, with more slots and sometimes a trait. Keepsakes go in the album pouch, never a slot |
+| 12 | Who identifies? | "The Spell Keeper" |
+| 13 | The fight row? | "Strike, Cast if known" |
+| 14 | New player-facing words? | "I draft, you approve batches": Claude drafts each batch, clearly marked draft; Rylee keeps, edits or bins it in one sitting |
+| 15 | How is VEFR work done? | "One big PR per gate" |
 
 ---
 
@@ -145,6 +172,9 @@ The default verb row also offers "Console" and "Hurl an insult", because
 
 **To make it satisfying.**
 - **Wire `curve`** so each Section rises gently, as decided.
+- **Classic hits** (answer 5): a swing can miss or crit, rolled from the run's seed
+  so a reload never re-rolls it, and every roll is said in the message line
+  ("You miss." / "A clean hit: 6!").
 - **Guard**: one flat number off every hit, never below 1. Body, head and feet gear
   give it. That alone makes gear choices real.
 - **One weakness or resistance per creature**, read off its family
@@ -153,7 +183,9 @@ The default verb row also offers "Console" and "Hurl an insult", because
 - **Elites and linked groups**, already in the Section schema: a named elite now
   and then ("a stubborn cellar rat", +50% health, a guaranteed good drop), and
   groups that wake together.
-- Pack: set `verbs` to just the strike, unless Rylee wants the others.
+- **The fight row is Strike, and Cast once you know a spell** (answer 13). A pack
+  `verbs` list today labels a button with its own word ("attack" reads "Attack")
+  and has no Cast button, so this waits on E20; the pack sets it in the same PR.
 
 **Who.** VEFR (curve, guard, monster resist/weakness, elites, groups) · pack
 (numbers, verbs) · art (`creatures-deep` batch, so 2 to 4 have their own animals).
@@ -197,10 +229,14 @@ would change, and put it on. You feel it on the next floor.
 
 **To make it satisfying.**
 - A compare line when you pick something up: `Attack 4 → 5, Guard 1 → 0`.
-- Traits that change *how* you play, not only how much: "your first hit each fight
-  strikes twice", "a kill warms you for 1 health", "fire weakness creatures take
-  double". This is where #168's combos live: a few bounded reactions, each logged
-  in plain words, never chaining past a cap.
+- **Mostly stats, some tricks** (answer 9): most traits are +Attack, +Guard,
+  +Health, +Mana; the rarer ones change *how* you play: "your first hit each fight
+  strikes twice", "a kill warms you for 1 health". This is where #168's combos
+  live: a few bounded reactions, each logged in plain words, never chaining past a
+  cap.
+- **Curses are trade-offs** (answer 10): a cursed thing always has a deliberate
+  upside ("+3 Attack, but every miss stings you for 1"), shows both when identified,
+  and comes off any time. Never a trap.
 - Charms carry the strangest traits; that is what makes a charm exciting.
 
 **Who.** VEFR (compare, trait effects, reaction cap and log) · pack (trait tables)
@@ -217,8 +253,8 @@ them on the reading desk and learn that the plain ring is the best thing you own
 hidden traits, so there is nothing to identify yet.
 
 **To make it satisfying.**
-- Give one resident the service (the Spell Keeper fits canon's "she has known how
-  this ends"; Rylee's call if a different person).
+- **The Spell Keeper identifies** (answer 12), free, at the tavern: the town treats
+  her as a shopkeeper and nobody asks her a real question; you do.
 - Once loot rolls traits (loop 3), they stay hidden until identified: in town for
   free, or in the field with a scroll (`identify-scroll`).
 
@@ -228,15 +264,17 @@ hidden traits, so there is nothing to identify yet.
 ### 6. Learn and cast
 
 **The moment.** A spellbook in a chest. You read it and now you can *do* something
-new: light the room, slow the thing chasing you, mend a scrape. You have three goes
-before you rest, so you think about when.
+new: light the room, slow the thing chasing you, mend a scrape. Your mana runs low
+before you rest, so you think about when. And a wand you found has two charges left:
+save them for the warden?
 
 **Today.** Spells exist but only heal, cast for free, without limit, without
 spending a turn (`225-spells.js`). The Spell Keeper keeps no spells.
 
 **To make it satisfying.**
-- **Charges, not mana**: each spell has two or three, back on a rest or at a
-  landing. One number per spell, nothing to manage.
+- **Two kinds of magic** (answer 6): spells **learned from books** cost **mana**
+  from one pool that comes back when you rest; **spell things found** (a wand, a
+  charm) carry **charges**, work for anyone and run out. Gear can add mana.
 - **Casting takes a turn.**
 - **About eight spells** across the six schools DESIGN.md names (attack, defense,
   healing, movement, divination, other), learned from found books and from the
@@ -259,11 +297,14 @@ town, but the next trip **starts at floor 1 again** (`397-the-descent.js`: nothi
 reads `landings()`). The bag has a size (`bag.size`) and Cottage does not set it.
 
 **To make it satisfying.**
-- **The lift back down**: from home, start at any landing you have reached. This is
-  the most important engine change on this page.
+- **The lift back down**: from home, start at your **deepest** landing (answer 8);
+  earlier floors are walk-only. This is the most important engine change on this
+  page.
 - **A way home from any floor** (`way-home-charm`), costly enough to be a decision.
-- **Satchel slots plus upgrades** (decided 2026-10-08): set `bag.size`, sell
-  `satchel-2` and `satchel-3`.
+- **Bags** (answer 11): 10 slots to start, then 15, 20 and 25 bought in town
+  (`satchel-2` to `satchel-4`); now and then a **bag drops below**, as gear, with
+  more slots and sometimes an enchantment (`bag-rare-1`, `bag-rare-2`).
+  Keepsakes go in the album pouch and never take a slot.
 
 **Who.** VEFR (lift down to a landing; recall item) · pack (bag size, items) · art.
 **Gate.** 1 for the lift and bag; 2 needs it across all four Sections.
@@ -322,8 +363,12 @@ interim).
 
 **To make it satisfying.**
 - A warden floor that **looks** like one: `warden-dais`, `vault-floor`.
-- Each warden its own picture (`wardens-well-fire`) and its own way to be met:
-  the engine already supports `challenge: defeat | rule`, `yields`, `fightable`.
+- Each warden its own picture (`wardens-well-fire`) and **its own way to be met**
+  (answer 3): some yield, some fight. The engine already supports
+  `challenge: defeat | rule`, `yields`, `fightable`.
+- **The Blue Door** closes Section 3 (answer 2): the coal opens it, and Section 4's
+  generated floors lie beyond it, down to the unburnt room. The door and its dog
+  bowl are drawn exactly as canon describes them (`blue-door`, `dog-bowl`).
 - Canon's answers arrive here, twice: once read, once said by a resident.
 
 **Who.** pack (warden setup) · art · **Rylee's words** for each Section's answer.
@@ -344,8 +389,8 @@ with no effect; locked doors and keys work only in hand-made regions.
 - `special` floors that mean something: **treasure** has a better chest, **infested**
   has an elite group and a better drop, **hub** has a resting spot.
 - **Secret walls** you find by looking (`secret-crack`), never by pressing every wall.
-- **Keybearers placed** on a special floor as sleeping, non-fight guardians, and a
-  **vault door** (`vault-door`) their key opens on a later floor.
+- **Keybearers asleep in Section 1** (answer 4), on special cellar floors, never a
+  fight, and a **vault door** (`vault-door`) their key opens on a later floor.
 
 **Who.** VEFR (special effects, secrets, sleeper placement, locked doors on
 generated floors) · pack · art (`ways-secret`).
@@ -364,8 +409,9 @@ dropped resources are recoverable") and removes all tension from a fight.
 
 **To make it satisfying.**
 - Fall → wake at home; levels, spells, gear worn, books, album kept.
-- The satchel's contents (not worn gear) wait on that floor as `dropped-satchel`,
-  marked on the map, once. Fall again before fetching it and the older one is gone.
+- The bag's contents (not worn gear) wait on that floor as `dropped-satchel`
+  (answer 7), marked on the map, once. Fall again before fetching it and the older
+  one is gone.
 - Classic mode (death is real) stays the opt-in DESIGN.md decided; it is a later
   engine slice.
 
@@ -440,7 +486,7 @@ no Cottage names.
 
 | # | Change | Unblocks loops | Today's evidence |
 |---|---|---|---|
-| E1 | **Start a trip at any reached landing** | 7, 8, 9, 12 | `397-the-descent.js`: `landings()` recorded, never read |
+| E1 | **Start a trip at the deepest reached landing** | 7, 8, 9, 12 | `397-the-descent.js`: `landings()` recorded, never read |
 | E2 | **Rest heals and refills charges** | 9, 6 | `255-time-rest.js` moves the phase only |
 | E3 | **Heal, use and cast cost a turn** | 2, 6 | `480-town-input-and-turns.js`: only step, bump, verb spend a turn |
 | E4 | **Wire `curve`** on generated floors | 2 | `shapes.py` `wired=False` |
@@ -450,15 +496,25 @@ no Cottage names.
 | E8 | **Traits with effects** + rarity frames, bounded reactions with a why-log | 3, 4, 15 | `180-gold.js`: traits are name text only |
 | E9 | **Chests and secrets on generated floors** | 1, 3, 11 | `396-engine-delve-v3.js` computes both; the player drops them |
 | E10 | **Monster resist/weakness, elites, groups** on generated floors | 2 | `shapes.py` `wired=False`; `410-the-living-hazards.js` never copies `resist` |
-| E11 | **Spell charges and effect kinds** (light, burn, slow, ward) | 6 | `225-spells.js`: heal only |
+| E11 | **Mana for learned spells, charges for found spell things**, and effect kinds (light, burn, slow, ward) | 6 | `225-spells.js`: heal only, free |
 | E12 | **Fall → home, satchel waits** | 12 | `430-loot-on-the-floor.js`: wakes on that floor, nothing lost |
 | E13 | **`specials` and `pois` do something** | 1, 11 | labels only |
 | E14 | **Sleeping guardians placed by a Section** | 11 | not placeable off the warden floor (GAP.md slice 6) |
 | E15 | **Interface icon slot for a pack** (rarity frames, Wind marks) | 3, 15 | no pack UI icon slot; the skin covers panels only |
 | E16 | **Expedition-scoped modifiers (Winds)** | 15 | `omens` schema, Python only |
+| E17 | **Seeded misses and crits**, said in the message line | 2 | `430-loot-on-the-floor.js`: damage is exactly Attack |
+| E18 | **Bags as gear**: a bag slot whose item sets the size; rare dropped bags with traits | 7 | `180-gold.js`: one world `bag.size` |
+| E19 | **Curses as trade-offs**: a trait with a downside and an upside, removable any time | 3, 4 | no curses |
+| E20 | **Verb labels and a Cast button once a spell is known** | 2, 6 | `220-growth.js`: a pack verb's label is its own word |
 
-E1 to E3 are small and change how every trip feels. E4 to E8 are the Gate 1 build
-loop. E9 to E14 are Gate 2. E15 and E16 are Gate 3.
+E1 to E3 are small and change how every trip feels. E4 to E8, E11, E12 and E17 to
+E20 are the Gate 1 build loop. E9, E10, E13 and E14 are Gate 2. E15 and E16 are
+Gate 3.
+
+**How it is delivered** (answer 15): **one VEFR PR per gate**, each change
+game-neutral with its own tests and a small example in VEFR's docs. The Cottage PR
+that uses it pins the merged VEFR commit in `validate-pack.yml` and proves it with
+the playthrough bot (`--monsters`) on desktop and phone.
 
 ## Pack work that needs no engine change
 
@@ -466,31 +522,24 @@ Safe to do now, each validated with `norns validate` and the playthrough bot:
 
 - **Fixed in this change:** the Ember Warden's sprite (`blueprint.json`), which
   named a picture that did not exist.
-- Give one resident `identify: "true"` once traits roll (loop 5).
-- Set `verbs` to the strike alone in `acts/act-1/world.json`, if Rylee agrees the
-  "Console" and "Hurl an insult" buttons do not belong (loop 2).
-- Set `bag.size` once satchel upgrades exist to buy (loop 7).
+- Give the Spell Keeper `identify: "true"` once traits roll (loop 5, answer 12).
+  Before then there is nothing hidden to read.
+- The fight row (Strike, Cast if known) waits on E20: a pack `verbs` list today
+  would relabel Strike as "Attack".
+- Set the bag's size once the town sells bigger bags (loop 7, E18).
 - Keep album keepsakes out of the economy until E6 lands: giving them a `value` now
   would also put them on sale, unlimited.
 - Draw the art the loops need: `art/manifest/slots.json` and the briefs in
   `art/requests/` (see `art/manifest/README.md`).
 
-## The one decision that is Rylee's
+## What is still open
 
-Everything above is either approved direction (#168) or an implementation detail
-chosen the smallest compatible way. One thing is canon, so it is hers:
-
-> **Sections 2 to 4 are rebuilt to canon's places: the Long Well, the Banked Fire
-> and the Blue Door.** Today's rootworks, siltworks and emberhall are agent labels
-> that predate the canon. Canon describes the Blue Door as one door and the unburnt
-> room behind it; the 1.0 plan gives Section 4 nine floors. **What are Section 4's
-> nine floors?** (For example: the passage behind the Blue Door, or the Banked
-> Fire's far side leading up to it.) The art requests for Section 4's own creatures
-> and warden wait on that answer; the Long Well's and the Banked Fire's are
-> drafted.
-
-Names, spell and trait words, and every new line stay drafts until she approves
-them, as always.
+No design question blocks the build: Rylee's answers above settle the open ones.
+What remains is the ordinary approval of **words** (answer 14): Claude drafts each
+batch (spell names, trait names, item names, warden answers, resident lines),
+clearly marked draft, and Rylee keeps, edits or bins it in one sitting. Section 4's
+own creatures and warden are drawn once its place is drafted in words; until then
+the art requests cover Sections 2 and 3 and the Blue Door itself.
 
 ## Parked (not 1.0)
 

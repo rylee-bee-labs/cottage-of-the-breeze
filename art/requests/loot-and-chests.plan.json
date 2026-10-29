@@ -4,7 +4,7 @@
  "sheets": [
   {
    "image": "sheets/loot-and-chests.png",
-   "grid": "4x1",
+   "grid": "4x2",
    "props": [
     {
      "name": "chest-closed",
@@ -21,7 +21,14 @@
     {
      "name": "warden-dais",
      "size": [64, 32]
-    }
+    },
+    {
+     "name": "dog-bowl",
+     "size": [16, 12]
+    },
+    null,
+    null,
+    null
    ]
   }
  ]
