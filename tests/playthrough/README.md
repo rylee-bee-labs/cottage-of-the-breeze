@@ -108,10 +108,13 @@ the day the pack changes its subject.
 
 ## Proving it can fail
 
-`negative_control.py` breaks the route on purpose, twice — once by putting
-the authored `town [1,1] -> floor-1` door back (the exact thing that broke
-this bot), once with `--entry-at 4,5`, a tile that is not the way down —
-and fails unless each run comes back red for the right reason. It writes
-`negative_control.md`.
+`negative_control.py` breaks the route on purpose, twice: once by moving
+`descent.entry` onto a border wall, so the way down cannot be reached, and
+once with `--entry-at attic,1,1`, a room the pack does not have. It fails
+unless each run comes back red for the right reason, and it writes
+`negative_control.md`. (Until 2026-10-30 the first break added a second
+door on the way-down tile. The engine now gives that tile to the descent's
+own stair, so that break can no longer happen, and the control had been
+going green since the way down moved to the cottage kitchen.)
 
     uv run --offline --group test python <repo>/tests/playthrough/negative_control.py

@@ -22,7 +22,7 @@ Modelled, for a hero who fights everything (misses and crits included, no potion
 
 **Found on the way (engine, vefr#589):** a floor holding a dozen finds lost its saved map. The per-floor save budget was 1.5 KB, set before loot rolled; it is now 3 KB.
 
-**The playthrough bot on these numbers and wander floors:** running when this entry was written; its result goes on the PR and into this entry before merge.
+**Measured (2026-10-30, against vefr `e83df07`, whose engine is the merged `8100686`'s for this pack).** The playthrough bot with `--monsters` on wander floors at these numbers: **44/44 at 1280×720 and 44/44 at 390×844, 4 falls each**, in 2,264 and 2,268 steps (1,107 on the old numbers; the fights are fought now). The negative control was stale and is fixed. Its first break, a second door on the way-down tile, can no longer happen, because the engine gives that tile to the descent's stair; it now walls the way down in. It reads "The bot can fail." again, and both breaks go red.
 
 ## 2026-10-29 (late) — Rylee approves words batch 1; merge and deploy go
 
