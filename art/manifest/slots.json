@@ -451,6 +451,14 @@
    "native": [16, 12],
    "subject": "a small round tin dog bowl full of old rainwater and a dry leaf",
    "why": "canon: beside the Blue Door, a dog bowl that has been full of weather for forty years"
+  },
+  {
+   "id": "stale-bun",
+   "kind": "item",
+   "loop": 2,
+   "native": [16, 16],
+   "subject": "a small round bread bun, crusty, a little squashed and dusty",
+   "why": "the thing to throw has no picture (Rylee picked \"a stale bun\", 2026-10-30)"
   }
  ],
  "batches": [
@@ -508,6 +516,11 @@
    "id": "ui-winds",
    "title": "the six Wind marks",
    "slots": ["wind-breeze", "wind-gust", "wind-gale", "wind-squall", "wind-tempest", "wind-zephyr"]
+  },
+  {
+   "id": "items-throw",
+   "title": "the thing to throw",
+   "slots": ["stale-bun"]
   }
  ]
 }

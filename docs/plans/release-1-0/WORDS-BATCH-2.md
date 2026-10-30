@@ -1,10 +1,10 @@
 # Words, batch 2: monster skills and something to throw
 
-**Status: draft, waiting for Rylee.** Her rule (answer 14) is "I draft, you
-approve batches". Nothing in this batch is in the game yet except the engine's
-own sentences (the last section), which VEFR ships for every game and she may
-veto. The thing to throw waits for her pick: once she approves a name, it goes
-into `world.json` in its own PR.
+**Status: the thing to throw approved by Rylee, 2026-10-30: "A: a stale bun"**
+(Project Home card #375, relayed by Momma). It is in the game as `stale-bun`
+(cottage#225). Her rule (answer 14) is "I draft, you approve batches". The
+engine's own sentences (the last section) are VEFR's and in every game; she may
+still veto any of them.
 
 ## Something to throw (her pick: "Throw things")
 

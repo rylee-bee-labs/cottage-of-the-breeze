@@ -124,6 +124,14 @@
       "heal": 3,
       "use": "drink"
     },
+    "stale-bun": {
+      "name": "a stale bun",
+      "value": 1,
+      "throw": {
+        "harm": 2,
+        "range": 5
+      }
+    },
     "brass-ring": {
       "name": "a plain brass ring",
       "sprite": "ring",

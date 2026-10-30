@@ -209,6 +209,10 @@ class Bot:
         # Which monster skills (vefr ADR 0024) the route met, read off the
         # fight's own line: reported, not required - a skill is a chance.
         self.skills_seen: set[str] = set()
+        # Things thrown from the quick bar (vefr ADR 0024), and the monsters
+        # a throw was tried at, so each is tried once.
+        self.throws = 0
+        self._thrown_at: set = set()
         self._last_sig = None
         self._regions = None
         self._transitions = None
@@ -238,6 +242,7 @@ class Bot:
             "worn_when_asked": self.worn,
             "bar_drinks": self.bar_drinks,
             "skills_seen": sorted(self.skills_seen),
+            "throws": self.throws,
             "checks": self.checks,
             "console_errors": self.console_errors,
             "ok": all(c["ok"] for c in self.checks),
@@ -735,6 +740,14 @@ class Bot:
       return i < 0 ? null : (keybindKeys('quick' + (i + 1))[0] || null);
     }"""
 
+    # The quick bar's key for the first thing carried that can be thrown,
+    # or None (no bar, or nothing to throw).
+    THROW_KEY_JS = """() => {
+      if (typeof hotbarThings !== 'function' || typeof rpgThrowOf !== 'function') return null;
+      const i = hotbarThings().findIndex((t) => t.kind === 'item' && rpgThrowOf(itemCatalog()[t.id]));
+      return i < 0 ? null : (keybindKeys('quick' + (i + 1))[0] || null);
+    }"""
+
     def drink(self, max_drinks: int = 12) -> None:
         """Drink potions, keyboard only: the quick bar's key when the pack
         has one, else from the Bag panel (best effort)."""
@@ -804,6 +817,18 @@ class Bot:
             if c["hero"]["hp"] * 5 < c["hero"]["max"] * 2 and "cloudy-potion" in c["bag"]:
                 self.drink()
                 continue
+            # A thing to throw (vefr ADR 0024) is thrown from the quick bar
+            # at a monster a few tiles off, once a monster: a throw with
+            # nothing in reach costs nothing, so it is not tried again.
+            gap = max(abs(foe["at"][0] - here[0]), abs(foe["at"][1] - here[1]))
+            if chase and 2 <= gap <= 5 and (region, enemy_id) not in self._thrown_at:
+                self._thrown_at.add((region, enemy_id))
+                throw_key = self.page.evaluate(self.THROW_KEY_JS)
+                if throw_key:
+                    self.press(throw_key)
+                    if self.state()["combat_text"].startswith("You throw"):
+                        self.throws += 1
+                    continue
             at = tuple(c["hero"]["at"])
             d = self.next_dir(region, at, tuple(foe["at"]))
             if d is None:

@@ -60,7 +60,8 @@ potion is drunk with its quick bar key when it is on the bar, and from the Bag
 otherwise. Every press also samples what is on screen, so the closing checks
 can say that every spell the hero came to know had its card and that a blow
 drew its number. `report.json` counts `spell_cards`, `worn_when_asked` and
-`bar_drinks`.
+`bar_drinks`. A stale bun on the bar is thrown at a monster a few tiles off,
+once a monster (`throws`), and the skills the route met are `skills_seen`.
 
 **Falls.** With monsters in place the hero can fall. The fall card ("You
 fell. ...") is closed with a key, as a player closes it, and the walk carries
