@@ -6,10 +6,11 @@ route on purpose, twice, in two different ways, runs the real bot against
 each, and fails unless each run really did come back red *and* failed for
 the reason it was broken.
 
-1. **Two ways out of the entry tile.**  A copy of the pack with the
-   authored `town [1,1] -> floor-1` transition put back - the exact thing
-   cottage#110 deleted and the exact thing that broke this bot before.
-   The bot's "one way down" check has to catch it.
+1. **The way down is walled in.**  A copy of the pack whose `descent.entry`
+   stands on a border wall, so the stair down cannot be reached. The route
+   has to fail to get into the descent. (Until 2026-10-30 this control added a
+   second door on the way-down tile; the engine now gives that tile to the
+   descent's own stair, so that break can no longer happen.)
 2. **The route names a door that is not there.**  The same pack with
    `--entry-at attic,1,1`; nothing in the pack has an `attic`, so the
    descent has no route to it at all.  The route has to fail to find the
@@ -38,17 +39,27 @@ sys.path.insert(0, str(HERE))
 import run as bot  # noqa: E402
 
 
-def pack_with_a_second_door(pack: Path, dest: Path) -> str:
-    """A copy of the pack with the authored cellar door back on [1,1]."""
+def pack_with_the_way_down_walled_in(pack: Path, dest: Path) -> str:
+    """A copy of the pack whose way down stands in a wall.
+
+    `descent.entry` is moved onto the entry region's corner tile, `[0, 0]`, a
+    border wall: the stair is wired there and nothing can walk to it. The bot
+    has to fail to reach the descent.
+
+    This replaced "two ways out of the entry tile" on 2026-10-30. That control
+    added a second authored door on the way-down tile, and the engine now gives
+    that tile to the descent's own stair at play, so a second door there can no
+    longer happen - and the control, hardcoded to `town [1,1]` since before the
+    way down moved to the cottage kitchen (cottage#142), had been going green.
+    """
     shutil.copytree(pack, dest)
-    act = dest / "acts" / "act-1" / "world.json"
-    doc = json.loads(act.read_text(encoding="utf-8"))
-    doc["transitions"].insert(
-        0,
-        {"from": "town", "at": [1, 1], "to": "floor-1", "to_at": [3, 3]},
-    )
-    act.write_text(json.dumps(doc, indent=2) + "\n", encoding="utf-8")
-    return f"authored transition re-added: town [1,1] -> floor-1"
+    path = dest / "world.json"
+    world = json.loads(path.read_text(encoding="utf-8"))
+    entry = world["descent"]["entry"]
+    was = list(entry["at"])
+    entry["at"] = [0, 0]
+    path.write_text(json.dumps(world, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    return f"descent.entry moved from {entry['region']} {was} to {entry['region']} [0, 0], a wall"
 
 
 def red_checks(report: dict) -> list:
@@ -70,13 +81,13 @@ def main(argv=None) -> int:
     failures: list[str] = []
 
     with tempfile.TemporaryDirectory(prefix="cottage-negative-") as tmp:
-        # ---- control 1: two ways out of the entry tile ----------------
-        broken = Path(tmp) / "two-doors"
-        what = pack_with_a_second_door(pack, broken)
-        report = run_bot(broken, Path(tmp) / "two-doors.json", [])
+        # ---- control 1: the way down is walled in --------------------
+        broken = Path(tmp) / "walled-in"
+        what = pack_with_the_way_down_walled_in(pack, broken)
+        report = run_bot(broken, Path(tmp) / "walled-in.json", [])
         reds = red_checks(report)
         log += [
-            "## 1. the entry tile has two ways out",
+            "## 1. the way down is walled in",
             "",
             f"Broken on purpose: {what}.",
             "",
@@ -86,8 +97,8 @@ def main(argv=None) -> int:
         ]
         if report["ok"]:
             failures.append("control 1 went green")
-        elif not any("one way down" in n for n in reds):
-            failures.append(f"control 1 went red, but not on the one-way-down check: {reds}")
+        elif not any(n == "the whole route completed" or "into the descent" in n for n in reds):
+            failures.append(f"control 1 went red, but not on getting into the descent: {reds}")
 
         # ---- control 2: the route names a door that is not there ------
         report = run_bot(pack, Path(tmp) / "wrong-entry.json", ["--entry-at", "attic,1,1"])

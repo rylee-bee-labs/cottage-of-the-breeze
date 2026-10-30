@@ -72,6 +72,20 @@ learn → go deeper.
 - **Models:** none while playing. Every rule and number is fixed; every
   line is Rylee's or drafted in the studio and approved, then baked in.
 
+## Decided (Rylee, 2026-10-30, after her first Gate 0 run)
+
+Her words on the build: "I guess it feels easy? But it also feels like the levels
+need some randomness. There are almost straight lines to every staircase". Then two
+picks, in the words of the options she chose:
+
+- **Floors:** "Rooms anywhere (Recommended)": rooms scatter over the whole map, and
+  the way from stair to stair is a random walk that turns, climbs and can double
+  back. Built as VEFR's `"layout": "wander"` (ADR 0022); the cellar uses it.
+- **Difficulty:** "Harder (Recommended)": fights take 2-3 blows all the way down,
+  rats stay gentle, deep spiders and fat rats hit through armour, levels come a bit
+  slower, potions and Rest start to matter. The numbers are a first pass for her
+  next run to correct (`NOTES.md`, 2026-10-30).
+
 ## Decided (Rylee, 2026-10-29)
 
 Sixteen questions in four rounds; her picks in her words, and the full table in

@@ -83,8 +83,8 @@
       "spider-silk": "sprites/spider-silk.webp",
       "thimble": "sprites/thimble.webp"
     },
-    "hp": 10,
-    "atk": 2,
+    "hp": 14,
+    "atk": 3,
     "wake": {
       "region": "town",
       "at": [
@@ -804,16 +804,16 @@
     "levels": {
       "xp": [
         0,
-        6,
-        15,
-        30,
-        55,
-        95,
-        150,
-        230
+        10,
+        26,
+        50,
+        85,
+        135,
+        200,
+        290
       ],
       "gain": {
-        "hp": 2,
+        "hp": 3,
         "atk": 1
       }
     }

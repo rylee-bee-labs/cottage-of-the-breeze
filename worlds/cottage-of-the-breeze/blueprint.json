@@ -29,8 +29,8 @@
       "defaults": {
         "name": "a fat cellar rat",
         "sprite": "rat",
-        "hp": 6,
-        "atk": 1,
+        "hp": 10,
+        "atk": 2,
         "xp": 3,
         "drops": [
           "cloudy-potion",
@@ -307,6 +307,8 @@
     "cellar-rat-finds": {
       "extends": "cellar-rat",
       "defaults": {
+        "hp": 6,
+        "atk": 1,
         "drops": [
           "candle-stub",
           "shoe-button",
@@ -320,6 +322,8 @@
     "nest-of-moths-finds": {
       "extends": "nest-of-moths",
       "defaults": {
+        "hp": 5,
+        "atk": 1,
         "drops": [
           "candle-stub",
           "shoe-button",
@@ -354,6 +358,8 @@
     "cellar-spider-finds": {
       "extends": "cellar-spider",
       "defaults": {
+        "hp": 8,
+        "atk": 2,
         "drops": [
           "candle-stub",
           "shoe-button",

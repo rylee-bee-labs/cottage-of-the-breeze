@@ -605,6 +605,14 @@ class Bot:
             at = tuple(c["hero"]["at"])
             if at == target:
                 return
+            # Turn and fight what is biting, as a player would. On a floor
+            # whose way winds (`"layout": "wander"`) monsters come at the hero
+            # from the side and from behind and follow her; walking on while
+            # one chews on her is how a route dies, not how anyone plays.
+            biter = self._biter(c, at)
+            if biter is not None:
+                self.strike_until_dead(region, biter, chase=False)
+                continue
             d = self.next_dir(region, at, target)
             if d is None:
                 raise RouteError(
@@ -612,6 +620,22 @@ class Bot:
                 )
             self.press_dir(d)
         raise RouteError(f"navigation loop in {region} to {target}")
+
+    @staticmethod
+    def _biter(c: dict, at) -> str | None:
+        """The id of an awake monster beside the hero that can be fought, or None.
+
+        A warden is never one (the Key Warden is a rule, not a fight), nor is a
+        monster that yields: both stand beside the hero without being a fight.
+        """
+        minds = {m["id"]: m for m in c.get("minds") or []}
+        for e in c.get("enemies", []):
+            mind = minds.get(e["id"], {})
+            if (e.get("alive") and not e.get("yields") and mind.get("awake")
+                    and not mind.get("warden")
+                    and abs(e["at"][0] - at[0]) + abs(e["at"][1] - at[1]) == 1):
+                return e["id"]
+        return None
 
     def ensure_region(self, region: str) -> None:
         """Take open doors until we are in `region`."""
@@ -681,8 +705,13 @@ class Bot:
             self.press("Tab")
         return bool(self.page.evaluate(probe))
 
-    def strike_until_dead(self, region: str, enemy_id: str) -> None:
-        """Walk into a monster until it falls, the way a player fights."""
+    def strike_until_dead(self, region: str, enemy_id: str, chase: bool = True) -> None:
+        """Walk into a monster until it falls, the way a player fights.
+
+        `chase=False` is fighting back: the bot strikes while the monster
+        stands beside the hero and lets it go when it steps away (a leashed
+        monster walks home), rather than chasing it across the floor.
+        """
         for _ in range(600):
             s = self.state()
             c = s["combat"]
@@ -694,6 +723,9 @@ class Bot:
                 continue
             foe = next((e for e in c["enemies"] if e["id"] == enemy_id), None)
             if foe is None or not foe["alive"]:
+                return
+            here = c["hero"]["at"]
+            if not chase and abs(foe["at"][0] - here[0]) + abs(foe["at"][1] - here[1]) != 1:
                 return
             # Heal when hurt and able; otherwise fight on (no potion, no wait).
             if c["hero"]["hp"] * 5 < c["hero"]["max"] * 2 and "cloudy-potion" in c["bag"]:

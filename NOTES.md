@@ -1,5 +1,29 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-30 — Gate 0, first human run: floors too straight, fights too easy
+
+**Rylee, verbatim, after playing build `2026-10-29-f44eaba`:** "I guess it feels easy? But it also feels like the levels need some randomness. There are almost straight lines to every staircase hahah". Her picks from the options offered: **"Rooms anywhere (Recommended)"** and **"Harder (Recommended)"** (DESIGN.md, 2026-10-30). Measurements and her later feedback are on cottage#161.
+
+**The straight lines (engine).** VEFR's v3 layout lays every floor on a spine: one row of rooms with a stair at each end. On all 160 cellar floors measured, the walk from stair to stair was a straight line along one row. VEFR #589 (ADR 0022) adds `"layout": "wander"`: a walk over a grid of cells that turns, climbs and doubles back, with branches and local loops. `sections/cellar.json` now names it. Measured on the cellar, 800 floors: no straight walk, a median of 14 turns, the stairs a median 35 tiles apart and 16 at least, and no fallback.
+
+**The ease (this pack).** Levelling outran the cellar's curve: from floor 2 on, every monster died in one blow and almost every hit did 1. My first retune (slower levels, tougher monsters, a steep `curve`) overshot. It kept about 12 fights a floor and made each one 2-3 times longer, so floors 1-4 cost about 5.5 health bars. The playthrough bot fell 112 times and never got past floor 3. Measuring the wear across whole floors, not single fights, fixed the choice: fewer, tougher fights and a sturdier hero.
+
+- `world.json`: the hero starts at 14 health and 3 attack (was 10 and 2) and gains 3 health a level (was 2); levels need 10, 26, 50, 85, 135, 200, 290 xp (was 6, 15, 30, 55, 95, 150, 230).
+- `sections/cellar.json`: `mobs` is 6 on floor 1 and 9 after (it was the area budget, about 12, and more on wander floors); `curve` is hp 1.0-2.0 and atk 1.0-2.0 (was 1.0-1.4 and 1.0-1.3).
+- `blueprint.json`, the cellar-only families: rat 6/1, moths 5/1, spider 8/2, fat rat 10/2 health/attack (were 4/1, 4/1, 5/2, 6/1). The base families other Sections inherit from are unchanged. Lock refreshed with `vefr normalize`.
+
+Modelled, for a hero who fights everything (misses and crits included, no potions): the median fight takes 2 blows on every floor (it was 1). Floors 1-4 cost 1.4 health bars, and floors 5-8 cost 1.0 from the floor-5 landing. These numbers are a first pass for Rylee's next run to correct.
+
+**What the bot taught (three mistakes, kept so nobody makes them again).**
+
+- **A fall resets the floors.** A trip home clears every floor's kills and drops, so the monsters come back, and the hero resumes at the deepest landing. Floors 5-8 therefore have to be survivable in one life. Floors 1-4 forgive more, because levels carry over between falls. My second retune put 1.9 bars on floors 5-8, and the bot fell 87 times there; 1.0 bars is the number that fits one life.
+- **Fights that last wake the neighbours.** Fight noise carries 12 tiles (an engine constant). When every monster died in one blow it never mattered; at 2 blows the neighbours arrive.
+- **The bot walked on while monsters bit it.** On winding floors monsters come from the side and from behind and follow. The bot only fought what stood in its path, so it fell 49 times on the old, easy numbers. It now turns and fights an awake monster beside the hero (no chase) and still drinks a potion at two fifths of its health. On the old numbers with wander floors it then fell 3 times and walked the whole route.
+
+**Found on the way (engine, vefr#589):** a floor holding a dozen finds lost its saved map. The per-floor save budget was 1.5 KB, set before loot rolled; it is now 3 KB.
+
+**Measured (2026-10-30, against vefr `e83df07`, whose engine is the merged `8100686`'s for this pack).** The playthrough bot with `--monsters` on wander floors at these numbers: **44/44 at 1280×720 and 44/44 at 390×844, 4 falls each**, in 2,264 and 2,268 steps (1,107 on the old numbers; the fights are fought now). The negative control was stale and is fixed. Its first break, a second door on the way-down tile, can no longer happen, because the engine gives that tile to the descent's stair; it now walls the way down in. It reads "The bot can fail." again, and both breaks go red.
+
 ## 2026-10-29 (late) — Rylee approves words batch 1; merge and deploy go
 
 **Rylee, verbatim:** **"I approve the words. Please merge [and] deploy when you can"**.
