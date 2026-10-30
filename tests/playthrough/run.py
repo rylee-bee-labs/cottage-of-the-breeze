@@ -611,7 +611,7 @@ class Bot:
             # one chews on her is how a route dies, not how anyone plays.
             biter = self._biter(c, at)
             if biter is not None:
-                self.strike_until_dead(region, biter)
+                self.strike_until_dead(region, biter, chase=False)
                 continue
             d = self.next_dir(region, at, target)
             if d is None:
@@ -705,8 +705,13 @@ class Bot:
             self.press("Tab")
         return bool(self.page.evaluate(probe))
 
-    def strike_until_dead(self, region: str, enemy_id: str) -> None:
-        """Walk into a monster until it falls, the way a player fights."""
+    def strike_until_dead(self, region: str, enemy_id: str, chase: bool = True) -> None:
+        """Walk into a monster until it falls, the way a player fights.
+
+        `chase=False` is fighting back: the bot strikes while the monster
+        stands beside the hero and lets it go when it steps away (a leashed
+        monster walks home), rather than chasing it across the floor.
+        """
         for _ in range(600):
             s = self.state()
             c = s["combat"]
@@ -718,6 +723,9 @@ class Bot:
                 continue
             foe = next((e for e in c["enemies"] if e["id"] == enemy_id), None)
             if foe is None or not foe["alive"]:
+                return
+            here = c["hero"]["at"]
+            if not chase and abs(foe["at"][0] - here[0]) + abs(foe["at"][1] - here[1]) != 1:
                 return
             # Heal when hurt and able; otherwise fight on (no potion, no wait).
             if c["hero"]["hp"] * 5 < c["hero"]["max"] * 2 and "cloudy-potion" in c["bag"]:
