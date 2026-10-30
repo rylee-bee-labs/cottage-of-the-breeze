@@ -46,6 +46,13 @@ harness may plant its own"), so **nothing on disk changes**. The run puts
 the families back at the end and fights, so the walk-and-fight loop is
 still proved. `--monsters` walks the whole descent with them in place.
 
+**Fighting back.** On the way to anything, the bot first fights an awake
+monster standing right beside the hero (never a warden, never one that
+yields), and drinks a cloudy potion when she is down to two fifths of her
+health. On a floor whose way winds (`"layout": "wander"`) monsters come from the
+side and from behind and follow; before 2026-10-30 the bot walked on while they
+bit, and fell 49 times on the old, easy numbers where a player falls rarely.
+
 **Falls.** With monsters in place the hero can fall. The fall card ("You
 fell. ...") is closed with a key, as a player closes it, and the walk carries
 on from where the hero woke: the floor's own stair, or home when the pack's

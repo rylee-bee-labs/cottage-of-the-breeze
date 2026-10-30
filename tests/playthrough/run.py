@@ -605,6 +605,14 @@ class Bot:
             at = tuple(c["hero"]["at"])
             if at == target:
                 return
+            # Turn and fight what is biting, as a player would. On a floor
+            # whose way winds (`"layout": "wander"`) monsters come at the hero
+            # from the side and from behind and follow her; walking on while
+            # one chews on her is how a route dies, not how anyone plays.
+            biter = self._biter(c, at)
+            if biter is not None:
+                self.strike_until_dead(region, biter)
+                continue
             d = self.next_dir(region, at, target)
             if d is None:
                 raise RouteError(
@@ -612,6 +620,22 @@ class Bot:
                 )
             self.press_dir(d)
         raise RouteError(f"navigation loop in {region} to {target}")
+
+    @staticmethod
+    def _biter(c: dict, at) -> str | None:
+        """The id of an awake monster beside the hero that can be fought, or None.
+
+        A warden is never one (the Key Warden is a rule, not a fight), nor is a
+        monster that yields: both stand beside the hero without being a fight.
+        """
+        minds = {m["id"]: m for m in c.get("minds") or []}
+        for e in c.get("enemies", []):
+            mind = minds.get(e["id"], {})
+            if (e.get("alive") and not e.get("yields") and mind.get("awake")
+                    and not mind.get("warden")
+                    and abs(e["at"][0] - at[0]) + abs(e["at"][1] - at[1]) == 1):
+                return e["id"]
+        return None
 
     def ensure_region(self, region: str) -> None:
         """Take open doors until we are in `region`."""
