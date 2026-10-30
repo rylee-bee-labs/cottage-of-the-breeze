@@ -67,12 +67,12 @@ env:
   # labelled verbs and the descent's `resume`/`fall`. Measured before the bump:
   # `norns validate` against this engine prints `ok: ... geometry,
   # reachability, voices all pass`.
-  # Bumped 2026-10-30 to 2f09165, merged vefr main: vefr#590 (show it, ADR
-  # 0023), whose four `display` keys world.json now turns on. Before that,
-  # 8100686 (vefr#589, floors that wander). Measured before the bump: `norns
-  # validate` against this engine prints `ok: ... geometry, reachability,
-  # voices all pass`.
-  VEFR_REF: 2f09165b5b796f5900ee834009cab249f8827833
+  # Bumped 2026-10-30 to 7ce107f, merged vefr main: vefr#591 (monster
+  # skills, ADR 0024), whose family `skills` the cellar's four families now
+  # carry. Before that, 2f09165 (vefr#590, show it). Measured before the bump:
+  # `norns validate` against this engine prints `ok: ... geometry,
+  # reachability, voices all pass`.
+  VEFR_REF: 7ce107fec4a14911a6c8a588e295f8cef40ff196
 
 jobs:
   validate:
