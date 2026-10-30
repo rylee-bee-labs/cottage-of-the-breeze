@@ -185,6 +185,10 @@
     {
       "verb": "cast",
       "label": "Cast"
+    },
+    {
+      "verb": "throw",
+      "label": "Throw"
     }
   ]
 }

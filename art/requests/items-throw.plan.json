@@ -1,0 +1,16 @@
+{
+ "palette": "palette.json",
+ "tile": 32,
+ "sheets": [
+  {
+   "image": "sheets/items-throw.png",
+   "grid": "1x1",
+   "props": [
+    {
+     "name": "stale-bun",
+     "size": [16, 16]
+    }
+   ]
+  }
+ ]
+}

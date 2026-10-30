@@ -307,10 +307,16 @@ def audit(pack=PACK, slots=None):
         sprite_users.setdefault(sid, []).append(("person", f"speakers.{sid}"))
     sprite_users.setdefault("hero", []).append(("person", "the hero"))
 
+    # A thing whose picture is already asked for in slots.json is a request,
+    # not a hole: the game draws the bag's dot for it until it is cut in.
+    wanted = {w.get("id") for w in (slots or {}).get("wanted") or []}
     for key, users in sorted(sprite_users.items(), key=lambda kv: str(kv[0])):
         if not key:
-            for _, who in users:
-                missing.append(f"{who}: names no sprite")
+            for kind, who in users:
+                if kind == "item" and who.split(".", 1)[1] in wanted:
+                    notes.append(f"{who}: no picture yet, requested in slots.json (drawn as the bag's dot)")
+                else:
+                    missing.append(f"{who}: names no sprite")
             continue
         kinds = {k for k, _ in users}
         kind = "person" if "person" in kinds else "item" if "item" in kinds else "mob" if "mob" in kinds else "boss"
