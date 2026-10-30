@@ -86,6 +86,22 @@ picks, in the words of the options she chose:
   slower, potions and Rest start to matter. The numbers are a first pass for her
   next run to correct (`NOTES.md`, 2026-10-30).
 
+## Decided (Rylee, 2026-10-30, after more of her Gate 0 run)
+
+Her words: "The spells and combat and gear weren't really there? The potion icons
+are nice / The mobs also need skills. And I guess we need ranged attacks?" Her picks,
+in the words of the options she chose:
+
+- **Show it:** "Spell learned card", "Wear it? on pickup", "Hit numbers over
+  monsters" and "Hotbar for potions". Built as VEFR's four `display` keys (ADR
+  0023); the pack turns all four on. The bar also holds the spells she knows, so
+  a spell is one tap in a fight (Claude's call, named in the ADR).
+- **Mob skills:** "Spider: web + spit", "Rat: festering bite", "Moth: dust", "Fat
+  rat: squeal for help". Not built yet.
+- **Ranged:** "Throw things". Not built yet.
+- **Order:** "Show it, then skills": the show-it pass first, then the skills
+  and throwing.
+
 ## Decided (Rylee, 2026-10-29)
 
 Sixteen questions in four rounds; her picks in her words, and the full table in

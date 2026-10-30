@@ -1,5 +1,27 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-30 (later) — Gate 0: show the spells, the gear and the fight
+
+**Rylee, verbatim, after playing the winding-floors build:** "The spells and combat and gear weren't really there? The potion icons are nice / The mobs also need skills. And I guess we need ranged attacks?" Her picks are in DESIGN.md (2026-10-30, "after more of her Gate 0 run"): all four ways to show it, the four monster skills, "Throw things", and "Show it, then skills".
+
+**Why it was not there.** The rules were working but could not be seen:
+- A spell learned on a level was one line in the Bag panel, which is not on screen in play.
+- Better gear went into the bag silently.
+- A blow's number was a word in one live line, and the monster's answer replaced it in the same turn.
+- Potions were drunk from the Bag.
+
+**What changed (engine).** VEFR #590 (ADR 0023) adds four `display` keys, and `world.json` turns all four on:
+- `spell_card`: a card for each spell learned, saying what it does, what it costs and how to cast it.
+- `wear_prompt`: "Wear it?" with the change when gear that raises a number is picked up. Y wears it, N keeps it.
+- `hit_numbers`: each blow's number over the one it struck.
+- `hotbar`: the potion and the spells she knows, keys 5 to 8. On a phone the bar sits over the stick.
+
+The same PR fixes the fall card: after a fall that leaves the satchel on the floor, its note no longer says the bag is as she left it.
+
+**The words** on the card, the question and the buttons are engine words (VEFR's), not this pack's. They are listed in the PR for Rylee to veto. This pack adds no player-facing words.
+
+**The bot** closes each spell card with Enter, answers "Wear it?" with Y, and drinks from the bar when it can. Two closing checks were added: every spell the hero learned had its card, and a blow drew its number.
+
 ## 2026-10-30 — Gate 0, first human run: floors too straight, fights too easy
 
 **Rylee, verbatim, after playing build `2026-10-29-f44eaba`:** "I guess it feels easy? But it also feels like the levels need some randomness. There are almost straight lines to every staircase hahah". Her picks from the options offered: **"Rooms anywhere (Recommended)"** and **"Harder (Recommended)"** (DESIGN.md, 2026-10-30). Measurements and her later feedback are on cottage#161.

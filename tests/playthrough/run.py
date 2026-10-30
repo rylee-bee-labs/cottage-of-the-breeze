@@ -88,6 +88,8 @@ STATE_JS = """() => {
     menu: vis('menu'),
     act_end: vis('act-end'),
     fall: vis('fall'),
+    learn: vis('learn'),
+    wear: vis('wear-ask'),
     act_complete: window.VEFR_ACT_COMPLETE || null,
     combat_text: (document.getElementById('combat-live') || {}).textContent || '',
     scroll_w: document.documentElement.scrollWidth,
@@ -184,6 +186,16 @@ class Bot:
         self._start = time.time()
         self._stuck = 0
         self.falls = 0
+        # What the show-it keys put on screen (vefr ADR 0023), sampled on
+        # every press: the spell cards and their lines, the "Wear it?"
+        # questions answered, the numbers drawn over a blow, the potions
+        # drunk from the quick bar, and every spell the hero came to know.
+        self.spell_cards = 0
+        self.learn_lines: set[str] = set()
+        self.worn = 0
+        self.hits_seen: set[str] = set()
+        self.bar_drinks = 0
+        self.spells_known: set[str] = set()
         self._last_sig = None
         self._regions = None
         self._transitions = None
@@ -209,6 +221,9 @@ class Bot:
             "viewport": viewport,
             "steps": self.steps,
             "falls": self.falls,
+            "spell_cards": self.spell_cards,
+            "worn_when_asked": self.worn,
+            "bar_drinks": self.bar_drinks,
             "checks": self.checks,
             "console_errors": self.console_errors,
             "ok": all(c["ok"] for c in self.checks),
@@ -250,10 +265,18 @@ class Bot:
         try:
             got = self.page.evaluate(
                 "() => ({cues: (window.VEFR_SOUND && window.VEFR_SOUND.played) || [],"
-                " frame: window.VEFR_HERO_FRAME || null})"
+                " frame: window.VEFR_HERO_FRAME || null,"
+                " learn: (document.getElementById('learn') && !document.getElementById('learn').hidden)"
+                " ? document.getElementById('learn-line').textContent : null,"
+                " hits: Array.from(document.querySelectorAll('#hits .hit')).map(e => e.textContent),"
+                " spells: (typeof spellsKnown === 'function') ? spellsKnown().map(s => s.name) : []})"
             )
         except Exception:
             return
+        if got["learn"]:
+            self.learn_lines.add(got["learn"])
+        self.hits_seen.update(got["hits"])
+        self.spells_known.update(got["spells"])
         cues = getattr(self, "cues", set())
         cues.update(got["cues"])
         self.cues = cues
@@ -308,7 +331,7 @@ class Bot:
             tuple(c.get("bag", [])),
             tuple(sorted((tuple(d["at"]), d["item"]) for d in c.get("floor", []))),
             s["reader"], s["npc"], s["trade"], s["menu"], s["act_end"],
-            s.get("fall"), s["combat_text"],
+            s.get("fall"), s.get("learn"), s.get("wear"), s["combat_text"],
         )
         if sig == self._last_sig:
             self._stuck += 1
@@ -333,6 +356,19 @@ class Bot:
         if s.get("fall"):
             self.falls += 1
             self.press("Enter")
+            return True
+        # A spell learned (vefr ADR 0023, `display.spell_card`): the card
+        # waits for Interact, Enter or the menu key; a walking key does not
+        # close it. Its own button has the focus, so Enter is the tap.
+        if s.get("learn"):
+            self.spell_cards += 1
+            self.press("Enter")
+            return True
+        # Better gear picked up asks "Wear it?" (`display.wear_prompt`). It
+        # only asks when the thing raises a number, so a player says yes.
+        if s.get("wear"):
+            self.worn += 1
+            self.press("y")
             return True
         if s["reader"] or s["npc"]:
             self.interact()
@@ -672,8 +708,18 @@ class Bot:
         raise RouteError(f"region routing loop reaching {region}")
 
     # ---- combat ----------------------------------------------------
+    # The quick bar's key for a carried thing (vefr ADR 0023,
+    # `display.hotbar`), read from the page's own bar and keybinds table;
+    # None when the pack has no bar or the thing is not on it.
+    BAR_KEY_JS = """(id) => {
+      if (typeof hotbarThings !== 'function') return null;
+      const i = hotbarThings().findIndex((t) => t.kind === 'item' && t.id === id);
+      return i < 0 ? null : (keybindKeys('quick' + (i + 1))[0] || null);
+    }"""
+
     def drink(self, max_drinks: int = 12) -> None:
-        """Drink potions from the Bag panel, keyboard only (best effort)."""
+        """Drink potions, keyboard only: the quick bar's key when the pack
+        has one, else from the Bag panel (best effort)."""
         for _ in range(max_drinks):
             s = self.state()
             c = s["combat"]
@@ -681,6 +727,15 @@ class Bot:
                 return
             if c["hero"]["hp"] >= c["hero"]["max"]:
                 return
+            bar_key = self.page.evaluate(self.BAR_KEY_JS, "cloudy-potion")
+            if bar_key:
+                before = c["hero"]["hp"]
+                self.press(bar_key)
+                after = self.state()["combat"]
+                if after["hero"]["hp"] <= before and after["bag"] == c["bag"]:
+                    return
+                self.bar_drinks += 1
+                continue
             self.press("b")
             if not self._focus_button(
                 '#bag-list button[data-action="use"][data-item="cloudy-potion"]'
@@ -1545,7 +1600,31 @@ class Bot:
         self.no_sideways_scroll()
 
     # ---- closing checks -------------------------------------------
+    def show_it_checks(self) -> None:
+        """What the pack's show-it keys (vefr ADR 0023) promise, checked
+        against what each press saw - only for the keys the pack turns on."""
+        try:
+            display = self.page.evaluate("() => (window.VEFR_WORLD && window.VEFR_WORLD.display) || {}")
+        except Exception:
+            display = {}
+        if display.get("spell_card"):
+            missing = sorted(n for n in self.spells_known if f"You learn {n}." not in self.learn_lines)
+            self.check(
+                "every spell the hero learned had its card",
+                not missing,
+                f"{len(self.spells_known)} spell(s) learned, {self.spell_cards} card(s) closed; "
+                + (f"no card for {missing}" if missing else "none missing"),
+            )
+        if display.get("hit_numbers"):
+            struck = "hit" in getattr(self, "cues", set())
+            self.check(
+                "a blow drew its number over the one it struck",
+                struck and bool(self.hits_seen),
+                f"blows struck: {struck}; numbers seen: {sorted(self.hits_seen)[:12]}",
+            )
+
     def closing_checks(self) -> None:
+        self.show_it_checks()
         need = set(SOUND_CUES_NEEDED)
         have = getattr(self, "cues", set())
         self.check(

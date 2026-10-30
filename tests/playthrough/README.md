@@ -53,6 +53,15 @@ health. On a floor whose way winds (`"layout": "wander"`) monsters come from the
 side and from behind and follow; before 2026-10-30 the bot walked on while they
 bit, and fell 49 times on the old, easy numbers where a player falls rarely.
 
+**Show it** (vefr ADR 0023; the pack turns on all four `display` keys). A
+spell card is closed with Enter, as its own button has the focus; a "Wear it?"
+question is answered Y, since it only asks when the thing raises a number; a
+potion is drunk with its quick bar key when it is on the bar, and from the Bag
+otherwise. Every press also samples what is on screen, so the closing checks
+can say that every spell the hero came to know had its card and that a blow
+drew its number. `report.json` counts `spell_cards`, `worn_when_asked` and
+`bar_drinks`.
+
 **Falls.** With monsters in place the hero can fall. The fall card ("You
 fell. ...") is closed with a key, as a player closes it, and the walk carries
 on from where the hero woke: the floor's own stair, or home when the pack's
@@ -73,7 +82,8 @@ its treasure into the bag; the town after the cellar is loaded; Start over
 asks first and Cancel clears nothing; each resident who hands over a book
 gives it and it can be read; every album sticker the route can be sure of is
 found (a sticker whose item only a descent family drops is a chance drop, or
-sits in a later Section: it is listed, not required); a descent monster can still be fought; the sound cues fire; the
+sits in a later Section: it is listed, not required); every spell learned had
+its card and a blow drew its number (when the pack turns those on); a descent monster can still be fought; the sound cues fire; the
 hero's walk frames show in all four directions; no console errors, no
 failed requests, no sideways scroll.
 
