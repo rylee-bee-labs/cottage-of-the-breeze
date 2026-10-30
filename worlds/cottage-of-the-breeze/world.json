@@ -1050,7 +1050,11 @@
     "look": "plain",
     "pixel_art": {
       "native_tile": 32
-    }
+    },
+    "spell_card": true,
+    "wear_prompt": true,
+    "hit_numbers": true,
+    "hotbar": true
   },
   "fight": {
     "miss": 8,

@@ -59,7 +59,7 @@ decides "ready".
 The bot plays it end to end. On 2026-10-13 `tests/playthrough/run.py` passed
 40 of 40 checks at 1280×720 and 390×844, with no console errors. Rylee played
 the town on a phone and at a desk on 2026-10-13 and shaped the interface
-(`NOTES.md`). **Rylee's first full Section 1 run came on 2026-10-30** (cottage#161): "feels easy" and "almost straight lines to every staircase". The fix is winding floors (vefr#589, ADR 0022) and a harder cellar (cottage#222); the bot passes it 44/44 at both sizes, with 4 falls. Her later notes ("spells and combat and gear weren't really there", monster skills, ranged attacks) and her picks are on #161: next comes a "show it" pass, then monster skills and throwing. Gate 0 is not verified until she plays the new build.
+(`NOTES.md`). **Rylee's first full Section 1 run came on 2026-10-30** (cottage#161): "feels easy" and "almost straight lines to every staircase". The fix is winding floors (vefr#589, ADR 0022) and a harder cellar (cottage#222); the bot passes it 44/44 at both sizes, with 4 falls. Her later notes ("spells and combat and gear weren't really there", monster skills, ranged attacks) and her picks are on #161. The "show it" pass is VEFR #590 (ADR 0023): a spell card, "Wear it?", hit numbers and a quick bar, all four turned on in `world.json`. Next come monster skills and throwing. Gate 0 is not verified until she plays the new build.
 
 ## Where to look
 

@@ -67,12 +67,12 @@ env:
   # labelled verbs and the descent's `resume`/`fall`. Measured before the bump:
   # `norns validate` against this engine prints `ok: ... geometry,
   # reachability, voices all pass`.
-  # Bumped 2026-10-30 to 8100686, merged vefr main: vefr#589, floors that
-  # wander (ADR 0022), whose Section `layout` key the cellar now names, and a
-  # floor's save budget of 3 KB. Measured before the bump: `norns validate`
-  # against this engine prints `ok: ... geometry, reachability, voices all
-  # pass`.
-  VEFR_REF: 81006864e5c0fb425f34e5b2e0ead4b7f85a255e
+  # Bumped 2026-10-30 to 2b6ae4a, the head of vefr#590 (show it, ADR 0023),
+  # whose four `display` keys world.json now turns on; it is re-pinned to the
+  # merge commit once vefr#590 lands. Before that, 8100686 (vefr#589, floors
+  # that wander). Measured before the bump: `norns validate` against this
+  # engine prints `ok: ... geometry, reachability, voices all pass`.
+  VEFR_REF: 2b6ae4a1af38b9dea02ff98d8764960c276cf75d
 
 jobs:
   validate:
