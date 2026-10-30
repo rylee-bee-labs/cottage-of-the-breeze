@@ -77,7 +77,7 @@ the town on a phone and at a desk on 2026-10-13 and shaped the interface
 | art and its provenance | `art/STYLE.md`, `art/source/`, `art/skins/`, and the dated entries in `NOTES.md` |
 | open work | GitHub Issues. Issues closed as not planned on 2026-10-07 are in `docs/BACKLOG.md` |
 | engine capability | `rylee-bee-labs/vefr`. Nothing in this repo edits it |
-| older plans | `docs/plans/` (`release-1`, `acts-2-3`, `native-ui`) and `docs/GAME-PLAN.md`, **historical / superseded for 1.0 scope** |
+| older plans | `docs/plans/old/` (the `release-1`, `acts-2-3` and `native-ui` plans and `GAME-PLAN.md`; see its README) and the Release 1 handoff in `docs/plans/release-1/`, **historical / superseded for 1.0 scope** |
 | game identity and scope | `BRIEF.md` + `DESIGN.md` |
 
 ## Not established

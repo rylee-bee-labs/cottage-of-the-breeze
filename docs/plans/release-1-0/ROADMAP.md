@@ -38,10 +38,10 @@ A complete browser-first, four-Section (36-floor) turn-based story dungeon crawl
 
 ## Live gate board
 
-| Gate | State (2026-10-14) | Work anchor | Next evidence |
+| Gate | State (2026-10-30) | Work anchor | Next evidence |
 | --- | --- | --- | --- |
 | 0 · Section 1 trust | **ACTIVE** | [Cottage #161](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/161) | Human desktop + actual phone and fully populated combat run |
-| 1 · RPG/build loop | **QUEUED** | [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489) | Runtime capability matrix, one tested Cellar build loop |
+| 1 · RPG/build loop | **ACTIVE** — built 2026-10-29, unverified | [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489) | Runtime capability matrix, one tested Cellar build loop |
 | 2 · Four-Section ending | **QUEUED** | [Cottage #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168) | Seeded 36-floor end-to-end route and reviewed narrative |
 | 3 · Minimal Winds | **QUEUED** | [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489) | One modifier per Wind, one passing Wind, persistence tests |
 | 4 · Public release | **QUEUED** | [Cottage #162](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/162) | Signed-off release evidence + reproducible build |
@@ -100,7 +100,7 @@ Each gate is **done only with linked code/pack change, automated evidence, and h
 - **This roadmap:** **one release critical path**, progress by gates (Not started / Active / Verified / Blocked), each with a concrete issue or PR, test report and evidence link. Do not use unsupported percent-complete estimates.
 - **VEFR issue #489:** reusable engine implementation planning and acceptance, not Cottage-specific content.
 - Existing GitHub issues remain the work queue. Link them to gates; do not recreate duplicates. A parked idea stays parked unless a measured release problem makes it necessary.
-- **Current gate:** Gate 0; Gate 1 is the next substantive integration, contingent on code audit. Later gates are scoped plans, not claims of active implementation.
+- **Current gate:** Gate 0; Gate 1 is built (2026-10-29), pending code audit and human play. Later gates are scoped plans, not claims of active implementation.
 - No invented deadlines, target dates, coverage claims or sign-off. The owner chooses release when evidence meets Gate 4.
 
 ## Explicitly parked until after 1.0
