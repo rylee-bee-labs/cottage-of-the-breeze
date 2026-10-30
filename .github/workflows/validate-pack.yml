@@ -67,7 +67,12 @@ env:
   # labelled verbs and the descent's `resume`/`fall`. Measured before the bump:
   # `norns validate` against this engine prints `ok: ... geometry,
   # reachability, voices all pass`.
-  VEFR_REF: 275a6ff3471e56a585d7b2bf96a20a333fa3ec48
+  # Pinned 2026-10-30 to 97020ce, the head of the VEFR floors-that-wander PR
+  # (ADR 0022), whose Section `layout` key the cellar now names. Not a merged
+  # main yet: re-pin to that PR's merge commit before this merges. Measured:
+  # `norns validate` against it prints `ok: ... geometry, reachability, voices
+  # all pass`.
+  VEFR_REF: 97020ce206d01c1038f8af4a809d1a1c55c1111c
 
 jobs:
   validate:
