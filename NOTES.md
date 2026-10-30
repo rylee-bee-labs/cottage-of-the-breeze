@@ -9,10 +9,18 @@
 **The ease (this pack).** Levelling outran the cellar's curve: from floor 2 on, every monster died in one blow and almost every hit did 1. My first retune (slower levels, tougher monsters, a steep `curve`) overshot. It kept about 12 fights a floor and made each one 2-3 times longer, so floors 1-4 cost about 5.5 health bars. The playthrough bot fell 112 times and never got past floor 3. Measuring the wear across whole floors, not single fights, fixed the choice: fewer, tougher fights and a sturdier hero.
 
 - `world.json`: the hero starts at 14 health and 3 attack (was 10 and 2) and gains 3 health a level (was 2); levels need 10, 26, 50, 85, 135, 200, 290 xp (was 6, 15, 30, 55, 95, 150, 230).
-- `sections/cellar.json`: `mobs` is 6 on floor 1 and 9 after (it was the area budget, about 12, and more on wander floors); `curve` is hp 1.0-2.4 and atk 1.0-3.0 (was 1.0-1.4 and 1.0-1.3).
+- `sections/cellar.json`: `mobs` is 6 on floor 1 and 9 after (it was the area budget, about 12, and more on wander floors); `curve` is hp 1.0-2.0 and atk 1.0-2.0 (was 1.0-1.4 and 1.0-1.3).
 - `blueprint.json`, the cellar-only families: rat 6/1, moths 5/1, spider 8/2, fat rat 10/2 health/attack (were 4/1, 4/1, 5/2, 6/1). The base families other Sections inherit from are unchanged. Lock refreshed with `vefr normalize`.
 
-Modelled, for a hero who fights everything (misses and crits included, no potions): the median fight takes 2 blows on every floor (it was 1). Floors 1-4 cost 1.9 health bars (1.8 before), and floors 5-8 now cost 1.9 too (1.0 before), so the bottom of the cellar is where it gets dangerous. The model is calibrated against the bot: the old numbers modelled at 1.8 bars, and the bot fell twice on them. These numbers are a first pass for Rylee's next run to correct.
+Modelled, for a hero who fights everything (misses and crits included, no potions): the median fight takes 2 blows on every floor (it was 1). Floors 1-4 cost 1.4 health bars, and floors 5-8 cost 1.0 from the floor-5 landing. These numbers are a first pass for Rylee's next run to correct.
+
+**What the bot taught (three mistakes, kept so nobody makes them again).**
+
+- **A fall resets the floors.** A trip home clears every floor's kills and drops, so the monsters come back, and the hero resumes at the deepest landing. Floors 5-8 therefore have to be survivable in one life. Floors 1-4 forgive more, because levels carry over between falls. My second retune put 1.9 bars on floors 5-8, and the bot fell 87 times there; 1.0 bars is the number that fits one life.
+- **Fights that last wake the neighbours.** Fight noise carries 12 tiles (an engine constant). When every monster died in one blow it never mattered; at 2 blows the neighbours arrive.
+- **The bot walked on while monsters bit it.** On winding floors monsters come from the side and from behind and follow. The bot only fought what stood in its path, so it fell 49 times on the old, easy numbers. It now turns and fights an awake monster beside the hero (no chase) and still drinks a potion at two fifths of its health. On the old numbers with wander floors it then fell 3 times and walked the whole route.
+
+**Found on the way (engine, vefr#589):** a floor holding a dozen finds lost its saved map. The per-floor save budget was 1.5 KB, set before loot rolled; it is now 3 KB.
 
 **The playthrough bot on these numbers and wander floors:** running when this entry was written; its result goes on the PR and into this entry before merge.
 
