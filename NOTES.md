@@ -1,5 +1,18 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-30 (late) — a stale bun to throw (Rylee's pick)
+
+**Rylee picked "A: a stale bun"** for the thing to throw (Project Home card #375, relayed by Momma; WORDS-BATCH-2.md records it).
+
+- `world.json` adds `stale-bun`: 2 harm, thrown up to 5 tiles (VEFR ADR 0024). Cellar rats and spiders can drop one.
+- Throw is on the fight row while she carries one, and the bun sits on the quick bar after the potion.
+- A thrown bun lands where it struck, so she can pick it up again.
+- Its picture is requested (art slot `stale-bun`, batch `items-throw`). Until one is cut in, the bag shows a dot. The art audit now lists a thing whose picture is requested as a note, not a hole.
+- The bot throws a bun from the bar at a monster a few tiles off, once per monster (`throws` in the report).
+- Checked in this build in Chromium: key 5 threw it. The line read "You throw a stale bun at a nest of moths for 2.", and the bun lay on the moths' tile.
+
+Her Gate 0 play card is "Later": she will play when she can, and cottage#161 stays the gate.
+
 ## 2026-10-30 (night) — Gate 0: monsters with skills, and something to throw
 
 **Her picks** (DESIGN.md, 2026-10-30): "Spider: web + spit", "Rat: festering bite", "Moth: dust", "Fat rat: squeal for help", and "Throw things".
