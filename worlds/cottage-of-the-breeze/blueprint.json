@@ -316,8 +316,7 @@
           "candle-stub",
           "shoe-button",
           "rat-tooth",
-          "jam-jar-lid",
-          "stale-bun"
+          "jam-jar-lid"
         ],
         "drop_chance": 55,
         "gold": [0, 2],
@@ -376,8 +375,7 @@
           "spider-silk",
           "thimble",
           "quilted-coat",
-          "thread-bell",
-          "stale-bun"
+          "thread-bell"
         ],
         "guard": 1,
         "drop_chance": 70,

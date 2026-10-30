@@ -4,10 +4,11 @@
 
 **Rylee picked "A: a stale bun"** for the thing to throw (Project Home card #375, relayed by Momma; WORDS-BATCH-2.md records it).
 
-- `world.json` adds `stale-bun`: 2 harm, thrown up to 5 tiles (VEFR ADR 0024). Cellar rats and spiders can drop one.
+- `world.json` adds `stale-bun`: 2 harm, thrown up to 5 tiles (VEFR ADR 0024).
 - Throw is on the fight row while she carries one, and the bun sits on the quick bar after the potion.
 - A thrown bun lands where it struck, so she can pick it up again.
-- Its picture is requested (art slot `stale-bun`, batch `items-throw`). Until one is cut in, the bag shows a dot. The art audit now lists a thing whose picture is requested as a note, not a hole.
+- Its picture is requested (art slot `stale-bun`, batch `items-throw`). The art audit now lists a thing whose picture is requested as a note, not a hole.
+- **Nothing drops a bun yet.** `tests/assert_chest_drops.py` rightly refuses a drop with no picture: "so an item never ships as a fallback dot". Once the picture is cut in, cellar rats and spiders get it in their `drops` (cottage#225 stays open for exactly that).
 - The bot can throw a bun from the bar while it chases a monster a few tiles off (`throws` in the report). On this route it never did (`throws: 0`): nearly every fight is fighting back against a monster already beside the hero. Bot: 46/46 at desktop and phone, with monsters, 6 falls, skills seen dust/fester/spit/web.
 - So the throw was checked by hand in this build in Chromium: key 5 threw it. The line read "You throw a stale bun at a nest of moths for 2.", and the bun lay on the moths' tile.
 

@@ -1,8 +1,8 @@
 # Words, batch 2: monster skills and something to throw
 
 **Status: the thing to throw approved by Rylee, 2026-10-30: "A: a stale bun"**
-(Project Home card #375, relayed by Momma). It is in the game as `stale-bun`
-(cottage#225). Her rule (answer 14) is "I draft, you approve batches". The
+(Project Home card #375, relayed by Momma). It is in the pack as `stale-bun`.
+Monsters drop it once its picture is made (cottage#225). Her rule (answer 14) is "I draft, you approve batches". The
 engine's own sentences (the last section) are VEFR's and in every game; she may
 still veto any of them.
 
