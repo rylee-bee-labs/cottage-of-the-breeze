@@ -69,6 +69,16 @@ SOUND_CUES_NEEDED = (
 )
 SOUND_CUES_WITHOUT_A_SUBJECT = ("locked", "level")
 
+# The words each monster skill says on the fight's line (vefr ADR 0024),
+# so the report can name the skills the route met.
+SKILL_WORDS = (
+    ("web", "throws a web over you"),
+    ("spit", "spits at you"),
+    ("fester", "The bite festers"),
+    ("dust", "Dust gets in your eyes"),
+    ("squeal", "squeals for help"),
+)
+
 # The engine's own fallback for a Section that names no `floors`
 # (`vefr.sections.floors`), so a pack that leaves it out is walked as
 # deep as the engine will draw rather than one floor deep.
@@ -196,6 +206,9 @@ class Bot:
         self.hits_seen: set[str] = set()
         self.bar_drinks = 0
         self.spells_known: set[str] = set()
+        # Which monster skills (vefr ADR 0024) the route met, read off the
+        # fight's own line: reported, not required - a skill is a chance.
+        self.skills_seen: set[str] = set()
         self._last_sig = None
         self._regions = None
         self._transitions = None
@@ -224,6 +237,7 @@ class Bot:
             "spell_cards": self.spell_cards,
             "worn_when_asked": self.worn,
             "bar_drinks": self.bar_drinks,
+            "skills_seen": sorted(self.skills_seen),
             "checks": self.checks,
             "console_errors": self.console_errors,
             "ok": all(c["ok"] for c in self.checks),
@@ -269,10 +283,14 @@ class Bot:
                 " learn: (document.getElementById('learn') && !document.getElementById('learn').hidden)"
                 " ? document.getElementById('learn-line').textContent : null,"
                 " hits: Array.from(document.querySelectorAll('#hits .hit')).map(e => e.textContent),"
-                " spells: (typeof spellsKnown === 'function') ? spellsKnown().map(s => s.name) : []})"
+                " spells: (typeof spellsKnown === 'function') ? spellsKnown().map(s => s.name) : [],"
+                " line: (document.getElementById('combat-live') || {}).textContent || ''})"
             )
         except Exception:
             return
+        for skill, words in SKILL_WORDS:
+            if words in got["line"]:
+                self.skills_seen.add(skill)
         if got["learn"]:
             self.learn_lines.add(got["learn"])
         self.hits_seen.update(got["hits"])

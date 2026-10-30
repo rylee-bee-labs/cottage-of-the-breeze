@@ -97,8 +97,10 @@ in the words of the options she chose:
   0023); the pack turns all four on. The bar also holds the spells she knows, so
   a spell is one tap in a fight (Claude's call, named in the ADR).
 - **Mob skills:** "Spider: web + spit", "Rat: festering bite", "Moth: dust", "Fat
-  rat: squeal for help". Not built yet.
-- **Ranged:** "Throw things". Not built yet.
+  rat: squeal for help". Built as VEFR's family `skills` (ADR 0024); the four
+  cellar families carry them (numbers in `WORDS-BATCH-2.md`).
+- **Ranged:** "Throw things". Built as VEFR's item `throw` (ADR 0024). The
+  thing to throw waits for her pick of its name (`WORDS-BATCH-2.md`).
 - **Order:** "Show it, then skills": the show-it pass first, then the skills
   and throwing.
 

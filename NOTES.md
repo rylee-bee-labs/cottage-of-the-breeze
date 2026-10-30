@@ -1,5 +1,33 @@
 # NOTES — decisions and playtest notes (newest first)
 
+## 2026-10-30 (night) — Gate 0: monsters with skills, and something to throw
+
+**Her picks** (DESIGN.md, 2026-10-30): "Spider: web + spit", "Rat: festering bite", "Moth: dust", "Fat rat: squeal for help", and "Throw things".
+
+**Engine.** VEFR #591 (ADR 0024) lets a family carry up to two `skills` from that closed set, and lets an item carry `throw`.
+
+**This pack.** `blueprint.json` gives the four cellar families their skills; the lock is refreshed with `vefr normalize`. My numbers:
+
+| Family | Skill | Numbers |
+|---|---|---|
+| spider | web | range 3, 2 turns, every 6 |
+| spider | spit | range 4, harm 2, every 4 |
+| rat | fester | 30%, 1 a turn for 3 turns |
+| moths | dust | 40%, +25% misses for 3 turns |
+| fat rat | squeal | radius 16 |
+
+The words they say are VEFR's engine sentences, so this pack adds no words.
+
+**Found on the way (engine).** Generated monsters never carried the `guard` and `gold` their families name:
+- the cellar's spiders had no armour in a fight;
+- no cellar kill ever paid coins.
+
+VEFR #591 fixes it, so the cellar is harder by exactly what the pack always said: spiders take 1 from every blow, and kills pay 0-3 gold.
+
+**Throwing waits for a name.** `docs/plans/release-1-0/WORDS-BATCH-2.md` offers three drafts for the thing to throw: a stale bun (recommended), a smooth pebble, a clay marble. It goes into the game in its own PR once Rylee picks.
+
+**The bot** now reports which skills the route met (`skills_seen`).
+
 ## 2026-10-30 (later) — Gate 0: show the spells, the gear and the fight
 
 **Rylee, verbatim, after playing the winding-floors build:** "The spells and combat and gear weren't really there? The potion icons are nice / The mobs also need skills. And I guess we need ranged attacks?" Her picks are in DESIGN.md (2026-10-30, "after more of her Gate 0 run"): all four ways to show it, the four monster skills, "Throw things", and "Show it, then skills".
