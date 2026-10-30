@@ -43,7 +43,7 @@ Acts 2-3 deliberately deferred (owner decision 2026-10-15); reopen on go.
 - Opened: 2026-10-04 · Labels: none
 - Status on 2026-10-07: closed as not planned on 2026-10-07 — tracked here
 
-The direction and the rules for this live in `docs/plans/native-ui/PLAN.md`; the engine-side slices are tracked in the VEFR epic for the in-world interface. On the Cottage side the work is to identify and build the soft-wood skin from the art pieces under `art/source/round18/ui-soft/`, 22 Codex drawings made on 2026-10-04 that Rylee has not reviewed yet. There is a hard ordering constraint: embed nothing new until the engine's skin "fonts" part exists. After that the order is to opt Cottage in, then re-run the bot, the fit check and the axe. The skin type follows the Ledger direction recorded with issue #84.
+The direction and the rules for this live in `docs/plans/old/native-ui/PLAN.md`; the engine-side slices are tracked in the VEFR epic for the in-world interface. On the Cottage side the work is to identify and build the soft-wood skin from the art pieces under `art/source/round18/ui-soft/`, 22 Codex drawings made on 2026-10-04 that Rylee has not reviewed yet. There is a hard ordering constraint: embed nothing new until the engine's skin "fonts" part exists. After that the order is to opt Cottage in, then re-run the bot, the fit check and the axe. The skin type follows the Ledger direction recorded with issue #84.
 
 Next step, when this is picked up: Have Rylee review the 22 unreviewed pieces in `art/source/round18/ui-soft/`.
 

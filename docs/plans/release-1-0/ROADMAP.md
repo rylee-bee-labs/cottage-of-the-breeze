@@ -41,7 +41,7 @@ A complete browser-first, four-Section (36-floor) turn-based story dungeon crawl
 | Gate | State (2026-10-14) | Work anchor | Next evidence |
 | --- | --- | --- | --- |
 | 0 · Section 1 trust | **ACTIVE** | [Cottage #161](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/161) | Human desktop + actual phone and fully populated combat run |
-| 1 · RPG/build loop | **QUEUED** | [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489) | Runtime capability matrix, one tested Cellar build loop |
+| 1 · RPG/build loop | **BUILT 2026-10-29, not yet verified** | [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489) | Runtime capability matrix, one tested Cellar build loop |
 | 2 · Four-Section ending | **QUEUED** | [Cottage #168](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/168) | Seeded 36-floor end-to-end route and reviewed narrative |
 | 3 · Minimal Winds | **QUEUED** | [VEFR #489](https://github.com/rylee-bee-labs/vefr/issues/489) | One modifier per Wind, one passing Wind, persistence tests |
 | 4 · Public release | **QUEUED** | [Cottage #162](https://github.com/rylee-bee-labs/cottage-of-the-breeze/issues/162) | Signed-off release evidence + reproducible build |
