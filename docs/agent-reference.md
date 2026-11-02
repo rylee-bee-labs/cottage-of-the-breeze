@@ -90,6 +90,17 @@ pack. What is generated on this tree, and the refresh command:
 - Decisions Rylee made are recorded in `NOTES.md`, her words quoted.
 - `.project/CURRENT.md` names the stage and the one next step accurately.
 
+## Kept from the old RA profile (2026-11-02)
+
+`.agent/ra/PROFILE.md` was removed when the estate retired its resident-advisor pilot. What in it was still true and
+not said elsewhere:
+- **A script's checks are not a playthrough.** Report a passing check run, a real desktop or phone play with monsters,
+  and Rylee playing it as three separate things.
+- **Never repin VEFR silently.** After a VEFR update, check the pack still validates at the new commit, then propose
+  the new `VEFR_REF` in its own PR.
+- **Polish before new scope.** The release plan is `docs/plans/release-1-0/ROADMAP.md`. (The profile's issue links,
+  #168, #170 and vefr#489, are closed.)
+
 ## Play-Nice pin and verification
 
 The [adoption manifest](../.project/contracts/adoption.yaml) pins the common behavioral floor and applicable contracts. Read the [shared floor](https://github.com/rylee-bee-labs/play-nice-contracts/blob/main/contracts/everyone/FLOOR.md) and applicable packs before consequential changes. [Freshness CI](../.github/workflows/contract-freshness.yml) checks the pin, **not** source test, human acceptance or deployment. `playnice check .` requires a verified Play-Nice checkout and supplies separate evidence for any eventual badge; do not claim its result without running it. Repo-local permissions, game canon, security and release gates remain in force.
