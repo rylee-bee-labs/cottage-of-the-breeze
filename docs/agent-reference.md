@@ -56,7 +56,7 @@ ChatGPT, Claude, delegated coding agents, GitHub issues/PRs and Project Home are
   pictures and notes here are drafts and reference; the shipped game comes
   out of the studio (Folks room, studio modules, `ratatoskr weave`).
 - **Every sitting ends with something alive:** a playable build, a book,
-  a map, a note. Validate the pack after every pack edit (see Commands).
+  a map, a note. Validate the pack after every pack edit (the commands are at the top of AGENTS.md).
 - Art: originals and their prompts go in `art/source/`.
 - **Art we ship is art we made** (Rylee, 2026-10-02). We may distribute what we generate, and every piece is attributed (keep each `.credits.txt`). **Kenney is for prototyping only; never ship it.** **LimeZu** was bought to support the artist: use it only in a project Rylee names, with attribution. Neither is used in Cottage (the vendored Kenney sheets were removed 2026-10-02). If we need new sheets we generate them: Codex first, then Wan. Older "training: not cleared" or "not final art" notes in `art/` are stale for distribution (they are not rewritten; this rule wins).
 
@@ -66,7 +66,7 @@ ChatGPT, Claude, delegated coding agents, GitHub issues/PRs and Project Home are
 normalize` wrote from it. Edit the Blueprint, never a generated record by hand.
 To leave the Blueprint, delete both files; their records sit in the
 pack. What is generated on this tree, and the refresh command:
-[`docs/repo-map.md`](repo-map.md), [`docs/commands.md`](commands.md).
+[`repo-map.md`](repo-map.md), [`commands.md`](commands.md).
 
 ## Boundaries
 
